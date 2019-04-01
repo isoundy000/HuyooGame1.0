@@ -1,0 +1,13 @@
+{
+   "assets" : {
+   },
+   "engineVersion" : "Cocos2d-lua v3.6",
+   "packageUrl" : "http://download.hy.qilaigame.com/qilaigame.com/taoyuanqipai/taoyuanqipai_apple_24/",
+   "remoteManifestUrl" : "http://download.hy.qilaigame.com/qilaigame.com/taoyuanqipai/taoyuanqipai_apple_24/src/version/6/project.manifest",
+   "remoteVersionUrl" : "http://download.hy.qilaigame.com/qilaigame.com/taoyuanqipai/taoyuanqipai_apple_24/src/version/6/version.manifest",
+   "searchPaths" : [],
+   "updateContent" : "更新内容:\n1.优化麻将\n2.优化跑得快界面！",
+   "isCompel":"0",
+   "version" : "2.4.40"
+}
+

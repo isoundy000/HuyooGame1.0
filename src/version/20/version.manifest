@@ -1,0 +1,12 @@
+{
+   "assets" : {
+   },
+   "engineVersion" : "Cocos2d-lua v3.6",
+   "packageUrl" : "http://download.hy.qilaigame.com/qilaigame.com/wowoqipai/wowoqipai_apple_24/",
+   "remoteManifestUrl" : "http://download.hy.qilaigame.com/qilaigame.com/wowoqipai/wowoqipai_apple_24/src/version/20/project.manifest",
+   "remoteVersionUrl" : "http://download.hy.qilaigame.com/qilaigame.com/wowoqipai/wowoqipai_apple_24/src/version/20/version.manifest",
+   "searchPaths" : [],
+   "updateContent" : "更新内容:\n1.资源更新\n2.麻将细节优化\n3.更新俱乐部新UI\n请更新到最新版本！",
+   "isCompel":"0",
+   "version" : "2.4.039"
+}

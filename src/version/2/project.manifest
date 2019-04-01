@@ -1,0 +1,12 @@
+{
+   "assets" : {
+   },
+   "engineVersion" : "Cocos2d-lua v3.6",
+   "packageUrl" : "http://download.hy.qilaigame.com/wanyouxi8.net/pengyougame/pengyougame_apple_24/",
+   "remoteManifestUrl" : "http://download.hy.qilaigame.com/wanyouxi8.net/pengyougame/pengyougame_apple_24/src/version/2/project.manifest",
+   "remoteVersionUrl" : "http://download.hy.qilaigame.com/wanyouxi8.net/pengyougame/pengyougame_apple_24/src/version/2/version.manifest",
+   "searchPaths" : [],
+   "updateContent" : "更新内容:\n1.优化跑胡子玩法界面\n2.优化游戏细节！",
+   "isCompel":"0",
+   "version" : "2.4.040"
+}
