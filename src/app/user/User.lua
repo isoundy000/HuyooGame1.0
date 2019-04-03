@@ -182,7 +182,8 @@ function User:readLoginInfo()
             data.szNickName = var["szNickName"]
             data.szLogoInfo = var["szLogoInfo"]
             data.cbGender = var["cbGender"]
-            data.dwChannelID = var["dwChannelID"]    
+            data.dwChannelID = var["dwChannelID"] 
+            data.szUnionid = var["szUnionid"]   
             data.time = var["time"]
             if PLATFORM_TYPE == cc.PLATFORM_OS_DEVELOPER and CONST_ACCOUNTS ~= "" then
                 data.szAccount = CONST_ACCOUNTS

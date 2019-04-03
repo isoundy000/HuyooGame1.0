@@ -1506,7 +1506,7 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if data.bQiXiaoDui == 1 then
             desc = desc.."/七对"
         end 
-        if data.bLongQD == 1 then
+        if data.bLongQD == 0 then
             desc = desc.."/龙七对"
         end
         if data.bPPHu == 1 then

@@ -276,7 +276,7 @@ function RoomCreateLayer:onCreate(parameter)
         items[2]:setEnabled(true)
         items[2]:setColor(cc.c3b(255,255,255))    
         --龙七对
-        if self.recordCreateParameter["bLongQD"] == nil or self.recordCreateParameter["bLongQD"] == 1 then        
+        if self.recordCreateParameter["bLongQD"] == nil or self.recordCreateParameter["bLongQD"] == 0 then        
             items[2]:setBright(true)
         else
             items[2]:setBright(false)
@@ -490,9 +490,9 @@ function RoomCreateLayer:onEventCreate(nTableType)
     end
     --龙七对
     if items[2]:isBright() then
-        tableParameter.bLongQD = 1
-    else
         tableParameter.bLongQD = 0
+    else
+        tableParameter.bLongQD = 1
     end
 
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()

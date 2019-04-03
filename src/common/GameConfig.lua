@@ -654,7 +654,7 @@ function GameConfig:getParameter(wKindID,luaFunc)
         data.mPFFlag = luaFunc:readRecvByte()
         data.mDiFen = luaFunc:readRecvByte()
         data.mJFCount = luaFunc:readRecvLong()
-        data.bLongQD = luaFunc:readRecvByte()
+        data.bLongQD = luaFunc:readRecvByte()                 -- 0 保留  1 去掉
         haveReadByte = 20    --已读长度，每次增加或者减少都要修改该值，Byte1个字节 WORD2个字节 DWORD4个字节
 
     elseif wKindID == 68 then
