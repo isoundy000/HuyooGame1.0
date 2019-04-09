@@ -233,13 +233,13 @@
                   <AbstractNodeData Name="Panel_tipsCard" ActionTag="-950957822" Tag="216" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="1280.0000" Y="720.0000" />
                     <Children>
-                      <AbstractNodeData Name="Panel_tipsCardPos1" ActionTag="287511639" Tag="219" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="669.6000" BottomMargin="50.4000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                      <AbstractNodeData Name="Panel_tipsCardPos1" ActionTag="287511639" Tag="219" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="640.0000" RightMargin="640.0000" TopMargin="612.0000" BottomMargin="108.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="0.0000" Y="0.0000" />
                         <AnchorPoint ScaleX="0.5000" />
-                        <Position X="640.0000" Y="50.4000" />
+                        <Position X="640.0000" Y="108.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.0700" />
+                        <PrePosition X="0.5000" Y="0.1500" />
                         <PreSize X="0.0000" Y="0.0000" />
                         <SingleColor A="255" R="150" G="200" B="255" />
                         <FirstColor A="255" R="150" G="200" B="255" />
@@ -1815,13 +1815,13 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Button_show" ActionTag="237908131" Tag="770" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1004.7000" RightMargin="134.3000" TopMargin="568.8000" BottomMargin="7.2000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="111" Scale9Height="122" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                  <AbstractNodeData Name="Button_show" ActionTag="237908131" Tag="770" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1079.3240" RightMargin="59.6760" TopMargin="565.2000" BottomMargin="10.8000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="111" Scale9Height="122" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                     <Size X="141.0000" Y="144.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="1075.2000" Y="79.2000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <Position X="1149.8240" Y="82.8000" />
+                    <Scale ScaleX="0.8000" ScaleY="0.8000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.8400" Y="0.1100" />
+                    <PrePosition X="0.8983" Y="0.1150" />
                     <PreSize X="0.1102" Y="0.2000" />
                     <TextColor A="255" R="65" G="65" B="70" />
                     <DisabledFileData Type="Normal" Path="puke/table/pukenew_9.png" Plist="" />
@@ -1830,13 +1830,13 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Button_rubCard" ActionTag="1120693509" Tag="324" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1004.7000" RightMargin="134.3000" TopMargin="416.8080" BottomMargin="159.1920" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="111" Scale9Height="122" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                  <AbstractNodeData Name="Button_rubCard" ActionTag="1120693509" Tag="324" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="966.3000" RightMargin="172.7000" TopMargin="565.2000" BottomMargin="10.8000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="111" Scale9Height="122" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                     <Size X="141.0000" Y="144.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="1075.2000" Y="231.1920" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <Position X="1036.8000" Y="82.8000" />
+                    <Scale ScaleX="0.8000" ScaleY="0.8000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.8400" Y="0.3211" />
+                    <PrePosition X="0.8100" Y="0.1150" />
                     <PreSize X="0.1102" Y="0.2000" />
                     <TextColor A="255" R="65" G="65" B="70" />
                     <DisabledFileData Type="Normal" Path="puke/table/pukenew_16.png" Plist="" />

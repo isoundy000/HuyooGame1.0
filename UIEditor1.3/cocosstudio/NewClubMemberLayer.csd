@@ -304,73 +304,85 @@
                             <PreSize X="0.0743" Y="0.2364" />
                             <FileData Type="Normal" Path="club/club_24.png" Plist="" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_name" ActionTag="966109649" Tag="435" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="108.9959" RightMargin="894.0041" TopMargin="42.7350" BottomMargin="45.2650" FontSize="22" LabelText="名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_name" ActionTag="966109649" Tag="435" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="108.9959" RightMargin="894.0041" TopMargin="45.7380" BottomMargin="42.2620" FontSize="22" LabelText="名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="47.0000" Y="22.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="108.9959" Y="56.2650" />
+                            <Position X="108.9959" Y="53.2620" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
-                            <PrePosition X="0.1038" Y="0.5115" />
+                            <PrePosition X="0.1038" Y="0.4842" />
                             <PreSize X="0.0448" Y="0.2000" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_notedes" ActionTag="1476002020" Tag="437" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="108.9959" RightMargin="785.0041" TopMargin="74.6790" BottomMargin="13.3210" FontSize="22" LabelText="某某俱乐部成员" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_notedes" ActionTag="1476002020" Tag="437" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="108.9959" RightMargin="785.0041" TopMargin="77.7700" BottomMargin="10.2300" FontSize="22" LabelText="某某俱乐部成员" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="156.0000" Y="22.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="108.9959" Y="24.3210" />
+                            <Position X="108.9959" Y="21.2300" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
-                            <PrePosition X="0.1038" Y="0.2211" />
+                            <PrePosition X="0.1038" Y="0.1930" />
                             <PreSize X="0.1486" Y="0.2000" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_playerid" ActionTag="1001153630" Tag="436" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="338.0830" RightMargin="577.9170" TopMargin="42.7350" BottomMargin="45.2650" FontSize="22" LabelText="ID：12345678" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_playerid" ActionTag="1001153630" Tag="436" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="310.0705" RightMargin="605.9295" TopMargin="45.7380" BottomMargin="42.2620" FontSize="22" LabelText="ID：12345678" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="134.0000" Y="22.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="338.0830" Y="56.2650" />
+                            <Position X="310.0705" Y="53.2620" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
-                            <PrePosition X="0.3220" Y="0.5115" />
+                            <PrePosition X="0.2953" Y="0.4842" />
                             <PreSize X="0.1276" Y="0.2000" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_stopPlayer" ActionTag="-226322754" Tag="169" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="338.0830" RightMargin="566.9170" TopMargin="67.6790" BottomMargin="6.3210" FontSize="36" LabelText="暂停娱乐" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_partner" ActionTag="-1068660277" Tag="476" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="310.0705" RightMargin="485.9295" TopMargin="77.7700" BottomMargin="10.2300" FontSize="22" LabelText="合伙人:xxxxxx(88888888)" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="254.0000" Y="22.0000" />
+                            <AnchorPoint ScaleY="0.5000" />
+                            <Position X="310.0705" Y="21.2300" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.2953" Y="0.1930" />
+                            <PreSize X="0.2419" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_stopPlayer" ActionTag="-226322754" Tag="169" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="310.0705" RightMargin="594.9295" TopMargin="2.8670" BottomMargin="71.1330" FontSize="36" LabelText="暂停娱乐" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="145.0000" Y="36.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="338.0830" Y="24.3210" />
+                            <Position X="310.0705" Y="89.1330" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="0" B="0" />
-                            <PrePosition X="0.3220" Y="0.2211" />
+                            <PrePosition X="0.2953" Y="0.8103" />
                             <PreSize X="0.1381" Y="0.3273" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_joinTime" ActionTag="1950259526" Tag="149" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="567.1183" RightMargin="190.8817" TopMargin="28.3790" BottomMargin="61.6210" FontSize="20" LabelText="加入时间：2018-10-31 15:30:05" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_joinTime" ActionTag="1950259526" Tag="149" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="567.1183" RightMargin="190.8817" TopMargin="16.3780" BottomMargin="73.6220" FontSize="20" LabelText="加入时间：2018-10-31 15:30:05" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="292.0000" Y="20.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="567.1183" Y="71.6210" />
+                            <Position X="567.1183" Y="83.6220" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
-                            <PrePosition X="0.5401" Y="0.6511" />
+                            <PrePosition X="0.5401" Y="0.7602" />
                             <PreSize X="0.2781" Y="0.1818" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_lastTime" ActionTag="-543073806" Tag="151" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="567.1183" RightMargin="190.8817" TopMargin="61.2140" BottomMargin="28.7860" FontSize="20" LabelText="最近登入：2018-10-31 15:30:05" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_lastTime" ActionTag="-543073806" Tag="151" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="567.1183" RightMargin="190.8817" TopMargin="49.2130" BottomMargin="40.7870" FontSize="20" LabelText="最近登入：2018-10-31 15:30:05" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="292.0000" Y="20.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="567.1183" Y="38.7860" />
+                            <Position X="567.1183" Y="50.7870" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
-                            <PrePosition X="0.5401" Y="0.3526" />
+                            <PrePosition X="0.5401" Y="0.4617" />
                             <PreSize X="0.2781" Y="0.1818" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -1334,28 +1346,43 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="TextField_des" ActionTag="758606807" Tag="550" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="621.8336" RightMargin="308.1664" TopMargin="43.9930" BottomMargin="36.0070" TouchEnable="True" FontSize="25" IsCustomSize="True" LabelText="0" PlaceHolderText="" MaxLengthEnable="True" MaxLengthText="8" ctype="TextFieldObjectData">
-                            <Size X="120.0000" Y="30.0000" />
+                          <AbstractNodeData Name="TextField_des" ActionTag="758606807" Tag="550" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="621.8336" RightMargin="328.1664" TopMargin="43.9930" BottomMargin="36.0070" TouchEnable="True" FontSize="25" IsCustomSize="True" LabelText="0" PlaceHolderText="" MaxLengthEnable="True" MaxLengthText="8" ctype="TextFieldObjectData">
+                            <Size X="100.0000" Y="30.0000" />
                             <AnchorPoint ScaleY="0.5000" />
                             <Position X="621.8336" Y="51.0070" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
                             <PrePosition X="0.5922" Y="0.4637" />
-                            <PreSize X="0.1143" Y="0.2727" />
+                            <PreSize X="0.0952" Y="0.2727" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Button_modifyDes" ActionTag="-1087993425" Tag="551" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="747.8322" RightMargin="259.1678" TopMargin="32.4990" BottomMargin="34.5010" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="13" Scale9Height="21" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                            <Size X="43.0000" Y="43.0000" />
+                          <AbstractNodeData Name="Button_modify_add" ActionTag="-1087993425" Tag="551" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="733.3315" RightMargin="232.6685" TopMargin="13.0000" BottomMargin="13.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                            <Size X="84.0000" Y="84.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="769.3322" Y="56.0010" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <Position X="775.3315" Y="55.0000" />
+                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.7327" Y="0.5091" />
-                            <PreSize X="0.0410" Y="0.3909" />
+                            <PrePosition X="0.7384" Y="0.5000" />
+                            <PreSize X="0.0800" Y="0.7636" />
                             <TextColor A="255" R="65" G="65" B="70" />
-                            <DisabledFileData Type="Normal" Path="club/club_1.png" Plist="" />
-                            <PressedFileData Type="Normal" Path="club/club_1.png" Plist="" />
-                            <NormalFileData Type="Normal" Path="club/club_1.png" Plist="" />
+                            <DisabledFileData Type="Normal" Path="club/club_48.png" Plist="" />
+                            <PressedFileData Type="Normal" Path="club/club_48.png" Plist="" />
+                            <NormalFileData Type="Normal" Path="club/club_48.png" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Button_modify_sub" ActionTag="1265109185" Tag="700" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="835.9164" RightMargin="130.0836" TopMargin="13.0000" BottomMargin="13.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                            <Size X="84.0000" Y="84.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="877.9164" Y="55.0000" />
+                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.8361" Y="0.5000" />
+                            <PreSize X="0.0800" Y="0.7636" />
+                            <TextColor A="255" R="65" G="65" B="70" />
+                            <DisabledFileData Type="Normal" Path="club/club_47.png" Plist="" />
+                            <PressedFileData Type="Normal" Path="club/club_47.png" Plist="" />
+                            <NormalFileData Type="Normal" Path="club/club_47.png" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
@@ -1383,17 +1410,17 @@
                         <PreSize X="0.9813" Y="0.1803" />
                         <FileData Type="Normal" Path="club/club_38.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Panel_fontItem" ActionTag="-749160151" Tag="553" IconVisible="False" LeftMargin="-103.6050" RightMargin="123.6050" TopMargin="837.3783" BottomMargin="-272.3783" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                        <Size X="1050.0000" Y="45.0000" />
+                      <AbstractNodeData Name="Panel_fontItem" ActionTag="-749160151" Tag="553" IconVisible="False" LeftMargin="-103.6050" RightMargin="123.6050" TopMargin="852.3783" BottomMargin="-272.3783" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="1050.0000" Y="30.0000" />
                         <Children>
-                          <AbstractNodeData Name="Text_desfont" ActionTag="-956824990" Tag="554" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="7.4874" RightMargin="146.5126" TopMargin="8.5000" BottomMargin="8.5000" FontSize="28" LabelText="描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="896.0000" Y="28.0000" />
+                          <AbstractNodeData Name="Text_desfont" ActionTag="-956824990" Tag="554" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="7.4874" RightMargin="274.5126" TopMargin="3.0000" BottomMargin="3.0000" FontSize="24" LabelText="描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="768.0000" Y="24.0000" />
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="7.4874" Y="22.5000" />
+                            <Position X="7.4874" Y="15.0000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="165" G="61" B="9" />
                             <PrePosition X="0.0071" Y="0.5000" />
-                            <PreSize X="0.8533" Y="0.6222" />
+                            <PreSize X="0.7314" Y="0.8000" />
                             <FontResource Type="Default" Path="" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -1404,7 +1431,7 @@
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="-0.0968" Y="-0.4465" />
-                        <PreSize X="0.9813" Y="0.0738" />
+                        <PreSize X="0.9813" Y="0.0492" />
                         <SingleColor A="255" R="150" G="200" B="255" />
                         <FirstColor A="255" R="150" G="200" B="255" />
                         <EndColor A="255" R="255" G="255" B="255" />
@@ -1413,6 +1440,18 @@
                       <AbstractNodeData Name="Panel_top" ActionTag="97812968" Tag="540" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" BottomMargin="520.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="1070.0000" Y="90.0000" />
                         <Children>
+                          <AbstractNodeData Name="Text_plz_tip" ActionTag="-1411240995" Tag="537" IconVisible="False" LeftMargin="12.5268" RightMargin="654.4732" TopMargin="66.6182" BottomMargin="3.3818" FontSize="20" LabelText="温馨提示：&quot;+&quot;:增加疲劳值，&quot;-&quot;:扣除疲劳值" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="403.0000" Y="20.0000" />
+                            <AnchorPoint ScaleY="0.5000" />
+                            <Position X="12.5268" Y="13.3818" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="0" B="0" />
+                            <PrePosition X="0.0117" Y="0.1487" />
+                            <PreSize X="0.3766" Y="0.2222" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
                           <AbstractNodeData Name="Text_1" ActionTag="132253762" Tag="541" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="13.6208" RightMargin="923.3792" TopMargin="30.0000" BottomMargin="30.0000" FontSize="30" LabelText="成员人数:" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="133.0000" Y="30.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1576,7 +1615,7 @@
               <AbstractNodeData Name="Image_partnerFrame" ActionTag="-1654865134" Tag="739" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="193.8320" RightMargin="16.1680" TopMargin="92.1800" BottomMargin="17.8200" Scale9Enable="True" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="20" Scale9Height="20" ctype="ImageViewObjectData">
                 <Size X="1070.0000" Y="610.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_myParnter" ActionTag="-65767704" Tag="743" IconVisible="False" LeftMargin="-186.2253" RightMargin="1076.2253" TopMargin="3.4400" BottomMargin="529.5600" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="29" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_myParnter" Visible="False" ActionTag="-65767704" Tag="743" IconVisible="False" LeftMargin="-186.2253" RightMargin="1076.2253" TopMargin="3.4400" BottomMargin="529.5600" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="29" ctype="ImageViewObjectData">
                     <Size X="180.0000" Y="77.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_myParnterLight" ActionTag="-902178152" Tag="744" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="3.5000" BottomMargin="3.5000" TouchEnable="True" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="22" ctype="ImageViewObjectData">
@@ -1608,7 +1647,7 @@
                     <PreSize X="0.1682" Y="0.1262" />
                     <FileData Type="Normal" Path="club/club_29.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_addParnter" ActionTag="-1924111184" Tag="740" IconVisible="False" LeftMargin="-186.2253" RightMargin="1076.2253" TopMargin="81.2000" BottomMargin="451.8000" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="29" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_addParnter" Visible="False" ActionTag="-1924111184" Tag="740" IconVisible="False" LeftMargin="-186.2253" RightMargin="1076.2253" TopMargin="81.2000" BottomMargin="451.8000" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="29" ctype="ImageViewObjectData">
                     <Size X="180.0000" Y="77.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_addParnterLight" Visible="False" ActionTag="-1655118948" VisibleForFrame="False" Tag="741" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="4.1006" BottomMargin="2.8994" TouchEnable="True" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="22" ctype="ImageViewObjectData">
@@ -1640,7 +1679,7 @@
                     <PreSize X="0.1682" Y="0.1262" />
                     <FileData Type="Normal" Path="club/club_29.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_myMem" Visible="False" ActionTag="1605950980" Tag="746" IconVisible="False" LeftMargin="-186.2253" RightMargin="1076.2253" TopMargin="6.9400" BottomMargin="533.0600" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="22" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_myMem" ActionTag="1605950980" Tag="746" IconVisible="False" LeftMargin="-186.2253" RightMargin="1076.2253" TopMargin="6.9400" BottomMargin="533.0600" LeftEage="59" RightEage="59" TopEage="24" BottomEage="24" Scale9OriginX="59" Scale9OriginY="24" Scale9Width="62" Scale9Height="22" ctype="ImageViewObjectData">
                     <Size X="180.0000" Y="70.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_myMemFont" ActionTag="707612406" Tag="748" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="29.5000" RightMargin="29.5000" TopMargin="19.0000" BottomMargin="19.0000" LeftEage="22" RightEage="22" TopEage="9" BottomEage="9" Scale9OriginX="22" Scale9OriginY="9" Scale9Width="77" Scale9Height="14" ctype="ImageViewObjectData">
@@ -1815,7 +1854,7 @@
                   <AbstractNodeData Name="Panel_myParnter" ActionTag="-944907139" Tag="773" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="1070.0000" Y="610.0000" />
                     <Children>
-                      <AbstractNodeData Name="Image_myParnterItem" ActionTag="-1209138255" Tag="774" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-88.5644" RightMargin="108.5644" TopMargin="687.2480" BottomMargin="-187.2480" Scale9Enable="True" LeftEage="17" RightEage="17" TopEage="17" BottomEage="17" Scale9OriginX="17" Scale9OriginY="17" Scale9Width="20" Scale9Height="20" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_myParnterItem" ActionTag="-1209138255" Tag="774" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-106.9461" RightMargin="126.9461" TopMargin="673.8890" BottomMargin="-173.8890" Scale9Enable="True" LeftEage="17" RightEage="17" TopEage="17" BottomEage="17" Scale9OriginX="17" Scale9OriginY="17" Scale9Width="20" Scale9Height="20" ctype="ImageViewObjectData">
                         <Size X="1050.0000" Y="110.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_head" ActionTag="-339749654" Tag="775" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="7.9266" RightMargin="942.0734" TopMargin="5.0000" BottomMargin="5.0000" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
@@ -1974,14 +2013,14 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="436.4356" Y="-132.2480" />
+                        <Position X="418.0539" Y="-118.8890" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.4079" Y="-0.2168" />
+                        <PrePosition X="0.3907" Y="-0.1949" />
                         <PreSize X="0.9813" Y="0.1803" />
                         <FileData Type="Normal" Path="club/club_38.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_pushParnterItem" Visible="False" ActionTag="-437865720" Tag="833" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-72.0901" RightMargin="102.0901" TopMargin="691.3350" BottomMargin="-191.3350" Scale9Enable="True" LeftEage="17" RightEage="17" TopEage="17" BottomEage="17" Scale9OriginX="17" Scale9OriginY="17" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_pushParnterItem" Visible="False" ActionTag="-437865720" Tag="833" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-110.5240" RightMargin="140.5240" TopMargin="798.2680" BottomMargin="-298.2680" Scale9Enable="True" LeftEage="17" RightEage="17" TopEage="17" BottomEage="17" Scale9OriginX="17" Scale9OriginY="17" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                         <Size X="1040.0000" Y="110.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_head" ActionTag="-23418861" Tag="834" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="5.0000" RightMargin="935.0000" TopMargin="5.0000" BottomMargin="5.0000" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
@@ -2151,10 +2190,215 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="447.9099" Y="-136.3350" />
+                        <Position X="409.4760" Y="-243.2680" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.4186" Y="-0.2235" />
+                        <PrePosition X="0.3827" Y="-0.3988" />
+                        <PreSize X="0.9720" Y="0.1803" />
+                        <FileData Type="Normal" Path="club/club_39.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_plzParnterItem" ActionTag="-266613466" Tag="547" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-108.8803" RightMargin="138.8803" TopMargin="814.9820" BottomMargin="-314.9820" Scale9Enable="True" LeftEage="17" RightEage="17" TopEage="17" BottomEage="17" Scale9OriginX="17" Scale9OriginY="17" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                        <Size X="1040.0000" Y="110.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_head" ActionTag="591064258" Tag="548" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="5.0000" RightMargin="935.0000" TopMargin="5.0000" BottomMargin="5.0000" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+                            <Size X="100.0000" Y="100.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Image_headFrame" ActionTag="1684374253" Tag="549" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-12.0000" RightMargin="-12.0000" TopMargin="-12.0000" BottomMargin="-12.0000" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="52" Scale9Height="52" ctype="ImageViewObjectData">
+                                <Size X="124.0000" Y="124.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="50.0000" Y="50.0000" />
+                                <Scale ScaleX="0.8300" ScaleY="0.8300" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="0.5000" Y="0.5000" />
+                                <PreSize X="1.2400" Y="1.2400" />
+                                <FileData Type="Normal" Path="common/headframe.png" Plist="" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="55.0000" Y="55.0000" />
+                            <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.0529" Y="0.5000" />
+                            <PreSize X="0.0962" Y="0.9091" />
+                            <FileData Type="Normal" Path="common/hall_avatar.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_name" ActionTag="-1457262005" Tag="550" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="110.3616" RightMargin="882.6384" TopMargin="31.8890" BottomMargin="56.1110" FontSize="22" LabelText="名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="47.0000" Y="22.0000" />
+                            <AnchorPoint ScaleY="0.5000" />
+                            <Position X="110.3616" Y="67.1110" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.1061" Y="0.6101" />
+                            <PreSize X="0.0452" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_playerid" ActionTag="-1946807674" Tag="551" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="110.3614" RightMargin="806.6386" TopMargin="63.7780" BottomMargin="24.2220" FontSize="22" LabelText="ID:12345678" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="123.0000" Y="22.0000" />
+                            <AnchorPoint ScaleY="0.5000" />
+                            <Position X="110.3614" Y="35.2220" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.1061" Y="0.3202" />
+                            <PreSize X="0.1183" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_jf" ActionTag="1385924456" Tag="552" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="311.2760" RightMargin="681.7240" TopMargin="23.0780" BottomMargin="64.9220" FontSize="22" LabelText="积分" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="47.0000" Y="22.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_jfnum" ActionTag="-366918067" Tag="553" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.5000" RightMargin="10.5000" TopMargin="34.9986" BottomMargin="-36.9986" FontSize="24" LabelText="13" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="26.0000" Y="24.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="23.5000" Y="-24.9986" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="165" G="61" B="9" />
+                                <PrePosition X="0.5000" Y="-1.1363" />
+                                <PreSize X="0.5532" Y="1.0909" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="334.7760" Y="75.9220" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.3219" Y="0.6902" />
+                            <PreSize X="0.0452" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_jushu" ActionTag="-1322129375" Tag="554" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="428.4280" RightMargin="520.5720" TopMargin="23.0780" BottomMargin="64.9220" FontSize="22" LabelText="参与人次" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="91.0000" Y="22.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_jsnum" ActionTag="663443124" Tag="555" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="32.5000" RightMargin="32.5000" TopMargin="34.9986" BottomMargin="-36.9986" FontSize="24" LabelText="13" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="26.0000" Y="24.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="45.5000" Y="-24.9986" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="165" G="61" B="9" />
+                                <PrePosition X="0.5000" Y="-1.1363" />
+                                <PreSize X="0.2857" Y="1.0909" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="473.9280" Y="75.9220" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.4557" Y="0.6902" />
+                            <PreSize X="0.0875" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_dyj" ActionTag="-638546624" Tag="556" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="589.5000" RightMargin="381.5000" TopMargin="23.0780" BottomMargin="64.9220" FontSize="22" LabelText="大赢家" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="69.0000" Y="22.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_dyjnum" ActionTag="-155341658" Tag="557" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="21.5000" RightMargin="21.5000" TopMargin="34.9986" BottomMargin="-36.9986" FontSize="24" LabelText="13" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="26.0000" Y="24.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="34.5000" Y="-24.9986" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="165" G="61" B="9" />
+                                <PrePosition X="0.5000" Y="-1.1363" />
+                                <PreSize X="0.3768" Y="1.0909" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="624.0000" Y="75.9220" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.6000" Y="0.6902" />
+                            <PreSize X="0.0663" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_plz" ActionTag="-1439687103" Tag="561" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="723.9972" RightMargin="247.0028" TopMargin="23.0780" BottomMargin="64.9220" FontSize="22" LabelText="疲劳值" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="69.0000" Y="22.0000" />
+                            <Children>
+                              <AbstractNodeData Name="TextField_plz" ActionTag="2009027494" Tag="562" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-3.8604" RightMargin="-7.1396" TopMargin="34.1502" BottomMargin="-42.1502" TouchEnable="True" FontSize="24" IsCustomSize="True" LabelText="0" PlaceHolderText="" MaxLengthEnable="True" MaxLengthText="8" ctype="TextFieldObjectData">
+                                <Size X="80.0000" Y="30.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="36.1396" Y="-27.1502" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="165" G="61" B="9" />
+                                <PrePosition X="0.5238" Y="-1.2341" />
+                                <PreSize X="1.1594" Y="1.3636" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                              </AbstractNodeData>
+                              <AbstractNodeData Name="Button_plz_add" ActionTag="-1010143593" Tag="563" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="63.2388" RightMargin="-78.2388" TopMargin="-10.3200" BottomMargin="-51.6800" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                                <Size X="84.0000" Y="84.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="105.2388" Y="-9.6800" />
+                                <Scale ScaleX="0.6000" ScaleY="0.6000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="1.5252" Y="-0.4400" />
+                                <PreSize X="1.2174" Y="3.8182" />
+                                <TextColor A="255" R="65" G="65" B="70" />
+                                <DisabledFileData Type="Normal" Path="club/club_48.png" Plist="" />
+                                <PressedFileData Type="Normal" Path="club/club_48.png" Plist="" />
+                                <NormalFileData Type="Normal" Path="club/club_48.png" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                              <AbstractNodeData Name="Button_plz_sub" ActionTag="828431610" Tag="566" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="139.7529" RightMargin="-154.7529" TopMargin="-10.3200" BottomMargin="-51.6800" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                                <Size X="84.0000" Y="84.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="181.7529" Y="-9.6800" />
+                                <Scale ScaleX="0.6000" ScaleY="0.6000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="2.6341" Y="-0.4400" />
+                                <PreSize X="1.2174" Y="3.8182" />
+                                <TextColor A="255" R="65" G="65" B="70" />
+                                <DisabledFileData Type="Normal" Path="club/club_47.png" Plist="" />
+                                <PressedFileData Type="Normal" Path="club/club_47.png" Plist="" />
+                                <NormalFileData Type="Normal" Path="club/club_47.png" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="758.4972" Y="75.9220" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="165" G="61" B="9" />
+                            <PrePosition X="0.7293" Y="0.6902" />
+                            <PreSize X="0.0663" Y="0.2000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Button_plzPush" ActionTag="1865270330" Tag="560" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="954.3544" RightMargin="17.6456" TopMargin="21.0000" BottomMargin="21.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="38" Scale9Height="46" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                            <Size X="68.0000" Y="68.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="988.3544" Y="55.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.9503" Y="0.5000" />
+                            <PreSize X="0.0654" Y="0.6182" />
+                            <TextColor A="255" R="65" G="65" B="70" />
+                            <DisabledFileData Type="Normal" Path="club/partner_3.png" Plist="" />
+                            <PressedFileData Type="Normal" Path="club/partner_3.png" Plist="" />
+                            <NormalFileData Type="Normal" Path="club/partner_3.png" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="411.1197" Y="-259.9820" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.3842" Y="-0.4262" />
                         <PreSize X="0.9720" Y="0.1803" />
                         <FileData Type="Normal" Path="club/club_39.png" Plist="" />
                       </AbstractNodeData>
@@ -2215,7 +2459,7 @@
                       <AbstractNodeData Name="Image_allCount" ActionTag="-1437694741" Tag="346" IconVisible="False" LeftMargin="-194.2852" RightMargin="935.2852" TopMargin="-85.6765" BottomMargin="104.6765" Scale9Enable="True" LeftEage="114" RightEage="114" TopEage="29" BottomEage="29" Scale9OriginX="114" Scale9OriginY="29" Scale9Width="101" Scale9Height="13" ctype="ImageViewObjectData">
                         <Size X="329.0000" Y="71.0000" />
                         <Children>
-                          <AbstractNodeData Name="Text_alljsFlag" ActionTag="-2095785835" Tag="167" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="11.0000" RightMargin="65.0000" TopMargin="9.4981" BottomMargin="31.5019" FontSize="30" LabelText="亲友圈参与总人次：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_alljsFlag" ActionTag="-2095785835" Tag="167" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.9886" RightMargin="65.0114" TopMargin="9.4950" BottomMargin="31.5050" FontSize="30" LabelText="亲友圈参与总人次：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="253.0000" Y="30.0000" />
                             <Children>
                               <AbstractNodeData Name="Text_playAllJS" ActionTag="-2052300051" Tag="168" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="256.3396" RightMargin="-19.3396" FontSize="30" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -2230,10 +2474,10 @@
                                 <OutlineColor A="255" R="255" G="0" B="0" />
                                 <ShadowColor A="255" R="110" G="110" B="110" />
                               </AbstractNodeData>
-                              <AbstractNodeData Name="Text_2" ActionTag="458360279" Tag="404" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-0.9998" RightMargin="12.9998" TopMargin="37.0344" BottomMargin="-27.0344" FontSize="20" LabelText="(最多只能查询31天的数据)" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                              <AbstractNodeData Name="Text_2" ActionTag="458360279" Tag="404" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-1.0120" RightMargin="13.0120" TopMargin="37.0344" BottomMargin="-27.0344" FontSize="20" LabelText="(最多只能查询31天的数据)" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                                 <Size X="241.0000" Y="20.0000" />
                                 <AnchorPoint ScaleY="0.5000" />
-                                <Position X="-0.9998" Y="-17.0344" />
+                                <Position X="-1.0120" Y="-17.0344" />
                                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                                 <CColor A="255" R="227" G="215" B="87" />
                                 <PrePosition X="-0.0040" Y="-0.5678" />
@@ -2244,7 +2488,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="11.0000" Y="46.5019" />
+                            <Position X="10.9886" Y="46.5050" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="252" B="223" />
                             <PrePosition X="0.0334" Y="0.6550" />
@@ -2262,13 +2506,13 @@
                         <PreSize X="0.3075" Y="0.7889" />
                         <FileData Type="Normal" Path="club/club_107.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_timeNode" ActionTag="1924285928" Tag="1320" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="161.4390" RightMargin="881.5610" TopMargin="35.1010" BottomMargin="29.8990" FontSize="25" LabelText="至" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_timeNode" ActionTag="1924285928" Tag="1320" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="161.4450" RightMargin="881.5550" TopMargin="35.1010" BottomMargin="29.8990" FontSize="25" LabelText="至" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="27.0000" Y="25.0000" />
                         <Children>
-                          <AbstractNodeData Name="Text_dawinSorce" ActionTag="1046227936" Tag="480" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="437.4979" RightMargin="-551.4979" FontSize="25" LabelText="大赢家:低于" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_dawinSorce" Visible="False" ActionTag="1046227936" Tag="480" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="437.4969" RightMargin="-551.4969" FontSize="25" LabelText="大赢家:低于" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="141.0000" Y="25.0000" />
                             <Children>
-                              <AbstractNodeData Name="Image_sorceFrame" ActionTag="-1445037870" Tag="481" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="149.5533" RightMargin="-88.5533" TopMargin="-13.4454" BottomMargin="-11.5546" TouchEnable="True" Scale9Enable="True" LeftEage="16" RightEage="16" TopEage="12" BottomEage="12" Scale9OriginX="16" Scale9OriginY="12" Scale9Width="1" Scale9Height="14" ctype="ImageViewObjectData">
+                              <AbstractNodeData Name="Image_sorceFrame" ActionTag="-1445037870" Tag="481" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="149.5463" RightMargin="-88.5463" TopMargin="-13.4450" BottomMargin="-11.5550" TouchEnable="True" Scale9Enable="True" LeftEage="16" RightEage="16" TopEage="12" BottomEage="12" Scale9OriginX="16" Scale9OriginY="12" Scale9Width="1" Scale9Height="14" ctype="ImageViewObjectData">
                                 <Size X="80.0000" Y="50.0000" />
                                 <Children>
                                   <AbstractNodeData Name="TextField_winsorce" ActionTag="-986399491" Tag="488" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="10.0000" TopMargin="12.0000" BottomMargin="8.0000" TouchEnable="True" FontSize="26" IsCustomSize="True" LabelText="0" PlaceHolderText="" MaxLengthEnable="True" MaxLengthText="4" ctype="TextFieldObjectData">
@@ -2283,17 +2527,17 @@
                                   </AbstractNodeData>
                                 </Children>
                                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="189.5533" Y="13.4454" />
+                                <Position X="189.5463" Y="13.4450" />
                                 <Scale ScaleX="1.0000" ScaleY="0.9602" />
                                 <CColor A="255" R="255" G="255" B="255" />
                                 <PrePosition X="1.3443" Y="0.5378" />
                                 <PreSize X="0.5674" Y="2.0000" />
                                 <FileData Type="Normal" Path="statistics/clubstatics/shurukuang.png" Plist="" />
                               </AbstractNodeData>
-                              <AbstractNodeData Name="Text_font2" ActionTag="-1162628943" Tag="486" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="236.8470" RightMargin="-176.8470" TopMargin="-0.6593" BottomMargin="-0.3407" FontSize="26" LabelText="分不算" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                              <AbstractNodeData Name="Text_font2" ActionTag="-1162628943" Tag="486" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="236.8470" RightMargin="-176.8470" TopMargin="-0.6600" BottomMargin="-0.3400" FontSize="26" LabelText="分不算" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                                 <Size X="81.0000" Y="26.0000" />
                                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="277.3470" Y="12.6593" />
+                                <Position X="277.3470" Y="12.6600" />
                                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                                 <CColor A="255" R="127" G="71" B="46" />
                                 <PrePosition X="1.9670" Y="0.5064" />
@@ -2304,7 +2548,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="507.9979" Y="12.5000" />
+                            <Position X="507.9969" Y="12.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="127" G="71" B="46" />
                             <PrePosition X="18.8147" Y="0.5000" />
@@ -2378,7 +2622,7 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="174.9390" Y="42.3990" />
+                        <Position X="174.9450" Y="42.3990" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="127" G="71" B="46" />
                         <PrePosition X="0.1635" Y="0.4711" />
@@ -2387,7 +2631,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_topPartnerMem" Visible="False" ActionTag="-1792231515" Tag="1672" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="518.2672" RightMargin="351.7328" TopMargin="22.6010" BottomMargin="17.3990" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="12" BottomEage="12" Scale9OriginX="10" Scale9OriginY="12" Scale9Width="12" Scale9Height="14" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_topPartnerMem" ActionTag="-1792231515" Tag="1672" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="518.2672" RightMargin="351.7328" TopMargin="22.6010" BottomMargin="17.3990" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="12" BottomEage="12" Scale9OriginX="10" Scale9OriginY="12" Scale9Width="12" Scale9Height="14" ctype="ImageViewObjectData">
                         <Size X="200.0000" Y="50.0000" />
                         <Children>
                           <AbstractNodeData Name="TextField_partnermem" ActionTag="1407368830" Tag="1673" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="10.2600" BottomMargin="-0.2600" TouchEnable="True" FontSize="30" IsCustomSize="True" LabelText="" PlaceHolderText="请输入玩家ID" MaxLengthEnable="True" MaxLengthText="8" ctype="TextFieldObjectData">
@@ -2473,6 +2717,32 @@
                         <DisabledFileData Type="Normal" Path="club/partner_6.png" Plist="" />
                         <PressedFileData Type="Normal" Path="club/partner_6.png" Plist="" />
                         <NormalFileData Type="Normal" Path="club/partner_6.png" Plist="" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Text_plztop" ActionTag="-1325011541" Tag="564" IconVisible="False" LeftMargin="-143.7501" RightMargin="1135.7501" TopMargin="555.3398" BottomMargin="-490.3398" FontSize="25" LabelText="疲劳值" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="78.0000" Y="25.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Text_plznum" ActionTag="-1705871702" Tag="565" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="32.0000" RightMargin="32.0000" TopMargin="31.5000" BottomMargin="-31.5000" FontSize="25" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="14.0000" Y="25.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="39.0000" Y="-19.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="127" G="71" B="46" />
+                            <PrePosition X="0.5000" Y="-0.7600" />
+                            <PreSize X="0.1795" Y="1.0000" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="-104.7501" Y="-477.8398" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="127" G="71" B="46" />
+                        <PrePosition X="-0.0979" Y="-5.3093" />
+                        <PreSize X="0.0729" Y="0.2778" />
+                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>

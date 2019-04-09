@@ -763,6 +763,64 @@
                     <EndColor A="255" R="255" G="255" B="255" />
                     <ColorVector ScaleY="1.0000" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="Panel_teShu" ActionTag="-1606580983" ZOrder="6" Tag="492" IconVisible="False" RightMargin="-5.4600" TopMargin="494.0000" BottomMargin="2.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                    <Size X="940.4600" Y="56.0000" />
+                    <Children>
+                      <AbstractNodeData Name="ListView_parameter" ActionTag="2121251875" Tag="493" IconVisible="False" PositionPercentYEnabled="True" PercentHeightEnable="True" PercentHeightEnabled="True" LeftMargin="728.7757" RightMargin="44.6843" TopMargin="-167.8561" BottomMargin="167.8561" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                        <Size X="167.0000" Y="56.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Button_parameter" ActionTag="-298097644" Tag="494" IconVisible="False" TopMargin="4.0000" BottomMargin="4.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                            <Size X="167.0000" Y="48.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_desc" ActionTag="-1421154304" Tag="495" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="55.1100" RightMargin="63.8900" TopMargin="12.0000" BottomMargin="12.0000" FontSize="24" LabelText="搓牌" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="48.0000" Y="24.0000" />
+                                <AnchorPoint ScaleY="0.5000" />
+                                <Position X="55.1100" Y="24.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="118" G="63" B="25" />
+                                <PrePosition X="0.3300" Y="0.5000" />
+                                <PreSize X="0.2874" Y="0.5000" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="83.5000" Y="28.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.5000" Y="0.5000" />
+                            <PreSize X="1.0000" Y="0.8571" />
+                            <TextColor A="255" R="65" G="65" B="70" />
+                            <DisabledFileData Type="Normal" Path="room/room_38.png" Plist="" />
+                            <PressedFileData Type="Normal" Path="room/room_37.png" Plist="" />
+                            <NormalFileData Type="Normal" Path="room/room_37.png" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
+                        <Position X="895.7757" Y="195.8561" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.9525" Y="3.4974" />
+                        <PreSize X="0.1776" Y="1.0000" />
+                        <SingleColor A="255" R="118" G="63" B="25" />
+                        <FirstColor A="255" R="150" G="150" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint />
+                    <Position Y="2.0000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition Y="0.0036" />
+                    <PreSize X="1.0058" Y="0.1014" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
                 <Position X="467.5000" Y="572.0000" />

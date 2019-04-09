@@ -47,14 +47,15 @@
                     <PreSize X="0.2000" Y="0.0514" />
                     <FileData Type="Normal" Path="game/tablenew_16.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Text_desc" ActionTag="789380294" Alpha="45" Tag="755" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="490.0000" RightMargin="490.0000" TopMargin="249.5760" BottomMargin="446.4240" FontSize="24" LabelText="2王/3人/翻省/单省/300积分" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="300.0000" Y="24.0000" />
+                  <AbstractNodeData Name="Text_desc" ActionTag="789380294" Alpha="102" Tag="755" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="488.5000" RightMargin="488.5000" TopMargin="249.5760" BottomMargin="446.4240" FontSize="24" LabelText="2王/3人/翻省/单省/300积分" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="303.0000" Y="24.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="640.0000" Y="458.4240" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="0" G="0" B="0" />
                     <PrePosition X="0.5000" Y="0.6367" />
-                    <PreSize X="0.2344" Y="0.0333" />
+                    <PreSize X="0.2367" Y="0.0333" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>

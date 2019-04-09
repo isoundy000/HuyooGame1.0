@@ -117,6 +117,21 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
+                      <AbstractNodeData Name="Button_mp" ActionTag="76959870" Tag="977" IconVisible="False" LeftMargin="359.3135" RightMargin="-74.3135" TopMargin="6.2910" BottomMargin="-5.2910" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="31" Scale9Height="65" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                        <Size X="61.0000" Y="87.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="389.8135" Y="38.2090" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="1.1266" Y="0.4342" />
+                        <PreSize X="0.1763" Y="0.9886" />
+                        <TextColor A="255" R="65" G="65" B="70" />
+                        <DisabledFileData Type="Normal" Path="club/circle_btn_qr.png" Plist="" />
+                        <PressedFileData Type="Normal" Path="club/circle_btn_qr.png" Plist="" />
+                        <NormalFileData Type="Normal" Path="club/circle_btn_qr.png" Plist="" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleY="0.5000" />
                     <Position Y="671.9623" />
@@ -276,29 +291,19 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Panel_broadcast" ActionTag="-1168761143" Tag="408" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="366.2080" RightMargin="363.7920" TopMargin="29.3720" BottomMargin="655.6280" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                    <Size X="550.0000" Y="35.0000" />
+                  <AbstractNodeData Name="Panel_broadcast" ActionTag="-1168761143" Tag="408" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="455.8080" RightMargin="274.1920" TopMargin="27.8720" BottomMargin="654.1280" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                    <Size X="550.0000" Y="38.0000" />
                     <Children>
-                      <AbstractNodeData Name="Image_3" ActionTag="1610758454" Tag="409" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="8.0300" RightMargin="507.9700" TopMargin="2.5000" BottomMargin="2.5000" LeftEage="16" RightEage="16" TopEage="9" BottomEage="9" Scale9OriginX="16" Scale9OriginY="9" Scale9Width="2" Scale9Height="12" ctype="ImageViewObjectData">
-                        <Size X="34.0000" Y="30.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="25.0300" Y="17.5000" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.0455" Y="0.5000" />
-                        <PreSize X="0.0618" Y="0.8571" />
-                        <FileData Type="Normal" Path="hall/hall_21.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Image_laba" ActionTag="-64717669" Tag="410" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.9700" RightMargin="-60.9700" Scale9Enable="True" LeftEage="80" RightEage="80" TopEage="12" BottomEage="12" Scale9OriginX="80" Scale9OriginY="12" Scale9Width="8" Scale9Height="11" ctype="ImageViewObjectData">
-                        <Size X="600.0000" Y="35.0000" />
+                      <AbstractNodeData Name="Image_laba" ActionTag="-64717669" Tag="410" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1.0000" RightMargin="1.0000" Scale9Enable="True" LeftEage="80" RightEage="80" TopEage="12" BottomEage="12" Scale9OriginX="80" Scale9OriginY="12" Scale9Width="388" Scale9Height="14" ctype="ImageViewObjectData">
+                        <Size X="548.0000" Y="38.0000" />
                         <Children>
-                          <AbstractNodeData Name="Panel_broadcastBg" ActionTag="265643527" Tag="411" IconVisible="False" PositionPercentYEnabled="True" PercentHeightEnable="True" PercentHeightEnabled="True" LeftMargin="36.3600" RightMargin="13.6400" ClipAble="True" BackColorAlpha="178" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="550.0000" Y="35.0000" />
+                          <AbstractNodeData Name="Panel_broadcastBg" ActionTag="265643527" Tag="411" IconVisible="False" PositionPercentYEnabled="True" PercentHeightEnable="True" PercentHeightEnabled="True" LeftMargin="54.3604" RightMargin="63.6396" TopMargin="0.0001" BottomMargin="-0.0001" ClipAble="True" BackColorAlpha="178" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                            <Size X="430.0000" Y="38.0000" />
                             <Children>
-                              <AbstractNodeData Name="Text_broadcast" ActionTag="183384153" Tag="412" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="550.0000" TopMargin="17.5000" BottomMargin="17.5000" FontSize="24" LabelText="" ShadowOffsetX="1.0000" ShadowOffsetY="1.0000" ctype="TextObjectData">
+                              <AbstractNodeData Name="Text_broadcast" ActionTag="183384153" Tag="412" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="430.0000" TopMargin="19.0000" BottomMargin="19.0000" FontSize="24" LabelText="" ShadowOffsetX="1.0000" ShadowOffsetY="1.0000" ctype="TextObjectData">
                                 <Size X="0.0000" Y="0.0000" />
                                 <AnchorPoint ScaleY="0.5000" />
-                                <Position X="550.0000" Y="17.5000" />
+                                <Position X="430.0000" Y="19.0000" />
                                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                                 <CColor A="255" R="255" G="252" B="223" />
                                 <PrePosition X="1.0000" Y="0.5000" />
@@ -309,11 +314,11 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleY="0.5000" />
-                            <Position X="36.3600" Y="17.5000" />
+                            <Position X="54.3604" Y="18.9999" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.0606" Y="0.5000" />
-                            <PreSize X="0.9167" Y="1.0000" />
+                            <PrePosition X="0.0992" Y="0.5000" />
+                            <PreSize X="0.7847" Y="1.0000" />
                             <SingleColor A="255" R="0" G="0" B="0" />
                             <FirstColor A="255" R="150" G="200" B="255" />
                             <EndColor A="255" R="255" G="255" B="255" />
@@ -321,20 +326,20 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="310.9700" Y="17.5000" />
+                        <Position X="275.0000" Y="19.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5654" Y="0.5000" />
-                        <PreSize X="1.0909" Y="1.0000" />
-                        <FileData Type="Normal" Path="hall/hall_12.png" Plist="" />
+                        <PrePosition X="0.5000" Y="0.5000" />
+                        <PreSize X="0.9964" Y="1.0000" />
+                        <FileData Type="Normal" Path="club/kwxclub_8.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleY="0.5000" />
-                    <Position X="366.2080" Y="673.1280" />
+                    <Position X="455.8080" Y="673.1280" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.2861" Y="0.9349" />
-                    <PreSize X="0.4297" Y="0.0486" />
+                    <PrePosition X="0.3561" Y="0.9349" />
+                    <PreSize X="0.4297" Y="0.0528" />
                     <SingleColor A="255" R="0" G="0" B="0" />
                     <FirstColor A="255" R="150" G="200" B="255" />
                     <EndColor A="255" R="255" G="255" B="255" />
@@ -1642,6 +1647,56 @@
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="1.0000" Y="1.0000" />
             <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Panel_mp" Visible="False" ActionTag="-1455940909" VisibleForFrame="False" Tag="973" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+            <Size X="1280.0000" Y="720.0000" />
+            <Children>
+              <AbstractNodeData Name="Image_mpFrame" Visible="False" ActionTag="685842079" VisibleForFrame="False" Tag="974" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="470.0000" RightMargin="470.0000" TopMargin="83.5000" BottomMargin="83.5000" Scale9Enable="True" LeftEage="39" RightEage="39" TopEage="38" BottomEage="38" Scale9OriginX="39" Scale9OriginY="38" Scale9Width="43" Scale9Height="41" ctype="ImageViewObjectData">
+                <Size X="340.0000" Y="553.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="640.0000" Y="360.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="0.2656" Y="0.7681" />
+                <FileData Type="Normal" Path="club/cm_bg_dialog3.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Image_mp" ActionTag="-1158681386" Tag="975" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="500.0000" RightMargin="500.0000" TopMargin="118.0636" BottomMargin="251.9364" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="24" Scale9Height="24" ctype="ImageViewObjectData">
+                <Size X="280.0000" Y="350.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="640.0000" Y="426.9364" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5930" />
+                <PreSize X="0.2188" Y="0.4861" />
+                <FileData Type="Normal" Path="club/circle_head_mask.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_modifymp" ActionTag="-1326170748" Tag="976" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="528.0000" RightMargin="528.0000" TopMargin="509.0000" BottomMargin="143.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="194" Scale9Height="46" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="224.0000" Y="68.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="640.0000" Y="177.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.2458" />
+                <PreSize X="0.1750" Y="0.0944" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="club/circle_btn_modifyqr.png" Plist="" />
+                <PressedFileData Type="Normal" Path="club/circle_btn_modifyqr.png" Plist="" />
+                <NormalFileData Type="Normal" Path="club/circle_btn_modifyqr.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint />
+            <Position />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="1.0000" Y="1.0000" />
+            <SingleColor A="255" R="26" G="26" B="26" />
             <FirstColor A="255" R="150" G="200" B="255" />
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />

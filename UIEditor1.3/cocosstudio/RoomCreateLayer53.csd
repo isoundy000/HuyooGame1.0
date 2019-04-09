@@ -311,7 +311,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="ListView_parameter" ActionTag="-453013475" Tag="478" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="169.2828" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="-14" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                      <AbstractNodeData Name="ListView_parameter" ActionTag="-453013475" Tag="478" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="169.2828" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                         <Size X="771.1772" Y="69.0000" />
                         <Children>
                           <AbstractNodeData Name="Button_parameter" ActionTag="319142782" Tag="479" IconVisible="False" RightMargin="604.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -358,7 +358,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="236.5000" Y="34.5000" />
+                            <Position X="260.5000" Y="34.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.3067" Y="0.5000" />
@@ -386,7 +386,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="389.5000" Y="34.5000" />
+                            <Position X="437.5000" Y="34.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.5051" Y="0.5000" />
@@ -435,7 +435,7 @@
                   <AbstractNodeData Name="Panel_zhuangJia" ActionTag="-1390781029" ZOrder="3" Tag="67" IconVisible="False" RightMargin="-5.4600" TopMargin="207.0000" BottomMargin="214.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="940.4600" Y="69.0000" />
                     <Children>
-                      <AbstractNodeData Name="ListView_parameter" ActionTag="-1357628989" Tag="69" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="169.2828" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="-14" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                      <AbstractNodeData Name="ListView_parameter" ActionTag="-1357628989" Tag="69" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="169.2828" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                         <Size X="771.1772" Y="69.0000" />
                         <Children>
                           <AbstractNodeData Name="Button_parameter" ActionTag="1649827253" Tag="72" IconVisible="False" RightMargin="604.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -482,7 +482,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="236.5000" Y="34.5000" />
+                            <Position X="260.5000" Y="34.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.3067" Y="0.5000" />
@@ -510,7 +510,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="389.5000" Y="34.5000" />
+                            <Position X="437.5000" Y="34.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.5051" Y="0.5000" />
@@ -570,10 +570,10 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="ListView_parameter" ActionTag="-1669105514" Tag="369" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="169.2828" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="-14" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                      <AbstractNodeData Name="ListView_parameter" ActionTag="-1669105514" Tag="369" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="169.2828" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="10" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
                         <Size X="771.1772" Y="69.0000" />
                         <Children>
-                          <AbstractNodeData Name="Button_parameter" ActionTag="1413969587" Tag="231" IconVisible="False" LeftMargin="153.0000" RightMargin="451.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                          <AbstractNodeData Name="Button_parameter" ActionTag="1413969587" Tag="231" IconVisible="False" RightMargin="604.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                             <Size X="167.0000" Y="48.0000" />
                             <Children>
                               <AbstractNodeData Name="Text_desc" ActionTag="155337589" Tag="232" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="55.1100" RightMargin="15.8900" TopMargin="12.0000" BottomMargin="12.0000" FontSize="24" LabelText="至尊三公" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -592,7 +592,7 @@
                             <Position X="83.5000" Y="34.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.3067" Y="0.5000" />
+                            <PrePosition X="0.1083" Y="0.5000" />
                             <PreSize X="0.2166" Y="0.6957" />
                             <TextColor A="255" R="65" G="65" B="70" />
                             <DisabledFileData Type="Normal" Path="room/room_38.png" Plist="" />
@@ -601,26 +601,54 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Button_parameter" ActionTag="1297061913" ZOrder="1" Tag="496" IconVisible="False" LeftMargin="306.0000" RightMargin="298.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                          <AbstractNodeData Name="Button_parameter" ActionTag="-602559235" ZOrder="1" Tag="421" IconVisible="False" LeftMargin="177.0000" RightMargin="427.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                             <Size X="167.0000" Y="48.0000" />
                             <Children>
-                              <AbstractNodeData Name="Text_desc" ActionTag="620159485" Tag="497" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="55.1100" RightMargin="-32.1100" TopMargin="12.0000" BottomMargin="12.0000" FontSize="24" LabelText="允许中途加入" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                <Size X="144.0000" Y="24.0000" />
+                              <AbstractNodeData Name="Text_desc" ActionTag="562253584" Tag="422" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="55.1100" RightMargin="63.8900" TopMargin="12.0000" BottomMargin="12.0000" FontSize="24" LabelText="搓牌" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="48.0000" Y="24.0000" />
                                 <AnchorPoint ScaleY="0.5000" />
                                 <Position X="55.1100" Y="24.0000" />
                                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                                 <CColor A="255" R="118" G="63" B="25" />
                                 <PrePosition X="0.3300" Y="0.5000" />
+                                <PreSize X="0.2874" Y="0.5000" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="260.5000" Y="34.5000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.3378" Y="0.5000" />
+                            <PreSize X="0.2166" Y="0.6957" />
+                            <TextColor A="255" R="65" G="65" B="70" />
+                            <DisabledFileData Type="Normal" Path="room/room_38.png" Plist="" />
+                            <PressedFileData Type="Normal" Path="room/room_37.png" Plist="" />
+                            <NormalFileData Type="Normal" Path="room/room_37.png" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Button_parameter" ActionTag="1297061913" ZOrder="2" Tag="496" IconVisible="False" LeftMargin="177.0000" RightMargin="427.1772" TopMargin="10.5000" BottomMargin="10.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="137" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                            <Size X="167.0000" Y="48.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_desc" ActionTag="620159485" Tag="497" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="40.0800" RightMargin="-17.0800" TopMargin="12.0000" BottomMargin="12.0000" FontSize="24" LabelText="允许中途加入" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="144.0000" Y="24.0000" />
+                                <AnchorPoint ScaleY="0.5000" />
+                                <Position X="40.0800" Y="24.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="118" G="63" B="25" />
+                                <PrePosition X="0.2400" Y="0.5000" />
                                 <PreSize X="0.8623" Y="0.5000" />
                                 <OutlineColor A="255" R="255" G="0" B="0" />
                                 <ShadowColor A="255" R="110" G="110" B="110" />
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="236.5000" Y="34.5000" />
+                            <Position X="437.5000" Y="34.5000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5051" Y="0.5000" />
+                            <PrePosition X="0.3378" Y="0.5000" />
                             <PreSize X="0.2166" Y="0.6957" />
                             <TextColor A="255" R="65" G="65" B="70" />
                             <DisabledFileData Type="Normal" Path="room/room_38.png" Plist="" />
