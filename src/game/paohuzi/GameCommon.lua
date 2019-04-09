@@ -171,6 +171,7 @@ local GameCommon = {
     cbAllHuXiCount = nil ,                          --告胡子类型金币房总胡息
     EARTH_RADIUS = 6371.004 ,                     --地球半径   
     DistanceAlarm = 1 ,                 -- 距离判断（0：没有判断多，需要判断。1：判断过或不需要判断）
+    IsOfHu = 0 ,                        -- 是否胡牌提醒
     -------------------------------------------------------------------------------
     meChairID = 0,
 
@@ -652,7 +653,7 @@ end
 function GameCommon:judgeGame()
     if  self.tableConfig.wKindID == 27 or self.tableConfig.wKindID == 31 or self.tableConfig.wKindID == 32 or
     self.tableConfig.wKindID == 33 or self.tableConfig.wKindID == 34 or self.tableConfig.wKindID == 35 or
-    self.tableConfig.wKindID == 36 or self.tableConfig.wKindID == 37 or  CHANNEL_ID == 0 or CHANNEL_ID == 1 then
+    self.tableConfig.wKindID == 36 or self.tableConfig.wKindID == 37 or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
         return true
     else
         return false

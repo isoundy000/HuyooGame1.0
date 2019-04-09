@@ -89,7 +89,7 @@ function Common:requestUserAvatar(userID,addr,node,mode)
                 end
                 fp:write(response)
                 fp:close()
-
+                
                 local img = fileName
                 if mode == "img" then
                     node:loadTexture(img)
@@ -185,6 +185,54 @@ function Common:requestOnlinePicture(userID,addr,node,mode)
     xmlHttpRequest:registerScriptHandler(onHttpRequestaddr)
     xmlHttpRequest:send()
 end
+
+function Common:requestErWeiMaPicture(url, node)
+    if type(url) ~= 'string' then
+        return
+    end
+
+    if not string.find(url, 'http') then
+        url = 'http://share.hy.qilaigame.com/' ..  url
+    end
+
+    local fileName = string.match(url, ".+/([^/]*%.%w+)$")
+    print('requestErWeiMaPicture = ', url, fileName)
+    if not fileName then
+        return
+    end
+
+    fileName = FileDir.dirDownload .. fileName
+    if cc.FileUtils:getInstance():isFileExist(fileName) then
+        node:loadTexture(fileName)
+        return
+    end
+
+    local xmlHttpRequest = cc.XMLHttpRequest:new()
+    xmlHttpRequest.responseType = cc.XMLHTTPREQUEST_RESPONSE_STRING
+    xmlHttpRequest:setRequestHeader("Content-type","image/jpg")
+    xmlHttpRequest:open("GET",url)
+    local function onHttpRequestaddr()
+        if xmlHttpRequest.status == 200 then
+            local response = xmlHttpRequest.response
+            local fp = io.open(fileName,"wb+")
+            if fp == nil then
+                print("请求头像创建文件失败!",url)
+                return
+            end
+            fp:write(response)
+            fp:close()
+
+            performWithDelay(node, function() 
+                node:loadTexture(fileName)
+            end, 0.1)
+        else
+            print("请求头像连接错误!",url)
+        end
+    end
+    xmlHttpRequest:registerScriptHandler(onHttpRequestaddr)
+    xmlHttpRequest:send()
+end
+
 --字符串分割
 function Common:stringSplit(str, delimiter)
     local pos,arr = 0, {}

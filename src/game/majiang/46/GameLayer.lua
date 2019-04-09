@@ -433,24 +433,27 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 4 do
                 _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
             end
---        elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then           --报听可删牌数据
---            _tagMsg.pBuffer.cbGangCard = {}
---            for i = 1, 14 do
---                _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
---            end
---        elseif subCmdID == NetMsgId.SUB_S_ALONE_BAOTINGCARD then        --报听可胡哪些牌数据
---            _tagMsg.pBuffer.cbGangCard = {}
---            for i = 1, 27 do
---                _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
---            end
-            
-        elseif subCmdID == NetMsgId.SUB_S_ACTION_BAOTINGCARD then        --报听可胡哪些牌数据
-            _tagMsg.pBuffer.cbGangCard = {}
-            for i = 1, 27 do
-                _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
+
+        elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then           --报听可删牌数据   
+            _tagMsg.pBuffer.cbBTCard = {}    ---  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.cbBTCard[i] = luaFunc:readRecvByte()
             end
-            self.tableLayer:showBaoting(_tagMsg.pBuffer)
-            return true
+            _tagMsg.pBuffer.mBTHuCard= {}      ----  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.mBTHuCard[i]= {}
+                for j = 1, 27 do
+                    _tagMsg.pBuffer.mBTHuCard[i][j] = luaFunc:readRecvByte()
+                end 
+            end 
+            print("+++++++++报停有理+++++++")
+        -- elseif subCmdID == NetMsgId.SUB_S_ACTION_BAOTINGCARD then        --报听可胡哪些牌数据
+        --     _tagMsg.pBuffer.cbGangCard = {}
+        --     for i = 1, 27 do
+        --         _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
+        --     end
+        --     self.tableLayer:showBaoting(_tagMsg.pBuffer)
+        --     return true
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_RESULT then              --操作结果
             _tagMsg.pBuffer.wOperateUser = luaFunc:readRecvWORD()       --操作用户
             _tagMsg.pBuffer.wProvideUser = luaFunc:readRecvWORD()       --供应用户
@@ -721,7 +724,20 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 27 do
                 _tagMsg.pBuffer.mAloneBaoTingCardEx[i] = luaFunc:readRecvByte()
             end
-            
+
+            _tagMsg.pBuffer.wLastOutCardUser = luaFunc:readRecvWORD()
+
+            _tagMsg.pBuffer.cbBTCard = {}    ---  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.cbBTCard[i] = luaFunc:readRecvByte()
+            end
+            _tagMsg.pBuffer.mBTHuCard= {}      ----  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.mBTHuCard[i]= {}
+                for j = 1, 27 do
+                    _tagMsg.pBuffer.mBTHuCard[i][j] = luaFunc:readRecvByte()
+                end 
+            end 
             
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_SCORE then
             _tagMsg.pBuffer.lUserScore = {}
@@ -868,10 +884,9 @@ function GameLayer:OnGameMessageRun(_tagMsg)
 
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_NOTIFY_MAJIANG then              --操作提示
             self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_NOTIFY_MAJIANG,pBuffer)
-        elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then              --报听可删牌数据 
-            self.tableLayer:doAction(NetMsgId.SUB_S_BAOTINGOUTCARD,pBuffer)
---        elseif subCmdID == NetMsgId.SUB_S_ALONE_BAOTINGCARD then           --报听可胡哪些牌数据   
---            self.tableLayer:doAction(NetMsgId.SUB_S_ALONE_BAOTINGCARD,pBuffer)
+        elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then              --报听可删牌数据      
+            -- self.tableLayer:doAction(NetMsgId.SUB_S_BAOTINGOUTCARD,pBuffer)
+            self.tableLayer:BaoTingCardShow({cbBTCard = pBuffer.cbBTCard,mBTHuCard = pBuffer.mBTHuCard})
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_RESULT then              --操作结果
             self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_RESULT, pBuffer)
 
@@ -996,10 +1011,12 @@ function GameLayer:OnGameMessageRun(_tagMsg)
                     self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_NOTIFY_MAJIANG,{wResumeUser = 0,cbActionMask = pBuffer.cbActionMask, 
                         cbActionCard = pBuffer.cbActionCard,bIsSelf = false,cbGangCard = pBuffer.cbGangCard})
                 end
-            end          
---            if GameCommon.mHuCard ~= nil and GameCommon.mHuCard[1]~= 0 then
---                self.tableLayer:huCardShow(1)
---            end  
+            end
+           -- if GameCommon.mHuCard ~= nil and GameCommon.mHuCard[1]~= 0 then
+            --    self.tableLayer:huCardShow(1)
+            if  pBuffer.mBTHuCard~= {} and pBuffer.mBTHuCard[1] ~={} and pBuffer.mBTHuCard[1][1] ~=nil then 
+                self.tableLayer:BaoTingCardShow({cbBTCard = pBuffer.cbBTCard,mBTHuCard = pBuffer.mBTHuCard})
+            end  
             self:updateBankerUser()
             self:updatePlayerInfo()
             self:updatehandplate()

@@ -76,7 +76,7 @@ function GameLayer:startGame(...)
         
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     local csb = nil
-    if CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+    if CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
         csb = cc.CSLoader:createNode("GameLayerYZZiPai.csb")
     else
         csb = cc.CSLoader:createNode("GameLayerZiPai.csb")
@@ -1002,7 +1002,7 @@ function GameLayer:updatePlayerInfo()
             local uiPanel_playerInfo = ccui.Helper:seekWidgetByName(uiPanel_player,"Panel_playerInfo")
             uiPanel_playerInfo:setVisible(true)
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
-            if CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+            if CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
                 Common:requestUserAvatar(GameCommon.player[wChairID].dwUserID,GameCommon.player[wChairID].szPto,uiImage_avatar,"img")
              else
                  Common:requestUserAvatar(GameCommon.player[wChairID].dwUserID,GameCommon.player[wChairID].szPto,uiImage_avatar,"clip")
@@ -1018,7 +1018,7 @@ function GameLayer:updatePlayerInfo()
             self:updatePlayerHuXi(wChairID)            
         end
     end
-    if CHANNEL_ID == 0 or CHANNEL_ID == 1 then
+    if CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11 then
         if online then 
             local uiButton_Invitation = ccui.Helper:seekWidgetByName(self.root,"Button_Invitation")
             uiButton_Invitation:setVisible(false)
@@ -1129,7 +1129,7 @@ function GameLayer:updatePlayerReady()
             end
             if  GameCommon.player[wChairID].dwUserID == GameCommon.dwUserID and GameCommon.player[wChairID].bReady == true or GameCommon.gameState == GameCommon.GameState_Start  then
                 local uiButton_ready = ccui.Helper:seekWidgetByName(self.root,"Button_ready")
-                if GameCommon.tableConfig.wCurrentNumber == 0 and (CHANNEL_ID == 0 or CHANNEL_ID == 1) then 
+                if GameCommon.tableConfig.wCurrentNumber == 0 and (CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11) then 
                     uiButton_ready:setBright(false)
                 else
                     uiButton_ready:setVisible(false)

@@ -61,11 +61,11 @@ function HallLayer:onCreate(parames)
         self:runAction(cc.Sequence:create(
             cc.DelayTime:create(1.5),
             cc.CallFunc:create(function(sender,event) 
-                if StaticData.Hide[CHANNEL_ID].btn1 == 1 and UserData.Guild.dwGuildID == 0 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Guil,0)) == false  then
-                    if CHANNEL_ID ~= 20 and  CHANNEL_ID ~= 21 then
-                        self:addChild(require("app.MyApp"):create():createView("GuilLayer"))   
-                    end
-                end
+                -- if StaticData.Hide[CHANNEL_ID].btn1 == 1 and UserData.Guild.dwGuildID == 0 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Guil,0)) == false  then
+                --     if CHANNEL_ID ~= 20 and  CHANNEL_ID ~= 21 then
+                --         self:addChild(require("app.MyApp"):create():createView("GuilLayer"))   
+                --     end
+                -- end
                 if StaticData.Hide[CHANNEL_ID].btn12 == 1 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(string.format(Default.UserDefault_Sign,UserData.User.userID),0)) == false then
                     self:addChild(require("app.MyApp"):create(1000):createView("WelfareLayer"))  
                 end 

@@ -85,6 +85,8 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
     local uiListView_card = ccui.Helper:seekWidgetByName(self.root,"ListView_card")
     self.uiListView_list:removeAllItems()
     uiListView_panel:removeAllItems()
+    GameCommon.IsOfHu =0
+
     if opType == 1 then
         local item = self.Button_operation:clone()
         --item:loadTextures("game/op_wufu.png","game/op_wufu.png","game/op_wufu.png")
@@ -152,6 +154,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
             local item = self.Button_operation:clone()
             item:loadTextures("game/op_hu.png","game/op_hu.png","game/op_hu.png")
             item:setPressedActionEnabled(true)
+            if  GameCommon.tableConfig.wKindID == 44 then
+                GameCommon.IsOfHu = 1
+            end
             if  GameCommon.tableConfig.wKindID == 39 or GameCommon.tableConfig.wKindID == 16  then       
                 self:runAction(cc.Sequence:create(cc.DelayTime:create(1),cc.CallFunc:create(function(sender,event)  self:dealHu() item:setVisible(false) end)))      
             end 
@@ -181,7 +186,14 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
-                        self:dealChi()
+                        --self:dealChi()
+                        if GameCommon.IsOfHu == 1 then
+                            require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
+                                self:dealChi()
+                            end)
+                        else                             
+                            self:dealChi()
+                        end 
                     end 
                 end)
           
@@ -194,7 +206,14 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
-                        self:dealPen()
+                        --self:dealPen()
+                        if GameCommon.IsOfHu == 1 then
+                            require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
+                                self:dealPen()
+                            end)
+                        else                             
+                            self:dealPen()
+                        end 
                     end 
                 end)
             end
@@ -209,6 +228,11 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         self:dealHu()
                     end 
                 end)
+
+                if  GameCommon.tableConfig.wKindID == 44 then     
+                    GameCommon.IsOfHu = 1
+                end
+
                 if GameCommon.tableConfig.wKindID == 33 or GameCommon.tableConfig.wKindID == 34 or GameCommon.tableConfig.wKindID == 35 or GameCommon.tableConfig.wKindID == 36 or GameCommon.tableConfig.wKindID == 32 or GameCommon.tableConfig.wKindID == 37 or GameCommon.tableConfig.wKindID == 27 or GameCommon.tableConfig.wKindID == 31 then
                     if Bit:_and(cbSubOperateCode,0x0800) ~= 0  then
                         local img = ccui.ImageView:create("zipai/table/end_play_3wcw.png")
@@ -375,7 +399,14 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
-                        self:dealGuo()
+                        --self:dealGuo()
+                        if GameCommon.IsOfHu == 1 then
+                            require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
+                                self:dealGuo()
+                            end)
+                        else                             
+                            self:dealGuo()
+                        end 
                     end 
                 end)
             end
@@ -387,7 +418,14 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
-                        self:dealGuo()
+                        --self:dealGuo()
+                        if GameCommon.IsOfHu == 1 then
+                            require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
+                                self:dealGuo()
+                            end)
+                        else                             
+                            self:dealGuo()
+                        end 
                     end 
                 end)
             end

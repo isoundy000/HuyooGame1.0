@@ -82,6 +82,7 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         data.dwDNU = luaFunc:readRecvDWORD()
         data.dwNewUserGameCount = luaFunc:readRecvDWORD()
         data.dwAllPeopleCount = luaFunc:readRecvDWORD()
+        data.dwWinnerCount = luaFunc:readRecvDWORD();
         EventMgr:dispatch(EventType.RET_GET_CLUB_STATISTICS_ALL,data)
     --//返回亲友圈统计成员
     elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_STATISTICS_MEMBER_FINISH then
@@ -94,6 +95,44 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         local data = {}
         data.isFinish = luaFunc:readRecvBool()
         EventMgr:dispatch(EventType.RET_GET_CLUB_STATISTICS_FINISH,data)
+
+    elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_FATIGUE_STATISTICS then
+        --亲友圈疲劳值统计
+        local luaFunc = NetMgr:getLogicInstance().cppFunc
+        local data = {}
+        data.dwClubID = luaFunc:readRecvDWORD()
+        data.dwUserID = luaFunc:readRecvDWORD()
+        data.szNickName = luaFunc:readRecvString(32)
+        data.szLogoInfo = luaFunc:readRecvString(256)
+        data.cbOffice = luaFunc:readRecvByte()
+        data.lFatigue = luaFunc:readRecvLong()
+        data.lClubSellFatigue = luaFunc:readRecvLong()
+        data.lClubConsumeFatigue = luaFunc:readRecvLong()
+        data.lSurplusFatigue = luaFunc:readRecvLong()
+        EventMgr:dispatch(EventType.RET_GET_CLUB_FATIGUE_STATISTICS,data)
+
+    elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_FATIGUE_DETAILS then
+        --亲友圈疲劳值详情
+        local luaFunc = NetMgr:getLogicInstance().cppFunc
+        local data = {}
+        data.dwClubID = luaFunc:readRecvDWORD()
+        data.wKindID = luaFunc:readRecvWORD()
+        data.dwUserID = luaFunc:readRecvDWORD()
+        data.szNickName = luaFunc:readRecvString(32)
+        data.szLogoInfo = luaFunc:readRecvString(256)
+        data.cbType = luaFunc:readRecvByte()
+        data.lOldFatigue = luaFunc:readRecvLong()
+        data.lFatigue = luaFunc:readRecvLong()
+        data.lNewFatigue = luaFunc:readRecvLong()
+        data.dwOperTime = luaFunc:readRecvDWORD()
+        data.szDesc = luaFunc:readRecvString(64)
+        data.dwOriginID = luaFunc:readRecvDWORD()
+        data.szOriginNickName = luaFunc:readRecvString(32)
+        data.szOriginLogoInfo = luaFunc:readRecvString(256)
+        data.isFinish = luaFunc:readRecvBool()
+        data.isAllFinish = luaFunc:readRecvBool()
+        EventMgr:dispatch(EventType.RET_GET_CLUB_FATIGUE_DETAILS, data)
+
     end
 end
 
@@ -108,8 +147,8 @@ function Statistics:req_statisticsMember(dwClubID,dwBeganTime,dwEndTime,wPage,dw
 end
 
 --请求管理员统计
-function Statistics:req_statisticsManager(dwClubID,dwBeganTime,dwEndTime)
-    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_STATISTICS_ALL,"ddd",dwClubID,dwBeganTime,dwEndTime)
+function Statistics:req_statisticsManager(dwClubID,dwBeganTime,dwEndTime,dwMinWinnerScore)
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_STATISTICS_ALL,"dddd",dwClubID,dwBeganTime,dwEndTime,dwMinWinnerScore)
 end
 
 --每日统计REQ_GET_CLUB_STATISTICS
@@ -122,5 +161,14 @@ function Statistics:req_playerManager(dwClubID,dwBeganTime,dwEndTime,wPage,dwMin
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_STATISTICS_MEMBER,"dddwd",dwClubID,dwBeganTime,dwEndTime,wPage,dwMinWinnerScore)
 end
 
+--
+function Statistics:req_fatigueStatistics(dwClubID,dwBeganTime,dwEndTime)
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_FATIGUE_STATISTICS,"ddd",dwClubID,dwBeganTime,dwEndTime)
+end
+
+--请求亲友圈疲劳值详情
+function Statistics:getClubFatigueDetatls(dwClubID, dwUserID, dwBeganTime, dwEndTime, wPage)
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_GET_CLUB_FATIGUE_DETAILS, "ddddw", dwClubID, dwUserID, dwBeganTime, dwEndTime, wPage)
+end
 
 return Statistics

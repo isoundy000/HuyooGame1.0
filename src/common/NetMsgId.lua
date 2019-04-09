@@ -194,19 +194,19 @@ local NetMsgId = {
     REQ_FIND_CLUB_MEMBER                = 1641,                            --查看亲友圈成员列表
     RET_FIND_CLUB_MEMBER                = 16041,                           --查看亲友圈成员列表
     
-    REQ_SETTINGS_CLUB3                  = 1692,                            --设置亲友圈桌子信息
-    RET_SETTINGS_CLUB3                  = 16092,                           --返回设置亲友圈桌子信息
-    RET_UPDATE_CLUB_INFO3               = 16093,                           --更新亲友圈信息
-    RET_ADDED_CLUB3                     = 16094,                           --被添加亲友圈
-    REQ_REFRESH_CLUB3                   = 1679,                            --请求刷新亲友圈
-    RET_REFRESH_CLUB3                   = 16079,                           --返回刷新亲友圈
-    REQ_GET_CLUB_LIST3                  = 1690,                            --获取亲友圈列表
-    RET_GET_CLUB_LIST3                  = 16090,                           --返回亲友圈列表
+    REQ_SETTINGS_CLUB3                  = 2202,                            --设置亲友圈桌子信息
+    RET_SETTINGS_CLUB3                  = 22002,                           --返回设置亲友圈桌子信息
+    RET_UPDATE_CLUB_INFO3               = 22003,                           --更新亲友圈信息
+    RET_ADDED_CLUB3                     = 22004,                           --被添加亲友圈
+    REQ_REFRESH_CLUB3                   = 2211,                            --请求刷新亲友圈
+    RET_REFRESH_CLUB3                   = 22011,                           --返回刷新亲友圈
+    REQ_GET_CLUB_LIST3                  = 2210,                            --获取亲友圈列表
+    RET_GET_CLUB_LIST3                  = 22010,                           --返回亲友圈列表
     REQ_GET_CLUB_OPERATE_RECORD         = 1651,                            --获取俱乐部操作记录
     RET_GET_CLUB_OPERATE_RECORD         = 16051,                           --返回俱乐部操作记录
     RET_GET_CLUB_OPERATE_RECORD_FINISH  = 16056,                           --返回俱乐部操作记录
-    REQ_CREATE_CLUB3                    = 1691,                            --请求创建亲友圈
-    RET_CREATE_CLUB3                    = 16091,                           --返回创建亲友圈
+    REQ_CREATE_CLUB3                    = 2201,                            --请求创建亲友圈
+    RET_CREATE_CLUB3                    = 22001,                           --返回创建亲友圈
     REQ_SETTINGS_CLUB_PLAY              = 1675,                            --请求设置亲友圈玩法
     RET_SETTINGS_CLUB_PLAY              = 16075,                           --返回设置亲友圈玩法
     RET_REFRESH_CLUB_PLAY               = 16076,                           --返回刷新俱乐部玩法
@@ -262,6 +262,10 @@ local NetMsgId = {
     REQ_FIND_CLUB_PARTNER_MEMBER        = 1674,                            --查找亲友圈合伙人成员
     RET_FIND_CLUB_PARTNER_MEMBER        = 16074,                           --返回查找亲友圈合伙人成员
 
+    REQ_GET_CLUB_FATIGUE_STATISTICS     = 2212,                            --亲友圈疲劳值统计
+    RET_GET_CLUB_FATIGUE_STATISTICS     = 22012,                           --亲友圈疲劳值统计
+    REQ_GET_CLUB_FATIGUE_DETAILS        = 2213,                            --亲友圈疲劳值详情
+    RET_GET_CLUB_FATIGUE_DETAILS        = 22013,                           --亲友圈疲劳值详情
 
 
     --竞技

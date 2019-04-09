@@ -110,6 +110,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwClubPlayerCount = luaFunc:readRecvDWORD()
         data.dwChatRoomID = luaFunc:readRecvDWORD()
         data.bHaveCustomizeRoom = luaFunc:readRecvBool()
+        data.bIsDisable = luaFunc:readRecvBool()
         data.cbPlayCount = luaFunc:readRecvByte()
         data.szAnnouncement = luaFunc:readRecvString(256)
         data.dwAdministratorID = {}
@@ -140,6 +141,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwClubPlayerCount = luaFunc:readRecvDWORD()
         data.dwChatRoomID = luaFunc:readRecvDWORD()
         data.bHaveCustomizeRoom = luaFunc:readRecvBool()
+        data.bIsDisable = luaFunc:readRecvBool()
         data.cbPlayCount = luaFunc:readRecvByte()
         data.szAnnouncement = luaFunc:readRecvString(256)
         data.dwAdministratorID = {}
@@ -199,6 +201,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwClubPlayerCount = luaFunc:readRecvDWORD()
         data.dwChatRoomID = luaFunc:readRecvDWORD()
         data.bHaveCustomizeRoom = luaFunc:readRecvBool()
+        data.bIsDisable = luaFunc:readRecvBool()
         data.cbPlayCount = luaFunc:readRecvByte()
         data.szAnnouncement = luaFunc:readRecvString(256)
         data.dwAdministratorID = {}
@@ -230,6 +233,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwClubPlayerCount = luaFunc:readRecvDWORD()
         data.dwChatRoomID = luaFunc:readRecvDWORD()
         data.bHaveCustomizeRoom = luaFunc:readRecvBool()
+        data.bIsDisable = luaFunc:readRecvBool()
         data.cbPlayCount = luaFunc:readRecvByte()
         data.szAnnouncement = luaFunc:readRecvString(256)
         data.dwAdministratorID = {}
@@ -339,6 +343,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.isProhibit = luaFunc:readRecvBool()
         data.szRemarks = luaFunc:readRecvString(32)
         data.lFatigueValue = luaFunc:readRecvLong()
+        data.szPartnerNickName = luaFunc:readRecvString(32)
         EventMgr:dispatch(EventType.RET_GET_CLUB_MEMBER,data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_REMOVE_CLUB_MEMBER then
@@ -360,6 +365,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwClubPlayerCount = luaFunc:readRecvDWORD()
         data.dwChatRoomID = luaFunc:readRecvDWORD()
         data.bHaveCustomizeRoom = luaFunc:readRecvBool()
+        data.bIsDisable = luaFunc:readRecvBool()
         data.cbPlayCount = luaFunc:readRecvByte()
         data.szAnnouncement = luaFunc:readRecvString(256)
         data.dwAdministratorID = {}
@@ -547,6 +553,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwClubPlayerCount = luaFunc:readRecvDWORD()
         data.dwChatRoomID = luaFunc:readRecvDWORD()
         data.bHaveCustomizeRoom = luaFunc:readRecvBool()
+        data.bIsDisable = luaFunc:readRecvBool()
         data.cbPlayCount = luaFunc:readRecvByte()
         data.szAnnouncement = luaFunc:readRecvString(256)
         data.dwAdministratorID = {}
@@ -612,7 +619,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.isProhibit = luaFunc:readRecvBool()
         data.szRemarks = luaFunc:readRecvString(32)
         data.lFatigueValue = luaFunc:readRecvLong()
-        -- data.dwACard = luaFunc:readRecvDWORD()
+        data.szPartnerNickName = luaFunc:readRecvString(32)
         EventMgr:dispatch(EventType.RET_FIND_CLUB_MEMBER, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_REFUSE_JOIN_CLUB then
@@ -825,6 +832,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwGameCount = luaFunc:readRecvDWORD()
         data.dwCompleteGameCount = luaFunc:readRecvDWORD()
         data.dwPlayerCount = luaFunc:readRecvDWORD()
+        data.lFatigue = luaFunc:readRecvLong()
         EventMgr:dispatch(EventType.RET_GET_CLUB_PARTNER, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_PARTNER_FINISH then
@@ -847,6 +855,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwGameCount = luaFunc:readRecvDWORD()
         data.dwCompleteGameCount = luaFunc:readRecvDWORD()
         data.dwPlayerCount = luaFunc:readRecvDWORD()
+        data.lFatigue = luaFunc:readRecvLong()
         EventMgr:dispatch(EventType.RET_GET_CLUB_PARTNER_MEMBER, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_PARTNER_MEMBER_FINISH then
@@ -913,6 +922,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwGameCount = luaFunc:readRecvDWORD()
         data.dwCompleteGameCount = luaFunc:readRecvDWORD()
         data.dwPlayerCount = luaFunc:readRecvDWORD()
+        data.lFatigue = luaFunc:readRecvLong()
         EventMgr:dispatch(EventType.RET_FIND_CLUB_PARTNER_MEMBER, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_MEMBER_FATIGUE_RECORD then
@@ -929,6 +939,9 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.lNewFatigue = luaFunc:readRecvLong()
         data.dwOperTime = luaFunc:readRecvDWORD()
         data.szDesc = luaFunc:readRecvString(64)
+        data.dwOriginID = luaFunc:readRecvDWORD()
+        data.szOriginNickName = luaFunc:readRecvString(32)
+        data.szOriginLogoInfo = luaFunc:readRecvString(256)
         EventMgr:dispatch(EventType.RET_GET_CLUB_MEMBER_FATIGUE_RECORD, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_MEMBER_FATIGUE_RECORD_FINISH then
@@ -1166,6 +1179,11 @@ end
 --请求疲劳值
 function Guild:getUpdateClubInfo(dwClubID, dwUserID)
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_UPDATE_CLUB_PLAYER_INFO, "dd", dwClubID, dwUserID)
+end
+
+--请求亲友圈疲劳值统计
+function Guild:getClubFatigueStatistics(dwClubID, wBagenPos, wEndPos)
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_GET_CLUB_FATIGUE_STATISTICS, "dww", dwClubID, wBagenPos, wEndPos)
 end
 
 return Guild

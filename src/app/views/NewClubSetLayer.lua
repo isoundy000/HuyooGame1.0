@@ -36,6 +36,11 @@ function NewClubSetLayer:onConfig()
         {"TextField_notice"},
         {"Button_quitClub", "onQuitClub"},
 
+        {"Image_run", "onClubRun"},
+        {"Image_runLight"},
+        {"Image_stop", "onClubStop"},
+        {"Image_stopLight"},
+
         {"Button_info","onInfo"},
         {"Image_info"},
         {"Button_playway","onPlayWay"},
@@ -105,24 +110,32 @@ end
 
 function NewClubSetLayer:onModify()
     self.isUseSave = false
+    local isCustomRoom = self.Image_openLight:isVisible()
+    local bIsDisable = self.Image_stopLight:isVisible()
+    
     local nickName = self.TextField_name:getString()
     if nickName ~= "" and nickName ~= self.clubData.szClubName then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdwww",
-                3,self.clubData.dwClubID,32,nickName,false,256,"",0,0,0,1)
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdod",
+                3,self.clubData.dwClubID,32,nickName,isCustomRoom,256,"",0,bIsDisable,0)
         self.isUseSave = true
     end
 
-    local isCustomRoom = self.Image_openLight:isVisible()
     if self.clubData.bHaveCustomizeRoom ~= isCustomRoom then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdwww",
-                4,self.clubData.dwClubID,32,nickName,isCustomRoom,256,"",0,0,0,1)
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdod",
+                4,self.clubData.dwClubID,32,nickName,isCustomRoom,256,"",0,bIsDisable,0)
+        self.isUseSave = true
+    end
+
+    if self.clubData.bIsDisable ~= bIsDisable then
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdod",
+                6,self.clubData.dwClubID,32,nickName,isCustomRoom,256,"",0,bIsDisable,0)
         self.isUseSave = true
     end
     
     local noticeStr = self.TextField_notice:getString()
     if noticeStr ~= self.clubData.szAnnouncement then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdwww",
-                5,self.clubData.dwClubID,32,nickName,isCustomRoom,256,noticeStr,0,0,0,1)
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdod",
+                5,self.clubData.dwClubID,32,nickName,isCustomRoom,256,noticeStr,0,bIsDisable,0)
         self.isUseSave = true
     end
 
@@ -142,6 +155,20 @@ function NewClubSetLayer:onCloseCustom()
     if not self.Image_closeLight:isVisible() then
         self.Image_openLight:setVisible(false)
         self.Image_closeLight:setVisible(true)
+    end
+end
+
+function NewClubSetLayer:onClubRun()
+    if not self.Image_runLight:isVisible() then
+        self.Image_runLight:setVisible(true)
+        self.Image_stopLight:setVisible(false)
+    end
+end
+
+function NewClubSetLayer:onClubStop()
+    if not self.Image_stopLight:isVisible() then
+        self.Image_runLight:setVisible(false)
+        self.Image_stopLight:setVisible(true)
     end
 end
 
@@ -369,8 +396,20 @@ function NewClubSetLayer:initInfoPage()
         self.Image_close:setColor(cc.c3b(170,170,170))
         self.TextField_notice:setTouchEnabled(false)
         self.TextField_notice:setColor(cc.c3b(170,170,170))
+        self.Image_run:setTouchEnabled(false)
+        self.Image_run:setColor(cc.c3b(170,170,170))
+        self.Image_stop:setTouchEnabled(false)
+        self.Image_stop:setColor(cc.c3b(170,170,170))
     end
     Common:requestUserAvatar(data.dwUserID, data.szLogoInfo, self.Image_head, "img")
+
+    if not data.bIsDisable then
+        self.Image_runLight:setVisible(true)
+        self.Image_stopLight:setVisible(false)
+    else
+        self.Image_runLight:setVisible(false)
+        self.Image_stopLight:setVisible(true)
+    end
 end
 
 function NewClubSetLayer:initWayPage()

@@ -936,7 +936,7 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
     local bWeaveItemCount = GameCommon.player[wChairID].bWeaveItemCount
     local WeaveItemArray = GameCommon.player[wChairID].WeaveItemArray
     local cardScale = 1.2
-    if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1  then 
+    if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11   then 
         cardScale = 1.0
     end 
     local cardSpace = 6
@@ -1077,7 +1077,7 @@ function TableLayer:setDiscardCard(wChairID, bDiscardCardCount, bDiscardCard,bOu
     if isThreeRoom then
         local parentWidth = uiPanel_discardCard:getParent():getContentSize().width
         uiPanel_discardCard:setPositionX(parentWidth * 0.99) 
-        if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
             uiPanel_discardCard:setPositionX(parentWidth * 0.88) 
         end 
     end
@@ -1094,7 +1094,7 @@ function TableLayer:setDiscardCard(wChairID, bDiscardCardCount, bDiscardCard,bOu
     local maxRow = 7
     if GameCommon.gameConfig.bPlayerCount == 2 then
         maxRow = 12
-        if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
             maxRow = 10
         end 
     end
@@ -1284,7 +1284,7 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
             cardScale = 1
             uiPanel_handCard = ccui.Helper:seekWidgetByName(uiPanel_showEndCard,"Panel_handCardRole")
         end
-        if viewID == 1 and GameCommon.gameConfig.bPlayerCount == 4 and StaticData.Games[GameCommon.tableConfig.wKindID].isZuoXing4 == 0 and (CHANNEL_ID == 0 or CHANNEL_ID == 1 or GameCommon:judgeGame()) then 
+        if viewID == 1 and GameCommon.gameConfig.bPlayerCount == 4 and StaticData.Games[GameCommon.tableConfig.wKindID].isZuoXing4 == 0 and (CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11 or GameCommon:judgeGame()) then 
             cardScale = 0.6
         end
     else
@@ -1573,7 +1573,7 @@ function TableLayer:initUI()
     uiText_time:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event) 
         local date = os.date("*t",os.time())
         uiText_time:setString(string.format("%02d:%02d:%02d",date.hour,date.min,date.sec))
-        if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
             uiText_time:setString(string.format("%02d:%02d",date.hour,date.min))
         end 
     end),cc.DelayTime:create(1))))
@@ -1653,7 +1653,7 @@ function TableLayer:initUI()
         local UserDefault_ZiPaipaizhuo = nil
         if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
             UserDefault_ZiPaipaizhuo = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_ZiPaipaizhuo,2)
-        elseif GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1  then 
+        elseif GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11   then 
             UserDefault_ZiPaipaizhuo = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_ZiPaipaizhuo,2)
         else
             UserDefault_ZiPaipaizhuo = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_ZiPaipaizhuo,0)
@@ -1664,19 +1664,19 @@ function TableLayer:initUI()
         end
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_ZiPaipaizhuo,UserDefault_ZiPaipaizhuo)
         uiPanel_bg:removeAllChildren()
-        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
-            if GameCommon:judgeGame() then
-                uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
-            else
-                uiPanel_bg:addChild(ccui.ImageView:create(string.format("achannel/%d/paohuzi_table_bg%d.jpg",CHANNEL_ID,UserDefault_ZiPaipaizhuo)))
-            end 
-        else
-            if  GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then
+        -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+        --     if GameCommon:judgeGame() then
+        --         uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
+        --     else
+        --         uiPanel_bg:addChild(ccui.ImageView:create(string.format("achannel/%d/paohuzi_table_bg%d.jpg",CHANNEL_ID,UserDefault_ZiPaipaizhuo)))
+        --     end 
+        -- else
+            if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
                 uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
             else
                 uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/paohuzi_table_bg%d.jpg",UserDefault_ZiPaipaizhuo)))
             end 
-        end
+        -- end
     end)
     local UserDefault_ZiPaipaizhuo = nil
     if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
@@ -1690,19 +1690,19 @@ function TableLayer:initUI()
     end
     --if UserDefault_ZiPaipaizhuo ~= 0 then
         uiPanel_bg:removeAllChildren()
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
-        if  GameCommon:judgeGame() then
-            uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
-        else
-            uiPanel_bg:addChild(ccui.ImageView:create(string.format("achannel/%d/paohuzi_table_bg%d.jpg",CHANNEL_ID,UserDefault_ZiPaipaizhuo)))
-        end 
-    else
-        if  GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then
+    -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    --     if  GameCommon:judgeGame() then
+    --         uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
+    --     else
+    --         uiPanel_bg:addChild(ccui.ImageView:create(string.format("achannel/%d/paohuzi_table_bg%d.jpg",CHANNEL_ID,UserDefault_ZiPaipaizhuo)))
+    --     end 
+    -- else
+        if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
             uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
         else
             uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/paohuzi_table_bg%d.jpg",UserDefault_ZiPaipaizhuo)))
         end 
-    end
+    -- end
     --end
     
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_font"),function() 
@@ -1807,7 +1807,7 @@ function TableLayer:initUI()
             NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
         end)
     end)
-    if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+    if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
         uiButton_disbanded:setVisible(false)
     end 
     --拷贝按钮
@@ -1881,13 +1881,13 @@ function TableLayer:initUI()
     if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
     else
         uiButton_SignOut:setVisible(false)
-        if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
             uiButton_disbanded:setVisible(false)
         else
             uiButton_out:setPositionX(visibleSize.width*0.36)   
         end 
        
-        if  GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then
+        if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
         else
              uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
         end             
@@ -1935,14 +1935,14 @@ function TableLayer:initUI()
             else
                 uiButton_Invitation:setVisible(true)
             end
-            if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then             
+            if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then             
                 uiButton_out:setVisible(false)
                 uiButton_disbanded:setVisible(true)
             end 
         elseif GameCommon.tableConfig.wCurrentNumber > 0 then
             uiButton_Invitation:setVisible(false)
             uiButton_out:setVisible(false)
-            if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then             
+            if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then             
                 uiButton_disbanded:setVisible(true)
             end 
             uiButton_SignOut:setVisible(false)
@@ -1957,7 +1957,7 @@ function TableLayer:initUI()
         if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
             waitArmature:setPosition(0,120)
         end  
-        if  GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then
+        if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
             waitArmature:setPosition(100,140)
         end 
 
@@ -1972,7 +1972,7 @@ function TableLayer:initUI()
         uiButton_out:setVisible(false)
         uiButton_SignOut:setVisible(false)
         local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
-        if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
             uiButton_disbanded:setVisible(false)
         else        
             uiListView_function:removeItem(uiListView_function:getIndex(uiButton_disbanded)) 
@@ -2004,7 +2004,7 @@ function TableLayer:initUI()
         uiButton_out:setVisible(false)
         uiButton_SignOut:setVisible(false)
         local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
-        if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
             uiButton_disbanded:setVisible(false)
         else
             uiListView_function:removeItem(uiListView_function:getIndex(uiButton_disbanded)) 
@@ -2142,7 +2142,7 @@ function TableLayer:updateGameState(state)
         local uiPanel_ready = ccui.Helper:seekWidgetByName(self.root,"Panel_ready")
         uiPanel_ready:setVisible(false)
         if GameCommon.tableConfig.nTableType > TableType_GoldRoom then                   
-            if GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then 
+            if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
                 local uiButton_out = ccui.Helper:seekWidgetByName(self.root,"Button_out")
                 local uiButton_disbanded = ccui.Helper:seekWidgetByName(self.root,"Button_disbanded")
                 uiButton_out:setVisible(false)
@@ -2588,19 +2588,19 @@ function TableLayer:EVENT_TYPE_SKIN_CHANGE(event)
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_ZiPaipaizhuo,UserDefault_ZiPaipaizhuo)
     end
     uiPanel_bg:removeAllChildren()
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
-        if  GameCommon:judgeGame() then
-            uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
-        else
-            uiPanel_bg:addChild(ccui.ImageView:create(string.format("achannel/%d/paohuzi_table_bg%d.jpg",CHANNEL_ID,UserDefault_ZiPaipaizhuo)))
-        end 
+    -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    --     if  GameCommon:judgeGame() then
+    --         uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
+    --     else
+    --         uiPanel_bg:addChild(ccui.ImageView:create(string.format("achannel/%d/paohuzi_table_bg%d.jpg",CHANNEL_ID,UserDefault_ZiPaipaizhuo)))
+    --     end 
+    -- else
+    if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
+        uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
     else
-        if  GameCommon:judgeGame() or CHANNEL_ID == 0 or CHANNEL_ID == 1 then
-            uiPanel_bg:addChild(ccui.ImageView:create(string.format("yongzhou/bg/bj_%d.jpg",UserDefault_ZiPaipaizhuo)))
-        else
-            uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/paohuzi_table_bg%d.jpg",UserDefault_ZiPaipaizhuo)))
-        end 
-    end
+        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/paohuzi_table_bg%d.jpg",UserDefault_ZiPaipaizhuo)))
+    end 
+    -- end
     
     --亮度
     local uiPanel_night = ccui.Helper:seekWidgetByName(self.root,"Panel_night")

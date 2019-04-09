@@ -2335,17 +2335,27 @@ function TableLayer:initUI()
         end
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_MaJiangpaizhuo,UserDefault_MaJiangpaizhuo)
         uiPanel_bg:removeAllChildren()
-        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_mg_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+        else
+            uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+        end
     end)        
     local UserDefault_MaJiangpaizhuo = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_MaJiangpaizhuo,0)
     if UserDefault_MaJiangpaizhuo < 0 or UserDefault_MaJiangpaizhuo > 2 then
         UserDefault_MaJiangpaizhuo = 0
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_MaJiangpaizhuo,UserDefault_MaJiangpaizhuo)
     end
-    if UserDefault_MaJiangpaizhuo ~= 0 then
+    -- if UserDefault_MaJiangpaizhuo ~= 0 then
         uiPanel_bg:removeAllChildren()
-        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
-    end
+        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_mg_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+        else
+            uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+        end
+    -- else 
+
+    -- end
     
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_font"),function() 
         local UserDefault_MaJiangCard = nil 
@@ -3350,7 +3360,11 @@ function TableLayer:EVENT_TYPE_SKIN_CHANGE(event)
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_MaJiangpaizhuo,UserDefault_MaJiangpaizhuo)
     end
     uiPanel_bg:removeAllChildren()
-    uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then  
+        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_mg_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+    else 
+        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/game_table_bg%d.jpg",UserDefault_MaJiangpaizhuo)))
+    end
 
     --亮度
     local uiPanel_night = ccui.Helper:seekWidgetByName(self.root,"Panel_night")
