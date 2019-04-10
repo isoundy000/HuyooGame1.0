@@ -70,11 +70,11 @@ function TableLayer:onExit()
     if music ~= '' then
         cc.SimpleAudioEngine:getInstance():playMusic(music, true)
     end
+    self.dragTPData = nil
 end
 
 function TableLayer:onCreate(root)
     self.root = root
-    self.cotrolCardTPData = nil
     self.locationPos = cc.p(0,0)
     local touchLayer = ccui.Layout:create()
     self.root:addChild(touchLayer)
@@ -109,10 +109,8 @@ function TableLayer:doAction(action,pBuffer)
             local armature = ccs.Armature:create("finger")
             uiPanel_outCardTips:addChild(armature)
             armature:getAnimation():playWithIndex(0)
-            self.cotrolCardTPData = {}
-			GameCommon.bIsOutCardTips = true	
-		else
-			self.cotrolCardTPData = nil
+			GameCommon.bIsOutCardTips = true
+            self:showTingPaiTips()
         end
         self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
@@ -492,10 +490,10 @@ function TableLayer:doAction(action,pBuffer)
         self:runAction(cc.Sequence:create(cc.DelayTime:create(time),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
     elseif action == GameCommon.ACTION_OUT_CARD then
+        self.dragTPData = nil
         local uiPanel_outCardTips = ccui.Helper:seekWidgetByName(self.root,"Panel_outCardTips")
         uiPanel_outCardTips:removeAllChildren()
         self.button_discard:setVisible(false)
-        self.cotrolCardTPData = nil
         local wChairID = pBuffer.wOutCardUser
         local viewID = GameCommon:getViewIDByChairID(wChairID)
         local cbCardData = pBuffer.cbOutCardData
@@ -665,7 +663,10 @@ function TableLayer:doAction(action,pBuffer)
         local viewID = GameCommon:getViewIDByChairID(wChairID)
         GameCommon:playAnimation(self.root, "死守",wChairID)
         self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
- 
+        if viewID == 1 then
+            self:showTingPaiTips()
+        end
+
     elseif action == GameCommon.ACTION_HU_CARD then 
         local wChairID = pBuffer.wWinUser
         local uiPanel_operation = ccui.Helper:seekWidgetByName(self.root,"Panel_operation")
@@ -1379,6 +1380,9 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                 v.pt = cc.p(beganX + key*stepX - cardWidth/2, stepY*(k-1) + cardHeight/2)
                 card:setScale(cardScale)
                 card:runAction(cc.MoveTo:create(time,v.pt))
+
+                --听牌角标
+                self:setTPCardFlag(card, v.data)
             else
                 card:setPosition(v.pt)
                 v.pt = cc.p(beganX + key*stepX - cardWidth/2, stepY*(k-1) + cardHeight/2)
@@ -1400,8 +1404,6 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                         if GameCommon.player[wChairID] == nil or GameCommon.player[wChairID].cardStackInfo[row] == nil then
                             return
                         end
-                        
-                        self:setTPDataToCotrol(v.data)
                         uiImage_line:setVisible(true)
                         
                         --判断是否可以拖动
@@ -1421,29 +1423,7 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                             return
                         end
 
-                        local wKindID = GameCommon.tableConfig.wKindID
-                        if wKindID == 47 or wKindID == 48 or wKindID == 49 or wKindID == 60 or wKindID == 44 then
-                            if type(self.cotrolCardTPData) == 'table' then
-                                if self.cotrolCardTPData[v.data] then
-                                    self:setOutCardTPTips(self.cotrolCardTPData[v.data])
-                                else
-                                    -- NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OUT_CARD_TING_CARD, "b", v.data)
-    
-                                    local cbCardIndex = GameCommon.player[wChairID].cbCardIndex
-                                    if cbCardIndex then
-                                        local tempCardIdx = clone(cbCardIndex)
-                                        local index = GameLogic:SwitchToCardIndex(v.data);
-                                        tempCardIdx[index] = tempCardIdx[index] - 1
-                                        -- local data = {
-                                        -- 	wChairID = wChairID, 
-                                        -- 	cbCardIndex = tempCardIdx, 
-                                        -- 	cbCardData = v.data
-                                        -- }
-                                        self:checkTPShowTips(wChairID, tempCardIdx, v.data)
-                                    end
-                                end
-                            end
-                        end 
+                        self:showDragTPTips(v.data)
 
                         preRow = row
                         uiPanel_copyHandCard:removeAllChildren()
@@ -1460,13 +1440,8 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                             self.copyHandCard:setPosition(self.locationPos)
                         end
                     else
+                        self:hideDragTPTips(v.data)
 
-                        if type(self.cotrolCardTPData) == 'table' then
-							self:setOutCardTPTips(self.normolTPData)
-                        end
-                        
-                        -- self:setTPDataToCotrol()
-                        -- uiImage_line:setVisible(false)
                         if self.copyHandCard ~= nil then
                             uiPanel_copyHandCard:removeAllChildren()
                             self.copyHandCard = nil
@@ -2614,8 +2589,6 @@ function TableLayer:EVENT_TYPE_SKIN_CHANGE(event)
     --字体
     self:showHandCard(GameCommon:getRoleChairID(),0)
     
-
-    
     --牌背
     for i = 0 , GameCommon.gameConfig.bPlayerCount-1 do
         local wChairID = i
@@ -2888,350 +2861,134 @@ function TableLayer:playSkelStartToEndPos(sChairID, eChairID, index)
 	end
 end
 
----------听牌操作----------
-function TableLayer:setOutCardTPTips(pBuffer)
-    local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
-    local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
-	if not IsOpenTin then
-		Image_tp:setVisible(false)
-		return
-	end
-
-	if not pBuffer then
-		Image_tp:setVisible(false)
-		return
-	end
-	
-	if pBuffer.isTingCard then
-		self:setTPView(pBuffer)
-	else
-		Image_tp:setVisible(false)
-	end
-
-	if pBuffer.cbCardData == 0 then
-		self.normolTPData = pBuffer
-	end
-	dump(pBuffer)
-
-	if type(self.cotrolCardTPData) == 'table' then
-		self.cotrolCardTPData[pBuffer.cbCardData] = pBuffer
-	end
-end
-
-function TableLayer:setTPView(data)
-	local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
-	local Image_tpFrame = Image_tp:getChildByName('Image_tpFrame')
-	Image_tp:setVisible(true)
-	Image_tpFrame:removeAllChildren()
-	local tpNum = data.cbTingCount
-	local row = math.ceil(tpNum / 3)
-	Image_tpFrame:setContentSize(Image_tpFrame:getContentSize().width, 50 +(row - 1) * 50)
-	
-	local index = 0
-	for key, var in pairs(data.cbCardIndexTing) do
-		if var > 0 then
-			index = index + 1
-			local card = nil
-            if key <= 10 then
-                print("+++++++++++++报停的牌数据",key)
-				card = ccui.ImageView:create(string.format("zipai/table/listencard_%ds.png", key))
-			else
-				card = ccui.ImageView:create(string.format("zipai/table/listencard_%db.png", key - 10))
-			end
-			local size = Image_tpFrame:getContentSize()
-			local row = math.ceil(index / 3)
-			local col = index % 3
-			if col == 0 then
-				col = 3
-			end
-			Image_tpFrame:addChild(card)
-			local x = size.width * 0.2 +(col - 1) * size.width * 0.3
-			local y = size.height - 25 -(row - 1) * 50
-			card:setPosition(x, y)
-		end
-	end
-end
-
-function TableLayer:setTPDataToCotrol(data)
-	-- local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
-	-- local Image_tpFrame = Image_tp:getChildByName('Image_tpFrame')
-	-- if not IsOpenTin then
-	-- 	Image_tp:setVisible(false)
-	-- 	return
-	-- end
-	
-	-- if type(self.cotrolCardTPData) ~= 'table' then
-	-- 	return
-	-- end
-	
-	-- if not data then
-	-- 	Image_tp:setVisible(false)
-	-- 	return
-	-- end
-	
-	-- local pBuffer = self.cotrolCardTPData
-	-- if pBuffer.isTingCard then
-	-- 	for k, v in pairs(pBuffer.stuTingCardInfo) do
-	-- 		if v.isTingCard and GameLogic:SwitchToCardIndex(data) == k then
-	-- 			self:setTPView(v)
-	-- 			break
-	-- 		end
-	-- 	end
-	-- else
-	-- 	Image_tp:setVisible(false)
-	-- end
-end
-
-function TableLayer:saveCotrolCardTPData(pBuffer)
-	-- self.cotrolCardTPData = pBuffer
-	-- local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
-	-- Image_tp:setVisible(false)
-end
-
-
-
-------------------------------------------
---听牌检查
-------------------------------------------
-local function getPlayerHuXi(wChairID)
-	local huXiCount = 0
-	local viewID = GameCommon:getViewIDByChairID(wChairID)
-	if GameCommon.player[wChairID].WeaveItemArray ~= nil then
-		for key, var in pairs(GameCommon.player[wChairID].WeaveItemArray) do	
-			if(var.cbWeaveKind == GameCommon.ACK_TI and GameCommon.tiCardType == 1 and wChairID ~= GameCommon:getRoleChairID()) or
-			(var.cbWeaveKind == GameCommon.ACK_WEI and GameCommon.weiCardType == 1 and wChairID ~= GameCommon:getRoleChairID()) then
-				
-			else
-				huXiCount = huXiCount + GameLogic:GetWeaveHuXi(var)
-			end
-		end
-	end
-	return huXiCount
-end
-
-local function EstimatePoPaoHuCardInfo(wCurrentUser, cbCardIndex, cbCenterCard)
-	--不能跑胡
-	if cbCenterCard == 0 then	
-		return false 
-	end
-
-	if GameLogic:IsValidCard(cbCenterCard) == false then 
-		return false
-	end
-
-	--跑提计算
-	local cbTiPaoCount = 0
-	for i=1, GameCommon.player[wCurrentUser].bWeaveItemCount do
-		if GameCommon.player[wCurrentUser].WeaveItemArray[i].cbCardCount == 4 then 
-			cbTiPaoCount = cbTiPaoCount + 1
-		end
-	end
-
-	if cbTiPaoCount >= 1 then
-		return false
-	end
-	
-	local i = wCurrentUser
-	local bUserHuXiCount = 0
-	local tempWeaveItemCount = GameCommon.player[i].bWeaveItemCount				--组合数目
-	local tempWeaveItemArray = clone(GameCommon.player[i].WeaveItemArray)	--组合扑克
-	local cbCardIndexTemp = clone(cbCardIndex)
-
-	--桌面定义
-	for cbIndex=1, tempWeaveItemCount do
-		--变量定义
-		local cbWeaveKind=tempWeaveItemArray[cbIndex].cbWeaveKind
-		local cbWeaveCard=tempWeaveItemArray[cbIndex].cbCardList[1]
-
-		--转换判断
-		local bChangeWeave=false
-		if cbCenterCard==cbWeaveCard then
-			if cbWeaveKind==GameCommon.ACK_WEI then
-				bChangeWeave=true
-			elseif cbWeaveKind==GameCommon.ACK_PENG then
-				bChangeWeave=true
-			end
-		end
-
-		if bChangeWeave then 
-			--设置组合
-			tempWeaveItemArray[cbIndex].cbCardCount=4
-			tempWeaveItemArray[cbIndex].cbWeaveKind=GameCommon.ACK_PAO
-			tempWeaveItemArray[cbIndex].cbCardList[4]=cbCenterCard
-
-			--胡息计算
-			local bUserHuXiCount=0
-			for j=1,tempWeaveItemCount do
-				bUserHuXiCount = bUserHuXiCount + GameLogic:GetWeaveHuXi(tempWeaveItemArray[j])
-			end
-
-			--用牌值为0去判断是否可以胡牌
-			local isBool, HuCardInfo = GameLogic:GetHuCardInfo(cbCardIndexTemp,0,bUserHuXiCount)
-			if isBool then
-				if HuCardInfo.cbCardEye ~= 0 then
-					return true
-				end
-			end
-		end
-	end
-
-	--手跑胡判断
-	if GameLogic:IsTiPaoCard(cbCardIndexTemp,cbCenterCard) then
-		--变量定义
-		local cbRemoveIndex=GameLogic:SwitchToCardIndex(cbCenterCard)
-		local cbRemoveCount=cbCardIndexTemp[cbRemoveIndex]
-
-		--删除扑克
-		cbCardIndexTemp[cbRemoveIndex]=0
-
-		--设置组合
-		local cbIndex=tempWeaveItemCount + 1
-		tempWeaveItemArray[cbIndex] = tempWeaveItemArray[cbIndex] or {}
-		tempWeaveItemArray[cbIndex].cbCardList = tempWeaveItemArray[cbIndex].cbCardList or {}
-		tempWeaveItemArray[cbIndex].cbCardCount=4
-		tempWeaveItemArray[cbIndex].cbWeaveKind=GameLogic.ACK_PAO
-		tempWeaveItemArray[cbIndex].cbCenterCard=cbCenterCard
-		tempWeaveItemArray[cbIndex].cbCardList[1]=cbCenterCard
-		tempWeaveItemArray[cbIndex].cbCardList[2]=cbCenterCard
-		tempWeaveItemArray[cbIndex].cbCardList[3]=cbCenterCard
-		tempWeaveItemArray[cbIndex].cbCardList[4]=cbCenterCard
-
-		--胡息计算
-		local bUserHuXiCount=0
-		for j=1,tempWeaveItemCount do
-			bUserHuXiCount = bUserHuXiCount + GameLogic:GetWeaveHuXi(tempWeaveItemArray[j])
-		end
-
-		-- 用牌值为0去判断是否可以胡牌
-		local isBool, HuCardInfo = GameLogic:GetHuCardInfo(cbCardIndexTemp,0,bUserHuXiCount)
-		if isBool then
-			if HuCardInfo.cbCardEye ~=0 then
-				return true
-			end
-		end
-	end
-
-	return false
-end
-
-function TableLayer:TingCardCheck(wChairID, cbCardIndex, coroutine)
-	local stuTingCardInfo = {}
-	stuTingCardInfo.cbCardData = 0
-	stuTingCardInfo.isTingCard = false
-	stuTingCardInfo.cbTingCount = 0
-	stuTingCardInfo.cbCardIndexTing = {}
-	
-	if wChairID >= 65535 then
-		return stuTingCardInfo
-	end
-	if GameCommon.tableConfig.nTableType == TableType_GoldRoom or GameCommon.tableConfig.nTableType == TableType_SportsRoom then
-		return stuTingCardInfo
-	end
-	if GameCommon.bIsSiShou then
-		return stuTingCardInfo
-	end
-	if GameCommon.bIsOutCardTips then
-		printInfo('===============cur_out_card tips============')
-		GameCommon.bIsOutCardTips = false
-		return stuTingCardInfo
-	end
-
-	local cbCardIndexTemp = clone(cbCardIndex)
-	local tempWeaveItemCount = GameCommon.player[wChairID].bWeaveItemCount
-	local tempWeaveItemArray = clone(GameCommon.player[wChairID].WeaveItemArray)
-
-	local bUserHuXiCountModify = 0
-	local cbCardIndexModify = {}
-	local WeaveItemCountModify = 0
-	local WeaveItemArrayModify = {}
-
-	local weiCardType = 1
-	local tiCardType = 0
-	GameCommon.DGCS = 0
-	local timew= 0
-    for i =1,GameCommon.MAX_INDEX do
-        if i == 10 then
-            local a = 1 
-        end 
-		if GameLogic:GetHuCardInfoData(wChairID,cbCardIndex,i) then
-			local nSurplusCount = 4
-			if nSurplusCount <= 0 then
-				nSurplusCount = -1
-			end
-			stuTingCardInfo.cbCardIndexTing[i] = nSurplusCount
-			if nSurplusCount > 0 then
-				stuTingCardInfo.isTingCard = true
-				stuTingCardInfo.cbTingCount = stuTingCardInfo.cbTingCount + 1
-			end
-		end
-		coroutine.yield()
-		print('coroutine is yield count = ', i)
-	end
-	return stuTingCardInfo
-end
-
-function TableLayer:isCheckTingCard(wChairID, isReconnect)
-	local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
-	if not IsOpenTin then
-		return false
-	end
-
-	if wChairID ~= GameCommon:getRoleChairID() and not isReconnect then
-		return false
-	end
-
-	return true
-end
-
-function TableLayer:showTingCard(cbCardData, stuTingCardInfo)
-	if cbCardData then
-		stuTingCardInfo.cbCardData = cbCardData
-	end
-	self:setOutCardTPTips(stuTingCardInfo)
-end
-
--------------------------------
---听牌提示入口
--------------------------------
-function TableLayer:checkTPShowTips(wChairID, cbCardIndex, cbCardData, isReconnect)
-    local thread_i = coroutine.create(function()
-    	--1
-		print('coroutine do count 1')
-		local isCheck = self:isCheckTingCard(wChairID, isReconnect)
-		if not isCheck then
-			return
-		end
-        coroutine.yield()
-
-        --2
-        print('coroutine do count 2')
-        local stuTingCardInfo = self:TingCardCheck(wChairID, cbCardIndex, coroutine)
-		dump(stuTingCardInfo, 'TingCardCheck::')
-
-        --3
-        print('coroutine do count 3')
-        self:showTingCard(cbCardData, stuTingCardInfo)
-        coroutine.yield()
-    end)
-
-    local node = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
-    local callback = function()
-        if coroutine.status(thread_i) == 'dead' then
-            print('coroutine thread is deaded!')
-            node:stopAllActions()
-        end
-        coroutine.resume(thread_i)
-    end
-    node:stopAllActions()
-    schedule(node, callback, 0.03)
-end
-
 --邀请在线好友
 function TableLayer:pleaseOnlinePlayer()
     local dwClubID = GameCommon.tableConfig.dwClubID
     require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(dwClubID):createView("PleaseOnlinePlayerLayer"))
 end
 
+
+----------------------------------
+-- 新听牌提示(server versers)
+----------------------------------
+function TableLayer:showTingPaiTips(pBuffer, isDragType)
+    dump(pBuffer, 'TPData::')
+    print(isDragType)
+
+    local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
+    if not pBuffer then
+        Image_tp:setVisible(false)
+        return
+    end
+
+    local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
+    if not IsOpenTin then
+        Image_tp:setVisible(false)
+        return
+    end
+
+    if pBuffer.cbCardCount ~= 0 then
+        self:showTPSmallCard(pBuffer)
+        if not isDragType then
+            self.dragTPData = nil
+        end
+    else
+        Image_tp:setVisible(false)
+    end
+end
+
+function TableLayer:showTPSmallCard(data)
+    local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
+    local Image_tpFrame = Image_tp:getChildByName('Image_tpFrame')
+    Image_tp:setVisible(true)
+    Image_tpFrame:removeAllChildren()
+    local tpNum = data.cbCardCount
+    local row = math.ceil(tpNum / 3)
+    Image_tpFrame:setContentSize(Image_tpFrame:getContentSize().width, 50 +(row - 1) * 50)
+    
+    local index = 0
+    for key, var in pairs(data.cbCardIndex) do
+        if var > 0 then
+            index = index + 1
+            local card = nil
+            if key <= 10 then
+                card = ccui.ImageView:create(string.format("zipai/table/listencard_%ds.png", key))
+            else
+                card = ccui.ImageView:create(string.format("zipai/table/listencard_%db.png", key - 10))
+            end
+            local size = Image_tpFrame:getContentSize()
+            local row = math.ceil(index / 3)
+            local col = index % 3
+            if col == 0 then
+                col = 3
+            end
+            Image_tpFrame:addChild(card)
+            local x = size.width * 0.2 +(col - 1) * size.width * 0.3
+            local y = size.height - 25 -(row - 1) * 50
+            card:setPosition(x, y)
+        end
+    end
+end
+
+function TableLayer:saveDragTPData(pBuffer)
+    dump(pBuffer, 'DragTPData::')
+    self.dragTPData = pBuffer
+    local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
+    Image_tp:setVisible(false)
+    self:showHandCard(GameCommon:getRoleChairID(), 2)
+end
+
+function TableLayer:showDragTPTips(value)
+    local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
+    if not IsOpenTin then
+        return
+    end
+
+    local valueIdx = GameLogic:SwitchToCardIndex(value)
+    printInfo('Show Drag Card Data = %d, CardIdx = %d', value, valueIdx)
+    if self.dragTPData then
+        local valcount = self.dragTPData.cbCardIndex[valueIdx]
+        if valcount and valcount > 0 then
+            self:showTingPaiTips(self.dragTPData.tTingCard[valueIdx], true)
+        end
+    end
+end
+
+function TableLayer:hideDragTPTips(value)
+    local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
+    if not IsOpenTin then
+        return
+    end
+
+    local valueIdx = GameLogic:SwitchToCardIndex(value)
+    printInfo('Hide Drag Card Data = %d, CardIdx = %d', value, valueIdx)
+    if self.dragTPData then
+        local valcount = self.dragTPData.cbCardIndex[valueIdx]
+        if valcount and valcount > 0 then
+            local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
+            Image_tp:setVisible(false)
+        end
+    end
+end
+
+function TableLayer:setTPCardFlag(card, value)
+    local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
+    local valueIdx = GameLogic:SwitchToCardIndex(value)
+    printInfo('value=%d, valueIdx=%d',value, valueIdx)
+    if self.dragTPData and self.dragTPData.cbCardIndex[valueIdx] > 0 and IsOpenTin then
+        dump(self.dragTPData.cbCardIndex)
+        local flagNode = ccui.ImageView:create('common/ting.png')
+        card:addChild(flagNode)
+        flagNode:setName('tp_card_flag')
+        local size = card:getContentSize()
+        flagNode:setPosition(size.width * 0.2, size.height * 0.81)
+    else
+        local flagNode = card:getChildByName('tp_card_flag')
+        if flagNode then
+            flagNode:removeFromParent()
+        end
+    end
+end
 
 
 return TableLayer

@@ -931,7 +931,7 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/21胡息起胡"
         end
         if Bit:_and(data.dwMingTang,0x01) ~= 0 then
-            desc = desc.."/15胡可自摸"
+            desc = desc.."/15胡带名堂可自摸"
         end
 
         

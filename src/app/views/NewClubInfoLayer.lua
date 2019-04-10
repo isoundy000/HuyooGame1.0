@@ -749,10 +749,84 @@ function NewClubInfoLayer:removeClubTable(dwTableID)
     end
 end
 
+-- 桌子重新排序
+-- dwTableID:桌子ID
+-- posFlag: 0:插头部  1:插尾部
+function NewClubInfoLayer:sortNewTable(dwTableID, playwaynum, posFlag)
+    local tableArr = self.ScrollView_clubTbl:getChildren()
+    local itemName = 'club_table_' .. dwTableID
+
+    if posFlag == 0 then
+        local isInsert = false
+        for i,v in ipairs(tableArr) do
+            if i > playwaynum then
+                local idx = i + 1
+                if isInsert then
+                    idx = i
+                end
+
+                if v:getName() == itemName then
+                    idx = playwaynum + 1
+                    isInsert = true
+                end
+
+                local row = idx % 2
+                if row == 0 then
+                    row = 2
+                end
+                local col = math.ceil(idx / 2)
+                local x = 123 + (col - 1) * 387 * TableSpace
+                local y = 340 - (row - 1) * 245
+                v:setPosition(x, y)
+            end
+        end
+    elseif posFlag == 1 then
+        local isInsert = false
+        for i,v in ipairs(tableArr) do
+            local idx = i
+            if isInsert then
+                idx = i - 1
+            end
+
+            if v:getName() == itemName then
+                idx = #tableArr
+                isInsert = true
+            end
+
+            local row = idx % 2
+            if row == 0 then
+                row = 2
+            end
+            local col = math.ceil(idx / 2)
+            local x = 123 + (col - 1) * 387 * TableSpace
+            local y = 340 - (row - 1) * 245
+            v:setPosition(x, y)
+        end
+    else
+
+    end
+end
+
+--桌子是否满人
+function NewClubInfoLayer:isFullPeopleTable(data)
+    local num = 0
+    for k,v in pairs(data.dwUserID) do
+        if v ~= 0 then
+            num = num + 1
+        end
+    end
+
+    if num >= data.wChairCount then
+        return true
+    end
+    return false
+end
+
 --刷新某个桌子信息
 function NewClubInfoLayer:refreshTableOneByOne(data)
     Log.d(data)
-    if self.clubData.cbPlayCount <= 1 then
+    local playwaynum = self:getPlayWayNums()
+    if playwaynum <= 1 then
         self:refreshTableOneByOneEx(data)
         return
     end
@@ -767,14 +841,15 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
         item:setScale(TableScale)
         self.ScrollView_clubTbl:addChild(item)
         item:setName('club_table_' .. data.dwTableID)
-        local row = i % 2
-        if row == 0 then
-            row = 2
-        end
-        local col = math.ceil(i / 2)
-        local x = 123 + (col - 1) * 387 * TableSpace
-        local y = 340 - (row - 1) * 245
-        item:setPosition(x, y)
+        
+        -- local row = i % 2
+        -- if row == 0 then
+        --     row = 2
+        -- end
+        -- local col = math.ceil(i / 2)
+        -- local x = 123 + (col - 1) * 387 * TableSpace
+        -- local y = 340 - (row - 1) * 245
+        -- item:setPosition(x, y)
 
         local Image_tableIdx = ccui.Helper:seekWidgetByName(item,"Image_tableIdx")
         local idx = self:getMoreTableIndex(data.wTableSubType)
@@ -784,6 +859,12 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
         else
             Image_tableIdx:setVisible(false)
         end
+    end
+
+    if self:isFullPeopleTable(data) then
+        self:sortNewTable(data.dwTableID, playwaynum, 1)
+    else
+        self:sortNewTable(data.dwTableID, playwaynum, 0)
     end
 
     local playerNum = data.tableParameter.bPlayerCount
@@ -907,11 +988,11 @@ function NewClubInfoLayer:refreshTableOneByOneEx(data)
     local item = nil
     for key, var in pairs(items) do
         if item == nil and var.data == nil then
-        item = var
+            item = var
         elseif var.data ~= nil and var.data.dwTableID == data.dwTableID then
            item = var
            break
-     end
+        end
     end
     
     if item == nil then

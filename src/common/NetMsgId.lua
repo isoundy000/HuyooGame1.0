@@ -411,8 +411,8 @@ local NetMsgId = {
     SUB_C_CHONG_FEN = 5,                  --冲分
     SUB_S_CHONG_FEN = 119,                --冲分
     SUB_C_PiaoFen = 8,
-    SUB_S_TING_CARD_NOTIFY = 129,       --听牌提示
-    SUB_S_TING_CARD_CHANGE_NOTIFY = 138,--听牌提示
+    SUB_S_TING_CARD_NOTIFY = 150,       --听牌提示
+    SUB_S_TING_CARD_CHANGE_NOTIFY = 151,--听牌提示
     SUB_C_OUT_CARD_TING_CARD = 5,
 
     --聊天

@@ -453,24 +453,25 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             _tagMsg.pBuffer.cbOutCardData = luaFunc:readRecvByte()  --出牌扑克
             
          elseif subCmdID == NetMsgId.SUB_S_TING_CARD_NOTIFY then
-            _tagMsg.pBuffer.isTingCard = luaFunc:readRecvBool()
-            _tagMsg.pBuffer.cbTingCount = luaFunc:readRecvByte()
-            _tagMsg.pBuffer.cbCardIndexTing = {}
+            _tagMsg.pBuffer.cbCardCount = luaFunc:readRecvByte()
+            _tagMsg.pBuffer.cbCardIndex = {}
             for i = 1, 20 do
-                _tagMsg.pBuffer.cbCardIndexTing[i] = luaFunc:readRecvByte()
+                _tagMsg.pBuffer.cbCardIndex[i] = luaFunc:readRecvByte()
             end
 
         elseif subCmdID == NetMsgId.SUB_S_TING_CARD_CHANGE_NOTIFY then
-            _tagMsg.pBuffer.isTingCard = luaFunc:readRecvBool()
-            _tagMsg.pBuffer.cbTingCount = luaFunc:readRecvByte()
-            _tagMsg.pBuffer.stuTingCardInfo = {}
-            for j = 1, 20 do
-                _tagMsg.pBuffer.stuTingCardInfo[j] = {}
-                _tagMsg.pBuffer.stuTingCardInfo[j].isTingCard = luaFunc:readRecvBool()
-                _tagMsg.pBuffer.stuTingCardInfo[j].cbTingCount = luaFunc:readRecvByte()
-                _tagMsg.pBuffer.stuTingCardInfo[j].cbCardIndexTing = {}
-                for i = 1, 20 do
-                    _tagMsg.pBuffer.stuTingCardInfo[j].cbCardIndexTing[i] = luaFunc:readRecvByte()
+            _tagMsg.pBuffer.cbCardCount = luaFunc:readRecvByte()
+            _tagMsg.pBuffer.cbCardIndex = {}
+            for i = 1, 20 do
+                _tagMsg.pBuffer.cbCardIndex[i] = luaFunc:readRecvByte()
+            end
+            _tagMsg.pBuffer.tTingCard = {}
+            for i = 1, 20 do
+                _tagMsg.pBuffer.tTingCard[i] = {}
+                _tagMsg.pBuffer.tTingCard[i].cbCardCount = luaFunc:readRecvByte()
+                _tagMsg.pBuffer.tTingCard[i].cbCardIndex = {}
+                for j = 1, 20 do
+                    _tagMsg.pBuffer.tTingCard[i].cbCardIndex[j] = luaFunc:readRecvByte()
                 end
             end
 
@@ -769,11 +770,11 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self.tableLayer:doAction(GameCommon.ACTION_OUT_CARD, pBuffer)
 
         elseif subCmdID == NetMsgId.SUB_S_TING_CARD_NOTIFY then
-            self.tableLayer:setOutCardTPTips(pBuffer)
+            self.tableLayer:showTingPaiTips(pBuffer)
             self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
         elseif subCmdID == NetMsgId.SUB_S_TING_CARD_CHANGE_NOTIFY then
-            self.tableLayer:saveCotrolCardTPData(pBuffer)
+            self.tableLayer:saveDragTPData(pBuffer)
             self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
         elseif subCmdID == NetMsgId.SUB_S_SEND_CARD then
