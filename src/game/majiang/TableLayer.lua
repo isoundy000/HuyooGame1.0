@@ -562,17 +562,20 @@ function TableLayer:doAction(action,pBuffer)
                     local img = ccui.ImageView:create(string.format("game/shuaiz_%d.png",var))
                     armature:addChild(img,1000)
                     img:setPosition(-55 + (key-1)*110,0)
-                end
+                end 
                 local wChairID = pBuffer.wTargetUser
                 local viewID = GameCommon:getViewIDByChairID(wChairID)
-                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/niaodonghua/niaodonghua.ExportJson")
-                local armature1 = ccs.Armature:create("niaodonghua")
-                armature1:getAnimation():playWithIndex(0,-1,-1)
-                armature:addChild(armature1)
-                armature1:setPosition(cc.p(armature1:getParent():convertToNodeSpace(cc.p(visibleSize.width*0.5,visibleSize.height*0.5))))
+
                 local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
-                armature1:runAction(
-                cc.MoveTo:create(1,cc.p(armature1:getParent():convertToNodeSpace(cc.p(uiPanel_player:convertToWorldSpace(cc.p(uiPanel_player:getContentSize().width/2,uiPanel_player:getContentSize().height/2)))))))
+                if uiPanel_player:isVisible() and GameCommon.gameConfig.bPlayerCount == 4 then 
+                    ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/niaodonghua/niaodonghua.ExportJson")
+                    local armature1 = ccs.Armature:create("niaodonghua")
+                    armature1:getAnimation():playWithIndex(0,-1,-1)
+                    armature:addChild(armature1)
+                    armature1:setPosition(cc.p(armature1:getParent():convertToNodeSpace(cc.p(visibleSize.width*0.5,visibleSize.height*0.5))))             
+                    armature1:runAction(
+                    cc.MoveTo:create(1,cc.p(armature1:getParent():convertToNodeSpace(cc.p(uiPanel_player:convertToWorldSpace(cc.p(uiPanel_player:getContentSize().width/2,uiPanel_player:getContentSize().height/2)))))))
+                end 
             end),
             cc.DelayTime:create(1),
             cc.CallFunc:create(function(sender,event) 
@@ -753,7 +756,7 @@ function TableLayer:doAction(action,pBuffer)
             uiSendOrOutCardNode:runAction(cc.Sequence:create(
                 cc.RemoveSelf:create(),
                 cc.CallFunc:create(function(sender,event) 
-                    self:addDiscardCard(sender.wChairID, sender.cbCardData) 
+                    --self:addDiscardCard(sender.wChairID, sender.cbCardData) 
                 end)))
         end
         uiSendOrOutCardNode = GameCommon:getDiscardCardAndWeaveItemArray(pBuffer.cbCardData,viewID)

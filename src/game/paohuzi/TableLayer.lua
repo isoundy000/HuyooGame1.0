@@ -1569,7 +1569,7 @@ function TableLayer:initUI()
         local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
         if GameCommon.wKindID ~= 27 and GameCommon.wKindID ~= 31  and GameCommon.wKindID ~= 32  and GameCommon.wKindID ~= 33 and GameCommon.wKindID ~= 34
         and GameCommon.wKindID ~= 35  and GameCommon.wKindID ~= 36  and GameCommon.wKindID ~= 37 then
-            if CHANNEL_ID ~= 0 and  CHANNEL_ID ~= 1 then 
+            if CHANNEL_ID ~= 0 and  CHANNEL_ID ~= 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
                 Common:setUserHeadCliping(uiImage_avatar)
             end
         end

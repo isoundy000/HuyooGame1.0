@@ -323,6 +323,7 @@ local NetMsgId = {
     SUB_GR_LOGON_USERID = 2,        --I D 登录
     SUB_GR_USER_COME = 100,         --用户进入
     REQ_GR_CREATE_TABLE             = 32,                                  --请求创建桌子
+    REQ_GR_CREATE_TABLE_INVITE      = 39,                                  --请求创建桌子
     SUB_C_GAME_CONFIG = 100,    --是否翻省（永州扯胡子）
     REQ_CS_GAME_CONFIG  = 100,                                              --请求游戏配置
     RET_SC_GAME_CONFIG  = 1001,                                              --返回游戏配置

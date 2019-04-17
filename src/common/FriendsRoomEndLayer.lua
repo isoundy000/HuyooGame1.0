@@ -35,6 +35,7 @@ end
 
 function FriendsRoomEndLayer:onEnter()
     EventMgr:registListener(EventType.REQ_GR_USER_CONTINUE_CLUB_FAILD,self,self.REQ_GR_USER_CONTINUE_CLUB_FAILD) 
+    EventMgr:registListener(EventType.RET_CLUB_CHAT_BACK_RECORD, self, self.RET_CLUB_CHAT_BACK_RECORD)
 
     --保存游戏截屏
     local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
@@ -57,11 +58,13 @@ end
 
 function FriendsRoomEndLayer:onExit()
     EventMgr:unregistListener(EventType.REQ_GR_USER_CONTINUE_CLUB_FAILD,self,self.REQ_GR_USER_CONTINUE_CLUB_FAILD) 
+    EventMgr:unregistListener(EventType.RET_CLUB_CHAT_BACK_RECORD, self, self.RET_CLUB_CHAT_BACK_RECORD)
 end
 
 function FriendsRoomEndLayer:onCreate(pBuffer)
     self.tableConfig = pBuffer.tableConfig
     self.gameConfig = pBuffer.gameConfig
+    self:setInviteUserID(pBuffer)
     cc.Director:getInstance():getRunningScene():removeChildByTag(LAYER_TIPS)
 
     self.ShareName = string.format("%d.jpg",os.time())
@@ -132,20 +135,26 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
     uiButton_share:addTouchEventListener(onEventShare)
 
     local uiButton_continue = ccui.Helper:seekWidgetByName(self.root,"Button_continue")
+    uiButton_continue:setVisible(true)
     uiButton_continue:setPressedActionEnabled(true)
     local function onEventContinue(sender,event)
         if event == ccui.TouchEventType.ended then
             Common:palyButton()
-            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_USER_CONTINUE_CLUB,"d",self.tableConfig.dwClubID)
+            require("common.SceneMgr"):switchTips(require("app.MyApp"):create(self.tableConfig.nTableType,self.tableConfig.cbLevel,self.tableConfig.wKindID,self.tableConfig.wTableNumber,self.tableConfig.dwClubID,self.gameConfig,self.inviteID):createView("InterfaceCreateRoomNode"))
         end
     end
     uiButton_continue:addTouchEventListener(onEventContinue)
-    if CHANNEL_ID ~= 8 and CHANNEL_ID ~= 9 then     -- 黑岛渠道大结算继续按钮
-        if self.tableConfig.dwClubID == 0 or self.tableConfig.cbLevel ~= 0 then
-            local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
-            uiListView_function:removeItem(uiListView_function:getIndex(uiButton_continue))
-        end
-    end 
+
+    if self.tableConfig.nTableType == 0 then
+        local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
+        uiListView_function:removeItem(uiListView_function:getIndex(uiButton_continue))
+    end
+    -- if CHANNEL_ID ~= 8 and CHANNEL_ID ~= 9 then     -- 黑岛渠道大结算继续按钮
+    --     if self.tableConfig.dwClubID == 0 or self.tableConfig.cbLevel ~= 0 then
+    --         local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
+    --         uiListView_function:removeItem(uiListView_function:getIndex(uiButton_continue))
+    --     end
+    -- end 
 
     local uiText_time = ccui.Helper:seekWidgetByName(self.root,"Text_time")
     -- local function onEventRefreshTime(sender,event)
@@ -376,12 +385,32 @@ end
 
 function FriendsRoomEndLayer:REQ_GR_USER_CONTINUE_CLUB_FAILD(event)
     local data = event._usedata
+
     if self.tableConfig.wKindID == 20 then
         --放炮罚类型的固定1局
         require("common.SceneMgr"):switchTips(require("app.MyApp"):create(-2,0,self.tableConfig.wKindID,1,self.tableConfig.dwClubID,self.gameConfig):createView("InterfaceCreateRoomNode"))
     else
         require("common.SceneMgr"):switchTips(require("app.MyApp"):create(-2,0,self.tableConfig.wKindID,self.tableConfig.wTableNumber,self.tableConfig.dwClubID,self.gameConfig):createView("InterfaceCreateRoomNode"))
     end
+end
+
+function FriendsRoomEndLayer:setInviteUserID(pBuffer)
+    self.inviteID = {}
+    for i = 1, 8 do
+        local id = pBuffer.tScoreInfo[i].dwUserID
+        if UserData.User.userID ~= id then
+            if id ~= nil and id ~= 0 then 
+                table.insert(self.inviteID, id)
+            else
+                table.insert(self.inviteID, 0)
+            end
+        end
+    end
+end
+
+function FriendsRoomEndLayer:RET_CLUB_CHAT_BACK_RECORD(event)
+    local data = event._usedata
+    require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data):createView("PleaseReciveLayer"))
 end
 
 return FriendsRoomEndLayer

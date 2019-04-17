@@ -420,7 +420,7 @@ function SportsCreateLayer:createSports()
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbb",
             CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,self.settingsData.tableParameter.bPlayerCount,
             self.settingsData.tableParameter.bMaType,self.settingsData.tableParameter.bMaCount,self.settingsData.tableParameter.bQGHu,self.settingsData.tableParameter.bQGHuJM,
-            self.settingsData.tableParameter.bHuangZhuangHG,self.settingsData.tableParameter.bQingSH,self.settingsData.tableParameter.bJiePao,self.settingsData.tableParameter.bQiDui,
+            self.settingsData.tableParameter.bHuangZhuangHG,self.settingsData.tableParameter.bJiePao,self.settingsData.tableParameter.mNiaoType,self.settingsData.tableParameter.bQiDui,
             self.settingsData.tableParameter.bWuTong)   
     elseif self.settingsData.wKindID == 61 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbb",

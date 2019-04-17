@@ -324,6 +324,22 @@ function GameCommon:getViewIDByChairID(wChairID,isChange)
     return viewID
 end
 
+function GameCommon:getViewIDByChairID4(wChairID,isChange)
+    local location = 1          --主角位置
+    local wPlayerCount = self.gameConfig.bPlayerCount      --玩家人数  
+    local meChairID = self:getRoleChairID()     --主角的座位号
+    local viewID = (wChairID + location - meChairID)%4		--固定四人  
+    if viewID == 0 then
+        viewID = 4
+    end
+    if not isChange then
+        if wPlayerCount == 2 and viewID == 2 then
+            viewID = 3
+        end
+    end
+    return viewID
+end
+
 function GameCommon:getRoleChairID()
     return self.meChairID
 end

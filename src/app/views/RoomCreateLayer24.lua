@@ -88,7 +88,20 @@ function RoomCreateLayer:onCreate(parameter)
     end
     --选择人数
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(2),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items)
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        local var = items[1]
+        if index == 2 then
+            var:setEnabled(true)
+            var:setVisible(true)
+            var:setColor(cc.c3b(255,255,255))
+        else
+            var:setBright(false)
+            var:setEnabled(false)
+            var:setVisible(false)
+            var:setColor(cc.c3b(170,170,170))
+        end
+    end)
     if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 3 then
         items[1]:setBright(true)
     else
@@ -149,6 +162,9 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["bHongHu"] ~= nil and self.recordCreateParameter["bHongHu"] == 1 then
         items[3]:setBright(true)
     end
+    if self.recordCreateParameter["bFangPao"] ~= nil and self.recordCreateParameter["bFangPao"] == 1 then
+        items[4]:setBright(true)
+    end
     --名堂
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,true,function(index) 
@@ -184,6 +200,18 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x01,self.recordCreateParameter["dwMingTang"]) ~= 0 then
         items[3]:setBright(true)
     end
+
+    --亡牌
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,true)
+    if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 3 then 
+        items[1]:setVisible(false)
+    else
+        if self.recordCreateParameter["bDeathCard"] ~= nil and self.recordCreateParameter["bDeathCard"] == 1 then
+            items[1]:setBright(true)
+        end
+    end
+
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}
         self:SUB_CL_FRIENDROOM_CONFIG_END()
@@ -330,7 +358,12 @@ function RoomCreateLayer:onEventCreate(nTableType)
         tableParameter.bHongHu = 1
     else
         tableParameter.bHongHu = 0
-    end    
+    end   
+    if items[4]:isBright() then
+        tableParameter.bFangPao = 1
+    else
+        tableParameter.bFangPao = 0
+    end  
     --名堂
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
     if items[1]:isBright() then
@@ -346,14 +379,20 @@ function RoomCreateLayer:onEventCreate(nTableType)
     if items[3]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x01)
     end
+
+    --亡牌
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bDeathCard = 1
+    else
+        tableParameter.bDeathCard = 0
+    end
     tableParameter.bLaiZiCount = 0
     tableParameter.bLiangPai = 0
     tableParameter.bCanHuXi = 10
-    tableParameter.bFangPao = 0
     tableParameter.bSettlement = 0
     tableParameter.bSocreType = 0
     tableParameter.bDelShowCardHu = 0
-    tableParameter.bDeathCard = 0
     tableParameter.bStartBanker = 0
     
    if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == TableType_HelpRoom) then

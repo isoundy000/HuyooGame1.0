@@ -125,6 +125,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i = 1, 5 do
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
+        data.dwPropCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_CREATE_CLUB,data)
     
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_SETTINGS_CLUB3 then
@@ -156,7 +157,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i = 1, 5 do
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
-        data.dwTargetID = luaFunc:readRecvDWORD()
+        data.dwPropCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_SETTINGS_CLUB,data)
         
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_JOIN_CLUB then
@@ -216,7 +217,9 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i = 1, 5 do
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
+        data.dwPropCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_GET_CLUB_LIST,data)
+    
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_LIST_FAIL then
         --没有亲友圈返回
         EventMgr:dispatch(EventType.RET_GET_CLUB_LIST_FAIL)
@@ -248,6 +251,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i = 1, 5 do
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
+        data.dwPropCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_ADDED_CLUB, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_REMOVE_CLUB then
@@ -380,6 +384,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i = 1, 5 do
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
+        data.dwPropCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_REFRESH_CLUB,data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_MEMBER_EX then
@@ -568,7 +573,9 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i = 1, 5 do
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
+        data.dwPropCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_UPDATE_CLUB_INFO, data)
+    
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_MEMBER_FINISH then
         local data = {}
         data.isFinish = luaFunc:readRecvBool()

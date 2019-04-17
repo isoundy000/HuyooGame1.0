@@ -155,8 +155,8 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if data.bJiePao == 1 then
             desc = desc.."/可接炮"
         end
-        if data.bQingSH == 1 then
-            desc = desc.."/清水胡"
+        if data.mNiaoType == 1 then
+            desc = desc.."/一鸟一分"
         end
         if data.bQiDui == 1 then
             desc = desc.."/七对"
@@ -437,6 +437,9 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."3人房"
         elseif data.bPlayerCount == 2 then
             desc = desc.."2人房"
+            if data.bDeathCard == 1 then
+                desc = desc.."/亡牌"
+            end
         end
         if data.bYiWuShi == 1 then
             desc = desc.."/有一五十"
@@ -479,7 +482,7 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/300封顶"
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
-        end
+        end 
     elseif wKindID == 27 then 
         if data.bLaiZiCount == 0 then
             desc = "无王"
@@ -1051,11 +1054,11 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if Bit:_and(data.dwMingTang,0x08) ~= 0 then
             desc = desc.."/真行行息"
         end
-        if Bit:_and(data.dwMingTang,0x8000) ~= 0 then
-            desc = desc.."/假行行息"
-        end
         if Bit:_and(data.dwMingTang,0x10) ~= 0 then
-            desc = desc.."/假行行息"
+            desc = desc.."/假行行息*6"
+        end
+        if Bit:_and(data.dwMingTang,0x8000) ~= 0 then
+            desc = desc.."/假行行息*4"
         end
         if data.bSiQiHong == 1 then
             desc = desc.."/四七红"

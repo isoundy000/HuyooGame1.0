@@ -1039,7 +1039,7 @@ function GameLayer:updatePlayerInfo()
             local uiPanel_playerInfo = ccui.Helper:seekWidgetByName(uiPanel_player,"Panel_playerInfo")
             uiPanel_playerInfo:setVisible(false)
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
-            if CHANNEL_ID ~= 0 and  CHANNEL_ID ~= 1 then 
+            if CHANNEL_ID ~= 0 and  CHANNEL_ID ~= 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
                 Common:setUserHeadCliping(uiImage_avatar)
             end
             online =  false

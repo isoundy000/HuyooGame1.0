@@ -358,7 +358,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
     else
         tableParameter.bHuangZhuangHG = 0
     end
-    tableParameter.bQingSH = 0
+    tableParameter.mNiaoType = 0
     --接炮
     if items[3]:isBright() then
         tableParameter.bJiePao = 1

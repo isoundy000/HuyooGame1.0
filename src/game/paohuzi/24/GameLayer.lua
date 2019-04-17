@@ -735,7 +735,11 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             local cbCardIndex = GameLogic:SwitchToCardIndexs(pBuffer.cbCardData,GameCommon.player[wChairID].bUserCardCount)
             self.tableLayer:setHandCard(wChairID,GameCommon.player[wChairID].bUserCardCount, cbCardIndex, maxHanCardRow, 0)
             self.tableLayer:showHandCard(wChairID,1)
-            self.tableLayer:updateLeftCardCount(80 - GameCommon.gameConfig.bPlayerCount*20 - 1 + GameCommon.gameConfig.bLaiZiCount, true)
+            if GameCommon.gameConfig.bDeathCard == 1 and GameCommon.gameConfig.bPlayerCount == 2  then
+                self.tableLayer:updateLeftCardCount(60 - GameCommon.gameConfig.bPlayerCount*20 - 1 + GameCommon.gameConfig.bLaiZiCount, true)
+            else
+                self.tableLayer:updateLeftCardCount(80 - GameCommon.gameConfig.bPlayerCount*20 - 1 + GameCommon.gameConfig.bLaiZiCount, true)
+            end
             self:updateBankerUser()
             self:updatePlayerInfo()
             self:updatehandplate()
@@ -1029,7 +1033,7 @@ function GameLayer:updatePlayerInfo()
             local uiPanel_playerInfo = ccui.Helper:seekWidgetByName(uiPanel_player,"Panel_playerInfo")
             uiPanel_playerInfo:setVisible(false)
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
-            if CHANNEL_ID ~= 0 and  CHANNEL_ID ~= 1 then 
+            if CHANNEL_ID ~= 0 and  CHANNEL_ID ~= 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
                 Common:setUserHeadCliping(uiImage_avatar)
             end
             online =  false
@@ -1041,7 +1045,7 @@ function GameLayer:updatePlayerInfo()
             if CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
                 Common:requestUserAvatar(GameCommon.player[wChairID].dwUserID,GameCommon.player[wChairID].szPto,uiImage_avatar,"img")
              else
-                 Common:requestUserAvatar(GameCommon.player[wChairID].dwUserID,GameCommon.player[wChairID].szPto,uiImage_avatar,"clip")
+                Common:requestUserAvatar(GameCommon.player[wChairID].dwUserID,GameCommon.player[wChairID].szPto,uiImage_avatar,"clip")
              end 
             local uiText_name = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_name")
             uiText_name:setString(GameCommon.player[wChairID].szNickName)

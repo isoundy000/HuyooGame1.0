@@ -43,6 +43,15 @@ function InterfaceCreateRoomNode:onCreate(parameter)
         self.tableParameter = parameter[6]
     end
 
+    -- 创房邀请
+    self.inviteID = parameter[7] or {}
+    dump(self.inviteID, '创房邀请:')
+    for i=1,7 do
+        if not self.inviteID[i] then
+            self.inviteID[i] = 0
+        end
+    end
+
     NetMgr:getGameInstance():closeConnect()
     if self.nTableType >= TableType_GuildRoom and UserData.Guild.dwGuildID <= 0 then
         self:removeFromParent()
@@ -174,8 +183,8 @@ function InterfaceCreateRoomNode:SUB_GR_LOGON_SUCCESS(event)
             CHANNEL_ID,self.nTableType,self.wTableSubType,self.wKindID,self.wGameCount,1,self.dwTargetID,                 
             self.tableParameter.bPlayerCountType,self.tableParameter.bPlayerCount,self.tableParameter.bTotalHuXi,self.tableParameter.bMaxLost) 
     elseif self.wKindID == 25 or self.wKindID == 26  then
-        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_CREATE_TABLE,"diwwwwdbbbbbbbbbb",
-            CHANNEL_ID,self.nTableType,self.wTableSubType,self.wKindID,self.wGameCount,1,self.dwTargetID,
+        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_CREATE_TABLE_INVITE,"diwwwwddddddddbbbbbbbbbb",
+            CHANNEL_ID,self.nTableType,self.wTableSubType,self.wKindID,self.wGameCount,1,self.dwTargetID,self.inviteID[1],self.inviteID[2],self.inviteID[3],self.inviteID[4],self.inviteID[5],self.inviteID[6],self.inviteID[7],
             self.tableParameter.bPlayerCount, self.tableParameter.bStartCard,self.tableParameter.bBombSeparation,self.tableParameter.bRed10,
             self.tableParameter.b4Add3,self.tableParameter.bShowCardCount,self.tableParameter.bSpringMinCount,self.tableParameter.bAbandon,self.tableParameter.bCheating,self.tableParameter.bFalseSpring)
     elseif self.wKindID == 27 then
@@ -281,7 +290,7 @@ function InterfaceCreateRoomNode:SUB_GR_LOGON_SUCCESS(event)
         NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_CREATE_TABLE,"diwwwwdbbbbbbbbbb",
             CHANNEL_ID,self.nTableType,self.wTableSubType,self.wKindID,self.wGameCount,1,self.dwTargetID,self.tableParameter.bPlayerCount,
             self.tableParameter.bMaType,self.tableParameter.bMaCount,self.tableParameter.bQGHu,self.tableParameter.bQGHuJM,
-            self.tableParameter.bHuangZhuangHG,self.tableParameter.bQingSH,self.tableParameter.bJiePao,self.tableParameter.bQiDui,self.tableParameter.bWuTong)   
+            self.tableParameter.bHuangZhuangHG,self.tableParameter.bJiePao,self.tableParameter.mNiaoType,self.tableParameter.bQiDui,self.tableParameter.bWuTong)   
     elseif self.wKindID == 61 then
         NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_CREATE_TABLE,"diwwwwdbbbbbbbb",
             CHANNEL_ID,self.nTableType,self.wTableSubType,self.wKindID,self.wGameCount,1,self.dwTargetID,self.tableParameter.bPlayerCount,

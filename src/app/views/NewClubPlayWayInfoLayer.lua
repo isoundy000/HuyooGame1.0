@@ -733,7 +733,7 @@ function NewClubPlayWayInfoLayer:sendSetPlayWay(data)
             data.settype,data.dwClubID,data.playid,data.wKindID,data.wGameCount,1,
             data.isOpen,data.payMode,data.payLimit1,data.payCount1,data.payLimit2,data.payCount2,data.payLimit3,data.payCount3,data.tableLimit,data.fatigueCell,data.isTableCharge,32,data.szParameterName,
             data.tableParameter.bPlayerCount,data.tableParameter.bMaType,data.tableParameter.bMaCount,data.tableParameter.bQGHu,data.tableParameter.bQGHuJM,
-            data.tableParameter.bHuangZhuangHG,data.tableParameter.bQingSH,data.tableParameter.bJiePao,data.tableParameter.bQiDui,data.tableParameter.bWuTong)
+            data.tableParameter.bHuangZhuangHG,data.tableParameter.bJiePao,data.tableParameter.mNiaoType,data.tableParameter.bQiDui,data.tableParameter.bWuTong)
 
     elseif data.wKindID == 61 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddwwwobddddddlwonsbbbbbbbb",

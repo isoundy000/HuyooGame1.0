@@ -158,21 +158,24 @@ function RoomCreateLayer:onCreate(parameter)
     --选择玩法
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,true)
-    if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x04,self.recordCreateParameter["dwMingTang"]) ~= 0 then
-        items[1]:setBright(true)
-    end
+    -- if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x04,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+    --     items[1]:setBright(true)
+    -- end
     -- if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x02,self.recordCreateParameter["dwMingTang"]) ~= 0 then
     --     items[2]:setBright(true)
     -- end
     if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x20000,self.recordCreateParameter["dwMingTang"]) ~= 0 then
-        items[2]:setBright(true)
+        items[1]:setBright(true)
     end
     if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x08,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+        items[2]:setBright(true)
+    end    
+    if self.recordCreateParameter["bSiQiHong"] and self.recordCreateParameter["bSiQiHong"] == 1 then      --四七红
         items[3]:setBright(true)
     end
-    if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x8000,self.recordCreateParameter["dwMingTang"]) ~= 0 then
-        items[4]:setBright(true)
-    end
+    -- if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x8000,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+    --     items[4]:setBright(true)
+    -- end
     if CHANNEL_ID == 6 or CHANNEL_ID == 7 then
         ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):removeItem(3)
     end
@@ -192,16 +195,38 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["bStartBanker"] ~= nil and self.recordCreateParameter["bStartBanker"] == 1 then
         items[2]:setBright(true)
     end    
-    if self.recordCreateParameter["bSiQiHong"] and self.recordCreateParameter["bSiQiHong"] == 1 then      --四七红
-        items[3]:setBright(true)
-    end
+
     if CHANNEL_ID == 6 or CHANNEL_ID == 7 then
-        items[4]:setBright(false)
-        items[4]:setVisible(false)
+        items[3]:setBright(false)
+        items[3]:setVisible(false)
     else
         if self.recordCreateParameter["bPaoTips"] ~= nil and self.recordCreateParameter["bPaoTips"] == 1 then
-            items[4]:setBright(true)
+            items[3]:setBright(true)
         end
+    end
+
+    --选择假行行息
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+
+    if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x8000,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x10,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+        items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
+    --选择团圆
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+
+    if self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x04,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["dwMingTang"] ~= nil and Bit:_and(0x10000,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+        items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
     end
 
     
@@ -334,16 +359,18 @@ function RoomCreateLayer:onEventCreate(nTableType)
     tableParameter.dwMingTang = Bit:_xor(tableParameter.dwMingTang,0x10)   
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
     if items[1]:isBright() then
-        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x04)
-    end
-    if items[2]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x20000)
     end
-    if items[3]:isBright() then
+    if items[2]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x08)
     end
     if items[4] ~= nil and items[4]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x8000)
+    end   
+     if items[3]:isBright() then   --四七红
+        tableParameter.bSiQiHong = 1
+    else
+        tableParameter.bSiQiHong = 0
     end
     --跑牌提示
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
@@ -357,15 +384,33 @@ function RoomCreateLayer:onEventCreate(nTableType)
     else
         tableParameter.bStartBanker = 0
     end
-    if items[3]:isBright() then   --四七红
-        tableParameter.bSiQiHong = 1
-    else
-        tableParameter.bSiQiHong = 0
-    end
-    if items[4]:isBright() then
+
+    if items[3]:isBright() then
         tableParameter.bPaoTips = 1
     else
         tableParameter.bPaoTips = 0
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        -- tableParameter.bStartTun = 0
+    elseif items[2]:isBright() then
+        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x8000)
+    elseif items[3]:isBright() then
+        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x10)
+    else
+        return
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        -- tableParameter.bStartTun = 0
+    elseif items[2]:isBright() then
+        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x04)
+    elseif items[3]:isBright() then
+        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x10000)
+    else
+        return
     end
 
     tableParameter.FanXing = {}
