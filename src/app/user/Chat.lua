@@ -90,6 +90,10 @@ function Chat:EVENT_TYPE_NET_RECV_MESSAGE(event)
             if haveReadByte < 128 then
                 luaFunc:readRecvBuffer(128-haveReadByte)
             end
+        elseif data.cbType == 6 then -- 新语音
+            data.szVoiceSign = luaFunc:readRecvString(256)
+            data.szTime      = luaFunc:readRecvDWORD()
+            data.bHaveRead   = luaFunc:readRecvBool() --是否已读
         end
         if data.cbType == 5 then
             EventMgr:dispatch(EventType.RET_CLUB_CHAT_BACK_RECORD,data)
@@ -153,6 +157,10 @@ function Chat:EVENT_TYPE_NET_RECV_MESSAGE(event)
             if haveReadByte < 128 then
                 luaFunc:readRecvBuffer(128-haveReadByte)
             end
+        elseif data.cbType == 6 then -- 新语音
+            data.szVoiceSign = luaFunc:readRecvString(256)
+            data.szTime      = luaFunc:readRecvDWORD()
+            data.bHaveRead   = luaFunc:readRecvBool() --是否已读
         end
         if data.cbType == 5 then
             EventMgr:dispatch(EventType.RET_CLUB_CHAT_RECORD_ZUJU,data)
@@ -216,7 +224,7 @@ function Chat:SendChatExp( clubID,userID,szNickName,logoInfo,expression )
 end
 --声音
 function Chat:SendVoice( clubID,userID,szNickName,logoInfo,szvoiceSign,szTime)
-    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_CLUB_CHAT_MSG,"dbkdnsnswnsdo",clubID,2,0,userID,32,szNickName,256,logoInfo,0,64,szvoiceSign,szTime,false)
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_CLUB_CHAT_MSG,"dbkdnsnswnsdo",clubID,6,0,userID,32,szNickName,256,logoInfo,0,256,szvoiceSign,szTime,false)
 end
 
 --请求历史记录

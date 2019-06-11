@@ -1891,15 +1891,22 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
             card:setTouchEnabled(true)
             card:addTouchEventListener(function(sender,event) 
                 if event == ccui.TouchEventType.began then   
+                    local isVisible = false                    --强制做判断  判断是否需要显示报停界面
                     uiImage_line:setVisible(false)                
                     if GameCommon.mBaoTingCard ~= nil and GameCommon.mBaoTingCard[1] ~= 0 then  
                         for i = 1, 14 do 
                             if card.data  ~= nil and card.data ~= 0x31 and card.data == GameCommon.mBaoTingCard[i] and GameCommon.mBTHuCard ~= nil then 
                                 --NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_AloneBaoTing,"b",card.data)
                                 self:huCardShow(0,i)
+                                isVisible = true
                             end 
                         end
-                    end    
+                    end                       
+                    local uiPanel_hucardbg = ccui.Helper:seekWidgetByName(self.root,"Panel_hucardbg")
+                    if uiPanel_hucardbg:isVisible() == true and isVisible == false then    
+                        uiPanel_hucardbg:setScale(1)
+                        uiPanel_hucardbg:runAction(cc.Sequence:create(cc.DelayTime:create(0.0),cc.ScaleTo:create(0.3,0,0),cc.CallFunc:create(function() uiPanel_hucardbg:setVisible(false)  end)))    
+                    end  
                     if self.copyHandCard ~= nil then
                         self.copyHandCard.targetNode:setColor(cc.c3b(255,255,255))
                         self.copyHandCard = nil
@@ -1919,7 +1926,7 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                     elseif self.copyHandCard ~= nil then
                         self.copyHandCard:setPosition(self.locationPos)
                     end 
-                else                    
+                else                     
                     if self.copyHandCard ~= nil then                       
                         uiPanel_copyHandCard:removeAllChildren()
                         self.copyHandCard = nil
@@ -1956,7 +1963,7 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                 end
             end)
         end
-                
+       
     elseif viewID == 2 then
         local cardScale = 1
         local cardWidth = 24 * cardScale
@@ -2140,7 +2147,12 @@ function TableLayer:initUI()
             --     print("---------------报听触发3:") 
             --     self:setOutCardTPTips(self.normolTPData)
             -- end 
-            self:showHandCard(GameCommon:getRoleChairID(),2)
+            self:showHandCard(GameCommon:getRoleChairID(),2)               
+            local uiPanel_hucardbg = ccui.Helper:seekWidgetByName(self.root,"Panel_hucardbg")
+            if uiPanel_hucardbg:isVisible() == true then    
+                uiPanel_hucardbg:setScale(1)
+                uiPanel_hucardbg:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.ScaleTo:create(0.3,0,0),cc.CallFunc:create(function() uiPanel_hucardbg:setVisible(false)  end)))    
+            end 
         end
     end)
     --动画层
@@ -2664,12 +2676,12 @@ function TableLayer:huCardShow(event,data)
 		return
     end
     
-    uiPanel_hucardbg:addTouchEventListener(function(sender,event)
-        if event == ccui.TouchEventType.ended then
-            uiPanel_hucardbg:setScale(1)
-            uiPanel_hucardbg:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.ScaleTo:create(0.3,0,0),cc.CallFunc:create(function() uiPanel_hucardbg:setVisible(false)  end)))            
-        end
-    end)  
+    -- uiPanel_hucardbg:addTouchEventListener(function(sender,event)
+    --     if event == ccui.TouchEventType.ended then
+    --         uiPanel_hucardbg:setScale(1)
+    --         uiPanel_hucardbg:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.ScaleTo:create(0.3,0,0),cc.CallFunc:create(function() uiPanel_hucardbg:setVisible(false)  end)))            
+    --     end
+    -- end)  
     if data ~= nil then
         self:huCardUpShow(data)
     else

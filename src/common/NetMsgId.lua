@@ -524,7 +524,15 @@ local NetMsgId = {
         SUB_CL_SUB_SHARE_REPLAY_NOTFOUNT = 17008,                   --回放(分享)未找到    
         SUB_CL_SUB_REPLAY_SHAREID = 17009,                          --回放分享ID
         SUB_CL_SUB_REPLAY_SHAREID_ERROR = 17010,                    --回放分享ID分配失败
-        
+
+
+        REQ_GET_GAME_RECORD	= 1721,					                --新*请求战绩(大局)
+        RET_GET_GAME_RECORD	= 17021,					            --返回战绩
+        RET_GET_GAME_RECORD_FINISH = 17022,					        --/返回战绩结束
+        REQ_LIKE_GAME_RECORD = 1723,				                --点赞战绩
+        RET_LIKE_GAME_RECORD = 17023,					            --返回点赞战绩
+        REQ_GET_3DAYS_GAME_RECORD =	1724,					        --请求个人三天的战绩总和
+        RET_GET_3DAYS_GAME_RECORD =	17024,					        --返回个人三天的战绩总和 
         --双十
         --客户端命令结构
         REC_SUB_C_START_GAME            = 1111,                                    --请求开始游戏

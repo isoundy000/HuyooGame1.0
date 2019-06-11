@@ -830,6 +830,7 @@ function NewClubMemberLayer:refreshNewList(data, listView)
         }
 
         Common:addTouchEventListener(Button_modify_add,function()
+            userInfo.fatigue = tonumber(TextField_des:getString()) or userInfo.fatigue
             local node = require("app.MyApp"):create(userInfo, 1, function(value) 
                 UserData.Guild:reqSettingsClubMember(8, data.dwClubID, data.dwUserID,0,"",value)
             end):createView("NewClubInputFatigueLayer")
@@ -838,6 +839,7 @@ function NewClubMemberLayer:refreshNewList(data, listView)
 
         Common:addTouchEventListener(Button_modify_sub,function()
             local lastFatigue = tonumber(TextField_des:getString()) or 0
+            userInfo.fatigue = tonumber(TextField_des:getString()) or userInfo.fatigue
             local node = require("app.MyApp"):create(userInfo, 2, function(value) 
                 if lastFatigue < value then
                     require("common.MsgBoxLayer"):create(0,nil,"设置疲劳值错误!")
@@ -1750,6 +1752,7 @@ function NewClubMemberLayer:setTextField(data, textField, Button_plz_add, Button
 
     Common:addTouchEventListener(Button_plz_add,function()
         local allFatigue = tonumber(self.Text_plznum:getString())
+        userInfo.fatigue = tonumber(textField:getString()) or userInfo.fatigue
         local node = require("app.MyApp"):create(userInfo, 1, function(value) 
             if allFatigue < value then
                 require("common.MsgBoxLayer"):create(0,nil,"设置疲劳值错误!")
@@ -1762,6 +1765,7 @@ function NewClubMemberLayer:setTextField(data, textField, Button_plz_add, Button
 
     Common:addTouchEventListener(Button_plz_sub,function()
         local lastFatigue = tonumber(textField:getString()) or 0
+        userInfo.fatigue = tonumber(textField:getString()) or userInfo.fatigue
         local node = require("app.MyApp"):create(userInfo, 2, function(value) 
             if lastFatigue < value then
                 require("common.MsgBoxLayer"):create(0,nil,"设置疲劳值错误!")

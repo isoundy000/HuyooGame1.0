@@ -193,6 +193,12 @@ local EventType = {
 
     CHECK_TING_CARD_TIPS = "CHECK_TING_CARD_TIPS",
 
+    --新战绩
+    RET_GET_GAME_RECORD = "RET_GET_GAME_RECORD",                                        --返回战绩
+    RET_GET_GAME_RECORD_FINISH	= "RET_GET_GAME_RECORD_FINISH",					        --返回战绩结束
+    RET_LIKE_GAME_RECORD = "RET_LIKE_GAME_RECORD",                                      --返回点赞战绩
+    RET_GET_3DAYS_GAME_RECORD = "RET_GET_3DAYS_GAME_RECORD",  			                --返回个人三天的战绩总和
+
     --聊天
     RET_CLUB_CHAT_MSG = 'RET_CLUB_CHAT_MSG',
     RET_CLUB_CHAT_RECORD_FINISH = 'RET_CLUB_CHAT_RECORD_FINISH', --请求聊天记录结束

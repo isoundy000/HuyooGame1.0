@@ -158,6 +158,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
             data.szAdministratorLogoInfo[i] = luaFunc:readRecvString(256)
         end
         data.dwPropCount = luaFunc:readRecvDWORD()
+        data.dwTargetID = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_SETTINGS_CLUB,data)
         
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_JOIN_CLUB then
@@ -618,7 +619,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwUserID = luaFunc:readRecvDWORD()
         data.szNickName = luaFunc:readRecvString(32)
         data.szLogoInfo = luaFunc:readRecvString(256)
-        data.dwJoinTime = luaFunc:readRecvDWORD()
+        data.dwLastLoginTime = luaFunc:readRecvDWORD()
         data.cbOnlineStatus = luaFunc:readRecvByte()
         data.dwJoinTime = luaFunc:readRecvDWORD()
         data.cbOffice = luaFunc:readRecvByte()

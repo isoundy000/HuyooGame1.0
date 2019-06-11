@@ -56,6 +56,8 @@ function GameOpration:onCreate(pBuffer,opTtype)
     else
         self:showOpration(pBuffer)
     end
+
+    GameCommon.IsOfHu =0
     
     uiListView_Opration:refreshView()
     uiListView_Opration:setPositionX(cc.Director:getInstance():getVisibleSize().width*0.82-uiListView_Opration:getInnerContainerSize().width)
@@ -110,6 +112,9 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealHu(pBuffer)
         end)
+        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
+            GameCommon.IsOfHu = 1
+        end
         ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
         local armature=ccs.Armature:create("xuanzhuanxing")
         armature:getAnimation():playWithIndex(0)
@@ -124,6 +129,9 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealBiHu(pBuffer)
         end)
+        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
+            GameCommon.IsOfHu = 1
+        end
         ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
         local armature=ccs.Armature:create("xuanzhuanxing")
         armature:getAnimation():playWithIndex(0)
@@ -135,8 +143,16 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
-            self:removeFromParent()
+            if GameCommon.IsOfHu == 1 then
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
+                     NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+            	     self:removeFromParent()
+                end)
+            else                             
+                 NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+            	 self:removeFromParent()
+            end 
+
         end)
     end
     for key, var in pairs(uiListView_Opration:getItems()) do

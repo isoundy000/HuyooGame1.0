@@ -125,8 +125,8 @@ function NewRecord:createToggleButton(perssCount,buttonName,callFunc,defoutCallN
 		target.normal = self:seekWidgetByNameEx(target,'Image_1')
 		target.imagePress = self:seekWidgetByNameEx(target,'Image_press')
 		target.imagePress:setVisible(false)
-		target.press:setVisible(true)
-		target.normal:setVisible(false)
+		target.press:setVisible(false)
+		target.normal:setVisible(true)
 		target.isClick = false
 		target.ToggleState = function (self,isNormal )
 			target.normal:setVisible(isNormal)

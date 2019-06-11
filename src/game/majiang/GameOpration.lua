@@ -50,7 +50,8 @@ function GameOpration:onCreate(pBuffer,opTtype)
     self.uiPanel_opration = uiListView_OprationType:getItem(0)
     self.uiPanel_opration:retain()
     uiListView_OprationType:removeAllChildren()
-    uiListView_OprationType:setVisible(false)
+    uiListView_OprationType:setVisible(false)    
+    GameCommon.IsOfHu = 0
     if opTtype == 1 then
         self:showHaiDi(pBuffer)
     elseif opTtype == 2 then
@@ -58,7 +59,6 @@ function GameOpration:onCreate(pBuffer,opTtype)
     else
         self:showOpration(pBuffer)
     end
-    
     uiListView_Opration:refreshView()
     uiListView_Opration:setPositionX(cc.Director:getInstance():getVisibleSize().width*0.82-uiListView_Opration:getInnerContainerSize().width)
     uiListView_Opration:setDirection(ccui.ScrollViewDir.none)
@@ -117,6 +117,9 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealHu(pBuffer)
         end)
+        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
+            GameCommon.IsOfHu = 1
+        end 
         if  pBuffer.mUserWCWDActionEx ~= nil then 
             mUserWCWDActionEx = pBuffer.mUserWCWDActionEx
         end 
@@ -159,6 +162,9 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealBiHu(pBuffer)
         end)
+        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
+            GameCommon.IsOfHu = 1
+        end
         ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
         local armature=ccs.Armature:create("xuanzhuanxing")
         armature:getAnimation():playWithIndex(0)
@@ -170,12 +176,20 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-        if GameCommon.tableConfig.wKindID == 65 then 
-            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wbbbb",GameCommon.WIK_NULL,0,0,0,0)
-        else
-            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
-        end
-        self:removeFromParent()
+            if GameCommon.IsOfHu == 1 then
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
+                    self:dealGuo()
+                end)
+            else                             
+                self:dealGuo()
+            end 
+
+        -- if GameCommon.tableConfig.wKindID == 65 then 
+        --     NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wbbbb",GameCommon.WIK_NULL,0,0,0,0)
+        -- else
+        --     NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+        -- end
+        -- self:removeFromParent()
         end)
     end
     for key, var in pairs(uiListView_Opration:getItems()) do
@@ -725,5 +739,14 @@ function GameOpration:dealBiHu(pBuffer)
     end
     self:removeFromParent()    
 end
+
+function GameOpration:dealGuo(pBuffer)
+    if GameCommon.tableConfig.wKindID == 65 then 
+        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wbbbb",GameCommon.WIK_NULL,0,0,0,0)
+    else
+        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+    end
+    self:removeFromParent()  
+end 
 
 return GameOpration

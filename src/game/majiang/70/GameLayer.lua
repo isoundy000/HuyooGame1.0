@@ -377,7 +377,36 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
         if subCmdID == NetMsgId.RET_SC_GAME_CONFIG then
             GameCommon.gameConfig = require("common.GameConfig"):getParameter(GameCommon.tableConfig.wKindID,luaFunc)
             local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
-            uiText_desc:setString(GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig))
+
+            local playwayDes = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID, GameCommon.gameConfig, GameCommon.tableConfig)
+            local playwayArr = string.split(playwayDes, "/")
+            local len = #playwayArr
+            if len < 1 then
+                return
+            end
+            
+            local des = ""
+            for i, v in ipairs(playwayArr) do
+                if len <= 7 then
+                    -- if i == len - 5 then
+                    --     des = des .. " " .. v .. "\n"
+                    -- else
+                        des = des .. " " .. v
+                    -- end
+                else
+                    if i <= 7 then
+                        if i == 7 then
+                            des = des .. " " .. v .. "\n"
+                        else
+                            des = des .. " " .. v
+                        end
+                    else
+                        des = des .. " " .. v
+                    end
+                end
+            end
+            uiText_desc:setString(des)
+            -- uiText_desc:setString(GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig))
             return true
             
         elseif subCmdID == NetMsgId.SUB_S_GAME_SelectZhuang then

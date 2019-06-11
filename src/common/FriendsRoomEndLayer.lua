@@ -14,6 +14,7 @@ local endDes = {
 	[4] = '提示：该房间因疲劳值不足被强制解散',
 	[5] = '提示：该房间被官方系统强制解散',
 	[6] = '提示：该房间因超时未开局被强制解散',
+	[7] = '提示：该房间因超时投票解散',
 }
 local FriendsRoomEndLayer = class("FriendsRoomEndLayer",function()
     return ccui.Layout:create()

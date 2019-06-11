@@ -211,10 +211,10 @@ function ChatLayer:updateChild(item, index)
 	content:setColor(cc.c3b(129, 75, 24))
 	chat_time:setColor(cc.c3b(129, 75, 24))
 	
-	Image_yuyin:setVisible(data.cbType == 2)
-	Image_chat_di:setVisible(data.cbType ~= 2)
+	Image_yuyin:setVisible(data.cbType == 2 or data.cbType == 6)
+	Image_chat_di:setVisible(data.cbType ~= 2 or data.cbType ~= 6)
 	content:setVisible(data.cbType == 0)
-	chat_time:setVisible(data.cbType == 2)
+	chat_time:setVisible(data.cbType == 2 or data.cbType == 6)
 	Image_emoj:setVisible(data.cbType == 1)
 	Image_system:setVisible(data.cbType == 4)
 	Panel_system_child:setVisible(data.cbType == 4)
@@ -250,7 +250,7 @@ function ChatLayer:updateChild(item, index)
 		local path = 'chat/' .. data.cbExpression .. '.png'
 		Image_emoj:loadTexture(path)
 		Image_chat_di:setContentSize(cc.size(70, 60))
-	elseif data.cbType == 2 then --语音
+	elseif data.cbType == 2 or data.cbType == 6 then --语音
 		chat_time:setString(data.szTime .. 's')
 		Image_chat_di:setContentSize(cc.size(200,60))
 		self:showVoice(item)
@@ -517,7 +517,7 @@ function ChatLayer:addHongDian(item)
 		local index = item:getName()
 		local data = self.chatData[tonumber(index)]
 		if data then
-			if data.cbType == 2 then
+			if data.cbType == 2 or data.cbType == 6 then
 				Common:voiceEventTracking('PlayDownload',data.szVoiceSign)
 				local hd = self:seekWidgetByNameEx(item, 'Image_hong_dian')
 				hd:setVisible(false) --红点隐藏

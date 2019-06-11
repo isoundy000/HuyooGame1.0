@@ -497,45 +497,21 @@ function NewClubInfoLayer:createClubTable()
             panel:setVisible(true)
             local uiText_wayName = ccui.Helper:seekWidgetByName(panel,"Text_wayName")
             uiText_wayName:setVisible(true)
-            uiText_wayName:setFontSize(28)
-            uiText_wayName:setPositionY(uiText_wayName:getPositionY() + 5)
-            uiText_wayName:setString('')
-            -- if index == 1 then
-            --     uiText_wayName:setString('玩法一')
-            -- elseif index == 2 then
-            --     uiText_wayName:setString('玩法二')
-            -- elseif index == 3 then
-            --     uiText_wayName:setString('玩法三')
-            -- elseif index == 4 then
-            --     uiText_wayName:setString('玩法四')
-            -- elseif index == 5 then
-            --     uiText_wayName:setString('玩法五')
-            -- elseif index == 6 then
-            --     uiText_wayName:setString('玩法六')
-            -- end
-
-            local Image_tableIdx = ccui.Helper:seekWidgetByName(item,"Image_tableIdx")
-            Image_tableIdx:setVisible(true)
-            Image_tableIdx:loadTexture(string.format('club/club_%d.png', 100 + index))
-
-            local uiText_roomId = ccui.Helper:seekWidgetByName(panel,"Text_roomId")
-            uiText_roomId:setVisible(true)
-            uiText_roomId:setFontSize(28)
-            -- uiText_roomId:setString(StaticData.Games[v].name)
-
             if self.clubData.szParameterName[i] ~= "" and self.clubData.szParameterName[i] ~= " " then
-                uiText_roomId:setString(self.clubData.szParameterName[i])
+                uiText_wayName:setString(self.clubData.szParameterName[i])
             else
                 local kindid = self.clubData.wKindID[i]
-                uiText_roomId:setString(StaticData.Games[kindid].name)
+                uiText_wayName:setString(StaticData.Games[kindid].name)
             end
 
             local uiText_turnNum = ccui.Helper:seekWidgetByName(panel,"Text_turnNum")
             uiText_turnNum:setVisible(true)
-            uiText_turnNum:setFontSize(28)
-            uiText_turnNum:setPositionY(uiText_turnNum:getPositionY() - 5)
             local jushu = self.clubData.wGameCount[i]
             uiText_turnNum:setString(jushu .. '局/' .. parameter.bPlayerCount .. '人')
+            
+            local Image_tableIdx = ccui.Helper:seekWidgetByName(item,"Image_tableIdx")
+            Image_tableIdx:setVisible(true)
+            Image_tableIdx:loadTexture(string.format('club/club_%d.png', 100 + index))
 
             Common:addTouchEventListener(item,function(sender,event)
                 local isDisableCB = function()
@@ -712,8 +688,8 @@ function NewClubInfoLayer:resetClubTable(item)
 		
 		local uiText_wayName = ccui.Helper:seekWidgetByName(itemNode,"Text_wayName")
         uiText_wayName:setString("")
-        local uiText_roomId = ccui.Helper:seekWidgetByName(itemNode,"Text_roomId")
-        uiText_roomId:setString("")
+        -- local uiText_roomId = ccui.Helper:seekWidgetByName(itemNode,"Text_roomId")
+        -- uiText_roomId:setString("")
         local uiText_turnNum = ccui.Helper:seekWidgetByName(itemNode,"Text_turnNum")
         uiText_turnNum:setString("")
 
@@ -947,17 +923,12 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
         uiText_wayName:setString(StaticData.Games[data.wKindID].name)
     end
     
-    local uiText_roomId = ccui.Helper:seekWidgetByName(itemNode,"Text_roomId")
-    uiText_roomId:setVisible(true)
-    uiText_roomId:setString('房间号:' .. data.dwTableID)
+    -- local uiText_roomId = ccui.Helper:seekWidgetByName(itemNode,"Text_roomId")
+    -- uiText_roomId:setVisible(true)
+    -- uiText_roomId:setString('房间号:' .. data.dwTableID)
     local uiText_turnNum = ccui.Helper:seekWidgetByName(itemNode,"Text_turnNum")
     uiText_turnNum:setVisible(true)
     uiText_turnNum:setString('局数:' .. data.wCurrentGameCount .. '/' .. data.wGameCount)
-
-    --字体大小调整
-    uiText_wayName:setFontSize(22)
-    uiText_roomId:setFontSize(22)
-    uiText_turnNum:setFontSize(22)
 
     if playerNum == 2 then
         local tableIndex = {1,3,2,4}
@@ -1073,18 +1044,13 @@ function NewClubInfoLayer:refreshTableOneByOneEx(data)
         uiText_wayName:setString(StaticData.Games[data.wKindID].name)
     end
 
-    local uiText_roomId = ccui.Helper:seekWidgetByName(itemNode,"Text_roomId")
-    uiText_roomId:setVisible(true)
-    uiText_roomId:setString('房间号:' .. data.dwTableID)
+    -- local uiText_roomId = ccui.Helper:seekWidgetByName(itemNode,"Text_roomId")
+    -- uiText_roomId:setVisible(true)
+    -- uiText_roomId:setString('房间号:' .. data.dwTableID)
     local uiText_turnNum = ccui.Helper:seekWidgetByName(itemNode,"Text_turnNum")
     uiText_turnNum:setVisible(true)
     uiText_turnNum:setString('局数:' .. data.wCurrentGameCount .. '/' .. data.wGameCount)
 
-    --字体大小调整
-    uiText_wayName:setFontSize(22)
-    uiText_roomId:setFontSize(22)
-    uiText_turnNum:setFontSize(22)
-    
     if playerNum == 2 then
         local tableIndex = {1,3,2,4}
         for i, var in pairs(tableIndex) do
