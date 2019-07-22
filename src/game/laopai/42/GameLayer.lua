@@ -228,9 +228,9 @@ function GameLayer:startGame(...)
             GameCommon.tableConfig.wTbaleID,GameCommon.friendsRoomInfo.wTableNumber,
             #GameCommon.tagUserInfoList,GameCommon.wPlayerCount-#GameCommon.tagUserInfoList)..player
         data.szShareContent = GameDesc:getGameDesc(GameCommon.serverData.wKindID,GameCommon.number_dwHorse,GameCommon.friendsRoomInfo).." (点击加入游戏)"
-        data.szShareUrl = string.format(data.szShareUrl,UserData.User.userID, GameCommon.tableConfig.wTbaleID)
-        if GameCommon.tableConfig.nTableType == TableType_ClubRoom then
-            data.cbTargetType = Bit:_or(data.cbTargetType,0x20)
+        data.szShareUrl = string.format(data.szShareUrl, GameCommon.tableConfig.szGameID)
+        if GameCommon.tableConfig.nTableType ~= TableType_ClubRoom then
+            data.cbTargetType = Bit:_xor(data.cbTargetType,0x20)
         end
         require("app.MyApp"):create(data, handler(self, self.pleaseOnlinePlayer)):createView("ShareLayer")
     end)

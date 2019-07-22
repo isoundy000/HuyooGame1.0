@@ -723,14 +723,23 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if Bit:_and(data.dwMingTang,0x10) ~= 0 then
             desc = desc.."/红转黑"
         end
-        if Bit:_and(data.dwMingTang,0x01) ~= 0 then
-            desc = desc.."/带底"
-        end
+        -- if Bit:_and(data.dwMingTang,0x01) ~= 0 then
+        --     desc = desc.."/带底"
+        -- end
         if data.bMaxLost == 300 then
             desc = desc.."/300封顶"
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
         end
+
+        if data.bSettlement == 1 then
+            desc = desc.."/带一底"
+        elseif data.bSettlement == 3 then
+            desc = desc.."/带三底"
+        elseif data.bSettlement == 5 then
+            desc = desc.."/带五底"
+        end
+
     
     elseif wKindID == 38 then        
         if data.bPlayerCount == 3 then
@@ -1068,6 +1077,10 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         end
         if data.bPaoTips == 1 then
             desc = desc.."/明跑提示"
+        end
+
+        if data.bDeathCard == 1 then
+            desc = desc.."/去牌"
         end
         
     elseif wKindID == 49 then        
@@ -1524,6 +1537,10 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/200封顶"
         elseif data.mJFCount == 300  then
             desc = desc.."/300封顶"
+        elseif data.mJFCount == 30  then
+            desc = desc.."/30封顶"
+        elseif data.mJFCount == 60  then
+            desc = desc.."/60封顶"
         elseif data.mJFCount == 1000  then
             desc = desc.."/不封顶"
         end

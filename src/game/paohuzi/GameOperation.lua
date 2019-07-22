@@ -154,7 +154,11 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
             local item = self.Button_operation:clone()
             item:loadTextures("game/op_hu.png","game/op_hu.png","game/op_hu.png")
             item:setPressedActionEnabled(true)
-            if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 or GameCommon.tableConfig.wKindID == 44 then 
+            if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
+				CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
+				CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
+				CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
+				CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 or GameCommon.tableConfig.wKindID == 44 then 
                 GameCommon.IsOfHu = 1
             end
             if  GameCommon.tableConfig.wKindID == 39 or GameCommon.tableConfig.wKindID == 16  then       
@@ -229,7 +233,11 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                     end 
                 end)
 
-                if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 or GameCommon.tableConfig.wKindID == 44 then 
+                if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
+				CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
+				CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
+				CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
+				CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 or GameCommon.tableConfig.wKindID == 44 then 
                     GameCommon.IsOfHu = 1
                 end
 

@@ -116,7 +116,10 @@ function GameLayer:startGame(...)
             GameCommon.tableConfig.wTbaleID,GameCommon.tableConfig.wTableNumber,
             GameCommon.gameConfig.bPlayerCount,GameCommon.gameConfig.bPlayerCount-currentPlayerCount)..player
         data.szShareContent = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig).." (点击加入游戏)"
-        data.szShareUrl = string.format(data.szShareUrl,UserData.User.userID, GameCommon.tableConfig.wTbaleID)
+        data.szShareUrl = string.format(data.szShareUrl, GameCommon.tableConfig.szGameID)
+        if GameCommon.tableConfig.nTableType ~= TableType_ClubRoom then
+            data.cbTargetType = Bit:_xor(data.cbTargetType,0x20)
+        end
         require("app.MyApp"):create(data):createView("ShareLayer")
     end)
     self:loadingPlayback()

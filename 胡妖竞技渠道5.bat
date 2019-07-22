@@ -26,6 +26,13 @@ rd /s/q 正式包\res\hall_8
 rd /s/q 正式包\res\hall_9
 rd /s/q 正式包\res\hall_10
 rd /s/q 正式包\res\hall_11
+rd /s/q 正式包\res\expression\sound_quick_qiyang
+rd /s/q 正式包\res\expression\sound_quick_yongzhou
+rd /s/q 正式包\res\majiang\sound\zhumadian
+rd /s/q 正式包\res\majiang\sound\yongzhou
+rd /s/q 正式包\res\puke\sound_sangong
+rd /s/q 正式包\res\zipai\sound\hengyang
+rd /s/q 正式包\res\zipai\sound\yongzhou
 mkdir 正式包\res\achannel\5
 xcopy res\achannel\5 正式包\res\achannel\5 /e
 

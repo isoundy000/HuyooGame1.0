@@ -211,17 +211,10 @@ function NewClubInfoLayer:onReturn()
 end
 
 function NewClubInfoLayer:onShare()
-    local data = clone(UserData.Share.tableShareParameter[8])
-    if data == nil then
-        data = clone(UserData.Share.tableShareParameter[2])
-    end
+       local data = clone(UserData.Share.tableShareParameter[2])
     data.szShareTitle = string.format("亲友圈昵称:%s(亲友圈ID:%d)",self.clubData.szClubName,self.clubData.dwClubID)
     data.szShareContent = "好友邀请您加入亲友圈畅玩游戏,自动开房,点击加入>>>"
-    if data.cbShareType == 1 then
-        data.szShareUrl = string.format(data.szShareUrl,UserData.User.szAccount, CHANNEL_ID, StaticData.Channels[CHANNEL_ID].appname, self.clubData.dwClubID, UserData.User.szUnionid)
-    elseif data.cbShareType == 2 then
-        data.szShareImg = string.format(data.szShareImg,UserData.User.userID, self.clubData.dwClubID)
-    end
+    data.szShareUrl = string.format(data.szShareUrl,self.clubData.dwClubID, UserData.User.userID)
     require("app.MyApp"):create(data):createView("ShareLayer")
 end
 
@@ -234,12 +227,8 @@ end
 
 function NewClubInfoLayer:onModifyMp()
     local data = clone(UserData.Share.tableShareParameter[10])
-    if data and data.cbTargetID == 10 then
-        local szParameter = string.format("{\"api\":%s,\"userid\":%d}", StaticData.Channels[CHANNEL_ID].recordLink, UserData.User.userID)
-        szParameter = Base64.encode(szParameter)
-        data.szShareUrl = string.format(data.szShareUrl,szParameter)
-        require("app.MyApp"):create(data):createView("ShareLayer")
-    end
+    data.szShareUrl = string.format(data.szShareUrl,UserData.User.userID)
+    require("app.MyApp"):create(data):createView("ShareLayer")
     self.Panel_mp:setVisible(false)
     self.Image_mpFrame:setVisible(false)
 end
@@ -430,15 +419,12 @@ end
 
 function NewClubInfoLayer:onShareChat()
     local data = clone(UserData.Share.tableShareParameter[9])
-    if data then
-        data.szShareTitle = string.format(data.szShareTitle, self.clubData.szClubName)
-        data.szShareContent = string.format("亲友圈ID：%d  群主：%s，点击进入聊天室", self.clubData.dwClubID, self.clubData.szNickName)
-        local appname = StaticData.Channels[CHANNEL_ID].appname
-        data.szShareUrl = string.format(data.szShareUrl, self.clubData.dwClubID, CHANNEL_ID, appname)
-        -- data.cbTargetType = Bit:_or(data.cbTargetType, 0x20)
-        require("app.MyApp"):create(data):createView("ShareLayer")
-    end
-    dump(data,'type9=')
+    data.szShareTitle = string.format(data.szShareTitle, self.clubData.szClubName)
+    data.szShareContent = string.format("亲友圈ID：%d  群主：%s，点击进入聊天室", self.clubData.dwClubID, self.clubData.szNickName)
+    local szParameter = string.format("{\"app_id\":%d,\"id\":%d,\"CT\":%d}", 10068, self.clubData.dwClubID, StaticData.Channels[CHANNEL_ID].ChannelType)
+    szParameter = Base64.encode(szParameter)
+    data.szShareUrl = string.format(data.szShareUrl,szParameter)
+    require("app.MyApp"):create(data):createView("ShareLayer")
 end
 
 ------------------------------------------------------------------------

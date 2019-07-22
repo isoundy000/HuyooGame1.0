@@ -348,22 +348,14 @@ function RoomCreateLayer:onEventCreate(nTableType)
                 if data.dwExpendType == 0 then--无消耗
                 elseif data.dwExpendType == 1 then--金币
                     if UserData.User.dwGold  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请前往商城充值？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
                         return
-                end  
+                    end  
                 elseif data.dwExpendType == 2 then--元宝
                     if UserData.User.dwIngot  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足,请前往商城购买？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的元宝不足!")
                         return
-                end 
+                    end 
                 elseif data.dwExpendType == 3 then--道具
                     local itemCount = UserData.Bag:getBagPropCount(data.dwSubType)
                     if itemCount < data.dwExpendCount then

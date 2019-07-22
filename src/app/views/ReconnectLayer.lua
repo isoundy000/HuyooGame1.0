@@ -19,9 +19,12 @@ function ReconnectLayer:onEnter()
     EventMgr:registListener(EventType.SUB_CL_LOGON_ERROR,self,self.SUB_CL_LOGON_ERROR)
     EventMgr:registListener(EventType.SUB_CL_USER_LOCK_SERVER,self,self.SUB_CL_USER_LOCK_SERVER)
     EventMgr:registListener(EventType.EVENT_TYPE_CONNECT_GAME_FAILED,self,self.EVENT_TYPE_CONNECT_GAME_FAILED)
+    EventMgr:registListener(EventType.SUB_GR_LOGON_ERROR,self,self.SUB_GR_LOGON_ERROR)
     EventMgr:registListener(EventType.SUB_GR_LOGON_SUCCESS,self,self.SUB_GR_LOGON_SUCCESS)
     EventMgr:registListener(EventType.SUB_GR_USER_ENTER,self,self.SUB_GR_USER_ENTER)
+    EventMgr:registListener(EventType.EVENT_TYPE_NET_DISCONNET,self,self.EVENT_TYPE_NET_DISCONNET)
 
+    self:startConnect()
 end
 
 function ReconnectLayer:onExit()
@@ -33,15 +36,18 @@ function ReconnectLayer:onExit()
     EventMgr:unregistListener(EventType.SUB_CL_LOGON_ERROR,self,self.SUB_CL_LOGON_ERROR)
     EventMgr:unregistListener(EventType.SUB_CL_USER_LOCK_SERVER,self,self.SUB_CL_USER_LOCK_SERVER)
     EventMgr:unregistListener(EventType.EVENT_TYPE_CONNECT_GAME_FAILED,self,self.EVENT_TYPE_CONNECT_GAME_FAILED)
+    EventMgr:unregistListener(EventType.SUB_GR_LOGON_ERROR,self,self.SUB_GR_LOGON_ERROR)
     EventMgr:unregistListener(EventType.SUB_GR_LOGON_SUCCESS,self,self.SUB_GR_LOGON_SUCCESS)
     EventMgr:unregistListener(EventType.SUB_GR_USER_ENTER,self,self.SUB_GR_USER_ENTER)
+    EventMgr:unregistListener(EventType.EVENT_TYPE_NET_DISCONNET,self,self.EVENT_TYPE_NET_DISCONNET)
+    
     UserData.Time.isReconecting = false
 end
 
 function ReconnectLayer:onCreate()   
-    self.connectCount = 0
     UserData.Time.isReconecting = true 
-
+    self.connectCount = 0
+    
     if PLATFORM_TYPE ~= cc.PLATFORM_OS_DEVELOPER then
         Common:screenshot(FileName.screenshot)
     end
@@ -53,42 +59,27 @@ function ReconnectLayer:onCreate()
         layer:addChild(bg)   
         bg:setPosition(visibleSize.width/2,visibleSize.height/2) 
     end
-    self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) 
-        self:startConnect()
-    end)))
 end
 
-function ReconnectLayer:connect()
+
+function ReconnectLayer:startConnect()
     NetMgr:getLoginInstance():closeConnect()
     NetMgr:getLogicInstance():closeConnect()
     NetMgr:getGameInstance():closeConnect()
-    local tableLoginInfo ,loginInfo = UserData.User:readLoginInfo()
-    UserData.User:sendMsgConnectLogin(loginInfo)
-    self:runAction(cc.Sequence:create(cc.DelayTime:create(10),cc.CallFunc:create(function(sender,event) 
-        self:startConnect()
-    end)))
-end
-
---开始重连
-function ReconnectLayer:startConnect()
+    
     self:stopAllActions()
+    
     self.connectCount = self.connectCount + 1
-
-    if self.connectCount <= 1 then
+    if self.connectCount <= 2 then
         self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) 
-            self:connect()
+            local tableLoginInfo ,loginInfo = UserData.User:readLoginInfo()
+            UserData.User:sendMsgConnectLogin(loginInfo)
         end)))
-
-    elseif self.connectCount <= 2 then
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(3),cc.CallFunc:create(function(sender,event) 
-            self:connect()
-        end)))
-
+        
     elseif self.connectCount <= 3 then
         require("common.MsgBoxLayer"):create(1,self,"请检查您的网络是否稳定,再尝试重新连接?",function() 
-            self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) 
-                self:connect()
-            end)))
+            local tableLoginInfo ,loginInfo = UserData.User:readLoginInfo()
+            UserData.User:sendMsgConnectLogin(loginInfo)
         end,function() 
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create(false,true):createView("LoginLayer"),SCENE_LOGIN) 
         end)
@@ -101,13 +92,20 @@ function ReconnectLayer:startConnect()
     end
 end
 
+function ReconnectLayer:EVENT_TYPE_NET_DISCONNET(event)
+    local netID = event._usedata
+    if netID ~= NetMgr.NET_LOGIC and netID ~= NetMgr.NET_GAME then
+        return
+    end
+    self:startConnect()
+end
+
 function ReconnectLayer:EVENT_TYPE_CONNECT_LOGIN_FAILED(event)
     local data = event._usedata
     self:startConnect()
 end
 
 function ReconnectLayer:SUB_GP_LOGON_FAILURE(event)
-    self:stopAllActions()
     local data = event._usedata
     local errorCode = ""
     if data.wErrorCode == 0 then
@@ -175,6 +173,11 @@ end
 
 function ReconnectLayer:EVENT_TYPE_CONNECT_GAME_FAILED(event)
     self:startConnect()
+end
+
+function ReconnectLayer:SUB_GR_LOGON_ERROR(event)
+    require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL)
+    require("common.MsgBoxLayer"):create(0,nil,"重连成功!")
 end
 
 function ReconnectLayer:SUB_GR_USER_ENTER(event)

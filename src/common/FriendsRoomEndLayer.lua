@@ -115,18 +115,7 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                     end
                 end
             end
-            local szParameter = ""
-            local room_type = 0
-            if pBuffer.tableConfig.nTableType == TableType_FriendRoom then
-                room_type = 1
-            elseif pBuffer.tableConfig.nTableType == TableType_ClubRoom then
-                room_type = 2
-            else
-                return
-            end
-            szParameter = string.format("{\"api\":%s,\"room_type\":%d,\"room_id\":%d,\"shareId\":%s}", StaticData.Channels[CHANNEL_ID].recordLink, room_type, pBuffer.tableConfig.wTbaleID, pBuffer.szGameID)
-            szParameter = Base64.encode(szParameter)
-            data.szShareUrl = string.format(data.szShareUrl,szParameter)
+            data.szShareUrl = string.format(data.szShareUrl,pBuffer.szGameID)
             data.szShareImg = FileName.battlefieldScreenshot
             data.szGameID = pBuffer.szGameID
             data.isInClub = self:isInClub(pBuffer);

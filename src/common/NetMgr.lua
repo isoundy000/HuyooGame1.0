@@ -86,6 +86,9 @@ function cc.exports.OnNetRecvMsg(netID)
         printError(string.format("没有找到该连接器：%d",netID))
         return
     end
+    if netInstance.connected == false then
+        return
+    end
     local mainCmdID = netInstance.cppFunc:GetMainCmdID()
     local subCmdID = netInstance.cppFunc:GetSubCmdID()
     

@@ -41,7 +41,7 @@ function Share:EVENT_TYPE_NET_RECV_MESSAGE(event)
 
     local mainCmdID = netInstance.cppFunc:GetMainCmdID()
     local subCmdID = netInstance.cppFunc:GetSubCmdID()
-    if netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_HALL and subCmdID == NetMsgId.SUB_CL_SHARE_CONFIG then
+    if netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_HALL and subCmdID == NetMsgId.RET_SHARE then
         local data = {}
         data.dwChannelID = netInstance.cppFunc:readRecvDWORD()              --渠道ID
         data.cbTargetID = netInstance.cppFunc:readRecvByte()                --目标ID  0大厅 1公会 2俱乐部 3牌桌 4大结算 5战绩  6小结算 7新牌桌邀请
@@ -68,7 +68,7 @@ end
 
 function Share:SUB_CL_LOGON_SUCCESS(event)
     self.tableShareParameter = {}
-    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_HALL,NetMsgId.REQ_CL_NEW_SHARE_CONFIG2,"d",CHANNEL_ID)
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_HALL,NetMsgId.REQ_SHARE,"")
     self.tableCustomerParameter = {}
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_HALL,NetMsgId.REQ_CL_SETTINT_CONFIG,"d",CHANNEL_ID)
 end
@@ -86,7 +86,8 @@ function Share:doShare(data,callback)
         szParameter = data.szShareUrl
         print("分享连接",data.cbTargetID,data.cbTargetType,data.cbShareType,data.szShareTitle,data.szShareContent,szParameter)
     elseif data.cbShareType == 2 then
-        szParameter = data.szShareImg
+        local szShareUrl = string.gsub(data.szShareUrl, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)
+        szParameter = string.format(HttpUrl.POST_URL_DownShareImg, StaticData.Channels[CHANNEL_ID].ChannelType,CHANNEL_ID,data.cbTargetID, szShareUrl)
         print("分享图片",data.cbTargetID,data.cbTargetType,data.cbShareType,data.szShareTitle,data.szShareContent,szParameter)
     elseif data.cbShareType == 3 then
         szParameter = data.szShareImg

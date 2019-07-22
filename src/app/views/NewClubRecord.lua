@@ -774,10 +774,6 @@ end
 function NewClubRecord:SUB_CL_SUB_REPLAY_SHAREID(event)
 	local param = event._usedata
 	local data = clone(UserData.Share.tableShareParameter[5])
-	if not data then
-		print('===未配置Share.tableShareParameter')
-		return
-	end
 	data.cbTargetType = 2
 	data.szShareTitle = string.format(data.szShareTitle, StaticData.Games[self.wKindID].name, param.szShareID)
 	data.szShareUrl = string.format("%s&Account=%s&channelID=%d", data.szShareUrl, UserData.User.szAccount, CHANNEL_ID)

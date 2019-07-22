@@ -162,20 +162,20 @@ function RoomCreateLayer:onCreate(parameter)
     else
         items[1]:setBright(true)
     end
-    --翻省囤数
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items)
-    if self.recordCreateParameter["FanXing"] ~= nil and self.recordCreateParameter["FanXing"]["bType"] == 0 then
-        for key, var in pairs(items) do
-            var:setBright(false)
-            var:setEnabled(false)
-            var:setColor(cc.c3b(170,170,170))
-        end
-    else
-        items[1]:setBright(true)
-    end
+    -- --翻省囤数
+    -- local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
+    -- Common:addCheckTouchEventListener(items)
+    -- if self.recordCreateParameter["FanXing"] ~= nil and self.recordCreateParameter["FanXing"]["bType"] == 0 then
+    --     for key, var in pairs(items) do
+    --         var:setBright(false)
+    --         var:setEnabled(false)
+    --         var:setColor(cc.c3b(170,170,170))
+    --     end
+    -- else
+    --     items[1]:setBright(true)
+    -- end
     --单局上限
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items)
     if self.recordCreateParameter["bMaxLost"] ~= nil and self.recordCreateParameter["bMaxLost"] == 300 then
         items[2]:setBright(true)
@@ -319,16 +319,13 @@ function RoomCreateLayer:onEventCreate(nTableType)
         tableParameter.bDouble = 0
     end
     --翻省囤数
-    if tableParameter.FanXing.bType ~= 0 then
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
-        if items[1]:isBright() then
-            tableParameter.FanXing.bAddTun = 3
-        end
+    if tableParameter.FanXing.bType ~= 0 then     
+        tableParameter.FanXing.bAddTun = 3
     else
         tableParameter.FanXing.bAddTun = 0
     end
     --单局上限
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.bMaxLost = 0
     elseif items[2]:isBright() then
@@ -358,22 +355,14 @@ function RoomCreateLayer:onEventCreate(nTableType)
                 if data.dwExpendType == 0 then--无消耗
                 elseif data.dwExpendType == 1 then--金币
                     if UserData.User.dwGold  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请前往商城充值？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
                         return
-                end  
+                    end  
                 elseif data.dwExpendType == 2 then--元宝
                     if UserData.User.dwIngot  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足,请前往商城购买？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的元宝不足!")
                         return
-                end 
+                    end 
                 elseif data.dwExpendType == 3 then--道具
                     local itemCount = UserData.Bag:getBagPropCount(data.dwSubType)
                     if itemCount < data.dwExpendCount then

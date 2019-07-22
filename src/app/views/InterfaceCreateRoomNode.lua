@@ -59,7 +59,7 @@ function InterfaceCreateRoomNode:onCreate(parameter)
         return
     end
     
-    UserData.Game:sendMsgGetRoomInfo(self.wKindID, 3)
+    UserData.Game:sendMsgGetRoomInfo(self.wKindID, 2)
 end
 
 function InterfaceCreateRoomNode:SUB_GR_USER_ENTER(event)
@@ -86,9 +86,9 @@ function InterfaceCreateRoomNode:SUB_GR_CREATE_TABLE_FAILED(event)
     elseif errorID == 11 then
         require("common.MsgBoxLayer"):create(2,nil,"请先加入公会!")
     elseif errorID == 12 then
-        require("common.MsgBoxLayer"):create(2,nil,"会长房卡不够不能创建!")
+        require("common.MsgBoxLayer"):create(2,nil,"代理房卡不够不能创建!")
     elseif errorID == 13 then
-        require("common.MsgBoxLayer"):create(2,nil,"未授权代开权限,请联系会长授权代开权限!")
+        require("common.MsgBoxLayer"):create(2,nil,"未授权代开权限,请联系代理授权代开权限!")
     elseif errorID == 14 then
         require("common.MsgBoxLayer"):create(2,nil,"您已经达到代开房上限，不能再创建了!")
     elseif errorID == 15 then

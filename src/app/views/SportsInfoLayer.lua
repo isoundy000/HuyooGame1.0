@@ -58,7 +58,7 @@ function SportsInfoLayer:onCreate(parameter)
     end)
     
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_start"),function() 
-        UserData.Game:sendMsgGetRoomInfo(self.data.wKindID, 2)
+        UserData.Game:sendMsgGetRoomInfo(self.data.wKindID, 1)
     end)
     
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_record"),function() 
@@ -177,11 +177,7 @@ function SportsInfoLayer:SUB_GR_MATCH_TABLE_FAILED(event)
     elseif data.wErrorCode == 1 then
         require("common.MsgBoxLayer"):create(0,nil,"游戏配置发生错误!")
     elseif data.wErrorCode == 2 then
-        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请前往商城充值?",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-        else
-            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-        end
+        require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
     elseif data.wErrorCode == 3 then
         require("common.MsgBoxLayer"):create(0,nil,"您的金币已超过上限，请前往更高一级匹配!")
     elseif data.wErrorCode == 4 then

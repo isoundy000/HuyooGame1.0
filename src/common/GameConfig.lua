@@ -247,7 +247,7 @@ function GameConfig:getParameter(wKindID,luaFunc)
         data.bCanHuXi = luaFunc:readRecvByte()                      --起胡数  0 3 6 10 15  
         data.bHuType = luaFunc:readRecvByte()                       --胡牌类型  0自摸翻倍  1接炮
         data.bFangPao = luaFunc:readRecvByte()                      --是否有放跑功能
-        data.bSettlement = luaFunc:readRecvByte()                   --结算是否按三胡一囤，否则一胡一囤
+        data.bSettlement = luaFunc:readRecvByte()                   --带底
         data.bStartTun = luaFunc:readRecvByte()                     --囤数起始算法  0起始胡息一囤  1起始胡息二囤 210胡息三囤<=15胡息每多1胡息+1囤    
         data.bSocreType = luaFunc:readRecvByte()                    --0低分*囤数总和*名堂番数总和  1低分*囤数总和*名堂番数乘积
         data.dwMingTang = luaFunc:readRecvDWORD()                   --包含的名堂有哪些             

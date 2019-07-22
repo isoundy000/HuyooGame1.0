@@ -650,8 +650,7 @@ function TableLayer:doAction(action,pBuffer)
         card.wChairID = wChairID
         uiPanel_tipsCard:addChild(card)
         card:setPosition(visibleSize.width/2,visibleSize.height*0.8)
-        card:setScale(0)
-        card:runAction(cc.ScaleTo:create(0.2,0.5))
+        card:runAction(cc.ScaleTo:create(0.2,0.7))
         if GameCommon.gameConfig.FanXing.bType == 1 or GameCommon.gameConfig.FanXing.bType == 2 then
             GameCommon:playAnimation(self.root, "翻省")
         else
@@ -1770,9 +1769,9 @@ function TableLayer:initUI()
             GameCommon.tableConfig.wTbaleID,GameCommon.tableConfig.wTableNumber,
             GameCommon.gameConfig.bPlayerCount,GameCommon.gameConfig.bPlayerCount-currentPlayerCount)..player
         data.szShareContent = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig).." (点击加入游戏)"
-        data.szShareUrl = string.format(data.szShareUrl,UserData.User.userID, GameCommon.tableConfig.wTbaleID)
-        if GameCommon.tableConfig.nTableType == TableType_ClubRoom then
-            data.cbTargetType = Bit:_or(data.cbTargetType,0x20)
+        data.szShareUrl = string.format(data.szShareUrl, GameCommon.tableConfig.szGameID)
+        if GameCommon.tableConfig.nTableType ~= TableType_ClubRoom then
+            data.cbTargetType = Bit:_xor(data.cbTargetType,0x20)
         end
         require("app.MyApp"):create(data, handler(self, self.pleaseOnlinePlayer)):createView("ShareLayer")
     end)
@@ -1809,7 +1808,10 @@ function TableLayer:initUI()
                 GameCommon.tableConfig.wTbaleID,GameCommon.tableConfig.wTableNumber,
                 GameCommon.gameConfig.bPlayerCount,GameCommon.gameConfig.bPlayerCount-currentPlayerCount)..player
             data.szShareContent = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig).." (点击加入游戏)"
-            data.szShareUrl = string.format(data.szShareUrl,UserData.User.userID, GameCommon.tableConfig.wTbaleID)
+            data.szShareUrl = string.format(data.szShareUrl, GameCommon.tableConfig.szGameID)
+            if GameCommon.tableConfig.nTableType ~= TableType_ClubRoom then
+                data.cbTargetType = Bit:_xor(data.cbTargetType,0x20)
+            end
             data.text = data.szShareTitle .. "\n" .. data.szShareContent
             require("common.MsgBoxLayer"):create(0,nil,"复制成功")
         end)
@@ -2785,8 +2787,8 @@ function TableLayer:playSketlAnim(sChairID, eChairID, index,indexEx)
         v:setVisible(false)
     end
 
-	local Animation = require("game.paohuzi.Animation")
-	local AnimCnf = Animation[22]
+	local Animation = require("game.majiang.Animation")
+	local AnimCnf = Animation[220]
 	
 	if not AnimCnf[index] then
 		return

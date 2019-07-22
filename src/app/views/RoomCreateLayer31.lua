@@ -340,9 +340,20 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x08,self.recordCreateParameter["dwMingTang"]) ~= 0 then
         items[2]:setBright(true)
     end
-    if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x01,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+
+    --带底
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bSettlement"] ~= nil and self.recordCreateParameter["bSettlement"] == 3 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bSettlement"] ~= nil and self.recordCreateParameter["bSettlement"] == 5 then
         items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
     end
+    -- if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x01,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+    --     items[3]:setBright(true)
+    -- end
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}
         self:SUB_CL_FRIENDROOM_CONFIG_END()
@@ -503,15 +514,24 @@ function RoomCreateLayer:onEventCreate(nTableType)
     if items[2]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x08)
     end
-    if items[3]:isBright() then
-        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x01)
+
+    --带底
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bSettlement = 1
+    elseif items[2]:isBright() then
+        tableParameter.bSettlement = 3
+    elseif items[3]:isBright() then
+        tableParameter.bSettlement = 5
+    else
+        return
     end
     tableParameter.bLimit = 0
     tableParameter.bYiWuShi = 0
     tableParameter.bLiangPai = 0
     tableParameter.bHuType = 0
     tableParameter.bFangPao = 0
-    tableParameter.bSettlement = 0
+  --  tableParameter.bSettlement = 0
     tableParameter.bStartTun = 0
     tableParameter.bSocreType = 1
     tableParameter.bDeathCard = 0
@@ -527,22 +547,14 @@ function RoomCreateLayer:onEventCreate(nTableType)
                 if data.dwExpendType == 0 then--无消耗
                 elseif data.dwExpendType == 1 then--金币
                     if UserData.User.dwGold  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请前往商城充值？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
                         return
-                end  
+                    end  
                 elseif data.dwExpendType == 2 then--元宝
                     if UserData.User.dwIngot  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足,请前往商城购买？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的元宝不足!")
                         return
-                end 
+                    end 
                 elseif data.dwExpendType == 3 then--道具
                     local itemCount = UserData.Bag:getBagPropCount(data.dwSubType)
                     if itemCount < data.dwExpendCount then

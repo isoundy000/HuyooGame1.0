@@ -738,8 +738,13 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             local cbCardIndex = GameLogic:SwitchToCardIndexs(pBuffer.cbCardData,GameCommon.player[wChairID].bUserCardCount)
             self.tableLayer:setHandCard(wChairID,GameCommon.player[wChairID].bUserCardCount, cbCardIndex, maxHanCardRow, 0)
             self.tableLayer:showHandCard(wChairID,1)
+
             if GameCommon.gameConfig.bPlayerCount ~= 4 then
-                self.tableLayer:updateLeftCardCount(80-GameCommon.gameConfig.bPlayerCount*20-1, true)
+                if GameCommon.gameConfig.bDeathCard == 1 and GameCommon.gameConfig.bPlayerCount == 2  then
+                    self.tableLayer:updateLeftCardCount(80-3*20-1, true)
+                else
+                    self.tableLayer:updateLeftCardCount(80-GameCommon.gameConfig.bPlayerCount*20-1, true)
+                end
             else
                 self.tableLayer:updateLeftCardCount(80-3*20-1, true)
             end

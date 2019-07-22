@@ -31,15 +31,10 @@ function MallLayer:onExit()
 end
 
 function MallLayer:onCreate(parames)
---    if PLATFORM_TYPE ~= cc.PLATFORM_OS_DEVELOPER and StaticData.Hide[CHANNEL_ID].btn1 == 1 and UserData.Guild.dwGuildID == 0 then
---        self:runAction(cc.Sequence:create(
---            cc.DelayTime:create(0),
---            cc.CallFunc:create(function(sender,event) 
---            require("common.MsgBoxLayer"):create(0,nil,"请先加入公会!")
---            require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer")) 
---        end)))
---        return
---    end
+    if CHANNEL_ID == 2 or CHANNEL_ID == 2 then
+        self:removeFromParent()
+        return
+    end
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     local csb = cc.CSLoader:createNode("MallLayer.csb")
     self:addChild(csb)
@@ -392,7 +387,7 @@ function MallLayer:buyProp(data)
                 self:showUI(1)
             end)
         else
-            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
+            require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
         end
         return
 	end
@@ -419,7 +414,7 @@ function MallLayer:SUB_CL_MALL_BUYGOODS(event)
                 self:showUI(1)
             end)
         else
-            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
+            require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
         end
     else
         require("common.MsgBoxLayer"):create(0,nil,"购买失败!")

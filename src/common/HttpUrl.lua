@@ -30,6 +30,7 @@ local HttpUrl = {
     POST_URL_ClubStatisticsScore = "http://agent.qilaigame.com/Club/frmClubGameCountScore.html?ClubID=%d&UserID=%d",
     POST_URL_GetGameIpAddr = "http://pv.sohu.com/cityjson?ie=utf-8",
     POST_URL_CHATRECORD = 'http://share.hy.qilaigame.com/nim/fight?fid=%s',
+    POST_URL_DownShareImg = "http://management.hy.qilaigame.com/index.php/api/CombineImg?CT=%d&CID=%d&TID=%d&ShareImg=%s"
 }
 
 return HttpUrl

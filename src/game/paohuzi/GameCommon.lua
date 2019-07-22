@@ -627,8 +627,14 @@ function GameCommon:playAnimation(root, id, wChairID)
             armature:setPosition(visibleSize.width/2, visibleSize.height/2)
             require("common.Common"):playEffect("common/huangzhuang.mp3")
         elseif id == "翻省" or id == "跟省" then
-            armature:setPosition(visibleSize.width/2, visibleSize.height/2 + 250)
-            require("common.Common"):playEffect("common/fangx.mp3")     	 
+            armature:setPosition(visibleSize.width/2, visibleSize.height/2 + 220)
+            armature:setScale(0.5)
+            require("common.Common"):playEffect("common/fangx.mp3")    
+            armature:stopAllActions()
+            armature:runAction(cc.Sequence:create(
+            cc.DelayTime:create(1.0),
+            cc.FadeOut:create(1.0),
+            cc.RemoveSelf:create())) 	 
         else		
             local viewID = GameCommon:getViewIDByChairID(wChairID)
             local uiPanel_tipsCardPos = ccui.Helper:seekWidgetByName(root,string.format("Panel_tipsCardPos%d",viewID))

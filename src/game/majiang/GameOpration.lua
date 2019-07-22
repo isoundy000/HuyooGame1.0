@@ -117,8 +117,13 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealHu(pBuffer)
         end)
-        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
-            GameCommon.IsOfHu = 1
+        if 	CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 and
+			CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
+			CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
+			CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
+			CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
+			CHANNEL_ID ~= 4 and CHANNEL_ID ~= 5 then 
+				GameCommon.IsOfHu = 1
         end 
         if  pBuffer.mUserWCWDActionEx ~= nil then 
             mUserWCWDActionEx = pBuffer.mUserWCWDActionEx
@@ -162,7 +167,12 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealBiHu(pBuffer)
         end)
-        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then 
+        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 and
+			CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
+			CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
+			CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
+			CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
+			CHANNEL_ID ~= 4 and CHANNEL_ID ~= 5 then 
             GameCommon.IsOfHu = 1
         end
         ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")

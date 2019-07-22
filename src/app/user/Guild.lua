@@ -983,7 +983,6 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
 end
 
 function Guild:EVENT_TYPE_FIRST_ENTER_HALL(event)
-    self:getGuildInfo()
     self.tableLastUseClubRecord = self:readLastUseClubRecord()
 end
 

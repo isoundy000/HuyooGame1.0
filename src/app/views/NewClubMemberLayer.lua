@@ -401,10 +401,15 @@ function NewClubMemberLayer:research()
         self:reqClubPartner(self.pCurID)
     else
         --群主或管理员
-        self.ListView_myParnter:removeAllItems()
+        self.ListView_pushParnter:removeAllItems()
         self.partnerReqState = 0
         self.curPartnerIdx = 1
-        self:reqClubPartner()
+        if self.ListView_pushParnter:isVisible() then
+            self:reqClubPartner(self.pCurID)
+        else
+            self.ListView_myParnter:removeAllItems()
+            self:reqClubPartner()
+        end
     end
 end
 
@@ -1142,6 +1147,7 @@ function NewClubMemberLayer:RET_GET_CLUB_MEMBER(event)
     elseif self.Panel_newEx:isVisible() then
         self:refreshNewList(data)
     end
+    self.curClubIndex = self.curClubIndex + 1
 end
 
 --返回剔除成员
@@ -1296,7 +1302,7 @@ function NewClubMemberLayer:RET_GET_CLUB_MEMBER_FINISH( event )
     else
         self.memberReqState = 1
     end
-    self.curClubIndex = self.curClubIndex + MEMBER_NUM
+    -- self.curClubIndex = self.curClubIndex + MEMBER_NUM
 end
 
 function NewClubMemberLayer:RET_GET_CLUB_MEMBER_EX_FINISH( event )

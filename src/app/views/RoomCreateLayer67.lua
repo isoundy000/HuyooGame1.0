@@ -289,15 +289,37 @@ function RoomCreateLayer:onCreate(parameter)
 
     --选择封顶
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items)
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+        if index == 1 or index == 2 or index == 3 or index == 4  then
+            for key, var in pairs(items) do
+                var:setBright(false)
+            end
+        end
+    end)
     if self.recordCreateParameter["mJFCount"] ~= nil and self.recordCreateParameter["mJFCount"] == 300 then
         items[3]:setBright(true)
     elseif self.recordCreateParameter["mJFCount"] ~= nil and self.recordCreateParameter["mJFCount"] == 200 then
         items[2]:setBright(true)
     elseif self.recordCreateParameter["mJFCount"] ~= nil and self.recordCreateParameter["mJFCount"] == 100 then
         items[1]:setBright(true)
-    else
+    elseif self.recordCreateParameter["mJFCount"] == nil or self.recordCreateParameter["mJFCount"] == 1000 then
         items[4]:setBright(true)
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+        if index == 1 or index == 2   then
+            for key, var in pairs(items) do
+                var:setBright(false)
+            end
+        end
+    end)
+    if self.recordCreateParameter["mJFCount"] ~= nil and self.recordCreateParameter["mJFCount"] == 30 then
+        items[1]:setBright(true)
+    elseif self.recordCreateParameter["mJFCount"] ~= nil and self.recordCreateParameter["mJFCount"] == 60 then
+        items[2]:setBright(true)
     end
 
     if self.showType == 3 then
@@ -495,16 +517,23 @@ function RoomCreateLayer:onEventCreate(nTableType)
         tableParameter.bLongQD = 1
     end
 
+   --积分上限
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
-    --抢杠胡奖马
     if items[1]:isBright() then
         tableParameter.mJFCount = 100
     elseif items[2]:isBright() then
         tableParameter.mJFCount = 200
     elseif items[3]:isBright() then
         tableParameter.mJFCount = 300
-    else
+    elseif items[4]:isBright() then
         tableParameter.mJFCount = 1000
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.mJFCount = 30
+    elseif items[2]:isBright() then
+        tableParameter.mJFCount = 60
     end
  
    if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == TableType_HelpRoom) then
@@ -518,22 +547,14 @@ function RoomCreateLayer:onEventCreate(nTableType)
                 if data.dwExpendType == 0 then--无消耗
                 elseif data.dwExpendType == 1 then--金币
                     if UserData.User.dwGold  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请前往商城充值？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
                         return
-                end  
+                    end  
                 elseif data.dwExpendType == 2 then--元宝
                     if UserData.User.dwIngot  < data.dwExpendCount then
-                        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足,请前往商城购买？",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-                        else
-                            require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-                        end
+                        require("common.MsgBoxLayer"):create(0,nil,"您的元宝不足!")
                         return
-                end 
+                    end 
                 elseif data.dwExpendType == 3 then--道具
                     local itemCount = UserData.Bag:getBagPropCount(data.dwSubType)
                     if itemCount < data.dwExpendCount then

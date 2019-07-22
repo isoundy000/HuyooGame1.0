@@ -36,54 +36,30 @@ function ShareLayer:onCreate(params)
     local function onEventShare(cbTargetType)
         local data = clone(shareData)
         data.cbTargetType = cbTargetType
-        
-        ---[[ 新聊天室
         if cbTargetType == 64 then
-            if self.interval == 0 then
-                self.interval = 5
-                schedule(self, function()
-                    self.interval = self.interval - 1
-                    if self.interval <= 0 then
-                        self.interval = 0
-                        self:stopAllActions()
-                    end
-                end,1)
-            else
-                require("common.MsgBoxLayer"):create(0,self,self.interval .. "秒之后再操作")
-                return
-            end
-            data.szShareUrl = string.format(HttpUrl.POST_URL_CHATRECORD, data.szGameID)
-            dump(data,'=>>')
-        
+            local szShareUrl = clone(UserData.Share.tableShareParameter[8].szShareUrl)
+            szShareUrl = string.format(szShareUrl, shareData.szGameID)
             local xmlHttpRequest = cc.XMLHttpRequest:new()
             xmlHttpRequest.responseType = cc.XMLHTTPREQUEST_RESPONSE_JSON
             xmlHttpRequest:setRequestHeader("Content-Type", "application/json; charset=utf-8")
-            xmlHttpRequest:open("GET",data.szShareUrl)
+            xmlHttpRequest:open("GET",szShareUrl)
             local function onHttpRequestCompleted()
                 if xmlHttpRequest.status == 200 then
-                    print('-->>>',xmlHttpRequest.response)
                     if tonumber(xmlHttpRequest.response)  == 1 then
                         require("common.MsgBoxLayer"):create(0,nil,"发送成功！")
                     else
                         require("common.MsgBoxLayer"):create(0,nil,"发送失败,错误码:" .. xmlHttpRequest.response)
                     end
                 else
-                    require("common.MsgBoxLayer"):create(0,nil,"发送失败！")
+                    
                 end
             end
             xmlHttpRequest:registerScriptHandler(onHttpRequestCompleted)
             xmlHttpRequest:send()
-            
             return
         end
-        --]]
-
         require("common.LoadingAnimationLayer"):create(0.3)
-        UserData.Share:doShare(data,function(ret) 
-            -- if callback then
-            --     callback(ret)
-            -- end
-        end)
+        UserData.Share:doShare(data)
     end
     local isInClub = shareData.isInClub;
     local uiListView_btn = ccui.Helper:seekWidgetByName(self.root,"ListView_btn")

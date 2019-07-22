@@ -180,21 +180,15 @@ function Mall:requestGetPayReward(orderID,data)
 end
 
 --SDK支付
-function Mall:doPay(orderform,type,payCode,UserId,Money,chargeCode)
-    orderform = tostring(orderform)
-    type = tostring(type)
-    payCode = tostring(payCode)
-    UserId = tostring(UserId)
-    Money = tostring(Money)
-    chargeCode = tostring(chargeCode)
+function Mall:doPay(cbType,dwGoodsID,dwUserID,szParameter)
     local Common = require("common.Common")
     if PLATFORM_TYPE == cc.PLATFORM_OS_ANDROID  then
         local methodName = "jniDoPay" 
-        local args = { orderform,type,payCode,UserId,Money,chargeCode }  
-        local sigs = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String)V" 
+        local args = { tostring(cbType),tostring(dwGoodsID),tostring(dwUserID),szParameter }  
+        local sigs = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String)V" 
         luaj.callStaticMethod(self.className ,methodName,args , nil)
     elseif PLATFORM_TYPE == cc.PLATFORM_OS_APPLE_REAL then
-        cus.JniControl:getInstance():doWPPay(orderform,type,payCode,UserId,Money)
+        cus.JniControl:getInstance():doWPPay(cbType,dwGoodsID,dwUserID,szParameter)
     end    
 end
 

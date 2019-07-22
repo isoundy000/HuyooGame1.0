@@ -226,11 +226,7 @@ function SportsCreateLayer:createSports()
         return
     end
     if UserData.User.dwGold < self.sportsData.dwCreateCost then
-        if  StaticData.Hide[CHANNEL_ID].btn8 == 1 and StaticData.Hide[CHANNEL_ID].btn9 == 1  then
-            require("common.MsgBoxLayer"):create(1,nil,"您的金币没有达到发起比赛条件,请前往商城充值?",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(2):createView("MallLayer")) end)
-        else
-            require("common.MsgBoxLayer"):create(1,nil,"您的金币不足,请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
-        end
+        require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
         return
     end
     local uiListView_cost = ccui.Helper:seekWidgetByName(self.root,"ListView_cost")

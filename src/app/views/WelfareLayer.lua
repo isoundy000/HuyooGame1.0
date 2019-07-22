@@ -400,7 +400,7 @@ function WelfareLayer:initSign()             --签到
                     require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("MallLayer"))
                 end)    
             else
-               require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
+               require("common.MsgBoxLayer"):create(0,nil,"您的金币不足!")
             end
             return
         end
@@ -563,8 +563,7 @@ function WelfareLayer:initShare()            --分享朋友圈
     local uiButton_share = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Button_share")
     Common:addTouchEventListener(uiButton_share,function() 
         local data = clone(UserData.Share.tableShareParameter[0])
-        data.cbTargetType = 1
-        data.szShareImg = string.format(data.szShareImg,UserData.User.userID)
+        data.cbTargetType = 0x01
         UserData.Share:doShare(data,function(ret) 
             local record = UserData.Welfare.tableWelfare[1004]
             if ret == 1 then
@@ -609,7 +608,6 @@ function WelfareLayer:initInvitation()       --邀请好友
     Common:addTouchEventListener(uiButton_invitation,function() 
         local data = clone(UserData.Share.tableShareParameter[0])
         data.cbTargetType = 2
-        data.szShareImg = string.format(data.szShareImg,UserData.User.userID)
         UserData.Share:doShare(data,function(ret) 
             local record = UserData.Welfare.tableWelfare[1005]
             if ret == 1 then
@@ -624,136 +622,6 @@ function WelfareLayer:initInvitation()       --邀请好友
         end)
     end)
 end
-
---function WelfareLayer:initLuckDraw()         --抽奖
---    local uiListView_welfareBtns = ccui.Helper:seekWidgetByName(self.root,"ListView_welfareBtns")
---    local uiButton_welfare = ccui.Helper:seekWidgetByName(self.root,"Button_welfare1006")
---    local uiPanel_welfare = ccui.Helper:seekWidgetByName(self.root,"Panel_welfare1006")
---    if uiButton_welfare == nil then
---        return
---    end
---    local config = UserData.Welfare.tableWelfareConfig[1006]
---    local record = UserData.Welfare.tableWelfare[1006]
---    if config == nil or record == nil then
---        uiPanel_welfare:removeFromParent()
---        uiListView_welfareBtns:removeItem(uiListView_welfareBtns:getIndex(uiButton_welfare))
---        return
---    end
---    
---    local uiImage_luckDraw = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Image_luckDraw")
---    local tableTemp = Common:stringSplit(config.tcPrize,"|")
---    for key, var in pairs(tableTemp) do
---        local tempData = Common:stringSplit(var,"_")
---        local wPropID = tonumber(tempData[1])
---        local dwPropCount = tonumber(tempData[2])
---        local uiPanel_reward = ccui.Helper:seekWidgetByName(uiPanel_welfare,string.format("Panel_reward%d",key))
---        local img = ccui.ImageView:create(StaticData.Items[wPropID].img)
---        uiPanel_reward:addChild(img)
---        img:setScale(0.5)
---        img:setPosition(img:getParent():getContentSize().width/2,img:getParent():getContentSize().height/2)
---        local count = ccui.TextAtlas:create(string.format("x%d",dwPropCount),"fonts/fonts_2.png",45,52,"0")
---        img:addChild(count)
---        count:setAnchorPoint(cc.p(0.5,0))
---        count:setPosition(count:getParent():getContentSize().width/2,count:getParent():getContentSize().height)
---        if dwPropCount <= 1 then
---        	count:setVisible(false)
---        end
---    end
---    local uiButton_luackDraw = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Button_luackDraw")
---    local uiListView_rewardRecord = ccui.Helper:seekWidgetByName(uiPanel_welfare,"ListView_rewardRecord")
---    local uiText_tips = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Text_tips")
-----    uiText_tips:setString(string.format("每次抽奖消耗%s金币!",10000))
---    local uiListView_rewardRecord = ccui.Helper:seekWidgetByName(uiPanel_welfare,"ListView_rewardRecord")
---    uiListView_rewardRecord:removeAllItems()
---    local count = 0
---    local info = ""
---    if record.stInfo ~= "" then
---        count = tonumber(string.sub(record.stInfo,1,1))
---        info = string.sub(record.stInfo,2)
---    end
---    local tableTemp = Common:stringSplit(info,"|")
---    local uiText_count = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Text_count")
---    uiText_count:setString(string.format("%s次",3-count))
---    for key, var in pairs(tableTemp) do
---        local tempData = Common:stringSplit(var,"_")
---        local wPropID = tonumber(tempData[1])
---        local dwPropCount = tonumber(tempData[2])
---        local rewardRecord = ccui.Text:create(string.format("恭喜您,获得%sx%d",StaticData.Items[wPropID].name,dwPropCount),"Arial",24)
---        rewardRecord:setTextColor(cc.c3b(255,245,193))
---        uiListView_rewardRecord:pushBackCustomItem(rewardRecord)
---    end
---    local ALLROATE = 360--360度
---    local num = 8
---    --转盘角度数据
---    self.zhuanpanData = 
---    {
-----        {start = (num-10)*ALLROATE/num + 0, ended = (num-9)*ALLROATE/num},
-----        {start = (num-9)*ALLROATE/num + 1, ended = (num-8)*ALLROATE/num},
---        {start = (num-8)*ALLROATE/num + 1, ended = (num-7)*ALLROATE/num},
---        {start = (num-7)*ALLROATE/num + 1, ended = (num-6)*ALLROATE/num},
---        {start = (num-6)*ALLROATE/num + 1, ended = (num-5)*ALLROATE/num},
---        {start = (num-5)*ALLROATE/num + 1, ended = (num-4)*ALLROATE/num},
---        {start = (num-4)*ALLROATE/num + 1, ended = (num-3)*ALLROATE/num},
---        {start = (num-3)*ALLROATE/num + 1, ended = (num-2)*ALLROATE/num},
---        {start = (num-2)*ALLROATE/num + 1, ended = (num-1)*ALLROATE/num},
---        {start = (num-1)*ALLROATE/num + 1, ended = (num-0)*ALLROATE/num},
---    }
---    
---    self.lastAngle = uiImage_luckDraw:getRotation()
---    Common:addTouchEventListener(uiButton_luackDraw,function() 
---        if UserData.User.dwGold < 10000 then
---            if StaticData.Hide[CHANNEL_ID].btn8 == 1 then
---                require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，是否前往充值？",function() 
---                    require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("MallLayer"))
---                end)  
---            else
---               require("common.MsgBoxLayer"):create(1,nil,"您的金币不足，请联系会长购买！",function() require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))  end)
---            end
---            
---        elseif UserData.User.szRealName  == "" then
---            require("common.MsgBoxLayer"):create(1,nil,"您没有填写手机号码，是否前往实名认证？",function() 
---                require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("PerfectInfoLayer"))
---            end)    
---        else
---            UserData.Welfare:sendMsgRequestWelfare(1006)
---        end
---    end)
---    if record.IsEnded == 1 then
---        uiButton_luackDraw:setTouchEnabled(false)
---        uiButton_luackDraw:setColor(cc.c3b(170,170,170))
---    end
---end
-
---function WelfareLayer:rotateSprite(sprite, time, rotateAngle_)
---    local uiPanel_welfare = ccui.Helper:seekWidgetByName(self.root,"Panel_welfare1006")
---    local uiButton_luackDraw = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Button_luackDraw")
---    require("common.CommonLayer"):create(time)
---    local action = cc.RotateBy:create(time, rotateAngle_)
---    local easeAction = cc.EaseCubicActionInOut:create(action)
---    require("common.Common"):playEffect("welfare/luckdraw/luckdraw_sound.mp3")
---    sprite:runAction(cc.Sequence:create(easeAction,cc.CallFunc:create(function(sender,event) uiButton_luackDraw:setTouchEnabled(true) end)))
---end
-
---function WelfareLayer:endperformWithDelayGlobal(targetIdx,rotateNum,duration)
---    local uiPanel_welfare = ccui.Helper:seekWidgetByName(self.root,"Panel_welfare1006")
---    local uiButton_luackDraw = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Button_luackDraw")
---    local uiImage_luckDraw = ccui.Helper:seekWidgetByName(uiPanel_welfare,"Image_luckDraw")
---    --@param duration  转动持续时间
---    --@param rotateNum 转动圈数
---    --@param targetIdx 服务器传来的值。
---    local targetData = self.zhuanpanData[targetIdx]
---    --        local rotateAngle = - math.random(targetData.start, targetData.ended) - 360 * rotateNum   --开始和结束中间随机
---    local rotateAngle = - (targetData.start + (targetData.ended - targetData.start) / 2) - 360 * rotateNum    --当前指针位置在边缘
---    --        local rotateAngle = - targetData.start - 360 * rotateNum    --当前指针正在某个奖品中间
---    print("随机角度是：", rotateAngle)
---    --第二次需要重置坐标点
---    if self.lastAngle ~= 0 then
---        self:rotateSprite(uiImage_luckDraw, duration, rotateAngle + self.lastAngle)
---    else
---        self:rotateSprite(uiImage_luckDraw, duration, rotateAngle)
---    end
---    self.lastAngle = -360 - rotateAngle - 360 * rotateNum
---end
 
 function WelfareLayer:initBankruptcy()       --破产金
     local uiListView_welfareBtns = ccui.Helper:seekWidgetByName(self.root,"ListView_welfareBtns")

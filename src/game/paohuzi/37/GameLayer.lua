@@ -798,7 +798,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
                     cbCardIndex[value] = cbCardIndex[value] + 1
                 end
                 local bUserCardCount = pBuffer.bCardCount[i] + pBuffer.cbCardCoutWW[i]
-                self.tableLayer:runAction(cc.Sequence:create(cc.DelayTime:create(3),cc.CallFunc:create(function(sender,event) 
+                self.tableLayer:runAction(cc.Sequence:create(cc.DelayTime:create(2),cc.CallFunc:create(function(sender,event) 
                     self.tableLayer:setHandCard(wChairID,bUserCardCount, cbCardIndex, 7, pBuffer.cbCardCoutWW[i])
                     self.tableLayer:showHandCard(wChairID,1,true)
                     self.tableLayer:setWeaveItemArray(wChairID, GameCommon.player[wChairID].bWeaveItemCount, GameCommon.player[wChairID].WeaveItemArray)
@@ -809,7 +809,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             GameCommon.uiPanel_showEndCard:runAction(cc.FadeIn:create(3))
             for i = 1, 2 do
                 if pBuffer.fanXing[i].cbShengCard ~= 0 then
-                    self.tableLayer:runAction(cc.Sequence:create(cc.DelayTime:create(1.8),cc.CallFunc:create(function(sender,event) 
+                    self.tableLayer:runAction(cc.Sequence:create(cc.DelayTime:create(1),cc.CallFunc:create(function(sender,event) 
                         self.tableLayer:doAction(GameCommon.ACTION_FANG_CARD,{wWinUser = pBuffer.wWinUser, cbShengCard = pBuffer.fanXing[i].cbShengCard, cbFangCout = pBuffer.fanXing[i].cbShengCout})
                     end)))
                 end
@@ -820,7 +820,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             uiPanel_end:stopAllActions()
             if pBuffer.wWinUser ~= GameCommon.INVALID_CHAIR then
                 uiPanel_end:runAction(cc.Sequence:create(
-                    cc.DelayTime:create(4),
+                    cc.DelayTime:create(2),
                     cc.CallFunc:create(function(sender,event) 
                     if GameCommon.tableConfig.nTableType == TableType_SportsRoom then
                         pBuffer.wKindID =GameCommon.tableConfig.wKindID

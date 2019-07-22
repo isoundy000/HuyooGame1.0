@@ -15,7 +15,6 @@ function HallLayer:onEnter()
     EventMgr:registListener(EventType.SUB_CL_USER_INFO,self,self.SUB_CL_USER_INFO)
     EventMgr:registListener(EventType.EVENT_TYPE_WITH_NEW,self,self.EVENT_TYPE_WITH_NEW)
     EventMgr:registListener(EventType.EVENT_TYPE_EMAIL_NEW,self,self.EVENT_TYPE_EMAIL_NEW)
-    EventMgr:registListener(EventType.RET_JOIN_GUILD,self,self.RET_JOIN_GUILD)      --加入公会
     EventMgr:registListener(EventType.EVENT_TYPE_EXTERNAL_START_GAME,self,self.EVENT_TYPE_EXTERNAL_START_GAME) 
     EventMgr:registListener(EventType.EVENT_TYPE_RECHARGE_365,self,self.EVENT_TYPE_RECHARGE_365)
     EventMgr:registListener(EventType.RET_SPORTS_STATE,self,self.RET_SPORTS_STATE)
@@ -44,7 +43,6 @@ function HallLayer:onExit()
     EventMgr:unregistListener(EventType.SUB_CL_USER_INFO,self,self.SUB_CL_USER_INFO)
     EventMgr:unregistListener(EventType.EVENT_TYPE_WITH_NEW,self,self.EVENT_TYPE_WITH_NEW)
     EventMgr:unregistListener(EventType.EVENT_TYPE_EMAIL_NEW,self,self.EVENT_TYPE_EMAIL_NEW)
-    EventMgr:unregistListener(EventType.RET_JOIN_GUILD,self,self.RET_JOIN_GUILD) 
     EventMgr:unregistListener(EventType.EVENT_TYPE_EXTERNAL_START_GAME,self,self.EVENT_TYPE_EXTERNAL_START_GAME) 
     EventMgr:unregistListener(EventType.EVENT_TYPE_RECHARGE_365,self,self.EVENT_TYPE_RECHARGE_365)
     EventMgr:unregistListener(EventType.RET_SPORTS_STATE,self,self.RET_SPORTS_STATE)
@@ -61,11 +59,6 @@ function HallLayer:onCreate(parames)
         self:runAction(cc.Sequence:create(
             cc.DelayTime:create(1.5),
             cc.CallFunc:create(function(sender,event) 
-                -- if StaticData.Hide[CHANNEL_ID].btn1 == 1 and UserData.Guild.dwGuildID == 0 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Guil,0)) == false  then
-                --     if CHANNEL_ID ~= 20 and  CHANNEL_ID ~= 21 then
-                --         self:addChild(require("app.MyApp"):create():createView("GuilLayer"))   
-                --     end
-                -- end
                 if StaticData.Hide[CHANNEL_ID].btn12 == 1 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(string.format(Default.UserDefault_Sign,UserData.User.userID),0)) == false then
                     self:addChild(require("app.MyApp"):create(1000):createView("WelfareLayer"))  
                 end 
@@ -184,27 +177,51 @@ function HallLayer:onCreate(parames)
  
     --公会
     local uiButton_guild = ccui.Helper:seekWidgetByName(self.root,"Button_guild")
-    if uiButton_guild ~= nil then 
-        if StaticData.Hide[CHANNEL_ID].btn1 ~= 1 then
-            uiButton_guild:setVisible(false)
-        end 
-        if CHANNEL_ID == 4 or CHANNEL_ID == 5 then    
-            ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("hall_3/yaopqingmadonghua/yaopqingmadonghua.ExportJson")
-            local armature2=ccs.Armature:create("yaopqingmadonghua")
-            armature2:getAnimation():playWithIndex(0)
-            uiButton_guild:addChild(armature2)
-            armature2:setPosition(armature2:getParent():getContentSize().width/2,armature2:getParent():getContentSize().height/2) 
-        end                      
-        Common:addTouchEventListener(uiButton_guild,function()  
-            if (CHANNEL_ID == 8 or CHANNEL_ID == 9 ) and UserData.Guild.dwGuildID ~= 0 then
-                UserData.Share:openURL(StaticData.Channels[CHANNEL_ID].guildFunction)
-            elseif CHANNEL_ID == 20 or CHANNEL_ID == 21 then             
-                require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer_6"))
-            else
-                require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("GuilLayer"))
-            end        
-        end)              
-    end
+    uiButton_guild:setVisible(false)
+    local uiButton_agent = ccui.Button:create("hall/agent.png","hall/agent.png","hall/agent.png")
+    local uitext = ccui.Text:create("代理","fonts/DFYuanW7-GB2312.ttf",30)
+    uiButton_agent:addChild(uitext)
+    uitext:setPosition(uitext:getParent():getContentSize().width/2,uitext:getParent():getContentSize().height*0.05)
+    uitext:setTextColor(cc.c3b(255,255,224))
+    uiButton_guild:getParent():addChild(uiButton_agent)
+    uiButton_agent:setPosition(uiButton_guild:getPosition())
+
+    if CHANNEL_ID == 20 or CHANNEL_ID == 21 then
+        uitext:setPosition(uitext:getParent():getContentSize().width/2+60,uitext:getParent():getContentSize().height*0.05+20)
+        uitext:setTextColor(cc.c3b(244,210,110))
+        uiButton_agent:setPosition(uiButton_guild:getPositionX()-20,uiButton_guild:getPositionY()+24)   
+        uitext:setTouchEnabled(true)
+        uitext:addTouchEventListener(function(sender,event)
+            if event == ccui.TouchEventType.ended then
+                print("+++++++++++++~~~~~")
+                local data = {
+                    dwChannelID = CHANNEL_ID,
+                    cbTargetID = 100,
+                    cbTargetType = 0x02,
+                    cbShareType = 1,
+                    szShareTitle = StaticData.Channels[CHANNEL_ID].name.."代理后台",
+                    szShareContent = "更多数据详情和推广活动尽在代理后台",
+                    szShareUrl = StaticData.Channels[CHANNEL_ID].guildFunction,
+                    szShareImg = "",
+                }
+                require("app.MyApp"):create(data):createView("ShareLayer")    
+            end 
+        end)
+    end 
+
+    Common:addTouchEventListener(uiButton_agent,function()  
+        local data = {
+            dwChannelID = CHANNEL_ID,
+            cbTargetID = 100,
+            cbTargetType = 0x02,
+            cbShareType = 1,
+            szShareTitle = StaticData.Channels[CHANNEL_ID].name.."代理后台",
+            szShareContent = "更多数据详情和推广活动尽在代理后台",
+            szShareUrl = StaticData.Channels[CHANNEL_ID].guildFunction,
+            szShareImg = "",
+        }
+        require("app.MyApp"):create(data):createView("ShareLayer")    
+    end)
 
     --个人信息
     local uiButton_avatarBg = ccui.Helper:seekWidgetByName(self.root,"Button_avatarBg")
@@ -281,18 +298,6 @@ function HallLayer:onCreate(parames)
                 end 
             end)
      end 
-        
---        if CHANNEL_ID == 8 or  CHANNEL_ID == 9  then    --黑岛  365特殊充值
---            UserData.Mall:RequestRecharge365()      
---            local uiButton_topup = ccui.Helper:seekWidgetByName(self.root,"Button_topup")
---            uiButton_topup:setVisible(false)
---            Common:addTouchEventListener(uiButton_topup,function() 
---                require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("PartnerLayer"))
---            end)   
---        elseif CHANNEL_ID == 18 or  CHANNEL_ID == 19 or  CHANNEL_ID == 12 or  CHANNEL_ID == 13 or CHANNEL_ID == 10 or  CHANNEL_ID == 11 then 
---            local uiButton_topup = ccui.Helper:seekWidgetByName(self.root,"Button_topup")
---            uiButton_topup:setVisible(false)          
---        end 
     --邮件
     local uiButton_email = ccui.Helper:seekWidgetByName(self.root,"Button_email")
     if uiButton_email ~= nil then
@@ -488,8 +493,16 @@ function HallLayer:onCreate(parames)
         end  
     end 
 
-
-
+    --个人历史战绩
+    local uiButton_historicalRecord = ccui.Button:create("common/zjfxt.png","common/zjfxt.png","common/zjfxt.png")
+    if uiButton_historicalRecord ~= nil then
+        Common:addTouchEventListener(uiButton_historicalRecord,function() 
+            local data = clone(UserData.Share.tableShareParameter[11])
+            require("app.MyApp"):create(data):createView("ShareLayer")  
+        end) 
+    end  
+    self:addChild(uiButton_historicalRecord)
+    uiButton_historicalRecord:setPosition(50.00,596.00)
     self:updateUserInfo()
 end
 
@@ -583,29 +596,6 @@ function HallLayer:EVENT_TYPE_RECHARGE_365(event)
         uiButton_topup:setVisible(false)
     else
         uiButton_topup:setVisible(true)
-    end
-end
-
-function HallLayer:RET_JOIN_GUILD(event)
-    local data = event._usedata  
-    if CHANNEL_ID == 20 or  CHANNEL_ID == 21 then       
-        if data.ret == 0 then   
-            UserData.Guild.dwID = data.dwID
-            UserData.Guild.dwGuildID = data.dwGuildID
-            UserData.Guild.szGuildName = data.szGuildName
-            UserData.Guild.szGuildNotice = data.szGuildNotice
-            UserData.Guild.dwMemberCount = data.dwMemberCount
-            UserData.Guild.dwPresidentID = data.dwPresidentID
-            UserData.Guild.szPresidentName = data.szPresidentName
-            UserData.Guild.szPresidentLogo = ""
-            
---            if CHANNEL_ID ~= 8 and  CHANNEL_ID ~= 9 then      
---                require("common.RewardLayer"):create("公会",nil,{{wPropID = 1003,dwPropCount = 5 }})    
---            end 
-            UserData.User:sendMsgUpdateUserInfo(1)   
-        else 
-            require("common.MsgBoxLayer"):create(0,nil,"请求失败！")          
-        end
     end
 end
 

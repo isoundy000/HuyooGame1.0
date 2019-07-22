@@ -473,13 +473,8 @@ function ChatLayer:startShare( shareData )
             end
         end
 	end
-    local szParameter = string.format("{\"api\":%s,\"room_type\":%d,\"room_id\":%d,\"shareId\":%s}", StaticData.Channels[CHANNEL_ID].recordLink, 2, shareData.dwTableID, shareData.szGameID)
-    szParameter = Base64.encode(szParameter)
-	data.szShareUrl = string.format(data.szShareUrl,szParameter)
-	-- data.cbTargetType = 0x10
-    -- require("app.MyApp"):create(data):createView("ShareLayer")
+    data.szShareUrl = string.format(data.szShareUrl,shareData.szGameID)
 	data.cbTargetType = 0x50
-
 	data.szGameID = shareData.szGameID
 	data.isInClub = true;
 	require("app.MyApp"):create(data):createView("ShareLayer")

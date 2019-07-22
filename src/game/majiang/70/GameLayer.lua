@@ -933,7 +933,8 @@ function GameLayer:OnGameMessageRun(_tagMsg)
                     self.tableLayer:showHandCard(i,0)
                 end
             end
-            if GameCommon.gameConfig.bPlayerCount == 2 then
+            if GameCommon.gameConfig.bPlayerCount == 2 and GameCommon.gameConfig.bWuTong == 0 then
+
                 self.tableLayer:updateLeftCardCount(108-36-13*GameCommon.gameConfig.bPlayerCount-1)
             else
                 self.tableLayer:updateLeftCardCount(108-13*GameCommon.gameConfig.bPlayerCount-1)
