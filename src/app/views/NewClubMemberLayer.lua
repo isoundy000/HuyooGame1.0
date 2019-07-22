@@ -521,23 +521,38 @@ function NewClubMemberLayer:initUI(param)
         self:switchPage()
     end
     
-    self.Text_memNums:setString(self.clubData.dwClubPlayerCount)
-    self.Text_newPeoples:setString(self.clubData.dwClubPlayerCount)
-
     self.ListView_mem:addScrollViewEventListener(handler(self, self.listViewClubEventListen))
     self.ListView_myParnter:addScrollViewEventListener(handler(self, self.listViewParnterEventListen))
     self.ListView_addParnter:addScrollViewEventListener(handler(self, self.listViewNotParnterMemberEventListen))
     self.ListView_pushParnter:addScrollViewEventListener(handler(self, self.listViewParnterMemberEventListen))
     self.ListView_new:addScrollViewEventListener(handler(self, self.listViewNewEventListen))
     self.ListView_newPush:addScrollViewEventListener(handler(self, self.listViewPushNewEventListen))
+
     self.ListView_mem:setBounceEnabled(false)
 
-    if not self:isHasAdmin() then
-        -- self.Button_changemem:setVisible(false)
-        Common:addTouchEventListener(self.Button_changemem,function()
-            local node = require("app.MyApp"):create(self.clubData):createView("NewClubParnterAddMemLayer")
-            self:addChild(node)
-        end)
+    if self.clubData.dwUserID ~= UserData.User.userID then
+        self.Button_changemem:setVisible(false)
+        -- Common:addTouchEventListener(self.Button_changemem,function()
+        --     local node = require("app.MyApp"):create(self.clubData):createView("NewClubParnterAddMemLayer")
+        --     self:addChild(node)
+        -- end)
+    end
+
+    --屏蔽普通成员可见
+    if self:isHasAdmin() then
+        self.Text_memNums:setString(self.clubData.dwClubPlayerCount)
+        self.Text_newPeoples:setString(self.clubData.dwClubPlayerCount)
+        self.Button_memFind:setColor(cc.c3b(255, 255, 255))
+        self.Button_memFind:setTouchEnabled(true)
+        self.Button_newFind:setColor(cc.c3b(255, 255, 255))
+        self.Button_newFind:setTouchEnabled(true)
+    else
+        self.Text_memNums:setString('?')
+        self.Text_newPeoples:setString('?')
+        self.Button_memFind:setColor(cc.c3b(170, 170, 170))
+        self.Button_memFind:setTouchEnabled(false)
+        self.Button_newFind:setColor(cc.c3b(170, 170, 170))
+        self.Button_newFind:setTouchEnabled(false)
     end
 end
 
@@ -682,8 +697,13 @@ function NewClubMemberLayer:switchPage(idx)
         self.ListView_mem:removeAllItems()
         self.memberReqState = 0 -- 0 请求中 1-请求结束 2--全部请求结束
         self.curClubIndex = 0
-        self:reqClubMember()
 
+        if self:isHasAdmin() then
+            self:reqClubMember()
+        else
+            UserData.Guild:findClubMemInfo(self.clubData.dwClubID, UserData.User.userID)
+        end
+        
     elseif idx == 2 then
         self.Panel_mem:setVisible(false)
         self.Panel_check:setVisible(true)
@@ -718,10 +738,12 @@ function NewClubMemberLayer:switchPage(idx)
         self.ListView_new:removeAllItems()
         self.memberReqState = 0 -- 0 请求中 1-请求结束 2--全部请求结束
         self.curClubIndex = 0
-        self:reqClubMember()
 
         if self:isHasAdmin() then
             self.Text_plz_tip:setVisible(true)
+            self:reqClubMember()
+        else
+            UserData.Guild:findClubMemInfo(self.clubData.dwClubID, UserData.User.userID)
         end
     end
 end
@@ -1330,6 +1352,15 @@ function NewClubMemberLayer:RET_FIND_CLUB_MEMBER(event)
         return
     end
 
+    if not self:isHasAdmin() then
+        if self.Panel_mem:isVisible() then
+            self:refreshMemList(data)
+        elseif self.Panel_newEx:isVisible() then
+            self:refreshNewList(data)
+        end
+        return
+    end
+
     if self.curSelPage == 1 then
         self.ListView_mem:setVisible(false)
         self.ListView_find:setVisible(true)
@@ -1484,6 +1515,9 @@ function NewClubMemberLayer:insertOncePartnerMember(data)
     local Text_jushu = ccui.Helper:seekWidgetByName(item, "Text_jushu")
     local Text_playerCountFlag = ccui.Helper:seekWidgetByName(item, "Text_playerCountFlag")
     local Text_playerCount = ccui.Helper:seekWidgetByName(item, "Text_playerCount")
+    local Text_yuanBaoFlag = ccui.Helper:seekWidgetByName(item, "Text_yuanBaoFlag")
+    Text_yuanBaoFlag:setVisible(false)
+    local Text_yuanBaoCount = ccui.Helper:seekWidgetByName(item, "Text_yuanBaoCount")
     local Button_cancel = ccui.Helper:seekWidgetByName(item, "Button_cancel")
     local Button_push = ccui.Helper:seekWidgetByName(item, "Button_push")
     Button_cancel:setVisible(false)
@@ -1493,15 +1527,18 @@ function NewClubMemberLayer:insertOncePartnerMember(data)
     Text_dyjnum:setColor(cc.c3b(165, 61, 9))
     Text_jsnum:setColor(cc.c3b(165, 61, 9))
     Text_playerCountFlag:setColor(cc.c3b(165, 61, 9))
+    Text_yuanBaoFlag:setColor(cc.c3b(165, 61, 9))
     Text_dyj:setColor(cc.c3b(165, 61, 9))
     Text_jushu:setColor(cc.c3b(165, 61, 9))
     Text_playerCount:setColor(cc.c3b(165, 61, 9))
+    Text_yuanBaoCount:setColor(cc.c3b(165, 61, 9))
     Common:requestUserAvatar(data.dwUserID, data.szLogoInfo, Image_head, "img")
     Text_name:setString(data.szNickName)
     Text_playerid:setString('ID:' .. data.dwUserID)
     Text_dyjnum:setString(data.dwWinnerCount)
     Text_jsnum:setString(data.dwGameCount)
     Text_playerCount:setString(data.dwPlayerCount)
+    Text_yuanBaoCount:setString(data.lYuanBaoCount)
 
     local path = 'club/partner_5.png'
     Button_push:loadTextures(path, path, path)
@@ -1567,6 +1604,9 @@ function NewClubMemberLayer:adminShow(data)
     local Text_dyj = ccui.Helper:seekWidgetByName(item, "Text_dyj")
     local Text_jushu = ccui.Helper:seekWidgetByName(item, "Text_jushu")
     local Text_playerCountFlag = ccui.Helper:seekWidgetByName(item, "Text_playerCountFlag")
+    local Text_yuanBaoFlag = ccui.Helper:seekWidgetByName(item, "Text_yuanBaoFlag")
+    Text_yuanBaoFlag:setVisible(false)
+    local Text_yuanBaoCount = ccui.Helper:seekWidgetByName(item, "Text_yuanBaoCount")
     local Button_cancel = ccui.Helper:seekWidgetByName(item, "Button_cancel")
     local Button_push = ccui.Helper:seekWidgetByName(item, "Button_push")
     Text_name:setColor(cc.c3b(165, 61, 9))
@@ -1577,12 +1617,15 @@ function NewClubMemberLayer:adminShow(data)
     Text_dyj:setColor(cc.c3b(165, 61, 9))
     Text_jushu:setColor(cc.c3b(165, 61, 9))
     Text_playerCountFlag:setColor(cc.c3b(165, 61, 9))
+    Text_yuanBaoFlag:setColor(cc.c3b(165, 61, 9))
+    Text_yuanBaoCount:setColor(cc.c3b(165, 61, 9))
     Common:requestUserAvatar(data.dwUserID, data.szLogoInfo, Image_head, "img")
     Text_name:setString(data.szNickName)
     Text_playerid:setString('ID:' .. data.dwUserID)
     Text_dyjnum:setString(data.dwWinnerCount)
     Text_jsnum:setString(data.dwGameCount)
     Text_playerCount:setString(data.dwPlayerCount)
+    Text_yuanBaoCount:setString(data.lYuanBaoCount)
 
     Common:addTouchEventListener(Button_cancel,function()
         --解除合伙人
@@ -1612,8 +1655,6 @@ function NewClubMemberLayer:adminShow(data)
         end)
     end)
 end
-
-
 
 --返回亲友圈合伙人
 function NewClubMemberLayer:RET_GET_CLUB_PARTNER(event)
@@ -1717,10 +1758,10 @@ function NewClubMemberLayer:setPartnerMemberItem(item, data)
     local Text_jsnum = ccui.Helper:seekWidgetByName(item, "Text_jsnum")
     local Text_dyj = ccui.Helper:seekWidgetByName(item, "Text_dyj")
     local Text_dyjnum = ccui.Helper:seekWidgetByName(item, "Text_dyjnum")
-    local Text_alljs = ccui.Helper:seekWidgetByName(item, "Text_alljs")
-    local Text_allnum = ccui.Helper:seekWidgetByName(item, "Text_allnum")
+    local Text_yb = ccui.Helper:seekWidgetByName(item, "Text_yb")
+    Text_yb:setVisible(false)
+    local Text_ybnum = ccui.Helper:seekWidgetByName(item, "Text_ybnum")
     local Button_noBind = ccui.Helper:seekWidgetByName(item, "Button_noBind")
-    Text_alljs:setVisible(false)
     Button_noBind:setVisible(self:isHasAdmin() and data.dwUserID ~= data.dwPartnerID)
     Text_name:setColor(cc.c3b(165, 61, 9))
     Text_playerid:setColor(cc.c3b(165, 61, 9))
@@ -1730,15 +1771,15 @@ function NewClubMemberLayer:setPartnerMemberItem(item, data)
     Text_jsnum:setColor(cc.c3b(165, 61, 9))
     Text_dyj:setColor(cc.c3b(165, 61, 9))
     Text_dyjnum:setColor(cc.c3b(165, 61, 9))
-    Text_alljs:setColor(cc.c3b(165, 61, 9))
-    Text_allnum:setColor(cc.c3b(165, 61, 9))
+    Text_yb:setColor(cc.c3b(165, 61, 9))
+    Text_ybnum:setColor(cc.c3b(165, 61, 9))
     Common:requestUserAvatar(data.dwUserID, data.szLogoInfo, Image_head, "img")
     Text_name:setString(data.szNickName)
     Text_playerid:setString('ID:' .. data.dwUserID)
     Text_jfnum:setString(data.lScore or 0)
     Text_jsnum:setString(data.dwGameCount or 0)
     Text_dyjnum:setString(data.dwWinnerCount or 0)
-    Text_allnum:setString(data.dwCompleteGameCount or 0)
+    Text_ybnum:setString(data.lYuanBaoCount or 0)
 
     Common:addTouchEventListener(Button_noBind,function()
         --解绑
@@ -1824,6 +1865,10 @@ function NewClubMemberLayer:setPlzMemberItem(item, data)
     local Text_dyj = ccui.Helper:seekWidgetByName(item, "Text_dyj")
     local Text_dyjnum = ccui.Helper:seekWidgetByName(item, "Text_dyjnum")
     local Text_plz = ccui.Helper:seekWidgetByName(item, "Text_plz")
+    local Text_yb = ccui.Helper:seekWidgetByName(item, "Text_yb")
+    Text_plz:setPositionX(Text_yb:getPositionX())
+    Text_yb:setVisible(false)
+    local Text_ybnum = ccui.Helper:seekWidgetByName(item, "Text_ybnum")
     local TextField_plz = ccui.Helper:seekWidgetByName(item, "TextField_plz")
     local Button_plz_add = ccui.Helper:seekWidgetByName(item, "Button_plz_add")
     local Button_plz_sub = ccui.Helper:seekWidgetByName(item, "Button_plz_sub")
@@ -1837,6 +1882,8 @@ function NewClubMemberLayer:setPlzMemberItem(item, data)
     Text_dyj:setColor(cc.c3b(165, 61, 9))
     Text_dyjnum:setColor(cc.c3b(165, 61, 9))
     Text_plz:setColor(cc.c3b(165, 61, 9))
+    Text_yb:setColor(cc.c3b(165, 61, 9))
+    Text_ybnum:setColor(cc.c3b(165, 61, 9))
     TextField_plz:setColor(cc.c3b(165, 61, 9))
     TextField_plz:setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER)
     Text_plz:setVisible(data.dwUserID ~= data.dwPartnerID)
@@ -1848,6 +1895,7 @@ function NewClubMemberLayer:setPlzMemberItem(item, data)
     Text_jfnum:setString(data.lScore or 0)
     Text_jsnum:setString(data.dwGameCount or 0)
     Text_dyjnum:setString(data.dwWinnerCount or 0)
+    Text_ybnum:setString(data.lYuanBaoCount or 0)
     TextField_plz:setString(data.lFatigue or 0)
     self:setTextField(data, TextField_plz, Button_plz_add, Button_plz_sub)
 

@@ -211,7 +211,7 @@ function NewClubInfoLayer:onReturn()
 end
 
 function NewClubInfoLayer:onShare()
-       local data = clone(UserData.Share.tableShareParameter[2])
+    local data = clone(UserData.Share.tableShareParameter[2])
     data.szShareTitle = string.format("亲友圈昵称:%s(亲友圈ID:%d)",self.clubData.szClubName,self.clubData.dwClubID)
     data.szShareContent = "好友邀请您加入亲友圈畅玩游戏,自动开房,点击加入>>>"
     data.szShareUrl = string.format(data.szShareUrl,self.clubData.dwClubID, UserData.User.userID)
@@ -496,8 +496,9 @@ function NewClubInfoLayer:createClubTable()
             uiText_turnNum:setString(jushu .. '局/' .. parameter.bPlayerCount .. '人')
             
             local Image_tableIdx = ccui.Helper:seekWidgetByName(item,"Image_tableIdx")
+            local BitmapFontLabel_idx = ccui.Helper:seekWidgetByName(Image_tableIdx,"BitmapFontLabel_idx")
             Image_tableIdx:setVisible(true)
-            Image_tableIdx:loadTexture(string.format('club/club_%d.png', 100 + index))
+            BitmapFontLabel_idx:setString(index)
 
             Common:addTouchEventListener(item,function(sender,event)
                 local isDisableCB = function()
@@ -609,9 +610,15 @@ function NewClubInfoLayer:updateClubInfo()
     self.Text_qyqPropCount:setString("亲友圈房卡:" .. self.clubData.dwPropCount)
     self.Button_custom:setVisible(self.clubData.bHaveCustomizeRoom)
     if self.clubData.dwUserID ~= UserData.User.userID and not self:isAdmin(UserData.User.userID) then
+        --普通成员
+        self.Text_clubPeople:setVisible(false)
+        self.Text_qyqPropCount:setVisible(false)
     else
+        --圈主或管理员
         UserData.Guild:getClubCheckList(self.clubData.dwClubID)
         UserData.Guild:getClubCardInfo(self.clubData.dwClubID)
+        self.Text_clubPeople:setVisible(true)
+        self.Text_qyqPropCount:setVisible(true)
     end
     if self.clubData.cbPlayCount > 0 then
         self.Image_noSetWayFlag:setVisible(false)
@@ -638,10 +645,6 @@ function NewClubInfoLayer:updateClubInfo()
         isAdmin = true
     end
     -- self.Image_roomcardFrame:setVisible(isAdmin)
-
-    if CHANNEL_ID == 6 or CHANNEL_ID == 7 then
-        self.Text_qyqPropCount:setVisible(false)
-    end
 end
 
 function NewClubInfoLayer:resetClubTable(item)
@@ -839,12 +842,13 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
         item:setScale(TableScale)
         self.ScrollView_clubTbl:addChild(item)
         item:setName('club_table_' .. data.dwTableID)
-        
+
         local Image_tableIdx = ccui.Helper:seekWidgetByName(item,"Image_tableIdx")
+        local BitmapFontLabel_idx = ccui.Helper:seekWidgetByName(Image_tableIdx,"BitmapFontLabel_idx")
         local idx = self:getMoreTableIndex(data.wTableSubType)
         if idx then
             Image_tableIdx:setVisible(true)
-            Image_tableIdx:loadTexture(string.format('club/club_%d.png', 100 + idx))
+            BitmapFontLabel_idx:setString(idx)
         else
             Image_tableIdx:setVisible(false)
         end
@@ -983,11 +987,11 @@ function NewClubInfoLayer:refreshTableOneByOneEx(data)
     local item = nil
     for key, var in pairs(items) do
         if item == nil and var.data == nil then
-            item = var
+        item = var
         elseif var.data ~= nil and var.data.dwTableID == data.dwTableID then
            item = var
            break
-        end
+     end
     end
     
     if item == nil then

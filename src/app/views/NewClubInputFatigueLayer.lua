@@ -37,14 +37,23 @@ function NewClubInputFatigueLayer:onExit()
 end
 
 function NewClubInputFatigueLayer:onCreate(param)
-    local userInfo = param[1]
-    local flag = param[2]
+    self.data = param[1]
+    self.flag = param[2]
     self.callback = param[3]
-    self.Text_user_info:setString(string.format('%s ID:%d 疲劳值:%d', userInfo.name, userInfo.userID, userInfo.fatigue))
-    if flag == 1 then
+
+    if self.flag == 1 then
+        self.Text_user_info:setString(string.format('%s ID:%d 疲劳值:%d', self.data.name, self.data.userID, self.data.fatigue))
         self.Text_flag:setString('加')
-    else
+    elseif self.flag == 2 then
+        self.Text_user_info:setString(string.format('%s ID:%d 疲劳值:%d', self.data.name, self.data.userID, self.data.fatigue))
         self.Text_flag:setString('减')
+    elseif self.flag == 3 then
+        self.Text_flag:setVisible(false)
+        if self.data == 0 then
+            self.Text_user_info:setVisible(false)
+        else
+            self.Text_user_info:setString('元宝最低限度：' .. self.data .. ' (输入数量必须从小到大)')
+        end
     end
 
 	self:initNumberArea()
@@ -63,10 +72,13 @@ function NewClubInputFatigueLayer:onYes()
         end
     end
 
-    local inputVal = tonumber(roomNumber)
-    if inputVal then
-        self.callback(inputVal)
+    local inputVal = tonumber(roomNumber) or 0
+    if self.flag == 3 and self.data > inputVal then
+        require("common.MsgBoxLayer"):create(0,nil,"输入数量应大于最低值!")
+        return
     end
+
+    self.callback(inputVal)
     self:removeFromParent()
 end
 

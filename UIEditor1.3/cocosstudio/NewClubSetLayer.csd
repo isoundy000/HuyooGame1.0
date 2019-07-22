@@ -150,7 +150,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Panel_info" ActionTag="-1301533035" Tag="252" IconVisible="False" LeftMargin="118.6398" RightMargin="21.3602" TopMargin="22.0800" BottomMargin="22.9200" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_info" Visible="False" ActionTag="-1301533035" Tag="252" IconVisible="False" LeftMargin="118.6398" RightMargin="21.3602" TopMargin="22.0800" BottomMargin="22.9200" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="775.0000" Y="550.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_head" ActionTag="-1622752557" Tag="908" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="37.9525" RightMargin="619.0475" TopMargin="55.9500" BottomMargin="376.0500" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
@@ -175,7 +175,7 @@
                     <PreSize X="0.1523" Y="0.2145" />
                     <FileData Type="Normal" Path="common/hall_avatar.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_5_0_0" ActionTag="2063863057" Tag="912" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="360.1630" RightMargin="89.8370" TopMargin="30.9913" BottomMargin="465.0087" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="18" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="15" Scale9Height="15" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_5_0_0" ActionTag="2063863057" Tag="912" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="360.1630" RightMargin="89.8370" TopMargin="30.9700" BottomMargin="465.0300" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="18" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="15" Scale9Height="15" ctype="ImageViewObjectData">
                     <Size X="325.0000" Y="54.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_1" ActionTag="-51882681" Tag="239" IconVisible="False" LeftMargin="-182.1561" RightMargin="364.1561" TopMargin="13.4556" BottomMargin="12.5444" FontSize="28" LabelText="亲友圈昵称" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -201,7 +201,7 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="522.6630" Y="492.0087" />
+                    <Position X="522.6630" Y="492.0300" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.6744" Y="0.8946" />
@@ -372,7 +372,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_13" ActionTag="1555010097" Tag="921" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="32.5323" RightMargin="44.4677" TopMargin="214.7759" BottomMargin="145.2241" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="18" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="15" Scale9Height="15" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_13" ActionTag="1555010097" Tag="921" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="32.5325" RightMargin="44.4675" TopMargin="214.7759" BottomMargin="145.2241" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="18" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="15" Scale9Height="15" ctype="ImageViewObjectData">
                     <Size X="698.0000" Y="190.0000" />
                     <Children>
                       <AbstractNodeData Name="TextField_notice" ActionTag="-26679579" Tag="923" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="9.0000" RightMargin="9.0000" TopMargin="5.0000" BottomMargin="5.0000" TouchEnable="True" FontSize="30" IsCustomSize="True" LabelText="" PlaceHolderText="输入亲友圈公告" MaxLengthEnable="True" MaxLengthText="50" ctype="TextFieldObjectData">
@@ -386,7 +386,7 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" />
-                    <Position X="381.5323" Y="145.2241" />
+                    <Position X="381.5325" Y="145.2241" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.4923" Y="0.2640" />
@@ -486,7 +486,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Panel_playway" Visible="False" ActionTag="-399474717" Tag="257" IconVisible="False" LeftMargin="118.6400" RightMargin="21.3600" TopMargin="22.0800" BottomMargin="22.9200" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_playway" ActionTag="-399474717" Tag="257" IconVisible="False" LeftMargin="118.6400" RightMargin="21.3600" TopMargin="22.0800" BottomMargin="22.9200" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="775.0000" Y="550.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_frame" ActionTag="904327456" Tag="278" IconVisible="False" LeftMargin="19.7736" RightMargin="40.2264" TopMargin="24.7951" BottomMargin="20.2049" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="19" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="15" Scale9Height="14" ctype="ImageViewObjectData">
@@ -494,1190 +494,6 @@
                     <Children>
                       <AbstractNodeData Name="ListView_playway" ActionTag="-1599090204" Tag="279" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="7.5000" RightMargin="7.5000" TopMargin="7.5000" BottomMargin="7.5000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="3" DirectionType="Vertical" ctype="ListViewObjectData">
                         <Size X="700.0000" Y="490.0000" />
-                        <Children>
-                          <AbstractNodeData Name="Image_item1" ActionTag="-1986468682" Tag="280" IconVisible="False" BottomMargin="825.0000" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
-                            <Size X="700.0000" Y="162.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="130343620" Tag="283" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Button_addway" ActionTag="-891666109" Tag="284" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="84.0000" Y="84.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Text_9" ActionTag="-329194840" Tag="285" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                        <Size X="179.0000" Y="22.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="42.0000" Y="-20.0009" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="120" G="6" B="6" />
-                                        <PrePosition X="0.5000" Y="-0.2381" />
-                                        <PreSize X="2.1310" Y="0.2619" />
-                                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                        <OutlineColor A="255" R="255" G="0" B="0" />
-                                        <ShadowColor A="255" R="110" G="110" B="110" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="350.0000" Y="97.9938" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.6049" />
-                                    <PreSize X="0.1200" Y="0.5185" />
-                                    <TextColor A="255" R="65" G="65" B="70" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Panel_yesway" ActionTag="285706387" Tag="286" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_wayname" ActionTag="2009921916" Tag="289" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.8706" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waypeople" ActionTag="-17933871" Tag="290" IconVisible="False" LeftMargin="167.1063" RightMargin="490.8937" TopMargin="7.9750" BottomMargin="128.0250" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="42.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="188.1063" Y="141.0250" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.2687" Y="0.8705" />
-                                    <PreSize X="0.0600" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waynums" ActionTag="-369786170" Tag="291" IconVisible="False" LeftMargin="238.3027" RightMargin="407.6973" TopMargin="7.9750" BottomMargin="128.0250" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="54.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="265.3027" Y="141.0250" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.3790" Y="0.8705" />
-                                    <PreSize X="0.0771" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_wayLimit" ActionTag="-1896724497" Tag="143" IconVisible="False" LeftMargin="321.4990" RightMargin="142.5010" TopMargin="7.9750" BottomMargin="128.0250" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="236.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="321.4990" Y="141.0250" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.4593" Y="0.8705" />
-                                    <PreSize X="0.3371" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waytype" ActionTag="-555611973" Tag="292" IconVisible="False" LeftMargin="5.9094" RightMargin="562.0906" TopMargin="44.4875" BottomMargin="91.5125" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9094" Y="104.5125" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.6451" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waydes" ActionTag="-222329623" Tag="297" IconVisible="False" LeftMargin="5.9094" RightMargin="174.0906" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="520.0000" Y="80.0000" />
-                                    <AnchorPoint ScaleY="1.0000" />
-                                    <Position X="5.9094" Y="82.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="85" G="42" B="42" />
-                                    <PrePosition X="0.0084" Y="0.5062" />
-                                    <PreSize X="0.7429" Y="0.4938" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_removeWay" ActionTag="-1875879077" Tag="293" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_28" ActionTag="729622265" Tag="296" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="120.3700" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.7430" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_modifyWay" ActionTag="1108072608" Tag="294" IconVisible="False" LeftMargin="563.1291" RightMargin="4.8709" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_27" ActionTag="3406866" Tag="295" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1291" Y="44.9940" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.2777" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="350.0000" Y="906.0000" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5000" Y="0.9179" />
-                            <PreSize X="1.0000" Y="0.1641" />
-                            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_item2" ActionTag="-864705018" ZOrder="1" Tag="327" IconVisible="False" TopMargin="165.0000" BottomMargin="660.0000" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
-                            <Size X="700.0000" Y="162.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="828084410" Tag="328" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Button_addway" ActionTag="1211039630" Tag="329" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="84.0000" Y="84.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Text_9" ActionTag="1480066880" Tag="330" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                        <Size X="179.0000" Y="22.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="42.0000" Y="-20.0009" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="120" G="6" B="6" />
-                                        <PrePosition X="0.5000" Y="-0.2381" />
-                                        <PreSize X="2.1310" Y="0.2619" />
-                                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                        <OutlineColor A="255" R="255" G="0" B="0" />
-                                        <ShadowColor A="255" R="110" G="110" B="110" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="350.0000" Y="97.9938" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.6049" />
-                                    <PreSize X="0.1200" Y="0.5185" />
-                                    <TextColor A="255" R="65" G="65" B="70" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Panel_yesway" ActionTag="-806058627" Tag="331" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_wayname" ActionTag="-2076169181" Tag="332" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.8706" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waypeople" ActionTag="-88606715" Tag="333" IconVisible="False" LeftMargin="167.1063" RightMargin="490.8937" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="42.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="188.1063" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.2687" Y="0.8706" />
-                                    <PreSize X="0.0600" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waynums" ActionTag="-722293044" Tag="334" IconVisible="False" LeftMargin="238.3027" RightMargin="407.6973" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="54.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="265.3027" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.3790" Y="0.8706" />
-                                    <PreSize X="0.0771" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_wayLimit" ActionTag="-2105546842" Tag="144" IconVisible="False" LeftMargin="321.4990" RightMargin="142.5010" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="236.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="321.4990" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.4593" Y="0.8706" />
-                                    <PreSize X="0.3371" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waytype" ActionTag="-2109772141" Tag="335" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="44.4850" BottomMargin="91.5150" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="104.5150" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.6452" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waydes" ActionTag="-1994813493" Tag="336" IconVisible="False" LeftMargin="5.9100" RightMargin="174.0900" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="520.0000" Y="80.0000" />
-                                    <AnchorPoint ScaleY="1.0000" />
-                                    <Position X="5.9100" Y="82.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="85" G="42" B="42" />
-                                    <PrePosition X="0.0084" Y="0.5062" />
-                                    <PreSize X="0.7429" Y="0.4938" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_removeWay" ActionTag="-1718207220" Tag="337" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_28" ActionTag="-701483795" Tag="338" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="120.3700" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.7430" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_modifyWay" ActionTag="1715495882" Tag="339" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_27" ActionTag="745279457" Tag="340" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="44.9940" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.2777" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="350.0000" Y="741.0000" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5000" Y="0.7508" />
-                            <PreSize X="1.0000" Y="0.1641" />
-                            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_item3" ActionTag="-739636262" ZOrder="2" Tag="341" IconVisible="False" TopMargin="330.0000" BottomMargin="495.0000" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
-                            <Size X="700.0000" Y="162.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="1094160277" Tag="342" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Button_addway" ActionTag="68217614" Tag="343" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="84.0000" Y="84.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Text_9" ActionTag="-1146585346" Tag="344" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                        <Size X="179.0000" Y="22.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="42.0000" Y="-20.0009" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="120" G="6" B="6" />
-                                        <PrePosition X="0.5000" Y="-0.2381" />
-                                        <PreSize X="2.1310" Y="0.2619" />
-                                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                        <OutlineColor A="255" R="255" G="0" B="0" />
-                                        <ShadowColor A="255" R="110" G="110" B="110" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="350.0000" Y="97.9938" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.6049" />
-                                    <PreSize X="0.1200" Y="0.5185" />
-                                    <TextColor A="255" R="65" G="65" B="70" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Panel_yesway" ActionTag="-1340135843" Tag="345" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_wayname" ActionTag="411843020" Tag="346" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.8706" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waypeople" ActionTag="326330314" Tag="347" IconVisible="False" LeftMargin="167.1063" RightMargin="490.8937" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="42.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="188.1063" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.2687" Y="0.8706" />
-                                    <PreSize X="0.0600" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waynums" ActionTag="-199544286" Tag="348" IconVisible="False" LeftMargin="238.3027" RightMargin="407.6973" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="54.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="265.3027" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.3790" Y="0.8706" />
-                                    <PreSize X="0.0771" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_wayLimit" ActionTag="-408454117" Tag="145" IconVisible="False" LeftMargin="321.4990" RightMargin="142.5010" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="236.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="321.4990" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.4593" Y="0.8706" />
-                                    <PreSize X="0.3371" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waytype" ActionTag="1103104275" Tag="349" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="44.4850" BottomMargin="91.5150" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="104.5150" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.6452" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waydes" ActionTag="-1954562462" Tag="350" IconVisible="False" LeftMargin="5.9100" RightMargin="174.0900" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="520.0000" Y="80.0000" />
-                                    <AnchorPoint ScaleY="1.0000" />
-                                    <Position X="5.9100" Y="82.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="85" G="42" B="42" />
-                                    <PrePosition X="0.0084" Y="0.5062" />
-                                    <PreSize X="0.7429" Y="0.4938" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_removeWay" ActionTag="-929276472" Tag="351" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_28" ActionTag="1132572131" Tag="352" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="120.3700" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.7430" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_modifyWay" ActionTag="2082160578" Tag="353" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_27" ActionTag="108601834" Tag="354" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="44.9940" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.2777" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="350.0000" Y="576.0000" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5000" Y="0.5836" />
-                            <PreSize X="1.0000" Y="0.1641" />
-                            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_item4" ActionTag="-1733188228" ZOrder="3" Tag="88" IconVisible="False" TopMargin="495.0000" BottomMargin="330.0000" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
-                            <Size X="700.0000" Y="162.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="-683758902" Tag="89" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Button_addway" ActionTag="1902979161" Tag="90" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="84.0000" Y="84.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Text_9" ActionTag="418340135" Tag="91" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                        <Size X="179.0000" Y="22.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="42.0000" Y="-20.0009" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="120" G="6" B="6" />
-                                        <PrePosition X="0.5000" Y="-0.2381" />
-                                        <PreSize X="2.1310" Y="0.2619" />
-                                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                        <OutlineColor A="255" R="255" G="0" B="0" />
-                                        <ShadowColor A="255" R="110" G="110" B="110" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="350.0000" Y="97.9938" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.6049" />
-                                    <PreSize X="0.1200" Y="0.5185" />
-                                    <TextColor A="255" R="65" G="65" B="70" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Panel_yesway" ActionTag="-1642336296" Tag="92" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_wayname" ActionTag="-307669088" Tag="93" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.8706" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waypeople" ActionTag="-1041466108" Tag="94" IconVisible="False" LeftMargin="167.1063" RightMargin="490.8937" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="42.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="188.1063" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.2687" Y="0.8706" />
-                                    <PreSize X="0.0600" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waynums" ActionTag="-1330073682" Tag="95" IconVisible="False" LeftMargin="238.3027" RightMargin="407.6973" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="54.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="265.3027" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.3790" Y="0.8706" />
-                                    <PreSize X="0.0771" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_wayLimit" ActionTag="-1823740221" Tag="96" IconVisible="False" LeftMargin="321.4990" RightMargin="142.5010" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="236.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="321.4990" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.4593" Y="0.8706" />
-                                    <PreSize X="0.3371" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waytype" ActionTag="-1955042410" Tag="97" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="44.4850" BottomMargin="91.5150" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="104.5150" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.6452" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waydes" ActionTag="1514098238" Tag="98" IconVisible="False" LeftMargin="5.9100" RightMargin="174.0900" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="520.0000" Y="80.0000" />
-                                    <AnchorPoint ScaleY="1.0000" />
-                                    <Position X="5.9100" Y="82.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="85" G="42" B="42" />
-                                    <PrePosition X="0.0084" Y="0.5062" />
-                                    <PreSize X="0.7429" Y="0.4938" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_removeWay" ActionTag="-1676639861" Tag="99" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_28" ActionTag="469803418" Tag="100" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="120.3700" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.7430" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_modifyWay" ActionTag="-1397533447" Tag="101" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_27" ActionTag="602304234" Tag="102" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="44.9940" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.2777" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="350.0000" Y="411.0000" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5000" Y="0.4164" />
-                            <PreSize X="1.0000" Y="0.1641" />
-                            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_item5" ActionTag="-1451293319" ZOrder="4" Tag="103" IconVisible="False" TopMargin="660.0000" BottomMargin="165.0000" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
-                            <Size X="700.0000" Y="162.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="2085686227" Tag="104" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Button_addway" ActionTag="1140443755" Tag="105" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="84.0000" Y="84.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Text_9" ActionTag="149832484" Tag="106" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                        <Size X="179.0000" Y="22.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="42.0000" Y="-20.0009" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="120" G="6" B="6" />
-                                        <PrePosition X="0.5000" Y="-0.2381" />
-                                        <PreSize X="2.1310" Y="0.2619" />
-                                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                        <OutlineColor A="255" R="255" G="0" B="0" />
-                                        <ShadowColor A="255" R="110" G="110" B="110" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="350.0000" Y="97.9938" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.6049" />
-                                    <PreSize X="0.1200" Y="0.5185" />
-                                    <TextColor A="255" R="65" G="65" B="70" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Panel_yesway" ActionTag="2093505219" Tag="107" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_wayname" ActionTag="-1333296580" Tag="108" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.8706" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waypeople" ActionTag="-1856200139" Tag="109" IconVisible="False" LeftMargin="167.1063" RightMargin="490.8937" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="42.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="188.1063" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.2687" Y="0.8706" />
-                                    <PreSize X="0.0600" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waynums" ActionTag="-241988814" Tag="110" IconVisible="False" LeftMargin="238.3027" RightMargin="407.6973" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="54.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="265.3027" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.3790" Y="0.8706" />
-                                    <PreSize X="0.0771" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_wayLimit" ActionTag="1932645900" Tag="111" IconVisible="False" LeftMargin="321.4990" RightMargin="142.5010" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="236.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="321.4990" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.4593" Y="0.8706" />
-                                    <PreSize X="0.3371" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waytype" ActionTag="1690748407" Tag="112" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="44.4850" BottomMargin="91.5150" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="104.5150" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.6452" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waydes" ActionTag="-533451623" Tag="113" IconVisible="False" LeftMargin="5.9100" RightMargin="174.0900" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="520.0000" Y="80.0000" />
-                                    <AnchorPoint ScaleY="1.0000" />
-                                    <Position X="5.9100" Y="82.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="85" G="42" B="42" />
-                                    <PrePosition X="0.0084" Y="0.5062" />
-                                    <PreSize X="0.7429" Y="0.4938" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_removeWay" ActionTag="-1885571052" Tag="114" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_28" ActionTag="-1894838422" Tag="115" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="120.3700" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.7430" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_modifyWay" ActionTag="-313598965" Tag="116" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_27" ActionTag="1375362303" Tag="117" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="44.9940" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.2777" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="350.0000" Y="246.0000" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5000" Y="0.2492" />
-                            <PreSize X="1.0000" Y="0.1641" />
-                            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_item6" ActionTag="-22634925" ZOrder="5" Tag="118" IconVisible="False" TopMargin="825.0000" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
-                            <Size X="700.0000" Y="162.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="1947613971" Tag="119" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Button_addway" ActionTag="-479261214" Tag="120" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="84.0000" Y="84.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Text_9" ActionTag="706876499" Tag="121" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                        <Size X="179.0000" Y="22.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="42.0000" Y="-20.0009" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="120" G="6" B="6" />
-                                        <PrePosition X="0.5000" Y="-0.2381" />
-                                        <PreSize X="2.1310" Y="0.2619" />
-                                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                        <OutlineColor A="255" R="255" G="0" B="0" />
-                                        <ShadowColor A="255" R="110" G="110" B="110" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="350.0000" Y="97.9938" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.6049" />
-                                    <PreSize X="0.1200" Y="0.5185" />
-                                    <TextColor A="255" R="65" G="65" B="70" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Panel_yesway" ActionTag="582075742" Tag="122" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                                <Size X="700.0000" Y="162.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_wayname" ActionTag="1559074945" Tag="123" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.8706" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waypeople" ActionTag="10320571" Tag="124" IconVisible="False" LeftMargin="167.1063" RightMargin="490.8937" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="42.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="188.1063" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.2687" Y="0.8706" />
-                                    <PreSize X="0.0600" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waynums" ActionTag="-934748542" Tag="125" IconVisible="False" LeftMargin="238.3027" RightMargin="407.6973" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="54.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="265.3027" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.3790" Y="0.8706" />
-                                    <PreSize X="0.0771" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_wayLimit" ActionTag="805202146" Tag="126" IconVisible="False" LeftMargin="321.4990" RightMargin="142.5010" TopMargin="7.9700" BottomMargin="128.0300" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="236.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="321.4990" Y="141.0300" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.4593" Y="0.8706" />
-                                    <PreSize X="0.3371" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waytype" ActionTag="1783768925" Tag="127" IconVisible="False" LeftMargin="5.9100" RightMargin="562.0900" TopMargin="44.4850" BottomMargin="91.5150" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="132.0000" Y="26.0000" />
-                                    <AnchorPoint ScaleY="0.5000" />
-                                    <Position X="5.9100" Y="104.5150" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="199" G="107" B="61" />
-                                    <PrePosition X="0.0084" Y="0.6452" />
-                                    <PreSize X="0.1886" Y="0.1605" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Text_waydes" ActionTag="683458975" Tag="128" IconVisible="False" LeftMargin="5.9100" RightMargin="174.0900" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="520.0000" Y="80.0000" />
-                                    <AnchorPoint ScaleY="1.0000" />
-                                    <Position X="5.9100" Y="82.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="85" G="42" B="42" />
-                                    <PrePosition X="0.0084" Y="0.5062" />
-                                    <PreSize X="0.7429" Y="0.4938" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_removeWay" ActionTag="-1121893243" Tag="129" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_28" ActionTag="-925201481" Tag="130" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="120.3700" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.7430" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                  <AbstractNodeData Name="Button_modifyWay" ActionTag="-1081741123" Tag="131" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                                    <Size X="132.0000" Y="62.0000" />
-                                    <Children>
-                                      <AbstractNodeData Name="Image_27" ActionTag="-41214071" Tag="132" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
-                                        <Size X="70.0000" Y="33.0000" />
-                                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                        <Position X="66.0000" Y="34.0008" />
-                                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                        <CColor A="255" R="255" G="255" B="255" />
-                                        <PrePosition X="0.5000" Y="0.5484" />
-                                        <PreSize X="0.5303" Y="0.5323" />
-                                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
-                                      </AbstractNodeData>
-                                    </Children>
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="629.1300" Y="44.9940" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.8988" Y="0.2777" />
-                                    <PreSize X="0.1886" Y="0.3827" />
-                                    <TextColor A="255" R="255" G="255" B="255" />
-                                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="350.0000" Y="81.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.5000" Y="0.5000" />
-                                <PreSize X="1.0000" Y="1.0000" />
-                                <SingleColor A="255" R="150" G="200" B="255" />
-                                <FirstColor A="255" R="150" G="200" B="255" />
-                                <EndColor A="255" R="255" G="255" B="255" />
-                                <ColorVector ScaleY="1.0000" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="350.0000" Y="81.0000" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5000" Y="0.0821" />
-                            <PreSize X="1.0000" Y="0.1641" />
-                            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
-                          </AbstractNodeData>
-                        </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="357.5000" Y="252.5000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -1798,6 +614,227 @@
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.7148" Y="0.8264" />
             <FileData Type="Normal" Path="newclub/qyq_35.png" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Image_item" ActionTag="-1986468682" Tag="280" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="237.7865" RightMargin="342.2135" TopMargin="825.0480" BottomMargin="-267.0480" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
+            <Size X="700.0000" Y="162.0000" />
+            <Children>
+              <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="130343620" Tag="283" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                <Size X="700.0000" Y="162.0000" />
+                <Children>
+                  <AbstractNodeData Name="Button_addway" ActionTag="-891666109" Tag="284" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="308.0000" RightMargin="308.0000" TopMargin="22.0062" BottomMargin="55.9938" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="54" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                    <Size X="84.0000" Y="84.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Text_addPlayWay" ActionTag="-329194840" Tag="285" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-47.5000" RightMargin="-47.5000" TopMargin="93.0009" BottomMargin="-31.0009" FontSize="22" LabelText="点击添加固定玩法" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="179.0000" Y="22.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="42.0000" Y="-20.0009" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="120" G="6" B="6" />
+                        <PrePosition X="0.5000" Y="-0.2381" />
+                        <PreSize X="2.1310" Y="0.2619" />
+                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="350.0000" Y="97.9938" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="0.6049" />
+                    <PreSize X="0.1200" Y="0.5185" />
+                    <TextColor A="255" R="65" G="65" B="70" />
+                    <DisabledFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
+                    <PressedFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
+                    <NormalFileData Type="Normal" Path="newclub/qyq_11.png" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="350.0000" Y="81.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="1.0000" Y="1.0000" />
+                <SingleColor A="255" R="150" G="200" B="255" />
+                <FirstColor A="255" R="150" G="200" B="255" />
+                <EndColor A="255" R="255" G="255" B="255" />
+                <ColorVector ScaleY="1.0000" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Panel_yesway" ActionTag="285706387" Tag="286" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                <Size X="700.0000" Y="162.0000" />
+                <Children>
+                  <AbstractNodeData Name="Text_gamewayIdx" ActionTag="1926978667" Tag="270" IconVisible="False" LeftMargin="5.9094" RightMargin="630.0906" TopMargin="8.3706" BottomMargin="127.6294" FontSize="26" LabelText="玩法1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="64.0000" Y="26.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="5.9094" Y="140.6294" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="0" B="0" />
+                    <PrePosition X="0.0084" Y="0.8681" />
+                    <PreSize X="0.0914" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_wayname" ActionTag="2009921916" Tag="289" IconVisible="False" LeftMargin="117.0388" RightMargin="450.9612" TopMargin="8.3705" BottomMargin="127.6295" FontSize="26" LabelText="祁阳落地扫" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="132.0000" Y="26.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="117.0388" Y="140.6295" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="199" G="107" B="61" />
+                    <PrePosition X="0.1672" Y="0.8681" />
+                    <PreSize X="0.1886" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_waypeople" ActionTag="-17933871" Tag="290" IconVisible="False" LeftMargin="296.1683" RightMargin="361.8317" TopMargin="8.3705" BottomMargin="127.6295" FontSize="26" LabelText="3人" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="42.0000" Y="26.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="317.1683" Y="140.6295" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="199" G="107" B="61" />
+                    <PrePosition X="0.4531" Y="0.8681" />
+                    <PreSize X="0.0600" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_waynums" ActionTag="-369786170" Tag="291" IconVisible="False" LeftMargin="385.2977" RightMargin="260.7023" TopMargin="8.3705" BottomMargin="127.6295" FontSize="26" LabelText="15局" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="54.0000" Y="26.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="412.2977" Y="140.6295" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="199" G="107" B="61" />
+                    <PrePosition X="0.5890" Y="0.8681" />
+                    <PreSize X="0.0771" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_wayLimit" ActionTag="-1896724497" Tag="143" IconVisible="False" LeftMargin="296.8405" RightMargin="167.1595" TopMargin="45.3309" BottomMargin="90.6691" FontSize="26" LabelText="门槛:10000 倍率:10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="236.0000" Y="26.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="296.8405" Y="103.6691" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="199" G="107" B="61" />
+                    <PrePosition X="0.4241" Y="0.6399" />
+                    <PreSize X="0.3371" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_gamemode" ActionTag="606877890" Tag="212" IconVisible="False" LeftMargin="5.9094" RightMargin="562.0906" TopMargin="45.3309" BottomMargin="90.6691" FontSize="26" LabelText="疲劳值模式" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="132.0000" Y="26.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="5.9094" Y="103.6691" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="199" G="107" B="61" />
+                    <PrePosition X="0.0084" Y="0.6399" />
+                    <PreSize X="0.1886" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_waytype" ActionTag="-555611973" Tag="292" IconVisible="False" LeftMargin="151.3749" RightMargin="416.6251" TopMargin="45.3309" BottomMargin="90.6691" FontSize="26" LabelText="AA支付/2张" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="132.0000" Y="26.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="151.3749" Y="103.6691" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="199" G="107" B="61" />
+                    <PrePosition X="0.2162" Y="0.6399" />
+                    <PreSize X="0.1886" Y="0.1605" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_waydes" ActionTag="-222329623" Tag="297" IconVisible="False" LeftMargin="5.9094" RightMargin="174.0906" TopMargin="80.0000" BottomMargin="2.0000" IsCustomSize="True" FontSize="24" LabelText="个梵蒂冈地方换个地方好地方好地方还是对方会受到撒发送到发送到发送到第三方斯蒂芬收到" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="520.0000" Y="80.0000" />
+                    <AnchorPoint ScaleY="1.0000" />
+                    <Position X="5.9094" Y="82.0000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="85" G="42" B="42" />
+                    <PrePosition X="0.0084" Y="0.5062" />
+                    <PreSize X="0.7429" Y="0.4938" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Button_removeWay" ActionTag="-1875879077" Tag="293" IconVisible="False" LeftMargin="563.1300" RightMargin="4.8700" TopMargin="10.6300" BottomMargin="89.3700" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                    <Size X="132.0000" Y="62.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Image_28" ActionTag="729622265" Tag="296" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
+                        <Size X="70.0000" Y="33.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="66.0000" Y="34.0008" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5000" Y="0.5484" />
+                        <PreSize X="0.5303" Y="0.5323" />
+                        <FileData Type="Normal" Path="newclub/qyq_43.png" Plist="" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="629.1300" Y="120.3700" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.8988" Y="0.7430" />
+                    <PreSize X="0.1886" Y="0.3827" />
+                    <TextColor A="255" R="255" G="255" B="255" />
+                    <DisabledFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
+                    <PressedFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
+                    <NormalFileData Type="Normal" Path="newclub/qyq_41.png" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Button_modifyWay" ActionTag="1108072608" Tag="294" IconVisible="False" LeftMargin="563.1291" RightMargin="4.8709" TopMargin="86.0060" BottomMargin="13.9940" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                    <Size X="132.0000" Y="62.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Image_27" ActionTag="3406866" Tag="295" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="11.4992" BottomMargin="17.5008" LeftEage="23" RightEage="23" TopEage="10" BottomEage="10" Scale9OriginX="23" Scale9OriginY="10" Scale9Width="24" Scale9Height="13" ctype="ImageViewObjectData">
+                        <Size X="70.0000" Y="33.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="66.0000" Y="34.0008" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5000" Y="0.5484" />
+                        <PreSize X="0.5303" Y="0.5323" />
+                        <FileData Type="Normal" Path="newclub/qyq_28.png" Plist="" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="629.1291" Y="44.9940" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.8988" Y="0.2777" />
+                    <PreSize X="0.1886" Y="0.3827" />
+                    <TextColor A="255" R="255" G="255" B="255" />
+                    <DisabledFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
+                    <PressedFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
+                    <NormalFileData Type="Normal" Path="newclub/qyq_42.png" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="350.0000" Y="81.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="1.0000" Y="1.0000" />
+                <SingleColor A="255" R="150" G="200" B="255" />
+                <FirstColor A="255" R="150" G="200" B="255" />
+                <EndColor A="255" R="255" G="255" B="255" />
+                <ColorVector ScaleY="1.0000" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="587.7865" Y="-186.0480" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4592" Y="-0.2584" />
+            <PreSize X="0.5469" Y="0.2250" />
+            <FileData Type="Normal" Path="newclub/qyq_40.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
