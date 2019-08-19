@@ -2,8 +2,8 @@ cc.exports.SERVER_INFO = {
     ip = "login.qilaigame.com",
     port = 8686,
 
-    ip = "login.paohuzi.qilaigame.com",
-    port = 8585,
+    -- ip = "login.paohuzi.qilaigame.com",
+    -- port = 8585,
 
     -- ip = '192.168.1.88',
     -- port = 8585

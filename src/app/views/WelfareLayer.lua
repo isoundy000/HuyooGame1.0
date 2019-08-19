@@ -564,6 +564,9 @@ function WelfareLayer:initShare()            --分享朋友圈
     Common:addTouchEventListener(uiButton_share,function() 
         local data = clone(UserData.Share.tableShareParameter[0])
         data.cbTargetType = 0x01
+        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+            data.cbShareType = 2
+        end
         UserData.Share:doShare(data,function(ret) 
             local record = UserData.Welfare.tableWelfare[1004]
             if ret == 1 then
@@ -608,6 +611,9 @@ function WelfareLayer:initInvitation()       --邀请好友
     Common:addTouchEventListener(uiButton_invitation,function() 
         local data = clone(UserData.Share.tableShareParameter[0])
         data.cbTargetType = 2
+        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+            data.cbShareType = 1
+        end
         UserData.Share:doShare(data,function(ret) 
             local record = UserData.Welfare.tableWelfare[1005]
             if ret == 1 then

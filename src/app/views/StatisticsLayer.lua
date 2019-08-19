@@ -771,8 +771,8 @@ function StatisticsLayer:RET_GET_CLUB_FATIGUE_DETAILS(event)
     end
 
     -- 当前页是否结束
-    if data.isAllFinish then
-        if data.isFinish then
+    if data.isFinish then
+        if data.isAllFinish then
             self.pageState = 2
         else
             self.pageState = 1

@@ -368,11 +368,25 @@ end
 function NewClubMemberLayer:leftNodeChange( time,stampMin,stampMax )
     self.Text_day_left:setString(time)
     self.beganTime = stampMin
+
+    if self.ListView_myParnter:isVisible() then
+        self.ListView_myParnter:removeAllChildren()
+    end
+    if self.ListView_pushParnter:isVisible() then
+        self.ListView_pushParnter:removeAllChildren()
+    end
 end
 
 function NewClubMemberLayer:rightNodeChange( time,stampMin,stampMax )
     self.Text_day_right:setString(time)
     self.endTime = stampMax
+    
+    if self.ListView_myParnter:isVisible() then
+        self.ListView_myParnter:removeAllChildren()
+    end
+    if self.ListView_pushParnter:isVisible() then
+        self.ListView_pushParnter:removeAllChildren()
+    end
 end
 
 function NewClubMemberLayer:onSearch()
@@ -531,11 +545,11 @@ function NewClubMemberLayer:initUI(param)
     self.ListView_mem:setBounceEnabled(false)
 
     if self.clubData.dwUserID ~= UserData.User.userID then
-        self.Button_changemem:setVisible(false)
-        -- Common:addTouchEventListener(self.Button_changemem,function()
-        --     local node = require("app.MyApp"):create(self.clubData):createView("NewClubParnterAddMemLayer")
-        --     self:addChild(node)
-        -- end)
+        self.Button_changemem:setVisible(true)
+        Common:addTouchEventListener(self.Button_changemem,function()
+            local node = require("app.MyApp"):create(self.clubData):createView("NewClubParnterAddMemLayer")
+            self:addChild(node)
+        end)
     end
 
     --屏蔽普通成员可见
@@ -1568,6 +1582,8 @@ function NewClubMemberLayer:partnerShow(data)
         self.Image_addParnter:setVisible(false)
         self.Image_myParnter:setVisible(false)
         self.Image_myMem:setVisible(true)
+        local path = 'club/partner_1.png'
+        self.Button_changemem:loadTextures(path, path, path)
     else
         self.ListView_myParnter:setVisible(false)
         self.ListView_pushParnter:setVisible(true)
@@ -1575,14 +1591,14 @@ function NewClubMemberLayer:partnerShow(data)
         self.Image_addParnter:setVisible(true)
         self.Image_myParnter:setVisible(true)
         self.Image_myMem:setVisible(false)
+        local path = 'club/partner_6.png'
+        self.Button_changemem:loadTextures(path, path, path)
     end
     
     self.Panel_addParnter:setVisible(false)
     self.Panel_myParnter:setVisible(true)
     self.Image_allCount:setVisible(false)
     self.Text_dawinSorce:setVisible(false)
-    local path = 'club/partner_6.png'
-    self.Button_changemem:loadTextures(path, path, path)
 
     self:insertOncePartnerMember(data)
     self.pCurPage = 1

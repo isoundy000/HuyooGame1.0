@@ -304,6 +304,13 @@ function NewClubSetLayer:getRecordDes(data)
     elseif data.cbType == 36 then
         local splitArr = Common:stringSplit(data.szParameter, "|")
         des = des .. '修改【ID:' .. splitArr[1] .. '】疲劳值为:' .. splitArr[2]
+    elseif data.cbType == 37 then
+        local splitArr = Common:stringSplit(data.szParameter, "|")
+        des = '合伙人' .. '(' .. data.szNickName .. ')【ID:' .. data.dwUserID .. '】'
+        des = des .. '修改成员【ID:' .. splitArr[1] .. '】疲劳值:' .. splitArr[2]
+    elseif data.cbType == 38 then
+        local splitArr = Common:stringSplit(data.szParameter, "|")
+        des = des .. '修改【ID:' .. splitArr[1] .. '】疲劳值为:' .. splitArr[2]
     else
         des = ''
     end

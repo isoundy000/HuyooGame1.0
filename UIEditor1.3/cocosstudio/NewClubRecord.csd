@@ -1047,10 +1047,10 @@
               <AbstractNodeData Name="Button_top_2" ActionTag="133170658" Tag="1950" IconVisible="False" LeftMargin="580.0916" RightMargin="499.9084" TopMargin="13.5934" BottomMargin="640.4066" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="170" Scale9Height="44" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="200.0000" Y="66.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_press" ActionTag="1511269668" Tag="1951" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-0.0003" RightMargin="0.0003" TopMargin="-1.4032" BottomMargin="1.4032" LeftEage="44" RightEage="44" TopEage="11" BottomEage="11" Scale9OriginX="44" Scale9OriginY="11" Scale9Width="112" Scale9Height="44" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_press" ActionTag="1511269668" Tag="1951" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="-1.4058" BottomMargin="1.4058" LeftEage="44" RightEage="44" TopEage="11" BottomEage="11" Scale9OriginX="44" Scale9OriginY="11" Scale9Width="112" Scale9Height="44" ctype="ImageViewObjectData">
                     <Size X="200.0000" Y="66.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="99.9997" Y="34.4032" />
+                    <Position X="100.0000" Y="34.4058" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.5000" Y="0.5213" />
@@ -2155,10 +2155,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_di_club" ActionTag="2034328252" Tag="797" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="996.9719" RightMargin="-45.9719" TopMargin="-1654.9280" BottomMargin="2303.9280" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="309" Scale9Height="51" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_di_club" ActionTag="2034328252" Tag="797" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="996.9720" RightMargin="-45.9720" TopMargin="-1654.9280" BottomMargin="2303.9280" Scale9Enable="True" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="309" Scale9Height="51" ctype="ImageViewObjectData">
                 <Size X="329.0000" Y="71.0000" />
                 <AnchorPoint ScaleX="0.5000" />
-                <Position X="1161.4719" Y="2303.9280" />
+                <Position X="1161.4720" Y="2303.9280" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.9074" Y="3.1999" />

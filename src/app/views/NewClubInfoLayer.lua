@@ -766,6 +766,7 @@ function NewClubInfoLayer:sortNewTable(dwTableID, playwaynum, posFlag)
                 if v.data.dwTableID == dwTableID then
                     idx = playwaynum + 1
                     isInsert = true
+                    v.sortIndex = #tableArr + 100
                 end
 
                 local row = idx % 2
@@ -777,6 +778,8 @@ function NewClubInfoLayer:sortNewTable(dwTableID, playwaynum, posFlag)
                 local y = 340 - (row - 1) * 245
                 v:setPosition(x, y)
                 v.data.pos = (col - 1) * 2 + row
+            else
+                v.sortIndex = -i
             end
         end
     elseif posFlag == 1 then
@@ -791,6 +794,7 @@ function NewClubInfoLayer:sortNewTable(dwTableID, playwaynum, posFlag)
                 if v.data.dwTableID == dwTableID then
                     idx = #tableArr
                     isInsert = true
+                    v.sortIndex = -(#tableArr + 100)
                 end
 
                 local row = idx % 2
@@ -802,8 +806,33 @@ function NewClubInfoLayer:sortNewTable(dwTableID, playwaynum, posFlag)
                 local y = 340 - (row - 1) * 245
                 v:setPosition(x, y)
                 v.data.pos = (col - 1) * 2 + row
+            else
+                v.sortIndex = -i
             end
         end
+    end
+
+    local tableArr = self.ScrollView_clubTbl:getChildren()
+    local function comp(v1, v2)
+        v1.sortIndex = v1.sortIndex or 0
+        v2.sortIndex = v2.sortIndex or 0
+        if v1.sortIndex > v2.sortIndex then
+            return true
+        else
+            return false
+        end
+    end
+    table.sort(tableArr, comp)
+    for i,v in ipairs(tableArr) do
+        local row = i % 2
+        if row == 0 then
+            row = 2
+        end
+        local col = math.ceil(i / 2)
+        local x = 123 + (col - 1) * 387 * TableSpace
+        local y = 340 - (row - 1) * 245
+        v:setPosition(x, y)
+        v.data.pos = (col - 1) * 2 + row
     end
 end
 
@@ -1160,6 +1189,11 @@ function NewClubInfoLayer:addOnceClubItem(data)
     Text_playWay:setString("圈ID:" .. data.dwClubID)
     Text_memNum:setString("人数：" .. data.dwOnlinePlayerCount .. '/' .. data.dwClubPlayerCount)
     self:setMemberMgrFlag(item, data)
+    if data.dwUserID ~= UserData.User.userID and not self:isAdmin(UserData.User.userID, data.dwAdministratorID) then
+        Text_memNum:setVisible(false)
+    else
+        Text_memNum:setVisible(true)
+    end
 
     item:setTouchEnabled(true)
     item:addClickEventListener(function(sender)

@@ -113,12 +113,12 @@ function Share:doShare(data,callback)
     local function downloadimage()
         local filename = string.format("downloadshareimage_%d.png",data.cbTargetID)
         local filepath = FileDir.dirTemp..filename
-        local preAddr = cc.UserDefault:getInstance():getStringForKey(filename,"")  
-        if preAddr == szParameter and cc.FileUtils:getInstance():isFileExist(filepath) then
-            szParameter = filepath
-            doShareSDK()
-            return
-        end
+        -- local preAddr = cc.UserDefault:getInstance():getStringForKey(filename,"")  
+        -- if preAddr == szParameter and cc.FileUtils:getInstance():isFileExist(filepath) then
+        --     szParameter = filepath
+        --     doShareSDK()
+        --     return
+        -- end
 
         if cc.FileUtils:getInstance():isFileExist(filepath) then
             local texture = cc.TextureCache:getInstance():addImage(filepath)

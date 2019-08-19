@@ -595,7 +595,7 @@ function NewClubRecord:updateChildItem( item,index )
 	end
 	Text_name:setString(gameData or '')
 	Text_round:setString(data.wPlayCount .. "/" .. data.wGameCount .. '局')
-	local y, m, d, h, mi, s = Common:getYMDHMS(data.dwPlayTimeStart)
+	local y, m, d, h, mi, s = Common:getYMDHMS(data.dwPlayTimeStart+data.dwPlayTimeCount)
 	local time = string.format("%d-%02d-%02d %02d:%02d:%02d", y, m, d, h, mi, s)
 	Text_time:setString(time)
 	self:updateNameItem(item,data)

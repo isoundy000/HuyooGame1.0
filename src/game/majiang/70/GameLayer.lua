@@ -88,6 +88,7 @@ function GameLayer:startGame(...)
     GameCommon.wKindID = GameCommon.tableConfig.wKindID
     GameCommon.regionSound = 0
     
+    self:resetPiaoFen()
     self.tableLayer = TableLayer:create(self.root)
     self:addChild(self.tableLayer)
     self.tableLayer:initUI()
@@ -472,24 +473,26 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 _tagMsg.pBuffer.cbBuCard[i] = luaFunc:readRecvByte()
             end
             
---        elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then           --报听可删牌数据
---            _tagMsg.pBuffer.cbGangCard = {}
---            for i = 1, 14 do
---                _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
---            end
---        elseif subCmdID == NetMsgId.SUB_S_ALONE_BAOTINGCARD then        --报听可胡哪些牌数据
---            _tagMsg.pBuffer.cbGangCard = {}
---            for i = 1, 27 do
---                _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
---            end
-            
-        elseif subCmdID == NetMsgId.SUB_S_ACTION_BAOTINGCARD then        --报听可胡哪些牌数据
-            _tagMsg.pBuffer.cbGangCard = {}
-            for i = 1, 27 do
-                _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
+        elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then           --报听可删牌数据   
+            _tagMsg.pBuffer.cbBTCard = {}    ---  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.cbBTCard[i] = luaFunc:readRecvByte()
             end
-            self.tableLayer:showBaoting(_tagMsg.pBuffer)
-            return true            
+            _tagMsg.pBuffer.mBTHuCard= {}      ----  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.mBTHuCard[i]= {}
+                for j = 1, 27 do
+                    _tagMsg.pBuffer.mBTHuCard[i][j] = luaFunc:readRecvByte()
+                end 
+            end 
+            print("+++++++++报停有理+++++++")
+        -- elseif subCmdID == NetMsgId.SUB_S_ACTION_BAOTINGCARD then        --报听可胡哪些牌数据
+        --     _tagMsg.pBuffer.cbGangCard = {}
+        --     for i = 1, 27 do
+        --         _tagMsg.pBuffer.cbGangCard[i] = luaFunc:readRecvByte()
+        --     end
+        --     self.tableLayer:showBaoting(_tagMsg.pBuffer)
+        --     return true
         elseif subCmdID == NetMsgId.SUB_S_GANG_CARD_DATA then        --返回客户端开杠后相关牌数据
 							
             _tagMsg.pBuffer.wResumeUser = luaFunc:readRecvWORD()            --还原用户
@@ -827,6 +830,18 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 _tagMsg.pBuffer.mGangItemArray[i].cbPublicCard = luaFunc:readRecvByte()
                 print("++++++++杠+++++++",i,_tagMsg.pBuffer.mGangItemArray[i].cbGangKind,_tagMsg.pBuffer.mGangItemArray[i].cbPublicCard )
             end 
+	    ---  垃圾数据   --
+            _tagMsg.pBuffer.cbBTCard = {}    ---  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.cbBTCard[i] = luaFunc:readRecvByte()
+            end
+            _tagMsg.pBuffer.mBTHuCard= {}      ----  
+            for i = 1, 14 do
+                _tagMsg.pBuffer.mBTHuCard[i]= {}
+                for j = 1, 27 do
+                    _tagMsg.pBuffer.mBTHuCard[i][j] = luaFunc:readRecvByte()
+                end 
+            end   
             local aa  = 11  
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_SCORE then
             _tagMsg.pBuffer.lUserScore = {}
@@ -957,6 +972,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
 
         elseif subCmdID == NetMsgId.SUB_S_OUT_CARD_RESULT then             --用户出牌
             self.tableLayer:doAction(NetMsgId.SUB_S_OUT_CARD_RESULT, pBuffer)
+            GameCommon.iNOoutcard = false
             self:updatehandplate()
 
         elseif subCmdID == NetMsgId.SUB_S_SEND_CARD_MAJIANG then                   --发牌消息
@@ -966,7 +982,8 @@ function GameLayer:OnGameMessageRun(_tagMsg)
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_NOTIFY_MAJIANG then              --操作提示
             self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_NOTIFY_MAJIANG,pBuffer)
         elseif subCmdID == NetMsgId.SUB_S_BAOTINGOUTCARD then              --报听可删牌数据 
-            self.tableLayer:doAction(NetMsgId.SUB_S_BAOTINGOUTCARD,pBuffer)
+          --  self.tableLayer:doAction(NetMsgId.SUB_S_BAOTINGOUTCARD,pBuffer)
+            self.tableLayer:BaoTingCardShow({cbBTCard = pBuffer.cbBTCard,mBTHuCard = pBuffer.mBTHuCard})
 --        elseif subCmdID == NetMsgId.SUB_S_ALONE_BAOTINGCARD then           --报听可胡哪些牌数据   
 --            self.tableLayer:doAction(NetMsgId.SUB_S_ALONE_BAOTINGCARD,pBuffer)
 
@@ -974,6 +991,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             GameCommon.waitGangCardUser = pBuffer.wResumeUser
             self.tableLayer:DataClient(pBuffer)    --相关数据客户端整理运行
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_RESULT then              --操作结果
+            GameCommon.iNOoutcard = false
             self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_RESULT, pBuffer)
         
         elseif subCmdID == NetMsgId.SUB_S_CASTDICE_RESULT then             --要帅结果
@@ -1080,33 +1098,31 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self.tableLayer:updateGameState(GameCommon.GameState_Start)
             local wChairID = GameCommon:getRoleChairID()
             GameCommon.wBankerUser = pBuffer.wBankerUser
-           GameCommon.waitOutCardUser = pBuffer.wCurrentUser
+            GameCommon.waitOutCardUser = pBuffer.wCurrentUser
             if GameCommon.waitOutCardUser == GameCommon:getRoleChairID() and  pBuffer.cbActionMask == 0 then 
---                GameCommon.mBaoTingCard = {}         --与报听有关  暂时注释
---                for i = 1, 14 do
---                    if pBuffer.mBaoTingCardEx[i] ~= nil and pBuffer.mBaoTingCardEx[i] ~= 0 then
---                        GameCommon.mBaoTingCard[i] = pBuffer.mBaoTingCardEx[i]
---                    end
---                end       
---                GameCommon.mHuCard = {}
---                for i = 1, 27 do
---                    if pBuffer.mAloneBaoTingCardEx[i]~= nil and pBuffer.mAloneBaoTingCardEx[i] ~= 0 then 
---                        GameCommon.mHuCard[i] = pBuffer.mAloneBaoTingCardEx[i]  
---                    end              
---                end
-            elseif GameCommon.waitOutCardUser ~= GameCommon:getRoleChairID() and  pBuffer.cbActionMask == 0 then 
-                if pBuffer.mAloneBaoTingCardEx ~= nil and  pBuffer.mAloneBaoTingCardEx[1] ~= 0 then 
-                    GameCommon.mHuCard = {}
-                    for i = 1, 27 do
-                        if pBuffer.mAloneBaoTingCardEx[i]~= nil and pBuffer.mAloneBaoTingCardEx[i] ~= 0 then 
-                            GameCommon.mHuCard[i] = pBuffer.mAloneBaoTingCardEx[i]  
-                        end              
+                GameCommon.mBaoTingCard = {}         --与报听有关  暂时注释
+                for i = 1, 14 do
+                    if pBuffer.cbBTCard[i] ~= nil and pBuffer.cbBTCard[i] ~= 0 then
+                        GameCommon.mBaoTingCard[i] = pBuffer.cbBTCard[i]
                     end
+                end       --pBuffer.mBTHuCard[i][j]
+                -- GameCommon.mHuCard = {}
+                -- for i = 1, 27 do   
+                --     if pBuffer.mAloneBaoTingCardEx[i]~= nil and pBuffer.mAloneBaoTingCardEx[i] ~= 0 then 
+                --         GameCommon.mHuCard[i] = pBuffer.mAloneBaoTingCardEx[i]  
+                --     end              
+                -- end
+            elseif GameCommon.waitOutCardUser ~= GameCommon:getRoleChairID() and  pBuffer.cbActionMask == 0 then 
+                --if pBuffer.mAloneBaoTingCardEx ~= nil and  pBuffer.mAloneBaoTingCardEx[1] ~= 0 then 
+                if  pBuffer.mBTHuCard~= {} and pBuffer.mBTHuCard[1] ~={} and pBuffer.mBTHuCard[1][1] ~= 0 then 
+                    -- GameCommon.mHuCard = {}
+                    -- for i = 1, 27 do
+                    --     if pBuffer.mBTHuCard[1][i]~= nil and pBuffer.mBTHuCard[1][i] ~= 0 then 
+                    --         GameCommon.mHuCard[i] = pBuffer.mBTHuCard[1][i]  
+                    --     end              
+                    -- end
                     local uiButton_chakan = ccui.Helper:seekWidgetByName(self.root,"Button_chakan")  
-                    local IsOpenTin = cc.UserDefault:getInstance():getBoolForKey('CDisOpenTin', true)
-                    if IsOpenTin == true then        
-                        uiButton_chakan:setVisible(true)  
-                    end 
+                    uiButton_chakan:setVisible(true)  
                 end
             end
             if  GameCommon.gameConfig.mPFFlag == 1 then
@@ -1171,6 +1187,9 @@ function GameLayer:OnGameMessageRun(_tagMsg)
 --            if GameCommon.mHuCard ~= nil and GameCommon.mHuCard[1]~= 0 then
 --                self.tableLayer:huCardShow(1)
 --            end  
+            if  pBuffer.mBTHuCard~= {} and pBuffer.mBTHuCard[1] ~={} and pBuffer.mBTHuCard[1][1] ~=nil then 
+                self.tableLayer:BaoTingCardShow({cbBTCard = pBuffer.cbBTCard,mBTHuCard = pBuffer.mBTHuCard})
+            end  
             self:updateBankerUser()
             self:updatePlayerInfo()
             self:updatehandplate()
@@ -1340,6 +1359,17 @@ function GameLayer:updatePlayerOnline()
             end
         end     
     end
+end
+function GameLayer:resetPiaoFen()
+    if GameCommon.tableConfig then
+        print('->>>>>>>>>>>>>>xxx',GameCommon.tableConfig.wCurrentNumber)
+        if GameCommon.tableConfig.wCurrentNumber == 0 then
+            GameCommon.wPiaoTF = {}
+            GameCommon.wPiaoCount = {}
+            print('------------>>>>>>清除数据');
+        end
+    end
+    
 end
 function GameLayer:updatePlayerPiaoFen()
     if GameCommon.gameConfig == nil then

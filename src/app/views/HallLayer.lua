@@ -503,6 +503,9 @@ function HallLayer:onCreate(parames)
     end  
     self:addChild(uiButton_historicalRecord)
     uiButton_historicalRecord:setPosition(50.00,596.00)
+    if CHANNEL_ID == 10 or  CHANNEL_ID == 11 then 
+        uiButton_historicalRecord:setPosition(50.00,500.00)
+    end 
     self:updateUserInfo()
 end
 
