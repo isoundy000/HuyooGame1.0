@@ -220,7 +220,11 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             local luaFunc = NetMgr:getGameInstance().cppFunc
             local dwUserID=luaFunc:readRecvDWORD()
             local wChairID=luaFunc:readRecvWORD()
-            GameCommon.player[wChairID].cbOnline = 0
+            if GameCommon.player ~= nil and GameCommon.player[wChairID] ~= nil then 
+                GameCommon.player[wChairID].cbOnline = 0
+                GameCommon.player[wChairID].dwOfflineTime = 0
+                GameCommon.player[wChairID].dwNowTime = 0 
+            end
             self:updatePlayerOnline()
             return true
             
@@ -228,7 +232,11 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             local luaFunc = NetMgr:getGameInstance().cppFunc
             local dwUserID=luaFunc:readRecvDWORD()
             local wChairID=luaFunc:readRecvWORD()
+            local dwOfflineTime =luaFunc:readRecvDWORD()
+            local dwNowTime =luaFunc:readRecvDWORD()
             GameCommon.player[wChairID].cbOnline = 0x06
+            GameCommon.player[wChairID].dwOfflineTime = dwOfflineTime
+            GameCommon.player[wChairID].dwNowTime = dwNowTime
             self:updatePlayerOnline()
             return true
             
@@ -315,6 +323,8 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             data.location = {}
             data.location.x = luaFunc:readRecvDouble()
             data.location.y = luaFunc:readRecvDouble()
+            -- 
+            -- 
             data.other = nil
             data.bUserCardCount = 0
             data.cbCardData = nil
@@ -362,6 +372,10 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             GameCommon.gameConfig = require("common.GameConfig"):getParameter(GameCommon.tableConfig.wKindID,luaFunc)
             local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
             uiText_desc:setString(GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig))
+            if GameCommon.tableConfig.szTableName ~= nil then 
+                local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
+                uiText_table:setString(GameCommon.tableConfig.szTableName)
+            end 
             return true
             
         elseif subCmdID == NetMsgId.SUB_S_GAME_START_PDK then
@@ -839,10 +853,39 @@ function GameLayer:updatePlayerOnline()
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
             if GameCommon.player[wChairID].cbOnline == 0x06 then
                 uiImage_offline:setVisible(true)
-                uiImage_avatar:setColor(cc.c3b(170,170,170))
+               uiImage_avatar:setColor(cc.c3b(140,140,140))
+
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    print("++++++++++++++++++",wChairID,GameCommon.player[wChairID].dwOfflineTime,GameCommon.player[wChairID].dwNowTime)
+                    if GameCommon.player[wChairID].dwOfflineTime ~= 0 and GameCommon.player[wChairID].dwOfflineTime ~= nil then 
+                        local date = GameCommon.player[wChairID].dwNowTime - GameCommon.player[wChairID].dwOfflineTime   
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","28")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(255,0,0)) 
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        uiImage_avatar:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(35,60)   
+                        uiText_OfflineTime:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event)                            
+                            if date < 0 then 
+                                date = 0
+                            end                 
+                            uiText_OfflineTime:setString(string.format("%d",date))
+                            date = date + 1
+                        end),cc.DelayTime:create(1))))                      
+                    end 
+                end
             else
                 uiImage_offline:setVisible(false)
                 uiImage_avatar:setColor(cc.c3b(255,255,255))
+
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    if GameCommon.player[wChairID].dwOfflineTime == 0 then 
+                        local item = uiImage_avatar:getChildByName('Text_OfflineTime')      
+                        if item ~= nil then 
+                            item:removeFromParent()    
+                        end     
+                    end 
+                end
             end
         end     
     end

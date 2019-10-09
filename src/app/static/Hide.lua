@@ -4,7 +4,7 @@ local Hide = {
     --btn14=闲聊分享,btn15=搓牌,btn16=距离报警,btn17=聊天室按钮,btn18=积分统计开关,btn19=个人信息弹框,btn20=微信商城弹跳
 
     [0]={ id=0, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=1, btn9=1,btn10=1,btn11=0,btn12=1,btn13=1,btn14=1,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
-    [1]={ id=1, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=1, btn9=1,btn10=1,btn11=0,btn12=1,btn13=1,btn14=1,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
+    [1]={ id=1, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=1, btn9=1,btn10=1,btn11=0,btn12=1,btn13=1,btn14=1,btn15=1,btn16=0,btn17=1,btn18=1,btn19=1,btn20=1}, 
     [2]={ id=2, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=1, btn9=1,btn10=1,btn11=0,btn12=1,btn13=1,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
     [3]={ id=3, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=1, btn9=1,btn10=1,btn11=0,btn12=1,btn13=1,btn14=1,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
     [4]={ id=4, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=0, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=0,btn13=1,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 

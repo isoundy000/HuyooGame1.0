@@ -83,7 +83,7 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         data.dwDNU = luaFunc:readRecvDWORD()
         data.dwNewUserGameCount = luaFunc:readRecvDWORD()
         data.dwAllPeopleCount = luaFunc:readRecvDWORD()
-        data.dwWinnerCount = luaFunc:readRecvDWORD();
+        data.dwWinnerCount = luaFunc:readRecvDWORD()
         EventMgr:dispatch(EventType.RET_GET_CLUB_STATISTICS_ALL,data)
     --//返回亲友圈统计成员
     elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_STATISTICS_MEMBER_FINISH then
@@ -106,10 +106,10 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         data.szNickName = luaFunc:readRecvString(32)
         data.szLogoInfo = luaFunc:readRecvString(256)
         data.cbOffice = luaFunc:readRecvByte()
-        data.lFatigue = luaFunc:readRecvLong()
-        data.lClubSellFatigue = luaFunc:readRecvLong()
-        data.lClubConsumeFatigue = luaFunc:readRecvLong()
-        data.lSurplusFatigue = luaFunc:readRecvLong()
+        data.lFatigue = luaFunc:readRecvLong() / 100
+        data.lClubSellFatigue = luaFunc:readRecvLong() / 100
+        data.lClubConsumeFatigue = luaFunc:readRecvLong() / 100
+        data.lSurplusFatigue = luaFunc:readRecvLong() / 100
         EventMgr:dispatch(EventType.RET_GET_CLUB_FATIGUE_STATISTICS,data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_FATIGUE_DETAILS then
@@ -122,9 +122,9 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         data.szNickName = luaFunc:readRecvString(32)
         data.szLogoInfo = luaFunc:readRecvString(256)
         data.cbType = luaFunc:readRecvByte()
-        data.lOldFatigue = luaFunc:readRecvLong()
-        data.lFatigue = luaFunc:readRecvLong()
-        data.lNewFatigue = luaFunc:readRecvLong()
+        data.lOldFatigue = luaFunc:readRecvLong() / 100
+        data.lFatigue = luaFunc:readRecvLong() / 100
+        data.lNewFatigue = luaFunc:readRecvLong() / 100
         data.dwOperTime = luaFunc:readRecvDWORD()
         data.szDesc = luaFunc:readRecvString(64)
         data.dwOriginID = luaFunc:readRecvDWORD()
@@ -138,7 +138,7 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         --赞战绩详情
         local luaFunc = NetMgr:getLogicInstance().cppFunc
         local data = {}
-        data.cbType = luaFunc:readRecvByte()                    --类型	0个人普通房战绩	1个人俱乐部战绩 2个人所在俱乐部战绩	3俱乐部战绩
+        data.cbType = luaFunc:readRecvByte()                    --类型    0个人普通房战绩    1个人俱乐部战绩 2个人所在俱乐部战绩 3俱乐部战绩
         data.szMainGameID = luaFunc:readRecvString(32)                --战绩唯一标志
         data.dwChannelID = luaFunc:readRecvDWORD()                    --渠道ID
         data.wKindID = luaFunc:readRecvWORD()                         --游戏ID
@@ -185,7 +185,7 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         --赞战绩结束
         local luaFunc = NetMgr:getLogicInstance().cppFunc
         local data = {}
-        data.cbType = luaFunc:readRecvByte()                    --类型	0个人普通房战绩	1个人俱乐部战绩 2个人所在俱乐部战绩	3俱乐部战绩
+        data.cbType = luaFunc:readRecvByte()                    --类型    0个人普通房战绩    1个人俱乐部战绩 2个人所在俱乐部战绩 3俱乐部战绩
         data.lRet = luaFunc:readRecvLong()                      --结果
         data.isFinish = luaFunc:readRecvBool()                  --是否完成
         EventMgr:dispatch(EventType.RET_GET_GAME_RECORD_FINISH, data)  
@@ -196,8 +196,8 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         data.lRet = luaFunc:readRecvLong()                      --结果
         data.szSignID = luaFunc:readRecvString(32)                  --战绩唯一标志
         EventMgr:dispatch(EventType.RET_LIKE_GAME_RECORD, data)  
-    elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_RECORD and subCmdID == NetMsgId.RET_GET_3DAYS_GAME_RECORD then    
-        
+    elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_RECORD and subCmdID == NetMsgId.RET_GET_3DAYS_GAME_RECORD then 
+
     end
 end
 
@@ -221,12 +221,11 @@ function Statistics:req_dayManager(dwClubID,dwBeganTime,dwEndTime,wPage )
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_STATISTICS,"dddw",dwClubID,dwBeganTime,dwEndTime,wPage )
 end
 
---玩家统计REQ_GET_CLUB_STATISTICS_MEMBER	
+--玩家统计REQ_GET_CLUB_STATISTICS_MEMBER //0大赢家 1全部场次 2完整场次 3分数	
 function Statistics:req_playerManager(dwClubID,dwBeganTime,dwEndTime,wPage,dwMinWinnerScore )
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_STATISTICS_MEMBER,"dddwd",dwClubID,dwBeganTime,dwEndTime,wPage,dwMinWinnerScore)
 end
 
---
 function Statistics:req_fatigueStatistics(dwClubID,dwBeganTime,dwEndTime)
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_GET_CLUB_FATIGUE_STATISTICS,"ddd",dwClubID,dwBeganTime,dwEndTime)
 end

@@ -311,6 +311,8 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             data.location = {}
             data.location.x = luaFunc:readRecvDouble()
             data.location.y = luaFunc:readRecvDouble()
+            
+            
             data.other = nil
             data.cbCardCount = 0
             data.cbCardIndex = nil
@@ -1352,7 +1354,7 @@ function GameLayer:updatePlayerOnline()
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")           
             if GameCommon.player[wChairID].cbOnline == 0x06 then
                 uiImage_offline:setVisible(true)
-                uiImage_avatar:setColor(cc.c3b(170,170,170))
+               uiImage_avatar:setColor(cc.c3b(140,140,140))
             else
                 uiImage_offline:setVisible(false)
                 uiImage_avatar:setColor(cc.c3b(255,255,255))

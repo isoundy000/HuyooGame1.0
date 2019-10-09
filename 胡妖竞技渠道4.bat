@@ -17,7 +17,6 @@ start /wait E:\cocos2d-x-3.6\tools\cocos2d-console\bin\cocos luacompile -s %~dp0
 
 rd /s/q 正式包\res\achannel
 rd /s/q 正式包\res\hall_1
-rd /s/q 正式包\res\hall_2
 rd /s/q 正式包\res\hall_4
 rd /s/q 正式包\res\hall_5
 rd /s/q 正式包\res\hall_6

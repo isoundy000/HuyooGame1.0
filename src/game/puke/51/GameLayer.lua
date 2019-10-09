@@ -309,6 +309,8 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             data.location = {}
             data.location.x = luaFunc:readRecvDouble()
             data.location.y = luaFunc:readRecvDouble()
+            
+            
             data.other = nil
             data.bUserCardCount = 0
             data.cbCardData = nil
@@ -413,7 +415,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             _tagMsg.pBuffer.cbValueType = luaFunc:readRecvByte()
             _tagMsg.pBuffer.cbMaxValue = luaFunc:readRecvByte()
             _tagMsg.pBuffer.cbFanBei = luaFunc:readRecvByte()
-    
+            _tagMsg.pBuffer.cbLastCardData = luaFunc:readRecvByte()
         elseif subCmdID == NetMsgId.REC_SUB_S_SHOW_TIPS then
             
         elseif subCmdID == NetMsgId.SUB_S_SITFAILED then
@@ -921,7 +923,7 @@ function GameLayer:updatePlayerOnline()
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
             if GameCommon.player[wChairID].cbOnline == 0x06 then
                 uiImage_offline:setVisible(true)
-                uiImage_avatar:setColor(cc.c3b(170,170,170))
+               uiImage_avatar:setColor(cc.c3b(140,140,140))
             else
                 uiImage_offline:setVisible(false)
                 uiImage_avatar:setColor(cc.c3b(255,255,255))

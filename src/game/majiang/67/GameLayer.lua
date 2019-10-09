@@ -220,7 +220,11 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             local luaFunc = NetMgr:getGameInstance().cppFunc
             local dwUserID=luaFunc:readRecvDWORD()
             local wChairID=luaFunc:readRecvWORD()
-            GameCommon.player[wChairID].cbOnline = 0
+            if GameCommon.player ~= nil and GameCommon.player[wChairID] ~= nil then 
+                GameCommon.player[wChairID].cbOnline = 0
+                GameCommon.player[wChairID].dwOfflineTime = 0
+                GameCommon.player[wChairID].dwNowTime = 0 
+            end
             self:updatePlayerOnline()
             return true
             
@@ -228,7 +232,11 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             local luaFunc = NetMgr:getGameInstance().cppFunc
             local dwUserID=luaFunc:readRecvDWORD()
             local wChairID=luaFunc:readRecvWORD()
+            local dwOfflineTime =luaFunc:readRecvDWORD()
+            local dwNowTime =luaFunc:readRecvDWORD()
             GameCommon.player[wChairID].cbOnline = 0x06
+            GameCommon.player[wChairID].dwOfflineTime = dwOfflineTime
+            GameCommon.player[wChairID].dwNowTime = dwNowTime
             self:updatePlayerOnline()
             return true
             
@@ -310,7 +318,9 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             data.location = {}
             data.location.x = luaFunc:readRecvDouble()
             data.location.y = luaFunc:readRecvDouble()
-            data.other = nil
+            
+            
+            data.other =nil
             data.cbCardCount = 0
             data.cbCardIndex = nil
             data.cbCardCoutWW = 0
@@ -378,6 +388,10 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             GameCommon.gameConfig = require("common.GameConfig"):getParameter(GameCommon.tableConfig.wKindID,luaFunc)
             local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
             uiText_desc:setString(GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig))
+            if GameCommon.tableConfig.szTableName ~= nil then 
+                local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
+                uiText_table:setString(GameCommon.tableConfig.szTableName)
+            end 
             return true
             
         elseif subCmdID == NetMsgId.SUB_S_GAME_SelectZhuang then
@@ -1245,11 +1259,17 @@ function GameLayer:updatePlayerPiaoFen()
     if GameCommon.gameConfig == nil or GameCommon.gameConfig.mPFFlag == 0 then
         return
     end  
-    local uiPanel_maipiao = ccui.Helper:seekWidgetByName(self.root,"Panel_maipiao67")    
+    local uiPanel_maipiao67 = ccui.Helper:seekWidgetByName(self.root,"Panel_maipiao67")    
+    local ListView_maipiao = ccui.Helper:seekWidgetByName(uiPanel_maipiao67,"ListView_maipiao")    
     if  GameCommon.player[GameCommon:getRoleChairID()].mPiaoUser == false then 
-        uiPanel_maipiao:setVisible(true)         
+        uiPanel_maipiao67:setVisible(true)       
+        local uiButton_piaofen0 = ccui.Helper:seekWidgetByName(self.root,"Button_piaofen0")        --不飘 
+        if GameCommon.gameConfig.mPFFlag == 2 then
+            uiButton_piaofen0:setVisible(false)
+            ListView_maipiao:setPositionX(710)
+        end
     elseif GameCommon.player[GameCommon:getRoleChairID()].mPiaoUser == true then 
-        uiPanel_maipiao:setVisible(false) 
+        uiPanel_maipiao67:setVisible(false) 
     end 
 
     local uiPanel_ready = ccui.Helper:seekWidgetByName(self.root,"Panel_ready")
@@ -1277,8 +1297,6 @@ function GameLayer:updatePlayerPiaoFen()
             end  
         end
     end
-
-
 end
 
 function GameLayer:updatePlayerOnline()
@@ -1295,10 +1313,39 @@ function GameLayer:updatePlayerOnline()
             local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
             if GameCommon.player[wChairID].cbOnline == 0x06 then
                 uiImage_offline:setVisible(true)
-                uiImage_avatar:setColor(cc.c3b(170,170,170))
+               uiImage_avatar:setColor(cc.c3b(140,140,140))
+
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    print("++++++++++++++++++",wChairID,GameCommon.player[wChairID].dwOfflineTime,GameCommon.player[wChairID].dwNowTime)
+                    if GameCommon.player[wChairID].dwOfflineTime ~= 0 and GameCommon.player[wChairID].dwOfflineTime ~= nil then 
+                        local date = GameCommon.player[wChairID].dwNowTime - GameCommon.player[wChairID].dwOfflineTime   
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","28")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(255,0,0)) 
+                        uiText_OfflineTime:setAnchorPoint(cc.p(1,0.5))
+                        uiImage_avatar:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(60,60)   
+                        uiText_OfflineTime:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event)                            
+                            if date < 0 then 
+                                date = 0
+                            end                 
+                            uiText_OfflineTime:setString(string.format("%d",date))
+                            date = date + 1
+                        end),cc.DelayTime:create(1))))                      
+                    end 
+                end
             else
                 uiImage_offline:setVisible(false)
                 uiImage_avatar:setColor(cc.c3b(255,255,255))
+
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    if GameCommon.player[wChairID].dwOfflineTime == 0 then 
+                        local item = uiImage_avatar:getChildByName('Text_OfflineTime')      
+                        if item ~= nil then 
+                            item:removeFromParent()    
+                        end     
+                    end 
+                end
             end
         end     
     end

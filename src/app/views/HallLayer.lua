@@ -446,7 +446,11 @@ function HallLayer:onCreate(parames)
         uiListView_function:setItemsMargin(109)
         end
         if #uiListView_function:getItems() == 7 then
-        uiListView_function:setItemsMargin(130)
+            if CHANNEL_ID == 6 or CHANNEL_ID == 7 then
+                uiListView_function:setItemsMargin(109)
+            else
+                uiListView_function:setItemsMargin(130)
+            end 
         end
         if #uiListView_function:getItems() == 6 then
         uiListView_function:setItemsMargin(168)
@@ -485,7 +489,12 @@ function HallLayer:onCreate(parames)
             local armature=ccs.Armature:create("fenxiang-donghua")
             armature:getAnimation():playWithIndex(0)
             uiButton_doshare:addChild(armature) 
-            armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+ 			if CHANNEL_ID == 6 or  CHANNEL_ID == 7 then
+            	armature:setPosition(25,50)
+            else
+                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+
+			end 
             self.sCircle = cc.Sprite:create("Email/Email_12.png")
             self.sCircle:setAnchorPoint(cc.p(0.5,0.5))
             self.sCircle:setPosition(25,25)        

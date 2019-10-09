@@ -1868,6 +1868,9 @@ function TableLayer:initUI()
     uiPanel_end:setVisible(false)
     --灯光层
     local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
+    -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    --     uiButton_voice:setVisible(false) 
+    -- end
     local uiText_title = ccui.Helper:seekWidgetByName(self.root,"Text_title")    
     if GameCommon.tableConfig.nTableType > TableType_GoldRoom then
         self:addVoice()        
@@ -2002,7 +2005,11 @@ function TableLayer:updateGameState(state)
             local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
             uiButton_expression:setVisible(true)
             local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-            uiButton_voice:setVisible(true)
+            -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            --     uiButton_voice:setVisible(false) 
+            -- else
+                uiButton_voice:setVisible(true) 
+            -- end
         end         
         local uiButton_cancel = ccui.Helper:seekWidgetByName(self.root,"Button_cancel")  --取消按钮
         uiButton_cancel:setVisible(false)

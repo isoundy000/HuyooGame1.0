@@ -527,6 +527,8 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = "单王"
         elseif data.bLaiZiCount == 2 then
             desc = "双王"
+        elseif data.bLaiZiCount == 3 then
+            desc = "三王"
         else
         end             
         if data.bPlayerCount == 3 then
@@ -563,6 +565,23 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
         end
+
+        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+            if data.bDeathCard == 1 then
+                desc = desc.."/亡牌"         
+            end
+            if data.bHostedTime == 1 then
+                desc = desc.."/一分钟托管"
+            elseif data.bHostedTime == 2 then
+                desc = desc.."/两分钟托管"
+            elseif data.bHostedTime == 3 then
+                desc = desc.."/三分钟托管"
+            elseif data.bHostedTime == 5 then
+                desc = desc.."/五分钟托管"
+            elseif data.bHostedTime == 0 then
+                desc = desc.."/无托管"
+            end
+        end 
     
     elseif wKindID == 32 then       
         if data.bLaiZiCount == 1 then
@@ -666,6 +685,17 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/300封顶"
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
+        end
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
         end
         
     elseif wKindID == 31 then   
@@ -1159,6 +1189,17 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if data.bFalseSpring == 1 then
             desc = desc.."/假春天"
         end
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
         desc = desc..string.format("/%d张全关",data.bSpringMinCount)
                 
     elseif wKindID == 26 then         
@@ -1192,6 +1233,17 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         end
         if data.bFalseSpring == 1 then
             desc = desc.."/假春天"
+        end
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
         end
         desc = desc..string.format("/%d张全关",data.bSpringMinCount)
         
@@ -1530,6 +1582,8 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         end 
         if data.mPFFlag == 1 then
             desc = desc.."/飘分"
+        elseif data.mPFFlag == 2 then
+            desc = desc.."/必飘"
         end
         if data.mJFCount == 100 then
             desc = desc.."/100封顶"
@@ -1543,6 +1597,17 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/60封顶"
         elseif data.mJFCount == 1000  then
             desc = desc.."/不封顶"
+        end
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
         end
     elseif wKindID == 68 then         
         if data.bPlayerCount == 2 then

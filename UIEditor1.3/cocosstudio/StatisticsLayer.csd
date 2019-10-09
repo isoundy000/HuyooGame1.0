@@ -137,7 +137,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="club/club_45.png" Plist="" />
+                        <FileData Type="Normal" Path="kwxclub/club_45.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_1" Visible="False" ActionTag="-2011418324" Tag="327" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="45.0000" RightMargin="45.0000" TopMargin="22.5000" BottomMargin="22.5000" LeftEage="38" RightEage="38" TopEage="9" BottomEage="9" Scale9OriginX="38" Scale9OriginY="9" Scale9Width="14" Scale9Height="14" ctype="ImageViewObjectData">
                         <Size X="90.0000" Y="32.0000" />
@@ -147,7 +147,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="club/club_46.png" Plist="" />
+                        <FileData Type="Normal" Path="kwxclub/club_46.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -184,7 +184,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="club/club_50.png" Plist="" />
+                        <FileData Type="Normal" Path="kwxclub/club_50.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_1" Visible="False" ActionTag="-491244388" Tag="688" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="45.0000" RightMargin="45.0000" TopMargin="22.5000" BottomMargin="22.5000" LeftEage="38" RightEage="38" TopEage="9" BottomEage="9" Scale9OriginX="38" Scale9OriginY="9" Scale9Width="14" Scale9Height="14" ctype="ImageViewObjectData">
                         <Size X="90.0000" Y="32.0000" />
@@ -194,7 +194,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="club/club_51.png" Plist="" />
+                        <FileData Type="Normal" Path="kwxclub/club_51.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

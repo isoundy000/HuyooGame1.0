@@ -387,6 +387,81 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x01,self.recordCreateParameter["dwMingTang"]) ~= 0 then
         items[3]:setBright(true)
     end
+
+    --托管时间
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+        if index == 1 or index == 2 or index == 3 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+            end
+        else
+            local isHaveDefault = false
+            for key, var in pairs(items) do
+                if var:isBright() then
+                    isHaveDefault = true
+                end
+            end
+            if isHaveDefault == false then
+                items[1]:setBright(true)
+            end
+        end
+    end)
+    if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 2 then
+        items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 3 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+        end
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 5 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+        end
+    else
+        items[1]:setBright(true)
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        if index == 1 or index == 2 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+            end
+        else
+            local isHaveDefault = false
+            for key, var in pairs(items) do
+                if var:isBright() then
+                    isHaveDefault = true
+                end
+            end
+            if isHaveDefault == false then
+                items[1]:setBright(true)
+            end
+        end
+    end)
+    if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+        end
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 2 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+        end
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 3 then
+        items[1]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 5 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 0 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+        end
+    end
+
+
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}
         self:SUB_CL_FRIENDROOM_CONFIG_END()
@@ -574,6 +649,25 @@ function RoomCreateLayer:onEventCreate(nTableType)
     if items[3]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x01)
     end
+
+    --托管时间
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedTime = 0
+    elseif items[2]:isBright() then
+        tableParameter.bHostedTime = 1
+    elseif items[3]:isBright() then
+        tableParameter.bHostedTime = 2
+    end
+
+    --托管时间
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedTime = 3
+    elseif items[2]:isBright() then
+        tableParameter.bHostedTime = 5
+    end
+
     tableParameter.bLaiZiCount = 4
     tableParameter.bYiWuShi = 0
     tableParameter.bLiangPai = 0

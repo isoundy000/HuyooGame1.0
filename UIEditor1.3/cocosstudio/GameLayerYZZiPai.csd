@@ -771,6 +771,16 @@
                       <AbstractNodeData Name="Panel_playerInfo" ActionTag="-204117896" Tag="814" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="168.0000" Y="178.0000" />
                         <Children>
+                          <AbstractNodeData Name="Image_banker" ActionTag="-868813782" Tag="817" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="2.4768" RightMargin="117.5232" TopMargin="15.5856" BottomMargin="113.4144" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
+                            <Size X="48.0000" Y="49.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="26.4768" Y="137.9144" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.1576" Y="0.7748" />
+                            <PreSize X="0.2857" Y="0.2753" />
+                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
+                          </AbstractNodeData>
                           <AbstractNodeData Name="Image_offline" ActionTag="-1125211710" VisibleForFrame="False" Tag="815" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="26.8000" RightMargin="77.2000" TopMargin="63.9900" BottomMargin="80.0100" LeftEage="13" RightEage="13" TopEage="7" BottomEage="7" Scale9OriginX="13" Scale9OriginY="7" Scale9Width="38" Scale9Height="20" ctype="ImageViewObjectData">
                             <Size X="64.0000" Y="34.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -790,16 +800,6 @@
                             <PrePosition X="0.3533" Y="0.6612" />
                             <PreSize X="0.2381" Y="0.2022" />
                             <FileData Type="Normal" Path="yongzhou/ui/yongzhou_speaker.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_banker" ActionTag="-868813782" Tag="817" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="2.4768" RightMargin="117.5232" TopMargin="15.5856" BottomMargin="113.4144" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
-                            <Size X="48.0000" Y="49.0000" />
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="26.4768" Y="137.9144" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1576" Y="0.7748" />
-                            <PreSize X="0.2857" Y="0.2753" />
-                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
                           </AbstractNodeData>
                           <AbstractNodeData Name="Image_other" ActionTag="1670429698" Tag="818" IconVisible="False" LeftMargin="103.9967" RightMargin="14.0033" TopMargin="55.0049" BottomMargin="72.9951" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="26" Scale9Height="26" ctype="ImageViewObjectData">
                             <Size X="50.0000" Y="50.0000" />
@@ -1024,6 +1024,16 @@
                       <AbstractNodeData Name="Panel_playerInfo" ActionTag="-756172906" Tag="832" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="168.0000" Y="178.0000" />
                         <Children>
+                          <AbstractNodeData Name="Image_banker" ActionTag="1725881549" Tag="835" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1.3512" RightMargin="118.6488" TopMargin="31.5878" BottomMargin="97.4122" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
+                            <Size X="48.0000" Y="49.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="25.3512" Y="121.9122" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.1509" Y="0.6849" />
+                            <PreSize X="0.2857" Y="0.2753" />
+                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
+                          </AbstractNodeData>
                           <AbstractNodeData Name="Image_offline" ActionTag="961764739" VisibleForFrame="False" Tag="833" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="26.8000" RightMargin="77.2000" TopMargin="79.5294" BottomMargin="64.4706" LeftEage="13" RightEage="13" TopEage="7" BottomEage="7" Scale9OriginX="13" Scale9OriginY="7" Scale9Width="38" Scale9Height="20" ctype="ImageViewObjectData">
                             <Size X="64.0000" Y="34.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1043,16 +1053,6 @@
                             <PrePosition X="0.3359" Y="0.5707" />
                             <PreSize X="0.2381" Y="0.2022" />
                             <FileData Type="Normal" Path="yongzhou/ui/yongzhou_speaker.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_banker" ActionTag="1725881549" Tag="835" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1.3512" RightMargin="118.6488" TopMargin="31.5878" BottomMargin="97.4122" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
-                            <Size X="48.0000" Y="49.0000" />
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="25.3512" Y="121.9122" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1509" Y="0.6849" />
-                            <PreSize X="0.2857" Y="0.2753" />
-                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
                           </AbstractNodeData>
                           <AbstractNodeData Name="Image_other" ActionTag="532258299" Tag="836" IconVisible="False" LeftMargin="103.9987" RightMargin="14.0013" TopMargin="98.0071" BottomMargin="29.9929" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="26" Scale9Height="26" ctype="ImageViewObjectData">
                             <Size X="50.0000" Y="50.0000" />
@@ -1277,6 +1277,16 @@
                       <AbstractNodeData Name="Panel_playerInfo" ActionTag="2085111432" Tag="850" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="168.0000" Y="178.0000" />
                         <Children>
+                          <AbstractNodeData Name="Image_banker" ActionTag="-290914898" Tag="853" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="119.3376" RightMargin="0.6624" TopMargin="31.5878" BottomMargin="97.4122" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
+                            <Size X="48.0000" Y="49.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="143.3376" Y="121.9122" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.8532" Y="0.6849" />
+                            <PreSize X="0.2857" Y="0.2753" />
+                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
+                          </AbstractNodeData>
                           <AbstractNodeData Name="Image_offline" ActionTag="143246109" VisibleForFrame="False" Tag="851" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="77.2000" RightMargin="26.8000" TopMargin="80.5084" BottomMargin="63.4916" LeftEage="13" RightEage="13" TopEage="7" BottomEage="7" Scale9OriginX="13" Scale9OriginY="7" Scale9Width="38" Scale9Height="20" ctype="ImageViewObjectData">
                             <Size X="64.0000" Y="34.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1296,16 +1306,6 @@
                             <PrePosition X="0.6766" Y="0.5730" />
                             <PreSize X="0.2381" Y="0.2022" />
                             <FileData Type="Normal" Path="yongzhou/ui/yongzhou_speaker.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_banker" ActionTag="-290914898" Tag="853" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="119.3376" RightMargin="0.6624" TopMargin="31.5878" BottomMargin="97.4122" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
-                            <Size X="48.0000" Y="49.0000" />
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="143.3376" Y="121.9122" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8532" Y="0.6849" />
-                            <PreSize X="0.2857" Y="0.2753" />
-                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
                           </AbstractNodeData>
                           <AbstractNodeData Name="Image_other" ActionTag="-1374379792" Tag="854" IconVisible="False" LeftMargin="17.9982" RightMargin="100.0018" TopMargin="97.0082" BottomMargin="30.9918" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="26" Scale9Height="26" ctype="ImageViewObjectData">
                             <Size X="50.0000" Y="50.0000" />
@@ -1530,6 +1530,16 @@
                       <AbstractNodeData Name="Panel_playerInfo" ActionTag="-1913987852" Tag="868" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="168.0000" Y="178.0000" />
                         <Children>
+                          <AbstractNodeData Name="Image_banker" ActionTag="1101176776" Tag="871" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="121.1184" RightMargin="-1.1184" TopMargin="5.7956" BottomMargin="123.2044" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
+                            <Size X="48.0000" Y="49.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="145.1184" Y="147.7044" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.8638" Y="0.8298" />
+                            <PreSize X="0.2857" Y="0.2753" />
+                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
+                          </AbstractNodeData>
                           <AbstractNodeData Name="Image_offline" ActionTag="1938451668" VisibleForFrame="False" Tag="869" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="77.2000" RightMargin="26.8000" TopMargin="57.3328" BottomMargin="86.6672" LeftEage="13" RightEage="13" TopEage="7" BottomEage="7" Scale9OriginX="13" Scale9OriginY="7" Scale9Width="38" Scale9Height="20" ctype="ImageViewObjectData">
                             <Size X="64.0000" Y="34.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1549,16 +1559,6 @@
                             <PrePosition X="0.6554" Y="0.7140" />
                             <PreSize X="0.2381" Y="0.2022" />
                             <FileData Type="Normal" Path="yongzhou/ui/yongzhou_speaker.png" Plist="" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Image_banker" ActionTag="1101176776" Tag="871" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="121.1184" RightMargin="-1.1184" TopMargin="5.7956" BottomMargin="123.2044" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="24" Scale9Height="25" ctype="ImageViewObjectData">
-                            <Size X="48.0000" Y="49.0000" />
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="145.1184" Y="147.7044" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8638" Y="0.8298" />
-                            <PreSize X="0.2857" Y="0.2753" />
-                            <FileData Type="Normal" Path="yongzhou/ui/yongzhou_yxzhuang.png" Plist="" />
                           </AbstractNodeData>
                           <AbstractNodeData Name="Image_other" ActionTag="-81246177" Tag="872" IconVisible="False" LeftMargin="24.8282" RightMargin="93.1718" TopMargin="40.0900" BottomMargin="87.9100" LeftEage="12" RightEage="12" TopEage="12" BottomEage="12" Scale9OriginX="12" Scale9OriginY="12" Scale9Width="26" Scale9Height="26" ctype="ImageViewObjectData">
                             <Size X="50.0000" Y="50.0000" />

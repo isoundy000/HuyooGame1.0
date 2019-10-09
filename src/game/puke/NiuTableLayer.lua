@@ -199,7 +199,7 @@ function TableLayer:doAction(action,pBuffer)
         end
 
         self:setHandCard(wChairID,pBuffer.cbCardData)
-        self:showHandCard(wChairID,2,pBuffer.cbValueType)
+        self:showHandCard(wChairID,2,pBuffer)
         GameCommon:playAnimation(self.root, pBuffer.cbValueType,pBuffer.wChairID)
         self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
     
@@ -293,7 +293,7 @@ function TableLayer:setHandCard(wChairID,cbCardData)
 end
 
 --更新手牌
-function TableLayer:showHandCard(wChairID,effectsType,cbValueType)
+function TableLayer:showHandCard(wChairID,effectsType,pBuffer)
     if GameCommon.player[wChairID].cbCardData == nil then
         return
     end
@@ -346,27 +346,34 @@ function TableLayer:showHandCard(wChairID,effectsType,cbValueType)
             
         elseif effectsType == 2 then  
             local pt = cc.p(beganX + (i-1)*stepX, 0)
-            if cbValueType == nil then
+            if pBuffer.cbValueType == nil then
                 
-            elseif cbValueType >= GameCommon.NiuType_1 and cbValueType <= GameCommon.NiuType_Niu then
+            elseif pBuffer.cbValueType >= GameCommon.NiuType_1 and pBuffer.cbValueType <= GameCommon.NiuType_Niu then
                 if i >= 4 then
                     pt.x = pt.x + offset
                 end
-            elseif cbValueType == GameCommon.NiuType_Bomb then
+            elseif pBuffer.cbValueType == GameCommon.NiuType_Bomb then
                 if i >= 5 then
                     pt.x = pt.x + offset
                 end
-            elseif cbValueType == GameCommon.NiuType_NULL then
+            elseif pBuffer.cbValueType == GameCommon.NiuType_NULL then
                 if i >= 2 then
                     pt.x = pt.x + offset
                 end
-            elseif cbValueType == GameCommon.NiuType_Gourd then
+            elseif pBuffer.cbValueType == GameCommon.NiuType_Gourd then
                 if i >= 4 then
                     pt.x = pt.x + offset
                 end
             else
             
             end
+
+            if pBuffer.cbLastCardData == data then
+                pt.y = 10
+                local tipsImage = ccui.ImageView:create('puke/table/sign3.png')
+                card:addChild(tipsImage)
+                tipsImage:setPosition(92,154)
+            end 
             
             if viewID == 1 then
                 local ptTemp = cc.p(0 + (i-1)*cardWidth, 0)

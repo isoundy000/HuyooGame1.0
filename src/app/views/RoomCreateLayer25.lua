@@ -257,6 +257,19 @@ function RoomCreateLayer:onCreate(parameter)
         items[9]:setBright(false)
     end
 
+    --选择托管时间
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 3 then
+        items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 5 then
+        items[4]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}
         self:SUB_CL_FRIENDROOM_CONFIG_END()
@@ -405,6 +418,17 @@ function RoomCreateLayer:onEventCreate(nTableType)
     else
         tableParameter.bFalseSpring = 0
     end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedTime = 0
+    elseif items[2]:isBright() then
+        tableParameter.bHostedTime = 1
+    elseif items[3]:isBright() then
+        tableParameter.bHostedTime = 3
+    elseif items[4]:isBright() then
+        tableParameter.bHostedTime = 5
+    end  
 
    if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == TableType_HelpRoom) then
         --普通创房和代开需要判断金币

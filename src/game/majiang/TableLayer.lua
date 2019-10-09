@@ -2129,6 +2129,8 @@ function TableLayer:initUI()
     uiImage_watermark:ignoreContentAdaptWithSize(true)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
     uiText_desc:setString("")
+    local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
+    uiText_table:setString("")
     local uiText_time = ccui.Helper:seekWidgetByName(self.root,"Text_time")
     uiText_time:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event) 
         local date = os.date("*t",os.time())
@@ -2510,8 +2512,11 @@ function TableLayer:initUI()
     local uiPanel_hucardbg = ccui.Helper:seekWidgetByName(self.root,"Panel_hucardbg")    
     uiPanel_hucardbg:setVisible(false)  
     --灯光层
-    local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-    
+    local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")   
+    -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    --     uiButton_voice:setVisible(false) 
+    -- end
+
     local uiButton_chakan = ccui.Helper:seekWidgetByName(self.root,"Button_chakan")
     uiButton_chakan:setVisible(false)  
     Common:addTouchEventListener(uiButton_chakan,function() 
@@ -2962,7 +2967,11 @@ function TableLayer:updateGameState(state)
             local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
             uiButton_expression:setVisible(true)
             local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-            uiButton_voice:setVisible(true)
+            -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            --     uiButton_voice:setVisible(false) 
+            -- else
+                uiButton_voice:setVisible(true) 
+            -- end
         end         
         local uiButton_cancel = ccui.Helper:seekWidgetByName(self.root,"Button_cancel")  --取消按钮
         uiButton_cancel:setVisible(false)

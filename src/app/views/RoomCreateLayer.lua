@@ -152,13 +152,10 @@ function RoomCreateLayer:onCreate(parameter)
             games = clone(UserData.Game.tableSortGames)
         end 
         local isFound = false
-        local tableNiuNiuUserID = {
-            [10013998]=1,[10015147]=1,[10024831]=1,[10037008]=1,[10025776]=1,[10015230]=1,[10010001]=1,[10010046]=1,[10016543]=1,[10027104]=1,
-        }
         for key, var in pairs(games) do
             local wKindID = tonumber(var)
             local data = StaticData.Games[wKindID]
-            if UserData.Game.tableGames[wKindID] ~= nil and Bit:_and(data.friends,1) ~= 0 and (type == 4 or data.type == type or type == nil ) and (wKindID ~= 51 or locationID == 51 or tableNiuNiuUserID[UserData.User.userID] ~= nil) and (wKindID ~= 53 or locationID == 53 or tableNiuNiuUserID[UserData.User.userID] ~= nil) and (wKindID ~= 55 or locationID == 55 or tableNiuNiuUserID[UserData.User.userID] ~= nil) and wKindID ~= 45 and wKindID ~= 50 then--
+            if UserData.Game.tableGames[wKindID] ~= nil and Bit:_and(data.friends,1) ~= 0 and (type == 4 or data.type == type or type == nil ) and (wKindID ~= 51 or locationID == 51 or StaticData.GM[UserData.User.userID] ~= nil) and (wKindID ~= 53 or locationID == 53 or StaticData.GM[UserData.User.userID] ~= nil) and (wKindID ~= 55 or locationID == 55 or StaticData.GM[UserData.User.userID] ~= nil) and wKindID ~= 45 and wKindID ~= 50 then--
                 local item = ccui.Button:create(data.icon1,data.icons1,data.icons)
                 item.wKindID = wKindID
                 item:setBright(false)

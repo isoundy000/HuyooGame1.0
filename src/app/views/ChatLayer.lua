@@ -116,7 +116,10 @@ end
 --0 说话 1 输入
 function ChatLayer:setChatState( chatType ) 
 	self.Image_input_chat:setVisible(chatType == 1)
-	self.button_speak:setVisible(chatType == 1)
+	self.button_speak:setVisible(chatType == 1)	
+	if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+        self.button_speak:setVisible(false) 
+    end
 	self.button_voice:setVisible(chatType == 0)
 	self.button_input:setVisible(chatType == 0)
 end
