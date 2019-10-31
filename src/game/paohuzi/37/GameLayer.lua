@@ -368,7 +368,23 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             _tagMsg.pBuffer.szChatContent = luaFunc:readRecvString(_tagMsg.pBuffer.dwChatLength)
             self.tableLayer:showChat(_tagMsg.pBuffer)
             return
-            
+        elseif subCmdID == NetMsgId.RET_USER_HOSTED then            
+            --托管
+            _tagMsg.pBuffer.dwUserID = luaFunc:readRecvDWORD()              --用户ID
+            _tagMsg.pBuffer.wChairID = luaFunc:readRecvWORD()               --桌子ID
+
+            _tagMsg.pBuffer.bHosted = {}                                            --托管或取消托管
+            for i = 0, 7 do
+                _tagMsg.pBuffer.bHosted[i] = luaFunc:readRecvByte()
+            end  
+
+            _tagMsg.pBuffer.cbHostedSession = {}                                    --已托管场次
+            for i = 0, 7 do
+                _tagMsg.pBuffer.cbHostedSession[i] = luaFunc:readRecvByte()
+            end
+
+            self:updatePlayerTG(_tagMsg.pBuffer)
+            return true  
         else
             print("not found this subCmdID : %d",subCmdID)
             return false
@@ -471,7 +487,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 _tagMsg.pBuffer.cbCardIndex[i] = luaFunc:readRecvByte() 
             end
             _tagMsg.pBuffer.cbCardCoutWW = luaFunc:readRecvByte() --王数量
-            
+        elseif subCmdID == NetMsgId.SUB_S_USER_OPERATE_RESULT then        
         elseif subCmdID == NetMsgId.SUB_S_GAME_END then
             --结束信息
             _tagMsg.pBuffer.cbReason = luaFunc:readRecvByte()--结束原因
@@ -783,7 +799,10 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self.tableLayer:setHandCard(wChairID, GameCommon.player[wChairID].bUserCardCount,pBuffer.cbCardIndex,10,pBuffer.cbCardCoutWW)
             self.tableLayer:showHandCard(wChairID, 0)
             self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
-            
+        elseif subCmdID == NetMsgId.SUB_S_USER_OPERATE_RESULT then 
+            local uiPanel_operation = ccui.Helper:seekWidgetByName(self.root,"Panel_operation")
+            uiPanel_operation:removeAllChildren()
+            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.0),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))         
         elseif subCmdID == NetMsgId.SUB_S_GAME_END then
             for i = 0 , GameCommon.gameConfig.bPlayerCount do
                 if GameCommon.player[i] ~= nil then
@@ -1193,41 +1212,72 @@ function GameLayer:updatePlayerOnline()
             if GameCommon.player[wChairID].cbOnline == 0x06 then
                 uiImage_offline:setVisible(true)
                 uiImage_avatar:setColor(cc.c3b(140,140,140))
-                if GameCommon.gameConfig.bHostedTime ~= 0 then 
-                    print("++++++++++++++++++",wChairID,GameCommon.player[wChairID].dwOfflineTime,GameCommon.player[wChairID].dwNowTime)
-                    if GameCommon.player[wChairID].dwOfflineTime ~= 0 and GameCommon.player[wChairID].dwOfflineTime ~= nil then 
-                        local date = GameCommon.player[wChairID].dwNowTime - GameCommon.player[wChairID].dwOfflineTime   
-                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","28")
-                        uiText_OfflineTime:setName('Text_OfflineTime')
-                        uiText_OfflineTime:setTextColor(cc.c3b(255,0,0)) 
-                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
-                        uiImage_avatar:addChild(uiText_OfflineTime,100)
-                        uiText_OfflineTime:setPosition(30,40)   
-                        uiText_OfflineTime:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event)                            
-                            if date < 0 then 
-                                date = 0
-                            end                 
-                            uiText_OfflineTime:setString(string.format("%d",date))
-                            date = date + 1
-                        end),cc.DelayTime:create(1))))                   
-                    -- elseif GameCommon.player[wChairID].dwOfflineTime == 0 then 
-                    --     local item = uiImage_avatar:getChildByName('Text_OfflineTime')      
-                    --     if item ~= nil then 
-                    --         item:removeFromParent()    
-                    --     end     
-                    end 
-                end
+                -- if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                --     print("++++++++++++++++++",wChairID,GameCommon.player[wChairID].dwOfflineTime,GameCommon.player[wChairID].dwNowTime)
+                --     if GameCommon.player[wChairID].dwOfflineTime ~= 0 and GameCommon.player[wChairID].dwOfflineTime ~= nil then 
+                --         local date = GameCommon.player[wChairID].dwNowTime - GameCommon.player[wChairID].dwOfflineTime   
+                --         local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","28")
+                --         uiText_OfflineTime:setName('Text_OfflineTime')
+                --         uiText_OfflineTime:setTextColor(cc.c3b(255,0,0)) 
+                --         uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                --         uiImage_avatar:addChild(uiText_OfflineTime,100)
+                --         uiText_OfflineTime:setPosition(30,40)   
+                --         uiText_OfflineTime:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event)                            
+                --             if date < 0 then 
+                --                 date = 0
+                --             end                 
+                --             uiText_OfflineTime:setString(string.format("%d",date))
+                --             date = date + 1
+                --         end),cc.DelayTime:create(1))))                   
+                --     -- elseif GameCommon.player[wChairID].dwOfflineTime == 0 then 
+                --     --     local item = uiImage_avatar:getChildByName('Text_OfflineTime')      
+                --     --     if item ~= nil then 
+                --     --         item:removeFromParent()    
+                --     --     end     
+                --     end 
+                -- end
             else
                 uiImage_offline:setVisible(false)
                 uiImage_avatar:setColor(cc.c3b(255,255,255))
 
-                if GameCommon.gameConfig.bHostedTime ~= 0 then 
-                    if GameCommon.player[wChairID].dwOfflineTime == 0 then 
-                        local item = uiImage_avatar:getChildByName('Text_OfflineTime')      
-                        if item ~= nil then 
-                            item:removeFromParent()    
-                        end     
-                    end 
+                -- if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                --     if GameCommon.player[wChairID].dwOfflineTime == 0 then 
+                --         local item = uiImage_avatar:getChildByName('Text_OfflineTime')      
+                --         if item ~= nil then 
+                --             item:removeFromParent()    
+                --         end     
+                --     end 
+                -- end
+            end
+        end     
+    end
+end
+
+
+--托管中
+function GameLayer:updatePlayerTG(pBuffer)   
+    if GameCommon.gameConfig == nil then
+        return
+    end
+    local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,"Panel_player")
+    local uiPanel_TG = ccui.Helper:seekWidgetByName(self.root,"Panel_TG")
+    uiPanel_TG:setVisible(false)
+    GameCommon.bHosted = pBuffer.bHosted
+    for i = 1 , GameCommon.gameConfig.bPlayerCount do
+        local wChairID = i-1
+        if GameCommon.player ~= nil and GameCommon.player[wChairID] ~= nil then
+            local viewID = GameCommon:getViewIDByChairID(wChairID)
+            local Panel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
+            local uiImage_TG = ccui.Helper:seekWidgetByName(Panel_player,"Image_TG") 
+            print("托管——————————————",viewID,wChairID,i,GameCommon.gameConfig.bPlayerCount,uiImage_TG,Panel_player,pBuffer.bHosted[wChairID])
+            if pBuffer.bHosted[wChairID] == 0 then
+                uiImage_TG:setVisible(false)
+            else
+                if uiImage_TG ~= nil then 
+                    uiImage_TG:setVisible(true)
+                end 
+                if viewID  == 1 then
+                    uiPanel_TG:setVisible(true)
                 end
             end
         end     

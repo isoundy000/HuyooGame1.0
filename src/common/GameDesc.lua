@@ -582,6 +582,14 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
                 desc = desc.."/无托管"
             end
         end 
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
     
     elseif wKindID == 32 then       
         if data.bLaiZiCount == 1 then
@@ -696,6 +704,14 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/五分钟托管"
         elseif data.bHostedTime == 0 then
             desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
         end
         
     elseif wKindID == 31 then   
@@ -1200,6 +1216,14 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bHostedTime == 0 then
             desc = desc.."/无托管"
         end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
         desc = desc..string.format("/%d张全关",data.bSpringMinCount)
                 
     elseif wKindID == 26 then         
@@ -1245,6 +1269,15 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bHostedTime == 0 then
             desc = desc.."/无托管"
         end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
+
         desc = desc..string.format("/%d张全关",data.bSpringMinCount)
         
     elseif wKindID == 51 or wKindID == 55 or wKindID == 56 or wKindID == 57 or wKindID == 58 or wKindID == 59 then          
@@ -1609,6 +1642,15 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bHostedTime == 0 then
             desc = desc.."/无托管"
         end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
+        
     elseif wKindID == 68 then         
         if data.bPlayerCount == 2 then
             desc = desc.."双人竞技"

@@ -31,7 +31,7 @@ local GameCommon = {
     WIK_WD = 0x01,                          --王钓
     WIK_WC = 0x02,                          --王闯
     cbOperateCode = 0 ,                     --最高胜分（王钓王闯）
-    --小胡类型
+    --小胡类型v
     CHK_PING_HU = 0x0001,                    --平胡类型
     CHK_SIXI_HU = 0x0002,                    --四喜胡牌
     CHK_BANBAN_HU = 0x0004,                  --无将胡牌

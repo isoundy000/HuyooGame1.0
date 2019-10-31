@@ -205,7 +205,10 @@ function RoomCreateLayer:onCreate(parameter)
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,true)
     if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 3 then 
+        items[1]:setBright(false)
+        items[1]:setEnabled(false)
         items[1]:setVisible(false)
+        items[1]:setColor(cc.c3b(170,170,170))
     else
         if self.recordCreateParameter["bDeathCard"] ~= nil and self.recordCreateParameter["bDeathCard"] == 1 then
             items[1]:setBright(true)

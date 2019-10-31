@@ -73,6 +73,8 @@ local NetMsgId = {
     SUB_CL_USER_PROP                = 12002,                           --用户道具
     REQ_CL_USER_INFO                = 1200,                            --请求用户信息
     SUB_CL_USER_INFO                = 12000,                           --用户信息
+    REQ_CL_SET_USER_INFO            = 1201,                            --设置用户信息
+    SUB_CL_SET_USER_INFO            = 12001,                           --设置用户信息
     
     --充值
     MDM_CL_RECHARGE                 = 130,                            --商城消息
@@ -227,10 +229,12 @@ local NetMsgId = {
     RET_GET_CLUB_LIST3                  = 22018,                           --返回亲友圈列表
     REQ_REFRESH_CLUB3                   = 2219,                            --请求刷新亲友圈
     RET_REFRESH_CLUB3                   = 22019,                           --返回刷新亲友圈
-    REQ_SETTINGS_CLUB_PLAY              = 2220,                            --请求设置亲友圈玩法
-    RET_SETTINGS_CLUB_PLAY              = 22020,                           --返回设置亲友圈玩法
-    REQ_REFRESH_CLUB_PLAY3              = 2221,                            --请求刷新俱乐部玩法
-    RET_REFRESH_CLUB_PLAY               = 22021,                           --返回刷新俱乐部玩法
+    REQ_SETTINGS_CLUB_PLAY              = 2330,                            --请求设置亲友圈玩法
+    RET_SETTINGS_CLUB_PLAY              = 23030,                           --返回设置亲友圈玩法
+    RET_SETTINGS_CLUB_PLAY_FINISH       = 23031,
+    REQ_REFRESH_CLUB_PLAY3              = 2332,                            --请求刷新俱乐部玩法
+    RET_REFRESH_CLUB_PLAY               = 23032,                           --返回刷新俱乐部玩法
+    RET_REFRESH_CLUB_PLAY_FINISH        = 23033,
 
     REQ_SETTINGS_CONFIG                 = 2222,                             --请求合伙人配置
     RET_SETTINGS_CONFIG                 = 22022,                            --返回合伙人配置
@@ -476,6 +480,9 @@ local NetMsgId = {
     SUB_C_OUT_CARD_PDK = 2,                 --出牌命令
     REC_SUB_S_SHOW_CARD_PDK = 110,          --跑得快防作弊发牌
 
+    SUB_S_USER_OPERATE_RESULT = 128,             --跑胡子消除吃碰界面
+
+
     REC_SUB_S_TIMECOUNT = 157,              --倍数显示
     SUB_PROXY_TABLE_DESC = 502,                             --代开房间描述
     SUB_C_SISHOU = 4,
@@ -487,7 +494,9 @@ local NetMsgId = {
     SUB_S_TING_CARD_CHANGE_NOTIFY = 151,--听牌提示
     SUB_C_OUT_CARD_TING_CARD = 5,
     
-    
+    REQ_USER_HOSTED	= 142,								--托管(客服端发送)
+    RET_USER_HOSTED = 143,								--托管(接收)
+
     --扑克
     --跑得快飘分
     REC_SUB_S_JIAPIAO	= 155,									--接受漂分
@@ -685,7 +694,21 @@ local NetMsgId = {
 
         REC_SUB_C_GONGPU				   = 1010,							  --公铺请求开始
         REC_SUB_S_GONGPU_RESULT			   = 114,							  --返回公铺请求成功结果
-        
+
+        -- 炸金花			
+        --SUB_C_START_GAME                   =1001,							    --请求开始游戏
+
+        REC_SUB_S_SEND_CARD_ZJH            =103,                             --发牌
+        SUB_C_ADD_SCORE				       =1002,							    --用户加注
+        SUB_S_ADD_SCORE					   =101,							    --加注结果
+        SUB_C_GIVE_UP_ZJH				   =1003,							    --放弃消息
+        SUB_S_GIVE_UP_ZJH				   =102,								--放弃跟注
+
+        SUB_C_COMPARE_CARD			       =1004,								--比牌消息
+        SUB_S_COMPARE_CARD				   =105,								--比牌跟注
+
+        SUB_C_LOOK_CARD                    =1005,								--看牌消息
+        SUB_S_LOOK_CARD					   =106,								--看牌跟注
 }
 
 return NetMsgId

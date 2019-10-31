@@ -168,6 +168,8 @@ function Game:EVENT_TYPE_NET_RECV_MESSAGE(event)
             luaFunc:readRecvBuffer(128-haveReadByte)
         end
         data.szGameID = luaFunc:readRecvString(32)
+        data.szTableName = luaFunc:readRecvString(32)
+
         EventMgr:dispatch(EventType.SUB_GR_USER_ENTER,data)
  
     elseif netID == NetMgr.NET_GAME and mainCmdID == NetMsgId.MDM_GR_USER and subCmdID == NetMsgId.SUB_GR_JOIN_TABLE_FAILED then 

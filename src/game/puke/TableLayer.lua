@@ -353,7 +353,24 @@ function TableLayer:showCountDown(wChairID,isHide)
     Panel_countdown:setVisible(true)
 
     uiAtlasLabel_countdownTime:stopAllActions()
-    uiAtlasLabel_countdownTime:setString(15)
+
+    local time = 15
+
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+        if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
+            -- if GameCommon.bHosted[wChairID] == false  then  
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    time = 60*GameCommon.gameConfig.bHostedTime
+                else
+                    time = 15
+                end 
+            -- else
+            --     time = 3
+            -- end 
+        end 
+    end 
+
+    uiAtlasLabel_countdownTime:setString(time)
     local function onEventTime(sender,event)
         local currentTime = tonumber(uiAtlasLabel_countdownTime:getString())
         currentTime = currentTime - 1
@@ -784,6 +801,13 @@ function TableLayer:initUI()
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL) 
         end)
     end)
+
+    --取消托管
+    local uiButton_TG = ccui.Helper:seekWidgetByName(self.root,"Button_TG")
+    Common:addTouchEventListener(uiButton_TG,function() 
+        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_USER_HOSTED,"o",false)
+    end)
+
     --结算层
     local uiPanel_end = ccui.Helper:seekWidgetByName(self.root,"Panel_end")
     uiPanel_end:setVisible(false)
@@ -1251,6 +1275,7 @@ function TableLayer:showPlayerInfo(dwUserID,dwShamUserID)       -- 查看玩家�
     Common:palyButton()
     require("common.PersonalLayer"):create(GameCommon.tableConfig.wKindID,dwUserID,dwShamUserID)
 end
+
 function TableLayer:showChat(pBuffer)
     local viewID = GameCommon:getViewIDByChairID(pBuffer.dwUserID)
     local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
@@ -1281,6 +1306,8 @@ function TableLayer:showChat(pBuffer)
         require("common.Common"):playEffect(data.sound[pBuffer.cbSex])
     end
 end
+
+
 
 function TableLayer:showExperssion(pBuffer)
 	local viewID = GameCommon:getViewIDByChairID(pBuffer.wChairID)

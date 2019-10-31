@@ -932,6 +932,7 @@ function TableLayer:showCountDown(wChairID)
     end 
     local viewID = GameCommon:getViewIDByChairID(wChairID)
     local uiImage_direction = ccui.Helper:seekWidgetByName(self.root,"Image_direction")
+    uiImage_direction:setVisible(true)
     local uiAtlasLabel_countdownTime = ccui.Helper:seekWidgetByName(self.root,"AtlasLabel_countdownTime")
     local uiText_stack = ccui.Helper:seekWidgetByName(self.root,"Text_stack")
   
@@ -986,7 +987,25 @@ function TableLayer:showCountDown(wChairID)
     end 
     uiAtlasLabel_countdownTime:setPosition(uiAtlasLabel_countdownTime:getParent():getContentSize().width/2,uiAtlasLabel_countdownTime:getParent():getContentSize().height/2)
     uiAtlasLabel_countdownTime:stopAllActions()
-    uiAtlasLabel_countdownTime:setString(15)
+
+
+    local time = 15
+
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11) and GameCommon.wKindID == 67 then
+        if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
+            -- if GameCommon.bHosted[wChairID] == false  then  
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    time = 60*GameCommon.gameConfig.bHostedTime
+                else
+                    time = 15
+                end 
+            -- else
+            --     time = 3
+            -- end 
+        end 
+    end 
+
+    uiAtlasLabel_countdownTime:setString(time)
     
     local function onEventTime(sender,event)
         local currentTime = tonumber(uiAtlasLabel_countdownTime:getString())
@@ -2505,6 +2524,15 @@ function TableLayer:initUI()
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL) 
         end)
     end)
+
+    --取消托管
+    local uiButton_TG = ccui.Helper:seekWidgetByName(self.root,"Button_TG")
+    if uiButton_TG ~= nil then 
+        Common:addTouchEventListener(uiButton_TG,function() 
+            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_USER_HOSTED,"o",false)
+        end)
+    end 
+    
     --结算层
     local uiPanel_end = ccui.Helper:seekWidgetByName(self.root,"Panel_end")
     uiPanel_end:setVisible(false)

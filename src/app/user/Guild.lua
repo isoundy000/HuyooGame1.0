@@ -706,6 +706,11 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
             end
         end
 
+        data.isPercentage = {}
+        for i=1,10 do
+            data.isPercentage[i] = luaFunc:readRecvBool()
+        end
+
         data.lTableLimit = {}
         for i=1,10 do
             data.lTableLimit[i] = luaFunc:readRecvLong()
@@ -739,6 +744,11 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwTargetID = luaFunc:readRecvDWORD()
 
         EventMgr:dispatch(EventType.RET_REFRESH_CLUB_PLAY, data)
+
+    elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_REFRESH_CLUB_PLAY_FINISH then
+        local data = {}
+        data.isFinish = luaFunc:readRecvBool()
+        EventMgr:dispatch(EventType.RET_REFRESH_CLUB_PLAY_FINISH, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_SETTINGS_CLUB_PLAY then
         --返回设置亲友圈玩法
@@ -788,6 +798,11 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
             end
         end
 
+        data.isPercentage = {}
+        for i=1,10 do
+            data.isPercentage[i] = luaFunc:readRecvBool()
+        end
+
         data.lTableLimit = {}
         for i=1,10 do
             data.lTableLimit[i] = luaFunc:readRecvLong()
@@ -821,6 +836,11 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwTargetID = luaFunc:readRecvDWORD()
 
         EventMgr:dispatch(EventType.RET_SETTINGS_CLUB_PLAY, data)
+
+    elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_SETTINGS_CLUB_PLAY_FINISH then
+        local data = {}
+        data.isFinish = luaFunc:readRecvBool()
+        EventMgr:dispatch(EventType.RET_SETTINGS_CLUB_PLAY_FINISH, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_SETTINGS_CLUB_MEMBER then
         --返回修改亲友圈成员

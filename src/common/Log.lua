@@ -10,9 +10,9 @@ local Log = {}
 
 --调试信息
 function Log.d( ... )
-    if cc.PLATFORM_OS_DEVELOPER ~= PLATFORM_TYPE then
-	    return
-	end
+ --    if true then--cc.PLATFORM_OS_DEVELOPER ~= PLATFORM_TYPE then
+	--     return
+	-- end
 	
     local traceback = string.split(debug.traceback("", 2), "\n")
     local logPath = "from: " .. string.trim(traceback[3])

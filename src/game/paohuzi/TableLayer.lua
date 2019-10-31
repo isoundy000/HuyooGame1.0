@@ -795,10 +795,26 @@ function TableLayer:showCountDown(wChairID)
     local Panel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
     local Panel_countdown = Panel_player:getChildByName("Panel_countdown")
     local AtlasLabel_countdownTime = Panel_countdown:getChildByName("AtlasLabel_countdownTime")
-    Panel_countdown:setVisible(true)
-    
+    Panel_countdown:setVisible(true)  
+
     AtlasLabel_countdownTime:stopAllActions()
-    AtlasLabel_countdownTime:setString(15)
+    local time = 15
+
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11) and (GameCommon.wKindID == 37 or GameCommon.wKindID == 34) then
+        if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
+            -- if GameCommon.bHosted[wChairID] == false  then  
+                if GameCommon.gameConfig.bHostedTime ~= 0 then 
+                    time = 60*GameCommon.gameConfig.bHostedTime
+                else
+                    time = 15
+                end 
+            -- else
+            --     time = 3
+            -- end 
+        end 
+    end 
+
+    AtlasLabel_countdownTime:setString(time)
     local function onEventTime(sender,event)
         local currentTime = tonumber(AtlasLabel_countdownTime:getString())
         currentTime = currentTime - 1
@@ -1293,11 +1309,15 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
         if viewID == 1 and (GameCommon.gameConfig.bPlayerCount <= 3 or (GameCommon.gameConfig.bPlayerCount == 4 and StaticData.Games[GameCommon.tableConfig.wKindID].isZuoXing4 == 1) or GameCommon.tableConfig.nTableType ~= TableType_Playback )  then
             cardScale = 1
             isCanMove = true
-            uiPanel_handCard:removeAllChildren()
+            if uiPanel_handCard ~= nil then 
+                uiPanel_handCard:removeAllChildren()
+            end 
             uiPanel_handCard = ccui.Helper:seekWidgetByName(uiPanel_card,"Panel_handCardRole")
         end
     end
-    uiPanel_handCard:removeAllChildren()
+    if uiPanel_handCard ~= nil then 
+        uiPanel_handCard:removeAllChildren()
+    end
     local uiPanel_copyHandCard = ccui.Helper:seekWidgetByName(self.root,"Panel_copyHandCard")
     uiPanel_copyHandCard:removeAllChildren()
     self.copyHandCard = nil
@@ -1886,6 +1906,16 @@ function TableLayer:initUI()
             uiPanel_playerInfoBg:setVisible(false)
         end 
     end
+
+    --取消托管
+    local uiButton_TG = ccui.Helper:seekWidgetByName(self.root,"Button_TG")
+    if uiButton_TG ~= nil then 
+        Common:addTouchEventListener(uiButton_TG,function() 
+            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_USER_HOSTED,"o",false)
+        end)
+    end 
+
+        
   
     --结算层
     local uiPanel_end = ccui.Helper:seekWidgetByName(self.root,"Panel_end")

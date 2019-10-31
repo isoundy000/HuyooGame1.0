@@ -97,6 +97,10 @@ function InterfaceJoinRoomNode:SUB_GR_JOIN_TABLE_FAILED(event)
         
     elseif data.wErrorCode == 27 then
         require("common.MsgBoxLayer"):create(2,nil,"亲友圈玩法不存在,请重新刷新亲友圈!")
+    elseif data.wErrorCode == 30 then
+        require("common.MsgBoxLayer"):create(2,nil,"该房间有距离限制,请开启定位!")
+    elseif data.wErrorCode == 31 then
+        require("common.MsgBoxLayer"):create(2,nil,"该房间有距离限制,您同其他成员距离太近!")
     else
         require("common.MsgBoxLayer"):create(0,nil,"请升级版本!")
     end

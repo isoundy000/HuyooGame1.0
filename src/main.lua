@@ -8,7 +8,7 @@ require "config"
 require "cocos.init"
 
 --渠道ID
-cc.exports.CHANNEL_ID = 1
+cc.exports.CHANNEL_ID = 10
 
 --平台类型整理
 --cc.PLATFORM_OS_WINDOWS = 0

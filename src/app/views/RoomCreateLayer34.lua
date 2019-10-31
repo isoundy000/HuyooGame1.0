@@ -426,6 +426,27 @@ function RoomCreateLayer:initUI1011()
                 items[1]:setBright(true)
             end
         end
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        if index == 1 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+                var:setBright(false)
+                var:setEnabled(false)
+                var:setColor(cc.c3b(170,170,170))
+            end
+        else
+            local isHaveDefault = false
+            for key, var in pairs(items) do
+                var:setEnabled(true)
+                var:setColor(cc.c3b(255,255,255)) 
+                if var:isBright() then
+                    isHaveDefault = true
+                end
+            end
+            if isHaveDefault == false then
+                items[1]:setBright(true)
+            end
+        end
     end)
     if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
         items[2]:setBright(true)
@@ -461,6 +482,21 @@ function RoomCreateLayer:initUI1011()
                 items[1]:setBright(true)
             end
         end
+
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        if index == 1 or index == 2 then            
+            local isHaveDefault = false
+            for key, var in pairs(items) do
+                var:setEnabled(true)
+                var:setColor(cc.c3b(255,255,255)) 
+                if var:isBright() then
+                    isHaveDefault = true
+                end
+            end
+            if isHaveDefault == false then
+                var:setBright(true)
+            end
+        end
     end)
     if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
         for key, var in pairs(items) do
@@ -480,9 +516,26 @@ function RoomCreateLayer:initUI1011()
         end
     end
 
+    --选择托管局数
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bHostedTime"] == nil or self.recordCreateParameter["bHostedTime"] == 0 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+            var:setBright(false)
+            var:setEnabled(false)
+            var:setColor(cc.c3b(170,170,170))
+        end
+    elseif self.recordCreateParameter["bHostedSession"] ~= nil and self.recordCreateParameter["bHostedSession"] == 3 then
+        items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedSession"] ~= nil and self.recordCreateParameter["bHostedSession"] >= 6 then
+        items[2]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
 
     --亡牌
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,true)
     if self.recordCreateParameter["bPlayerCount"] == nil or self.recordCreateParameter["bPlayerCount"] ~= 2 then 
         items[1]:setBright(false)
@@ -807,8 +860,19 @@ function RoomCreateLayer:setParameter1011()
     elseif items[2]:isBright() then
         self.tableParameter.bHostedTime = 5
     end
-    --单局上限
+
+    self.tableParameter.bHostedSession = 0
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        self.tableParameter.bHostedSession = 1
+    elseif items[2]:isBright() then
+        self.tableParameter.bHostedSession =  self.tableParameter.wGameCount
+    elseif items[3]:isBright() then
+        self.tableParameter.bHostedSession = 3
+    end  
+
+    --单局上限
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         self.tableParameter.bDeathCard = 1
     else
