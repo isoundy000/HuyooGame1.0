@@ -33,7 +33,11 @@ function RoomCreateLayer:onCreate(parameter)
     local csb = cc.CSLoader:createNode("RoomCreateLayer48.csb")
     self:addChild(csb)
     self.root = csb:getChildByName("Panel_root")
-    self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    if self.showType == 1 then
+        self.recordCreateParameter = self.dwClubID;  --showType = 1是创房参数
+    else
+        self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    end
     if self.recordCreateParameter == nil then
         self.recordCreateParameter = {}
     end
@@ -229,6 +233,18 @@ function RoomCreateLayer:onCreate(parameter)
         items[1]:setBright(true)
     end
 
+    --单局上限
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bMaxLost"] ~= nil and self.recordCreateParameter["bMaxLost"] == 300 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bMaxLost"] ~= nil and self.recordCreateParameter["bMaxLost"] == 600 then
+        items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
+
     
     
     if self.showType == 3 then
@@ -303,7 +319,9 @@ function RoomCreateLayer:onEventCreate(nTableType)
     elseif items[2]:isBright() and self.tableFriendsRoomParams[2] then
         tableParameter.wGameCount = self.tableFriendsRoomParams[2].wGameCount
     elseif items[3]:isBright() and self.tableFriendsRoomParams[3] then
-        tableParameter.wGameCount = self.tableFriendsRoomParams[3].wGameCount
+        tableParameter.wGameCount = self.tableFriendsRoomParams[3].wGameCount     
+    elseif items[4]:isBright() and self.tableFriendsRoomParams[4] then         
+        tableParameter.wGameCount = self.tableFriendsRoomParams[4].wGameCount
     else
         return
     end
@@ -413,6 +431,18 @@ function RoomCreateLayer:onEventCreate(nTableType)
         return
     end
 
+    --单局上限
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bMaxLost = 0
+    elseif items[2]:isBright() then
+        tableParameter.bMaxLost = 300
+    elseif items[3]:isBright() then
+        tableParameter.bMaxLost = 600
+    else
+        return
+    end
+
     tableParameter.FanXing = {}
     tableParameter.FanXing.bType = 0
     tableParameter.FanXing.bCount = 0
@@ -425,7 +455,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
     tableParameter.bSettlement = 0
     -- tableParameter.bStartTun = 0
     tableParameter.bSocreType = 1
-    tableParameter.bMaxLost = 0
+    --tableParameter.bMaxLost = 0
 
     -- tableParameter.bSiQiHong = 0
     tableParameter.bDelShuaHou = 0

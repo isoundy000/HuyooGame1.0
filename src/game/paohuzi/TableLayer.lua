@@ -800,7 +800,7 @@ function TableLayer:showCountDown(wChairID)
     AtlasLabel_countdownTime:stopAllActions()
     local time = 15
 
-    if (CHANNEL_ID == 10 or CHANNEL_ID == 11) and (GameCommon.wKindID == 37 or GameCommon.wKindID == 34) then
+    if (GameCommon.wKindID == 37 or GameCommon.wKindID == 34 or GameCommon.wKindID == 24 or GameCommon.wKindID == 40) then
         if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
             -- if GameCommon.bHosted[wChairID] == false  then  
                 if GameCommon.gameConfig.bHostedTime ~= 0 then 
@@ -1018,6 +1018,9 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
                             card:setColor(cc.c3b(150,150,150)) 
                         else
                             card = GameCommon:getDiscardCardAndWeaveItemArray(0)
+                            if k == 3 and (GameCommon.tableConfig.wKindID == 20 or GameCommon.tableConfig.wKindID == 17 )  then
+                                card = GameCommon:getDiscardCardAndWeaveItemArray(v)
+                            end 
                         end
                     end
                     
@@ -1360,16 +1363,16 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
 			GameCommon.handHuXiNum = GameCommon.handHuXiNum + hxVal
         end
       --  if GameCommon.player[wChairID].huXiCount == 0 then 
-            local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
-            local uiText_huXi = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_huXi")
-            if GameCommon.player[wChairID].huXiCount == nil then 
-                GameCommon.player[wChairID].huXiCount = 0
-            end 
-            if viewID == 1 then -- and CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 
-                uiText_huXi:setString(string.format("%d胡息",GameCommon.player[wChairID].huXiCount+GameCommon.handHuXiNum))
-            else
-            --    uiText_huXi:setString(string.format("%d胡息",GameCommon.player[wChairID].huXiCount)
-            end 
+        local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
+        local uiText_huXi = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_huXi")
+        if GameCommon.player[wChairID].huXiCount == nil then 
+            GameCommon.player[wChairID].huXiCount = 0
+        end 
+        if viewID == 1 then -- and CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 
+            uiText_huXi:setString(string.format("%d胡息",GameCommon.player[wChairID].huXiCount+GameCommon.handHuXiNum))
+        else
+        --    uiText_huXi:setString(string.format("%d胡息",GameCommon.player[wChairID].huXiCount)
+        end 
        -- end
         
         for k, v in pairs(var.cbCardData) do
@@ -1561,6 +1564,7 @@ function TableLayer:initUI()
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
     uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
     uiImage_watermark:ignoreContentAdaptWithSize(true)
+    uiImage_watermark:setVisible(false)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
     uiText_desc:setString("")
     local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
@@ -1605,6 +1609,9 @@ function TableLayer:initUI()
                 end
             end
         end)
+
+        local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
+        uiText_fatigue:setString("")   
         
         local uiImage_laba = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_laba")
         uiImage_laba:setVisible(false)
@@ -1877,20 +1884,20 @@ function TableLayer:initUI()
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL) 
         end)
     end) 
-    if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
-    else
-        uiButton_SignOut:setVisible(false)
-        if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
-            uiButton_disbanded:setVisible(false)
-        else
-            uiButton_out:setPositionX(visibleSize.width*0.36)   
-        end 
+    -- if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
+    -- else
+    --     uiButton_SignOut:setVisible(false)
+    --     if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then 
+    --         uiButton_disbanded:setVisible(false)
+    --     else
+    --         uiButton_out:setPositionX(visibleSize.width*0.36)   
+    --     end 
        
-        if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
-        else
-             uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
-        end             
-    end 
+    --     if  GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then
+    --     else
+    --          uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
+    --     end             
+    -- end 
     local uiButton_position = ccui.Helper:seekWidgetByName(self.root,"Button_position")   -- 定位
     Common:addTouchEventListener(uiButton_position,function() 
         require("common.PositionLayer"):create(GameCommon.tableConfig.wKindID)
@@ -2437,6 +2444,9 @@ function TableLayer:OnUserChatVoice(event)
 end
     
 function TableLayer:showPlayerPosition()   -- 显示玩家距离
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+        return
+    end 
     local wChairID = 0
     for key, var in pairs(GameCommon.player) do
         if var.dwUserID == GameCommon.dwUserID then
@@ -2827,7 +2837,7 @@ function TableLayer:playSketlAnim(sChairID, eChairID, index,indexEx)
     end
 
 	local Animation = require("game.paohuzi.Animation")
-	local AnimCnf = Animation[22]
+	local AnimCnf = Animation[22] or {}
 	
 	if not AnimCnf[index] then
 		return

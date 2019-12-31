@@ -32,7 +32,11 @@ function RoomCreateLayer:onCreate(parameter)
     local csb = cc.CSLoader:createNode("RoomCreateLayer20.csb")
     self:addChild(csb)
     self.root = csb:getChildByName("Panel_root")
-    self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    if self.showType == 1 then
+        self.recordCreateParameter = self.dwClubID;  --showType = 1是创房参数
+    else
+        self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    end
     if self.recordCreateParameter == nil then
         self.recordCreateParameter = {}
     end
@@ -156,7 +160,9 @@ function RoomCreateLayer:onEventCreate(nTableType)
     elseif items[2]:isBright() and self.tableFriendsRoomParams[2] then
         tableParameter.wGameCount = self.tableFriendsRoomParams[2].wGameCount
     elseif items[3]:isBright() and self.tableFriendsRoomParams[3] then
-        tableParameter.wGameCount = self.tableFriendsRoomParams[3].wGameCount
+        tableParameter.wGameCount = self.tableFriendsRoomParams[3].wGameCount     
+    elseif items[4]:isBright() and self.tableFriendsRoomParams[4] then         
+        tableParameter.wGameCount = self.tableFriendsRoomParams[4].wGameCount
     else
         return
     end

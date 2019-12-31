@@ -1772,7 +1772,7 @@ function TableLayer:initUI()
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
     uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
     uiImage_watermark:ignoreContentAdaptWithSize(true)
-    
+    uiImage_watermark:setVisible(false)
     --UI层
     local uiButton_menu = ccui.Helper:seekWidgetByName(self.root,"Button_menu")
     local uiPanel_function = ccui.Helper:seekWidgetByName(self.root,"Panel_function")
@@ -2023,6 +2023,9 @@ function TableLayer:initUI()
         uiImage_ready:setVisible(false)
         local uiImage_chat = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_chat")
         uiImage_chat:setVisible(false)
+        
+        local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
+        uiText_fatigue:setString("")   
     end
     --冲分
     local uiPanel_chongFen = ccui.Helper:seekWidgetByName(self.root,"Panel_chongFen")

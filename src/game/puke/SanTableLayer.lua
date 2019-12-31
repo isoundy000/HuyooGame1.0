@@ -187,17 +187,32 @@ function TableLayer:doAction(action,pBuffer)
         local uiPanel_tipsCard = ccui.Helper:seekWidgetByName(self.root,"Panel_tipsCard")
         local uiPanel_scorePos = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_scorePos%d",viewID))
         local uiTextAtlasScore = nil
-        if pBuffer.lGameScore > 0 then
-            if wChairID == GameCommon:getRoleChairID() then
-                GameCommon:playAnimation(self.root, "赢",pBuffer.wChairID)
-            end
-            uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_6.png",26,43,'0')
-        else
-            uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_7.png",26,43,'0')
-        end
-        uiPanel_tipsCard:addChild(uiTextAtlasScore)
-        uiTextAtlasScore:setPosition(uiPanel_scorePos:getPosition())  
-        uiTextAtlasScore:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.ScaleTo:create(0.5,1.2),cc.ScaleTo:create(0.5,1.0))) 
+        
+        local uiText_result = ccui.Text:create("代理","fonts/DFYuanW7-GB2312.ttf",36)
+        local dwGold = pBuffer.fWriteScoreArr/100
+        if pBuffer.fWriteScoreArr > 0 then 
+            uiText_result:setTextColor(cc.c3b(255,234,1))
+            uiText_result:setString(string.format(" +%0.2f",dwGold))
+        else     
+            uiText_result:setTextColor(cc.c3b(91,248,229))      
+            uiText_result:setString(string.format(" %0.2f",dwGold))
+        end  
+
+        uiPanel_tipsCard:addChild(uiText_result)
+        uiText_result:setPosition(uiPanel_scorePos:getPosition())  
+        uiText_result:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.ScaleTo:create(0.5,1.2),cc.ScaleTo:create(0.5,1.0))) 
+        
+        -- if pBuffer.lGameScore > 0 then
+        --     if wChairID == GameCommon:getRoleChairID() then
+        --         GameCommon:playAnimation(self.root, "赢",pBuffer.wChairID)
+        --     end
+        --     uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_6.png",26,43,'0')
+        -- else
+        --     uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_7.png",26,43,'0')
+        -- end
+        -- uiPanel_tipsCard:addChild(uiTextAtlasScore)
+        -- uiTextAtlasScore:setPosition(uiPanel_scorePos:getPosition())  
+        -- uiTextAtlasScore:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.ScaleTo:create(0.5,1.2),cc.ScaleTo:create(0.5,1.0))) 
 
     else
 
@@ -343,6 +358,7 @@ function TableLayer:initUI()
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
     uiImage_watermark:ignoreContentAdaptWithSize(true)
     uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
+    uiImage_watermark:setVisible(false)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
     uiText_desc:setString("")
     local uiText_time = ccui.Helper:seekWidgetByName(self.root,"Text_time")

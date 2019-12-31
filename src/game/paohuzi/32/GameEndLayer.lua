@@ -5,6 +5,8 @@ local EventType = require("common.EventType")
 local EventMgr = require("common.EventMgr")
 local GameLogic = require("game.paohuzi.GameLogic")
 local Common = require("common.Common")
+local NetMgr = require("common.NetMgr")
+local NetMsgId = require("common.NetMsgId")
 
 local GameEndLayer = class("GameEndLayer",function()
     return ccui.Layout:create()
@@ -68,6 +70,19 @@ function GameEndLayer:onCreate(pBuffer)
     	end
     end
     uiButton_return:addTouchEventListener(onEventReturn)
+
+    local Button_dissolve = ccui.Helper:seekWidgetByName(self.root,"Button_dissolve")
+    Button_dissolve:setPressedActionEnabled(true)
+    local function onEventReturn(sender,event)
+        if event == ccui.TouchEventType.ended then
+            Common:palyButton()
+            require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
+                NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
+            end)
+        end
+    end
+    Button_dissolve:addTouchEventListener(onEventReturn)
+
     local uiButton_continue = ccui.Helper:seekWidgetByName(self.root,"Button_continue")
     uiButton_continue:setPressedActionEnabled(true)
     local function onEventContinue(sender,event)
@@ -89,8 +104,13 @@ function GameEndLayer:onCreate(pBuffer)
     uiButton_continue:addTouchEventListener(onEventContinue)
     if GameCommon.tableConfig.nTableType > TableType_GoldRoom then
         uiButton_return:setVisible(false)
-        uiButton_continue:setPositionX(uiButton_continue:getParent():getContentSize().width/2)
+        Button_dissolve:setVisible(true)
+        -- uiButton_continue:setPositionX(uiButton_continue:getParent():getContentSize().width/2)
+    else
+        uiButton_return:setVisible(true)
+        Button_dissolve:setVisible(false)
     end
+
     local uiPanel_look = ccui.Helper:seekWidgetByName(self.root,"Panel_look")
     local uiButton_look = ccui.Helper:seekWidgetByName(self.root,"Button_look")
     GameCommon.uiPanel_showEndCard:setVisible(false)
@@ -277,12 +297,19 @@ function GameEndLayer:onCreate(pBuffer)
         if GameCommon.tableConfig.nTableType == TableType_GoldRoom or GameCommon.tableConfig.nTableType  == TableType_SportsRoom then
             uiText_ID:setVisible(false)
         end
-        local dwGold = Common:itemNumberToString(pBuffer.lGameScore[var.wChairID + 1])   
+        local dwGold = pBuffer.fWriteScoreArr[var.wChairID + 1]/100
         if pBuffer.lGameScore[var.wChairID + 1] > 0 then 
-            uiAtlasLabel_money:setString('+' ..tostring(dwGold))
+            --uiImage_yingjia:setVisible(false) 
+            uiAtlasLabel_money:setString(string.format(" +%0.2f",dwGold))
         else      
-            uiAtlasLabel_money:setString(tostring(dwGold))
-        end      
+            uiAtlasLabel_money:setString(string.format(" %0.2f",dwGold))
+        end   
+        -- local dwGold = Common:itemNumberToString(pBuffer.lGameScore[var.wChairID + 1])   
+        -- if pBuffer.lGameScore[var.wChairID + 1] > 0 then 
+        --     uiAtlasLabel_money:setString('+' ..tostring(dwGold))
+        -- else      
+        --     uiAtlasLabel_money:setString(tostring(dwGold))
+        -- end      
     --    uiAtlasLabel_money:setString(string.format("%d",pBuffer.lGameScore[var.wChairID+1] ))
        
         if var.wChairID == GameCommon.meChairID then 

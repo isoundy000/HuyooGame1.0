@@ -345,6 +345,8 @@ function TableLayer:doAction(action,pBuffer)
         uiPanel_operation:addChild(oprationLayer)
         uiPanel_operation:setVisible(true)
         -- Common:playEffect("game/audio_tip_operate.mp3")
+
+        GameCommon.iNOoutcard = true
         self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
     
     elseif action == NetMsgId.SUB_S_BAOTINGOUTCARD then
@@ -991,7 +993,7 @@ function TableLayer:showCountDown(wChairID)
 
     local time = 15
 
-    if (CHANNEL_ID == 10 or CHANNEL_ID == 11) and GameCommon.wKindID == 67 then
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11) and (GameCommon.wKindID == 67 or GameCommon.wKindID == 68) then
         if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
             -- if GameCommon.bHosted[wChairID] == false  then  
                 if GameCommon.gameConfig.bHostedTime ~= 0 then 
@@ -1949,7 +1951,7 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                     if self.copyHandCard ~= nil then                       
                         uiPanel_copyHandCard:removeAllChildren()
                         self.copyHandCard = nil
-                        card:setColor(cc.c3b(255,255,255))
+                        card:setColor(cc.c3b(255,255,255)) -- 
                         if GameCommon.waitOutCardUser == GameCommon:getRoleChairID() and self.locationPos.y > lineY then
                             self.outData = {wChairID = wChairID, cbCardData = card.data, cardNode = card}
                             EventMgr:dispatch(EventType.EVENT_TYPE_OPERATIONAL_OUT_CARD, self.outData)
@@ -2146,6 +2148,8 @@ function TableLayer:initUI()
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
     uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
     uiImage_watermark:ignoreContentAdaptWithSize(true)
+
+    uiImage_watermark:setVisible(false)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
     uiText_desc:setString("")
     local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
@@ -2217,6 +2221,8 @@ function TableLayer:initUI()
         uiImage_ready:setVisible(false)
         local uiImage_chat = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_chat")
         uiImage_chat:setVisible(false)
+        local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
+        uiText_fatigue:setString("")   
     end
     --飘分
     local uiPanel_piaoFen = ccui.Helper:seekWidgetByName(self.root,"Panel_piaoFen")
@@ -2499,12 +2505,12 @@ function TableLayer:initUI()
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL) 
         end)
     end) 
-    if CHANNEL_ID == 6 or  CHANNEL_ID  == 7  or CHANNEL_ID == 8 or  CHANNEL_ID  == 9  then
-    else
-        uiButton_SignOut:setVisible(false)
-        uiButton_out:setPositionX(visibleSize.width*0.36)       
-        uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
-    end 
+    -- if CHANNEL_ID == 6 or  CHANNEL_ID  == 7  or CHANNEL_ID == 8 or  CHANNEL_ID  == 9  then
+    -- else
+    --     uiButton_SignOut:setVisible(false)
+    --     uiButton_out:setPositionX(visibleSize.width*0.36)       
+    --     uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
+    -- end 
     
     local uiButton_position = ccui.Helper:seekWidgetByName(self.root,"Button_position")   -- 定位
     Common:addTouchEventListener(uiButton_position,function() 
@@ -2514,6 +2520,9 @@ function TableLayer:initUI()
     if GameCommon.tableConfig.wCurrentNumber == 0 and  GameCommon.tableConfig.nTableType > TableType_GoldRoom  then
     if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 then
         uiPanel_playerInfoBg:setVisible(true) 
+        if  CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+            uiPanel_playerInfoBg:setVisible(false)
+        end 
     else 
         uiPanel_playerInfoBg:setVisible(false)
     end          
@@ -3231,6 +3240,9 @@ function TableLayer:OnUserChatVoice(event)
 end
     
 function TableLayer:showPlayerPosition()   -- 显示玩家距离
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+        return
+    end 
     local wChairID = 0
     for key, var in pairs(GameCommon.player) do
         if var.dwUserID == GameCommon.dwUserID then

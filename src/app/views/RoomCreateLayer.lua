@@ -24,7 +24,7 @@ end
 function RoomCreateLayer:onCreate(parameter)
     local locationID = parameter[1]
     self.showType    = parameter[2]    --显示类型  0默认     1设置亲友圈参数  2亲友圈自定义创房 3竞技场设置玩法
-    self.dwClubID = parameter[3]
+    self.dwClubID = parameter[3]     --showType=1 表创房参数
     NetMgr:getGameInstance():closeConnect()
     self.tableFriendsRoomParams = nil
     local visibleSize = cc.Director:getInstance():getVisibleSize()
@@ -155,7 +155,7 @@ function RoomCreateLayer:onCreate(parameter)
         for key, var in pairs(games) do
             local wKindID = tonumber(var)
             local data = StaticData.Games[wKindID]
-            if UserData.Game.tableGames[wKindID] ~= nil and Bit:_and(data.friends,1) ~= 0 and (type == 4 or data.type == type or type == nil ) and (wKindID ~= 51 or locationID == 51 or StaticData.GM[UserData.User.userID] ~= nil) and (wKindID ~= 53 or locationID == 53 or StaticData.GM[UserData.User.userID] ~= nil) and (wKindID ~= 55 or locationID == 55 or StaticData.GM[UserData.User.userID] ~= nil) and wKindID ~= 45 and wKindID ~= 50 then--
+            if UserData.Game.tableGames[wKindID] ~= nil and Bit:_and(data.friends,1) ~= 0 and (type == 4 or data.type == type or type == nil ) and (StaticData.Games[wKindID].isVisible == 1 or UserData.User.wPrivilege == 1) and wKindID ~= 45 and wKindID ~= 50 then--
                 local item = ccui.Button:create(data.icon1,data.icons1,data.icons)
                 item.wKindID = wKindID
                 item:setBright(false)

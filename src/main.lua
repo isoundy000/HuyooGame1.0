@@ -8,7 +8,7 @@ require "config"
 require "cocos.init"
 
 --渠道ID
-cc.exports.CHANNEL_ID = 10
+cc.exports.CHANNEL_ID = 0
 
 --平台类型整理
 --cc.PLATFORM_OS_WINDOWS = 0
@@ -41,6 +41,9 @@ if cc.PLATFORM_OS_DEVELOPER == PLATFORM_TYPE then
 end
 
 cc.exports.CONST_ACCOUNTS = 'cxx'
+-- cc.exports.CONST_ACCOUNTS = "ob0xh1AzAedxBHDttu5bEA5lRmDk"--李禹陵武陵
+-- cc.exports.CONST_ACCOUNTS = "o5sqS1Pt9oqFrP9sgWbpOXO80vyo"  --李禹陵天娱
+
 
 local searchPaths = cc.FileUtils:getInstance():getSearchPaths()
 local path = cc.FileUtils:getInstance():getWritablePath().."huyoo/"

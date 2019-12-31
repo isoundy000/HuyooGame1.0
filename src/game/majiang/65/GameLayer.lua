@@ -213,6 +213,19 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             _tagMsg.pBuffer.gameConfig = GameCommon.gameConfig
             _tagMsg.pBuffer.gameDesc = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig)
             _tagMsg.pBuffer.cbOrigin = luaFunc:readRecvByte() --解散原因
+            _tagMsg.pBuffer.tScoreInfoEx = {}  
+            for i = 1, 8 do
+                _tagMsg.pBuffer.tScoreInfoEx[i] = {}
+                _tagMsg.pBuffer.tScoreInfoEx[i].dwUserID = luaFunc:readRecvDWORD()  --用户ID
+                _tagMsg.pBuffer.tScoreInfoEx[i].fScore = {}
+                for j = 1, 20 do
+                    _tagMsg.pBuffer.tScoreInfoEx[i].fScore[j] = luaFunc:readRecvLong()  --用户积分
+                end 
+            end
+            _tagMsg.pBuffer.tWriteScoreArr = {}  
+            for i = 1, 8 do
+                _tagMsg.pBuffer.tWriteScoreArr[i] = luaFunc:readRecvLong()  --写入积分
+            end
         elseif subCmdID == NetMsgId.SUB_GR_USER_CONNECT then
             local luaFunc = NetMgr:getGameInstance().cppFunc
             local dwUserID=luaFunc:readRecvDWORD()
@@ -258,6 +271,17 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
         elseif subCmdID == NetMsgId.SUB_GR_TABLE_STATUS then 
             GameCommon.tableConfig.wTableNumber = luaFunc:readRecvWORD()       --房间局数
             GameCommon.tableConfig.wCurrentNumber = luaFunc:readRecvWORD()    --当前局数
+            GameCommon.tableConfig.fUserScore = {}
+            for i = 1 , 8 do 
+                GameCommon.tableConfig.fUserScore[i] = luaFunc:readRecvLong()    --用户积分
+            end 
+            GameCommon.tableConfig.isShowFatigueValue =  luaFunc:readRecvBool()    --是否显示疲劳值
+            GameCommon.tableConfig.lFatigueValue = {}
+            for i = 1 , 8 do 
+                GameCommon.tableConfig.lFatigueValue[i] = luaFunc:readRecvLong()    --疲劳值
+            end 
+
+            self:updatePlayerlfatigue()
             local uiText_title = ccui.Helper:seekWidgetByName(self.root,"Text_title")
             uiText_title:setString(string.format("%s 房间号:%d 局数:%d/%d",StaticData.Games[GameCommon.tableConfig.wKindID].name,GameCommon.tableConfig.wTbaleID,GameCommon.tableConfig.wCurrentNumber,GameCommon.tableConfig.wTableNumber))
             return true
@@ -377,6 +401,12 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             GameCommon.gameConfig = require("common.GameConfig"):getParameter(GameCommon.tableConfig.wKindID,luaFunc)
             local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
             uiText_desc:setString(GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig))
+            if GameCommon.tableConfig.szTableName ~= nil and GameCommon.tableConfig.szTableName ~="" then  
+                local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
+                uiText_table:setString(GameCommon.tableConfig.szTableName)
+                local CellScore = GameCommon.tableConfig.wCellScore / GameCommon.tableConfig.wTableCellDenominator
+                uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
+            end 
             return true
             
         elseif subCmdID == NetMsgId.SUB_S_GAME_SelectZhuang then
@@ -566,6 +596,14 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 4 do
                 _tagMsg.pBuffer.cbAddHu[i] = luaFunc:readRecvLong()
             end
+
+            _tagMsg.pBuffer.fWriteScoreArr = {}
+            for i = 1 , 4 do
+                _tagMsg.pBuffer.fWriteScoreArr[i] = luaFunc:readRecvLong()--实际分
+            end
+            _tagMsg.pBuffer.invalid = luaFunc:readRecvDWORD()               --无效参数，因为回放有时候读不到最后一个字节，导致回放数据不准
+
+          
             
             
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_HAIDI then
@@ -850,6 +888,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
 
         elseif subCmdID == NetMsgId.SUB_S_OUT_CARD_RESULT then             --用户出牌
             self.tableLayer:doAction(NetMsgId.SUB_S_OUT_CARD_RESULT, pBuffer)
+            GameCommon.iNOoutcard = false
             self:updatehandplate()
 
         elseif subCmdID == NetMsgId.SUB_S_SEND_CARD_MAJIANG then                   --发牌消息
@@ -860,6 +899,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_NOTIFY_MAJIANG,pBuffer)
             
         elseif subCmdID == NetMsgId.SUB_S_OPERATE_RESULT then              --操作结果
+            GameCommon.iNOoutcard = false
             self.tableLayer:doAction(NetMsgId.SUB_S_OPERATE_RESULT, pBuffer)
 
         elseif subCmdID == NetMsgId.SUB_S_GAME_END_MAJIANG then                    --游戏结束
@@ -877,7 +917,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self.tableLayer:updateGameState(GameCommon.GameState_Over)
 --            self.tableLayer:endAction(pBuffer)  
             self.tableLayer:doAction(NetMsgId.SUB_S_GAME_END_MAJIANG,{wWinner = pBuffer.wWinner,wProvideUser = pBuffer.wProvideUser})
-            self:updatePlayerlScore()
+            --self:updatePlayerlScore()
             for i = 1, GameCommon.gameConfig.bPlayerCount do
                 GameCommon.player[i-1].cbCardCount = pBuffer.cbCardCount[i]
                 self.tableLayer:setHandCard(i-1,GameCommon.player[i-1].cbCardCount, pBuffer.cbCardData[i])
@@ -988,7 +1028,21 @@ function GameLayer:EVENT_TYPE_OPERATIONAL_OUT_CARD(event)
 --    if cbCardData == 0x31   then
 --        return
 --    end
-    NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OUT_CARD,"b",cbCardData)
+    if GameCommon.IsOfHu == 1 then  --如果是胡牌
+        require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
+            if GameCommon.iNOoutcard == true then --当前是明牌
+                NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+            end
+            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OUT_CARD,"b",cbCardData)
+            GameCommon.waitOutCardUser = GameCommon.INVALID_CHAIR
+        end)  
+    else
+        if GameCommon.iNOoutcard == true then --当前是明牌
+            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+        end
+        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OUT_CARD,"b",cbCardData)
+        GameCommon.waitOutCardUser = GameCommon.INVALID_CHAIR
+    end
 end
 
 function GameLayer:SUB_GR_USER_ENTER(event)
@@ -1025,10 +1079,10 @@ function GameLayer:updatePlayerInfo()
             local Text_huXi = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_huXi") 
             local Text_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score") 
             --个人添加
-            local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
-            --uiText_score:setString(string.format("%d",GameCommon.player[wChairID].lScore)) 
-            local dwGold = Common:itemNumberToString(GameCommon.player[wChairID].lScore)
-            uiText_score:setString(tostring(dwGold))        
+            -- local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
+            -- --uiText_score:setString(string.format("%d",GameCommon.player[wChairID].lScore)) 
+            -- local dwGold = Common:itemNumberToString(GameCommon.player[wChairID].lScore)
+            -- uiText_score:setString(string.format(" %0.2f",dwGold))        
         end
     end
 end
@@ -1047,6 +1101,33 @@ function GameLayer:updatePlayerlScore()
         uiText_score:setString(tostring(dwGold))
     end
 end
+
+function GameLayer:updatePlayerlfatigue()
+    if GameCommon.gameConfig == nil then
+        return
+    end
+    for i = 1 , GameCommon.gameConfig.bPlayerCount do
+        local wChairID = i-1
+        local viewID = GameCommon:getViewIDByChairID(wChairID)
+        local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
+
+        local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
+        local dwGold = GameCommon.tableConfig.fUserScore[i]/100
+        uiText_score:setString(string.format(" %0.2f",dwGold))   
+
+        local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
+        uiText_fatigue:setString("")   
+        if isShowFatigueValue == false then 
+            uiText_fatigue:setVisible(false)
+        end 
+        if GameCommon.tableConfig.lFatigueValue~= nil then
+            local fatigue =GameCommon.tableConfig.lFatigueValue[i]/ 100.00
+            if fatigue ~= 0.00 then 
+                uiText_fatigue:setString(string.format("%0.2f",fatigue))   
+            end 
+        end
+    end 
+end 
 
 function GameLayer:updatehandplate()
     if  GameCommon.gameConfig == nil then

@@ -943,10 +943,15 @@ function Common:setUserHeadCliping(headNode, headPath)
     local clip_size = clipNode:getContentSize() 
     local clip_node = cc.ClippingNode:create(clipNode)
     clip_node:setScale(headsize.width / clip_size.width, headsize.height / clip_size.height)
-    headNode:addChild(clip_node)
-
+    headNode:addChild(clip_node) 
     headPath = headPath or "common/hall_avatar.png"
+    -- if not io.exists(headPath) then
+    --     headPath = "common/hall_avatar.png"
+    -- end 
     local realHeadNode = cc.Sprite:create(headPath)
+    if realHeadNode == nil then 
+        realHeadNode = cc.Sprite:create("common/hall_avatar.png")
+    end 
     local head_size = realHeadNode:getContentSize()
     realHeadNode:setScale(clip_size.width / head_size.width, clip_size.height / head_size.height)
     clip_node:addChild(realHeadNode)

@@ -57,6 +57,9 @@ function Statistics:EVENT_TYPE_NET_RECV_MESSAGE( event )
         data.dwWinnerCount = luaFunc:readRecvDWORD()
         data.dwGameCount = luaFunc:readRecvDWORD()
         data.dwCompleteGameCount = luaFunc:readRecvDWORD()
+        data.dwPartnerID = luaFunc:readRecvDWORD()
+        data.szPartnerNickName = luaFunc:readRecvString(32)                     --玩家昵称
+        data.lScorePoint = luaFunc:readRecvLong() / 100
         EventMgr:dispatch(EventType.RET_GET_CLUB_STATISTICS_MEMBER,data)
     --返回亲友圈统计成员
     elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_GET_CLUB_STATISTICS then

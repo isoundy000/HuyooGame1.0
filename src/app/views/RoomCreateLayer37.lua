@@ -32,7 +32,11 @@ function RoomCreateLayer:onCreate(parameter)
     local csb = cc.CSLoader:createNode("RoomCreateLayer37.csb")
     self:addChild(csb)
     self.root = csb:getChildByName("Panel_root")
-    self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    if self.showType == 1 then
+        self.recordCreateParameter = self.dwClubID;  --showType = 1是创房参数
+    else
+        self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    end
     if self.recordCreateParameter == nil then
         self.recordCreateParameter = {}
     end
@@ -384,14 +388,25 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x08,self.recordCreateParameter["dwMingTang"]) ~= 0 then
         items[2]:setBright(true)
     end
-    if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x01,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+    -- if self.recordCreateParameter["dwMingTang"] == nil or Bit:_and(0x01,self.recordCreateParameter["dwMingTang"]) ~= 0 then
+    --     items[3]:setBright(true)
+    -- end
+
+    --带底
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bSettlement"] ~= nil and self.recordCreateParameter["bSettlement"] == 3 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bSettlement"] ~= nil and self.recordCreateParameter["bSettlement"] == 5 then
         items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
     end
 
     --托管时间
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,false,function(index) 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
         if index == 1 or index == 2 or index == 3 then         
             for key, var in pairs(items) do
                 var:setBright(false)
@@ -408,7 +423,7 @@ function RoomCreateLayer:onCreate(parameter)
             end
         end
 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(11),"ListView_parameter"):getItems()
         if index == 1 then         
             for key, var in pairs(items) do
                 var:setBright(false)
@@ -446,9 +461,9 @@ function RoomCreateLayer:onCreate(parameter)
         items[1]:setBright(true)
     end
 
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,false,function(index) 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
         if index == 1 or index == 2 then         
             for key, var in pairs(items) do
                 var:setBright(false)
@@ -465,7 +480,7 @@ function RoomCreateLayer:onCreate(parameter)
             end
         end
 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(11),"ListView_parameter"):getItems()
         if index == 1 or index == 2 then            
             local isHaveDefault = false
             for key, var in pairs(items) do
@@ -499,7 +514,7 @@ function RoomCreateLayer:onCreate(parameter)
     end
 
     --选择托管局数
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(11),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items)
     if self.recordCreateParameter["bHostedTime"] == nil or self.recordCreateParameter["bHostedTime"] == 0 then
         for key, var in pairs(items) do
@@ -585,7 +600,9 @@ function RoomCreateLayer:onEventCreate(nTableType)
     elseif items[2]:isBright() and self.tableFriendsRoomParams[2] then
         tableParameter.wGameCount = self.tableFriendsRoomParams[2].wGameCount
     elseif items[3]:isBright() and self.tableFriendsRoomParams[3] then
-        tableParameter.wGameCount = self.tableFriendsRoomParams[3].wGameCount
+        tableParameter.wGameCount = self.tableFriendsRoomParams[3].wGameCount     
+    elseif items[4]:isBright() and self.tableFriendsRoomParams[4] then         
+        tableParameter.wGameCount = self.tableFriendsRoomParams[4].wGameCount
     else
         return
     end
@@ -693,7 +710,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
     tableParameter.dwMingTang = 0xFFF
     tableParameter.dwMingTang = Bit:_xor(tableParameter.dwMingTang,0x10)
     tableParameter.dwMingTang = Bit:_xor(tableParameter.dwMingTang,0x08)
-    tableParameter.dwMingTang = Bit:_xor(tableParameter.dwMingTang,0x01)
+    -- tableParameter.dwMingTang = Bit:_xor(tableParameter.dwMingTang,0x01)
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x10)
@@ -701,12 +718,24 @@ function RoomCreateLayer:onEventCreate(nTableType)
     if items[2]:isBright() then
         tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x08)
     end
-    if items[3]:isBright() then
-        tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x01)
+    -- if items[3]:isBright() then
+    --     tableParameter.dwMingTang = Bit:_or(tableParameter.dwMingTang,0x01)
+    -- end
+
+    --带底
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bSettlement = 1
+    elseif items[2]:isBright() then
+        tableParameter.bSettlement = 3
+    elseif items[3]:isBright() then
+        tableParameter.bSettlement = 5
+    else
+        return
     end
 
     --托管时间
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.bHostedTime = 0
     elseif items[2]:isBright() then
@@ -716,7 +745,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
     end
 
     --托管时间
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.bHostedTime = 3
     elseif items[2]:isBright() then
@@ -725,7 +754,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
 
     --选择托管局数    
     tableParameter.bHostedSession = 0
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(10),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(11),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.bHostedSession = 1
     elseif items[2]:isBright() then
@@ -739,7 +768,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
     tableParameter.bLiangPai = 0
     tableParameter.bHuType = 0
     tableParameter.bFangPao = 0
-    tableParameter.bSettlement = 0
+    --tableParameter.bSettlement = 0
     tableParameter.bStartTun = 0
     tableParameter.bSocreType = 1
 

@@ -89,6 +89,16 @@ local Animation = {
             }
         },
     },
+    ["四带二"] = {
+        [0] = {
+             animFile = "puke/animation/4dai2_puke/4dai2-puke.ExportJson",
+             animName = "4dai2-puke",
+             sound = {
+                 [0] = "puke/sound/card_g_sidaisan.mp3",
+                 [1] = "puke/sound/card_b_sidaisan.mp3",
+             }
+         },
+     },
 	["四带三"] = {
 	   [0] = {
             animFile = "puke/animation/4dai3_puke/4dai3-puke.ExportJson",

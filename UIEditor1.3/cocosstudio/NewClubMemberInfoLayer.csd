@@ -19,7 +19,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_bg" ActionTag="971913459" Tag="209" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="112.5000" RightMargin="112.5000" TopMargin="55.0000" BottomMargin="55.0000" Scale9Enable="True" LeftEage="64" RightEage="57" TopEage="69" BottomEage="56" Scale9OriginX="64" Scale9OriginY="69" Scale9Width="99" Scale9Height="67" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_bg" ActionTag="971913459" Tag="209" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="111.6040" RightMargin="113.3960" TopMargin="71.3440" BottomMargin="38.6560" Scale9Enable="True" LeftEage="64" RightEage="57" TopEage="69" BottomEage="56" Scale9OriginX="64" Scale9OriginY="69" Scale9Width="99" Scale9Height="67" ctype="ImageViewObjectData">
             <Size X="1055.0000" Y="610.0000" />
             <Children>
               <AbstractNodeData Name="Button_close" ActionTag="-1330277437" Tag="218" IconVisible="False" LeftMargin="1001.9655" RightMargin="-8.9655" TopMargin="23.4553" BottomMargin="410.5447" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="32" Scale9Height="154" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -274,10 +274,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="640.0000" Y="360.0000" />
+            <Position X="639.1040" Y="343.6560" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.5000" />
+            <PrePosition X="0.4993" Y="0.4773" />
             <PreSize X="0.8242" Y="0.8472" />
             <FileData Type="Normal" Path="kwxclub/kwxclub_163.png" Plist="" />
           </AbstractNodeData>

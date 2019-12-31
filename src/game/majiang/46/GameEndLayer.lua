@@ -5,6 +5,8 @@ local GameLogic = require("game.majiang.GameLogic")
 local Common = require("common.Common")
 local EventMgr = require("common.EventMgr")
 local EventType = require("common.EventType")
+local NetMgr = require("common.NetMgr")
+local NetMsgId = require("common.NetMsgId")
 local GameEndLayer = class("GameEndLayer",function()
     return ccui.Layout:create()
 end)
@@ -73,6 +75,19 @@ function GameEndLayer:onCreate(pBuffer)
     	end
     end
     uiButton_continue:addTouchEventListener(onEventContinue)
+
+    local Button_dissolve = ccui.Helper:seekWidgetByName(self.root,"Button_dissolve")
+    Button_dissolve:setPressedActionEnabled(true)
+    local function onEventReturn(sender,event)
+        if event == ccui.TouchEventType.ended then
+            Common:palyButton()
+            require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
+                NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
+            end)
+        end
+    end
+    Button_dissolve:addTouchEventListener(onEventReturn)
+
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/wuguidonghua/wuguidonghua.ExportJson")
     local armature2=ccs.Armature:create("wuguidonghua")
@@ -350,13 +365,24 @@ function GameEndLayer:onCreate(pBuffer)
             end
         end
         local uiAtlasLabel_score = ccui.Helper:seekWidgetByName(item,"AtlasLabel_score")
-        if pBuffer.lGameScore[i] < 0 then       
-            uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_12.png",26,45,'.')              
-        elseif  pBuffer.lGameScore[i] > 0 then
-            uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_13.png",26,45,'.')
-        else
-            uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_13.png",26,45,'.')
-        end
+        uiAtlasLabel_score:setVisible(false)
+
+        local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
+        uiText_result:setTextColor(cc.c3b(255,209,81))
+        uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
+        local dwGold = pBuffer.fWriteScoreArr[i]/100
+        if pBuffer.lGameScore[i] > 0 then 
+            uiText_result:setString(string.format(" +%0.2f",dwGold))
+        else      
+            uiText_result:setString(string.format(" %0.2f",dwGold))
+        end 
+        -- if pBuffer.lGameScore[i] < 0 then       
+        --     uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_12.png",26,45,'.')              
+        -- elseif  pBuffer.lGameScore[i] > 0 then
+        --     uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_13.png",26,45,'.')
+        -- else
+        --     uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_13.png",26,45,'.')
+        -- end
     end
     uiPanel_itemWin:release()
 end

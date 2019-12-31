@@ -80,7 +80,9 @@ function TableLayer:doAction(action,pBuffer)
                 tableBettingType = {4,8}
             elseif GameCommon.gameConfig.bBettingType == 7 then
                 tableBettingType = {5,10}
-            end
+            elseif GameCommon.gameConfig.bBettingType == 10 then
+                tableBettingType = {5,10,20,25,50}  
+            end 
             if wChairID == GameCommon:getRoleChairID() then
                 if GameCommon.gameConfig.bBettingType == 1 then
                     table.insert(tableBettingType,#tableBettingType+1,5)
@@ -104,16 +106,53 @@ function TableLayer:doAction(action,pBuffer)
                 elseif GameCommon.gameConfig.bBettingType == 7 then
                     table.insert(tableBettingType,#tableBettingType+1,25)
                     table.insert(tableBettingType,#tableBettingType+1,50)
+                elseif GameCommon.gameConfig.bBettingType == 10 then
+                    table.insert(tableBettingType,#tableBettingType+1,100)
+                    table.insert(tableBettingType,#tableBettingType+1,250)
                 end
             end
             for key, var in pairs(tableBettingType) do
-            	local img = string.format("puke/table/pukenew_scorebtn_%d.png",var)
-            	if (GameCommon.gameConfig.bBettingType == 1 or GameCommon.gameConfig.bBettingType == 3 )  and var == 5 then
-                    img = "puke/table/pukenew_scorebtn_5_ex.png"
-                elseif GameCommon.gameConfig.bBettingType ~= 7 and var == 10 then
-                    img = "puke/table/pukenew_scorebtn_10_ex.png"
-            	end
+                local img = nil 
+                if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
+                    img = string.format("puke/table/pukenew_scorebtn_%d.png",var)
+                    if (GameCommon.gameConfig.bBettingType == 1 or GameCommon.gameConfig.bBettingType == 3 )  and var == 5 then
+                        img = "puke/table/pukenew_scorebtn_5_ex.png"
+                    elseif GameCommon.gameConfig.bBettingType ~= 7 and var == 10 then
+                        img = "puke/table/pukenew_scorebtn_10_ex.png"
+                    end
+                else
+                    img = "puke/table/ok_ui_group_btn_2.png"
+                    -- if GameCommon.gameConfig.bBettingType == 1  and (var == 5 or var == 10 or var == 20  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 2  and (var == 10 or var == 20  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 3 and (var == 5 or var == 10  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 4 and (var == 10 or var == 20  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 5 and (var == 15 or var == 30  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 6 and (var == 20 or var == 40  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 7 and (var == 25 or var == 50  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- elseif GameCommon.gameConfig.bBettingType == 8 and (var == 50 or var == 100  ) then
+                    --     img = "puke/table/ok_ui_group_btn_1.png"
+                    -- else
+                    if var == 100 or var == 250 then
+                        img = "puke/table/ok_ui_group_btn_1.png"
+                    end
+                end 
+                
                 local item = ccui.Button:create(img,img,img)
+                if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+                    local uiHongZiCount = ccui.Text:create(string.format("%d分",var),"fonts/DFYuanW7-GB2312.ttf","30")
+                    uiHongZiCount:setTextColor(cc.c3b(255,255,255)) 
+                    uiHongZiCount:setAnchorPoint(cc.p(0.5,0.5))
+                    item:addChild(uiHongZiCount)
+                    uiHongZiCount:setPosition(43,25)
+                    item:setScale(1.1)
+                end 
                 uiListView_betting:pushBackCustomItem(item)
                 Common:addTouchEventListener(item,function() 
                     NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.REC_SUB_C_BETTING,"wb",GameCommon:getRoleChairID(),var)
@@ -142,8 +181,17 @@ function TableLayer:doAction(action,pBuffer)
         local viewID = GameCommon:getViewIDByChairID(wChairID)
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
         local uiImage_betting = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_betting")
+        uiImage_betting:loadTexture(string.format("common/hall_5.png"))
+        local uiHongZiCount = ccui.Text:create(string.format("%d分",pBuffer.cbBetting),"fonts/DFYuanW7-GB2312.ttf","30")
+        uiHongZiCount:setTextColor(cc.c3b(255,255,0)) 
+        uiHongZiCount:setAnchorPoint(cc.p(0.5,0.5))
+        uiImage_betting:addChild(uiHongZiCount)
+        uiHongZiCount:setPosition(25,25)
+        -- uiImage_betting:setPosition(uiPanel_tipsCardPosUser:getPosition())
+
+
         uiImage_betting:setVisible(true)
-        uiImage_betting:loadTexture(string.format("puke/table/pukenew_score_%d.png",pBuffer.cbBetting))
+        --uiImage_betting:loadTexture(string.format("puke/table/pukenew_score_%d.png",pBuffer.cbBetting))
         uiImage_betting:runAction(cc.Sequence:create(cc.ScaleTo:create(0.1,1.2),cc.ScaleTo:create(0.1,1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
     elseif action == NetMsgId.REC_SUB_S_GRAB_BANKER then
@@ -220,17 +268,33 @@ function TableLayer:doAction(action,pBuffer)
         local uiPanel_tipsCard = ccui.Helper:seekWidgetByName(self.root,"Panel_tipsCard")
         local uiPanel_scorePos = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_scorePos%d",viewID))
         local uiTextAtlasScore = nil
-        if pBuffer.lGameScore > 0 then
-            if wChairID == GameCommon:getRoleChairID() then
-                GameCommon:playAnimation(self.root, "赢",pBuffer.wChairID)
-            end
-            uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_6.png",26,43,'0')
-        else
-            uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_7.png",26,43,'0')
-        end
-        uiPanel_tipsCard:addChild(uiTextAtlasScore)
-        uiTextAtlasScore:setPosition(uiPanel_scorePos:getPosition())  
-        uiTextAtlasScore:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.ScaleTo:create(0.5,1.2),cc.ScaleTo:create(0.5,1.0))) 
+
+
+        local uiText_result = ccui.Text:create("代理","fonts/DFYuanW7-GB2312.ttf",36)
+        local dwGold = pBuffer.fWriteScoreArr/100
+        if pBuffer.fWriteScoreArr > 0 then 
+            uiText_result:setTextColor(cc.c3b(255,234,1))
+            uiText_result:setString(string.format(" +%0.2f",dwGold))
+        else     
+            uiText_result:setTextColor(cc.c3b(91,248,229))      
+            uiText_result:setString(string.format(" %0.2f",dwGold))
+        end  
+
+        -- if pBuffer.lGameScore > 0 then
+        --     if wChairID == GameCommon:getRoleChairID() then
+        --         GameCommon:playAnimation(self.root, "赢",pBuffer.wChairID)
+        --     end
+        --     uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_6.png",26,43,'0')
+        -- else
+        --     uiTextAtlasScore = ccui.TextAtlas:create(string.format(":%d",pBuffer.lGameScore),"fonts/fonts_7.png",26,43,'0')
+        -- end
+        -- uiPanel_tipsCard:addChild(uiTextAtlasScore)
+        -- uiTextAtlasScore:setPosition(uiPanel_scorePos:getPosition())  
+        -- uiTextAtlasScore:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.ScaleTo:create(0.5,1.2),cc.ScaleTo:create(0.5,1.0))) 
+         
+        uiPanel_tipsCard:addChild(uiText_result)
+        uiText_result:setPosition(uiPanel_scorePos:getPosition())  
+        uiText_result:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.ScaleTo:create(0.5,1.2),cc.ScaleTo:create(0.5,1.0))) 
         
     else
     
@@ -325,12 +389,16 @@ function TableLayer:showHandCard(wChairID,effectsType,pBuffer)
     end
     for i = 1, 5 do
         local data = GameCommon.player[wChairID].cbCardData[i]
+        local card = nil 
         if data == 0 then 
-            return
-        end 
-        
-        local card = GameCommon:getCardNode(data)
-        if effectsType == 3 and i == 5 then 
+            card = GameCommon:getCardNode(0) 
+            if i == 5 and effectsType == 1  then
+                return
+            end 
+        else
+            card = GameCommon:getCardNode(data)
+        end      
+        if effectsType == 3 and i == 5 and GameCommon.gameConfig.bCuopai == 1 then 
             card = GameCommon:getCardNode(0)
         end 
         uiPanel_handCard:addChild(card) 
@@ -407,6 +475,7 @@ function TableLayer:initUI()
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
     uiImage_watermark:ignoreContentAdaptWithSize(true)
     uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
+    uiImage_watermark:setVisible(false)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
     uiText_desc:setString("")
     local uiText_time = ccui.Helper:seekWidgetByName(self.root,"Text_time")
@@ -677,12 +746,12 @@ function TableLayer:initUI()
         end)
     end) 
     
-    if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9  then
-    else
-        uiButton_SignOut:setVisible(false)
-        uiButton_out:setPositionX(visibleSize.width*0.36)       
-        uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
-    end 
+    -- if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9  then
+    -- else
+    --     uiButton_SignOut:setVisible(false)
+    --     uiButton_out:setPositionX(visibleSize.width*0.36)       
+    --     uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
+    -- end 
     --结算层
     local uiPanel_end = ccui.Helper:seekWidgetByName(self.root,"Panel_end")
     uiPanel_end:setVisible(false)

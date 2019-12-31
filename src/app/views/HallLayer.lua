@@ -59,15 +59,17 @@ function HallLayer:onCreate(parames)
         self:runAction(cc.Sequence:create(
             cc.DelayTime:create(1.5),
             cc.CallFunc:create(function(sender,event) 
-                if StaticData.Hide[CHANNEL_ID].btn12 == 1 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(string.format(Default.UserDefault_Sign,UserData.User.userID),0)) == false then
-                    self:addChild(require("app.MyApp"):create(1000):createView("WelfareLayer"))  
-                end 
-                if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
-                   --暂时屏蔽
-                   if  Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_TuHaoActivity,0)) == false then
-                       require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("BouncedLayer")) 
-                   end 
+                if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
+                    if StaticData.Hide[CHANNEL_ID].btn12 == 1 and Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(string.format(Default.UserDefault_Sign,UserData.User.userID),0)) == false then
+                        self:addChild(require("app.MyApp"):create(1000):createView("WelfareLayer"))  
+                    end 
                 end
+                -- if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
+                --    --暂时屏蔽
+                --    if  Common:isToday(cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_TuHaoActivity,0)) == false then
+                --        require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("BouncedLayer")) 
+                --    end 
+                -- end
             end)))
     end
  	 
@@ -111,11 +113,22 @@ function HallLayer:onCreate(parames)
         end
     end
 
+    --购买元宝
+    local Button_addYB = ccui.Helper:seekWidgetByName(self.root,"Button_addYB")
+    if Button_addYB then
+        Common:addTouchEventListener(Button_addYB, function()             
+            local data = clone(UserData.Share.tableShareParameter[12])
+            dump(data, '购买元宝：')
+            require("app.MyApp"):create(data):createView("ShareLayer") 
+        end)
+    end
+    
     --邀请有礼
     local uiButton_invite = ccui.Helper:seekWidgetByName(self.root,"Button_invite")
     if  uiButton_invite ~= nil then
         uiButton_invite:setVisible(false)
     end 
+
     --代开
     local uiButton_proxy  = ccui.Helper:seekWidgetByName(self.root,"Button_proxy")
     if uiButton_proxy~= nil then 
@@ -458,6 +471,10 @@ function HallLayer:onCreate(parames)
         if #uiListView_function:getItems() == 5 then
         uiListView_function:setItemsMargin(190)
         end
+
+        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+            uiListView_function:setItemsMargin(120)
+        end 
     end
 
     --商务合作
@@ -483,22 +500,28 @@ function HallLayer:onCreate(parames)
         if CHANNEL_ID ~= 20 and  CHANNEL_ID ~= 21 then 
             uiButton_doshare:setScale(1.3)         
             if CHANNEL_ID == 10 or  CHANNEL_ID == 11 then
-               uiButton_doshare:setScale(1.2)
-            end 
-            ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("common/fenxiang-donghua/fenxiang-donghua.ExportJson")
-            local armature=ccs.Armature:create("fenxiang-donghua")
-            armature:getAnimation():playWithIndex(0)
-            uiButton_doshare:addChild(armature) 
- 			if CHANNEL_ID == 6 or  CHANNEL_ID == 7 then
-            	armature:setPosition(25,50)
+                uiButton_doshare:setScale(1.0)            
+                self.sCircle = cc.Sprite:create("Email/Email_12.png")
+                self.sCircle:setAnchorPoint(cc.p(0.5,0.5))
+                self.sCircle:setPosition(55,65)        
+                uiButton_doshare:addChild(self.sCircle,100) 
             else
-                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("common/fenxiang-donghua/fenxiang-donghua.ExportJson")
+                local armature=ccs.Armature:create("fenxiang-donghua")
+                armature:getAnimation():playWithIndex(0)
+                uiButton_doshare:addChild(armature) 
+                if CHANNEL_ID == 6 or  CHANNEL_ID == 7 then
+                    armature:setPosition(25,50)
+                else
+                    armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                end            
+                self.sCircle = cc.Sprite:create("Email/Email_12.png")
+                self.sCircle:setAnchorPoint(cc.p(0.5,0.5))
+                self.sCircle:setPosition(25,25)        
+                armature:addChild(self.sCircle,100)   
+            end 
 
-			end 
-            self.sCircle = cc.Sprite:create("Email/Email_12.png")
-            self.sCircle:setAnchorPoint(cc.p(0.5,0.5))
-            self.sCircle:setPosition(25,25)        
-            armature:addChild(self.sCircle,100)   
+  
         end  
     end 
 
@@ -539,6 +562,11 @@ function HallLayer:updateUserInfo(event)
     local uiText_ID = ccui.Helper:seekWidgetByName(self.root,"Text_ID")
     uiText_ID:setString(string.format("账号:%d",UserData.User.userID))
     Common:requestUserAvatar(UserData.User.userID,UserData.User.szLogoInfo,uiImage_avatar,"img")
+
+    local Text_yuanbao = ccui.Helper:seekWidgetByName(self.root,"Text_yuanbao")
+    if Text_yuanbao then
+        Text_yuanbao:setString(string.format("%d",UserData.Bag:getBagPropCount(1009)))
+    end   
 
     if  CHANNEL_ID ~= 4 and CHANNEL_ID ~= 5  and CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and self.sCircle~= nil then       
         local number = 2  

@@ -221,12 +221,14 @@ function TableLayer:doAction(action,pBuffer)
         if self.lastOutCardInfo ~= nil and pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and GameCommon.tableConfig.nTableType ~= TableType_Playback then
             self.lastOutCardInfo.tableCard = self:getExtractCardType(GameCommon.player[wChairID].cbCardData,GameCommon.player[wChairID].bUserCardCount,self.lastOutCardInfo.bCardData,self.lastOutCardInfo.bUserCardCount)
         end
-        if pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and #self.lastOutCardInfo.tableCard <= 0 then  
-            self:showCountDown(pBuffer.wCurrentUser,true)
+        if pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and #self.lastOutCardInfo.tableCard <= 0 then              
+            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.6),cc.CallFunc:create(function(sender,event)  self:showCountDown(pBuffer.wCurrentUser,true) end)))                             
+        --self:showCountDown(pBuffer.wCurrentUser,true)
         else
-            self:tryAutoSendCard(pBuffer.wCurrentUser)
+            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.6),cc.CallFunc:create(function(sender,event)  self:tryAutoSendCard(pBuffer.wCurrentUser) end)))                             
+           -- self:tryAutoSendCard(pBuffer.wCurrentUser)
         end
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.2),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
                              
     elseif action == NetMsgId.SUB_S_WARN_INFO_PDK then
         GameCommon:playAnimation(self.root, "报警",pBuffer.wWarnUser)
@@ -263,6 +265,8 @@ function TableLayer:doAction(action,pBuffer)
         elseif targetType == GameCommon.CardType_4Add3 then
             if pBuffer.bUserCardCount == 7 then
                 GameCommon:playAnimation(self.root, "四带三",pBuffer.wOutCardUser)
+            elseif pBuffer.bUserCardCount == 6 then
+                -- GameCommon:playAnimation(self.root, "四带二",pBuffer.wOutCardUser)
             end
         elseif targetType == GameCommon.CardType_bomb then
             GameCommon:playAnimation(self.root, "炸弹",pBuffer.wOutCardUser)
@@ -325,7 +329,7 @@ function TableLayer:doAction(action,pBuffer)
         else
             self:tryAutoSendCard(pBuffer.wCurrentUser)
         end
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
     elseif action == NetMsgId.SUB_S_GAME_END_PDK then
         local wChairID = pBuffer.wWinUser
@@ -533,6 +537,7 @@ function TableLayer:initUI()
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
     uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
     uiImage_watermark:ignoreContentAdaptWithSize(true)
+    uiImage_watermark:setVisible(false)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
     uiText_desc:setString("")
     local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
@@ -624,6 +629,8 @@ function TableLayer:initUI()
         uiImage_ready:setVisible(false)
         local uiImage_chat = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_chat")
         uiImage_chat:setVisible(false)
+        local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
+        uiText_fatigue:setString("")   
     end
 
     --UI层
@@ -776,12 +783,12 @@ function TableLayer:initUI()
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL) 
         end)
     end) 
-    if CHANNEL_ID == 6 or  CHANNEL_ID  == 7  or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
-    else
-        uiButton_SignOut:setVisible(false)
-        uiButton_out:setPositionX(visibleSize.width*0.36)       
-        uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
-    end 
+    -- if CHANNEL_ID == 6 or  CHANNEL_ID  == 7  or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
+    -- else
+    --     uiButton_SignOut:setVisible(false)
+    --     uiButton_out:setPositionX(visibleSize.width*0.36)       
+    --     uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
+    -- end 
     
     local uiButton_position = ccui.Helper:seekWidgetByName(self.root,"Button_position")   -- 定位
     Common:addTouchEventListener(uiButton_position,function() 
@@ -791,6 +798,9 @@ function TableLayer:initUI()
     if GameCommon.tableConfig.wCurrentNumber == 0 and  GameCommon.tableConfig.nTableType > TableType_GoldRoom then
         if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 then
             uiPanel_playerInfoBg:setVisible(true) 
+            if  CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+                uiPanel_playerInfoBg:setVisible(false)
+            end 
         else 
             uiPanel_playerInfoBg:setVisible(false)
         end
@@ -1196,7 +1206,10 @@ function TableLayer:OnUserChatVoice(event)
     end
 end
 
-function TableLayer:showPlayerPosition()   -- 显示玩家距离    
+function TableLayer:showPlayerPosition()   -- 显示玩家距离   
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+        return
+    end  
     local wChairID = 0
     for key, var in pairs(GameCommon.player) do
         if var.dwUserID == GameCommon.dwUserID then

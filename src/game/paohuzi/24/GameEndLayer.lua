@@ -5,6 +5,8 @@ local Bit = require("common.Bit")
 local StaticData = require("app.static.StaticData")
 local Common = require("common.Common")
 local GameLogic = require("game.paohuzi.GameLogic")
+local NetMgr = require("common.NetMgr")
+local NetMsgId = require("common.NetMsgId")
 local GameEndLayer = class("GameEndLayer",function()
     return ccui.Layout:create()
 end)
@@ -77,6 +79,19 @@ function GameEndLayer:onCreate(pBuffer)
         uiButton_return:setVisible(false)
         uiButton_continue:setVisible(false)
     end
+
+    local Button_dissolve = ccui.Helper:seekWidgetByName(self.root,"Button_dissolve")
+    Button_dissolve:setPressedActionEnabled(true)
+    local function onEventReturn(sender,event)
+        if event == ccui.TouchEventType.ended then
+            Common:palyButton()
+            require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
+                NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
+            end)
+        end
+    end
+    Button_dissolve:addTouchEventListener(onEventReturn)
+    
     local uiPanel_look = ccui.Helper:seekWidgetByName(self.root,"Panel_look")
     local uiButton_look = ccui.Helper:seekWidgetByName(self.root,"Button_look")
     Common:addTouchEventListener(uiButton_look,function() 
@@ -242,22 +257,19 @@ function GameEndLayer:onCreate(pBuffer)
     ListView_Characterbox4:setVisible(false)    
     local ListView_Characterbox3 = ccui.Helper:seekWidgetByName(self.root,"ListView_Characterbox3")
     ListView_Characterbox3:setVisible(false)
-    
+    local ListView_Characterbox2 = ccui.Helper:seekWidgetByName(self.root,"ListView_Characterbox2")
+    ListView_Characterbox2:setVisible(false)
     if GameCommon.gameConfig.bPlayerCount == 3 then
         ListView_Characterbox3:setVisible(true)
         ListView_Characterbox = ListView_Characterbox3
-    else
+    elseif GameCommon.gameConfig.bPlayerCount == 4 then
         ListView_Characterbox4:setVisible(true)
         ListView_Characterbox = ListView_Characterbox4
+    elseif GameCommon.gameConfig.bPlayerCount == 2 then
+        ListView_Characterbox2:setVisible(true)
+        ListView_Characterbox = ListView_Characterbox2
     end 
-    if GameCommon.gameConfig.bPlayerCount == 2 then
-        local uiPanel_Characterbox3 = ccui.Helper:seekWidgetByName(ListView_Characterbox,"Panel_Characterbox3")
-        ListView_Characterbox:removeItem(ListView_Characterbox:getIndex(uiPanel_Characterbox3))
-        uiPanel_Characterbox3:setVisible(false)
-        local uiPanel_Characterbox4 = ccui.Helper:seekWidgetByName(ListView_Characterbox,"Panel_Characterbox4")
-        uiPanel_Characterbox4:setVisible(false)
-        ListView_Characterbox:setPositionX(ListView_Characterbox:getContentSize().width/4)
-    end
+
     for key, var in pairs(GameCommon.player) do
         local viewID = GameCommon:getViewIDByChairID(var.wChairID)           
         local root = ccui.Helper:seekWidgetByName(ListView_Characterbox,string.format("Panel_Characterbox%d",viewID))
@@ -277,21 +289,28 @@ function GameEndLayer:onCreate(pBuffer)
         if GameCommon.tableConfig.nTableType == TableType_GoldRoom or GameCommon.tableConfig.nTableType  == TableType_SportsRoom then
             uiText_ID:setVisible(false)
         end 
-        if GameCommon.tableConfig.nTableType  ~= TableType_GoldRoom then 
-            if pBuffer.lGameScore[var.wChairID+1]  <= 0 then
-                uiImage_yingjia:setVisible(false) 
-                uiAtlasLabel_money:setString(string.format("%d积分",pBuffer.lGameScore[var.wChairID+1] ))
-            else
-                uiAtlasLabel_money:setString(string.format("+%d积分",pBuffer.lGameScore[var.wChairID+1] ))
-            end
-		else
-            if pBuffer.lGameScore[var.wChairID+1]  <= 0 then
-                uiImage_yingjia:setVisible(false) 
-                uiAtlasLabel_money:setString(string.format("%d金币",pBuffer.lGameScore[var.wChairID+1] ))
-            else
-                uiAtlasLabel_money:setString(string.format("+%d金币",pBuffer.lGameScore[var.wChairID+1] ))
-            end
-        end
+        local dwGold = pBuffer.fWriteScoreArr[var.wChairID + 1]/100
+        if pBuffer.lGameScore[var.wChairID + 1] > 0 then 
+            uiImage_yingjia:setVisible(false) 
+            uiAtlasLabel_money:setString(string.format(" +%0.2f",dwGold))
+        else      
+            uiAtlasLabel_money:setString(string.format(" %0.2f",dwGold))
+        end   
+        -- if GameCommon.tableConfig.nTableType  ~= TableType_GoldRoom then 
+        --     if pBuffer.lGameScore[var.wChairID+1]  <= 0 then
+        --         uiImage_yingjia:setVisible(false) 
+        --         uiAtlasLabel_money:setString(string.format("%d积分",pBuffer.lGameScore[var.wChairID+1] ))
+        --     else
+        --         uiAtlasLabel_money:setString(string.format("+%d积分",pBuffer.lGameScore[var.wChairID+1] ))
+        --     end
+		-- else
+        --     if pBuffer.lGameScore[var.wChairID+1]  <= 0 then
+        --         uiImage_yingjia:setVisible(false) 
+        --         uiAtlasLabel_money:setString(string.format("%d金币",pBuffer.lGameScore[var.wChairID+1] ))
+        --     else
+        --         uiAtlasLabel_money:setString(string.format("+%d金币",pBuffer.lGameScore[var.wChairID+1] ))
+        --     end
+        -- end
         print("玩家得分",pBuffer.lGameScore[var.wChairID+1],var.wChairID)  
     end
     self:showPaiXing(pBuffer)

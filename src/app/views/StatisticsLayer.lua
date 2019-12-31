@@ -610,7 +610,7 @@ function StatisticsLayer:addPlayerStatistics( data )
     SetTextProperty(Text_big_winner,data.dwWinnerCount)
     SetTextProperty(Text_all_comp,data.dwGameCount)
     SetTextProperty(Text_comp,data.dwCompleteGameCount)
-    SetTextProperty(Text_score,data.lScore)
+    SetTextProperty(Text_score,data.lScorePoint)
     self.zzjPage = 0
     local Button_look = self:seekWidgetByNameEx(item,'Button_look')
     Common:addTouchEventListener(Button_look,function()
@@ -678,6 +678,7 @@ end
 
 function StatisticsLayer:RET_GET_CLUB_STATISTICS_MEMBER( event)
     local data = event._usedata
+    dump(data)
     self:addPlayerStatistics(data)
 end
 

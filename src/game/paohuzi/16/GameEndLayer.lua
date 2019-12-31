@@ -5,6 +5,8 @@ local EventType = require("common.EventType")
 local EventMgr = require("common.EventMgr")
 local GameLogic = require("game.paohuzi.GameLogic")
 local Common = require("common.Common")
+local NetMgr = require("common.NetMgr")
+local NetMsgId = require("common.NetMsgId")
 
 local GameEndLayer = class("GameEndLayer",function()
     return ccui.Layout:create()
@@ -79,6 +81,19 @@ function GameEndLayer:onCreate(pBuffer)
         uiButton_return:setVisible(false)
         uiButton_continue:setVisible(false)
     end
+
+    local Button_dissolve = ccui.Helper:seekWidgetByName(self.root,"Button_dissolve")
+    Button_dissolve:setPressedActionEnabled(true)
+    local function onEventReturn(sender,event)
+        if event == ccui.TouchEventType.ended then
+            Common:palyButton()
+            require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
+                NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
+            end)
+        end
+    end
+    Button_dissolve:addTouchEventListener(onEventReturn)
+    
     local uiPanel_look = ccui.Helper:seekWidgetByName(self.root,"Panel_look")
     local uiButton_look = ccui.Helper:seekWidgetByName(self.root,"Button_look")
     Common:addTouchEventListener(uiButton_look,function() 
@@ -155,12 +170,19 @@ function GameEndLayer:onCreate(pBuffer)
             bei:setPosition(cc.p(bei:getParent():getContentSize().width - 60,13))          
         end 
         local uiAtlasLabel_money = ccui.Helper:seekWidgetByName(root,"AtlasLabel_money")
-        print("游戏金币",var.wChairID+1,pBuffer.lGameScore[var.wChairID+1],pBuffer.lUserScore[var.wChairID+1])         
-        if pBuffer.lUserScore[var.wChairID+1]   < 0 then                   
-            uiAtlasLabel_money:setProperty(string.format(".%d",pBuffer.lUserScore[var.wChairID+1]),"fonts/fonts_12.png",26,45,'.')
-        else
-            uiAtlasLabel_money:setProperty(string.format(".%d",pBuffer.lUserScore[var.wChairID+1]),"fonts/fonts_13.png",26,45,'.')   
-        end
+        -- print("游戏金币",var.wChairID+1,pBuffer.lGameScore[var.wChairID+1],pBuffer.lUserScore[var.wChairID+1])         
+        -- if pBuffer.lUserScore[var.wChairID+1]   < 0 then                   
+        --     uiAtlasLabel_money:setProperty(string.format(".%d",pBuffer.lUserScore[var.wChairID+1]),"fonts/fonts_12.png",26,45,'.')
+        -- else
+        --     uiAtlasLabel_money:setProperty(string.format(".%d",pBuffer.lUserScore[var.wChairID+1]),"fonts/fonts_13.png",26,45,'.')   
+        -- end
+
+        local dwGold = pBuffer.fWriteScoreArr[var.wChairID + 1]/100
+        if pBuffer.lGameScore[var.wChairID + 1] > 0 then 
+            uiAtlasLabel_money:setString(string.format(" +%0.2f",dwGold))
+        else      
+            uiAtlasLabel_money:setString(string.format(" %0.2f",dwGold))
+        end     
         if GameCommon.tableConfig.nTableType > TableType_GoldRoom then
             uiImage_icon:loadTexture("game/game_table_score.png")
         end

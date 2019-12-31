@@ -34,6 +34,7 @@ function GameOpration:onExit()
         self.uiPanel_opration:release()
         self.uiPanel_opration = nil
     end
+    GameCommon.IsOfHu = 0
 end
 
 function GameOpration:onCreate(pBuffer,opTtype)
@@ -70,16 +71,27 @@ function GameOpration:showOpration(pBuffer)
     local mUserWCWDActionEx = 0
     local uiListView_Opration = ccui.Helper:seekWidgetByName(self.root,"ListView_Opration")
     --吃
+    GameCommon.IsOfHu = 0
     if Bit:_and(cbOperateCode,GameCommon.WIK_LEFT) ~= 0 or Bit:_and(cbOperateCode,GameCommon.WIK_CENTER) ~= 0 or Bit:_and(cbOperateCode,GameCommon.WIK_RIGHT) ~= 0 then
         local img = "game/op_chi.png"
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)        
-        Common:addTouchEventListener(item,function() 
-            if (pBuffer.cbActionCard >= 49 and pBuffer.cbActionCard <= 55) and GameCommon.tableConfig.wKindID == 65 then
-                self:deal65Chi(pBuffer)
-            else                
-                self:dealChi(pBuffer)
-            end
+        Common:addTouchEventListener(item,function()
+            if GameCommon.IsOfHu == 1 then
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
+                    if (pBuffer.cbActionCard >= 49 and pBuffer.cbActionCard <= 55) and GameCommon.tableConfig.wKindID == 65 then
+                        self:deal65Chi(pBuffer)
+                    else                
+                        self:dealChi(pBuffer)
+                    end
+                end)  
+            else
+                if (pBuffer.cbActionCard >= 49 and pBuffer.cbActionCard <= 55) and GameCommon.tableConfig.wKindID == 65 then
+                    self:deal65Chi(pBuffer)
+                else                
+                    self:dealChi(pBuffer)
+                end
+            end 
         end)
     end
     --碰
@@ -88,7 +100,13 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            self:dealPeng(pBuffer)
+            if GameCommon.IsOfHu == 1 then
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
+                    self:dealPeng(pBuffer)
+                end)  
+            else
+                self:dealPeng(pBuffer)
+            end
         end)
     end
     --补
@@ -97,8 +115,15 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            self:dealBu(pBuffer)
+            if GameCommon.IsOfHu == 1 then
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
+                    self:dealBu(pBuffer)
+                end)  
+            else
+                self:dealBu(pBuffer)
+            end
         end)
+        GameCommon.IsOfHu = 2
     end
     --杠
     if Bit:_and(cbOperateCode,GameCommon.WIK_GANG) ~= 0 then
@@ -106,8 +131,15 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            self:dealGang(pBuffer)
+            if GameCommon.IsOfHu == 1 then
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
+                    self:dealGang(pBuffer)
+                end)  
+            else
+                self:dealGang(pBuffer)
+            end
         end)
+        GameCommon.IsOfHu = 0
     end
     --胡
     if Bit:_and(cbOperateCode,GameCommon.WIK_CHI_HU) ~= 0 then
@@ -117,14 +149,7 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealHu(pBuffer)
         end)
-        if 	CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 and
-			CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
-			CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
-			CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
-			CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
-			CHANNEL_ID ~= 4 and CHANNEL_ID ~= 5 then 
-				GameCommon.IsOfHu = 1
-        end 
+        GameCommon.IsOfHu = 1
         if  pBuffer.mUserWCWDActionEx ~= nil then 
             mUserWCWDActionEx = pBuffer.mUserWCWDActionEx
         end 
@@ -167,14 +192,7 @@ function GameOpration:showOpration(pBuffer)
         Common:addTouchEventListener(item,function() 
             self:dealBiHu(pBuffer)
         end)
-        if CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 and
-			CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
-			CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
-			CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
-			CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
-			CHANNEL_ID ~= 4 and CHANNEL_ID ~= 5 then 
-            GameCommon.IsOfHu = 1
-        end
+        GameCommon.IsOfHu = 1
         ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
         local armature=ccs.Armature:create("xuanzhuanxing")
         armature:getAnimation():playWithIndex(0)

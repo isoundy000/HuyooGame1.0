@@ -51,6 +51,7 @@ function GameGangOpration:onCreate(pBuffer)
     self.uiPanel_opration:retain()
     uiListView_OprationType:removeAllChildren()
     uiListView_OprationType:setVisible(false)
+    GameCommon.IsOfHu =0
     self:showOpration(pBuffer)
     
     uiListView_Opration:refreshView()
@@ -110,6 +111,7 @@ function GameGangOpration:showOpration(pBuffer)
     end 
     --胡
     if pBuffer.tableHuCard[1]~= nil then
+        GameCommon.IsOfHu = 1
         local img = "game/op_hu.png"
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
@@ -146,8 +148,14 @@ function GameGangOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
-        self:removeFromParent()
+            if GameCommon.IsOfHu == 1 then 
+                require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
+                    NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
+                    self:removeFromParent()       
+                end)   
+            else
+                self:removeFromParent()
+            end 
         end)
     end
     for key, var in pairs(uiListView_Opration:getItems()) do

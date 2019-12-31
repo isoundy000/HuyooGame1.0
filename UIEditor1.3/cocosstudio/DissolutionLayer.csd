@@ -129,6 +129,75 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
+              <AbstractNodeData Name="Panel_contents8" ActionTag="-1585291858" Tag="630" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="318.2338" RightMargin="320.7662" TopMargin="197.9415" BottomMargin="246.0584" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                <Size X="641.0000" Y="276.0000" />
+                <Children>
+                  <AbstractNodeData Name="ListView_content" ActionTag="-2012606379" Tag="631" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="30.5000" RightMargin="30.5000" BottomMargin="40.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+                    <Size X="580.0000" Y="236.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Panel_player" ActionTag="-1679472617" Tag="632" IconVisible="False" BottomMargin="204.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="580.0000" Y="32.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Text_name" ActionTag="233331965" Tag="633" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="51.0287" RightMargin="410.9713" TopMargin="4.0000" BottomMargin="4.0000" FontSize="24" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="118.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="110.0287" Y="16.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="0" G="0" B="0" />
+                            <PrePosition X="0.1897" Y="0.5000" />
+                            <PreSize X="0.2034" Y="0.7500" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_tongyi" ActionTag="207116505" Tag="634" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="396.9691" RightMargin="65.0309" TopMargin="4.0000" BottomMargin="4.0000" FontSize="24" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="118.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="455.9691" Y="16.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="0" />
+                            <PrePosition X="0.7862" Y="0.5000" />
+                            <PreSize X="0.2034" Y="0.7500" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position Y="204.0000" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition Y="0.8644" />
+                        <PreSize X="1.0000" Y="0.1356" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+                    <Position X="320.5000" Y="276.0000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="1.0000" />
+                    <PreSize X="0.9048" Y="0.8551" />
+                    <SingleColor A="255" R="150" G="150" B="255" />
+                    <FirstColor A="255" R="150" G="150" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="638.7338" Y="384.0584" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4990" Y="0.5334" />
+                <PreSize X="0.5008" Y="0.3833" />
+                <SingleColor A="255" R="150" G="200" B="255" />
+                <FirstColor A="255" R="150" G="200" B="255" />
+                <EndColor A="255" R="255" G="255" B="255" />
+                <ColorVector ScaleY="1.0000" />
+              </AbstractNodeData>
               <AbstractNodeData Name="Panel_button" ActionTag="790313113" Tag="452" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="435.0080" RightMargin="444.9920" TopMargin="533.0720" BottomMargin="136.9280" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="400.0000" Y="50.0000" />
                 <Children>

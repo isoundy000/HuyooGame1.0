@@ -59,7 +59,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Panel_morePWBtn" ActionTag="1111194340" Tag="161" IconVisible="False" LeftMargin="8.0000" RightMargin="1008.0000" TopMargin="644.0000" BottomMargin="4.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="Panel_morePWBtn" ActionTag="1111194340" Tag="161" IconVisible="False" LeftMargin="8.0000" RightMargin="1008.0000" TopMargin="646.0000" BottomMargin="2.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="264.0000" Y="72.0000" />
             <Children>
               <AbstractNodeData Name="Button_editorBtn" ActionTag="2129044037" Tag="162" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-0.9973" RightMargin="179.9973" TouchEnable="True" FontSize="30" ButtonText="聊天" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="55" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -120,10 +120,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="140.0000" Y="40.0000" />
+            <Position X="140.0000" Y="38.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1094" Y="0.0556" />
+            <PrePosition X="0.1094" Y="0.0528" />
             <PreSize X="0.2062" Y="0.1000" />
             <SingleColor A="255" R="150" G="200" B="255" />
             <FirstColor A="255" R="150" G="200" B="255" />
@@ -155,14 +155,14 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="ListView_CPWList" ActionTag="-1022038480" Tag="557" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="123.9200" RightMargin="-876.9200" TopMargin="-3.5000" BottomMargin="-3.5000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="20" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
-                <Size X="860.0000" Y="60.0000" />
+              <AbstractNodeData Name="ListView_CPWList" ActionTag="-1022038480" Tag="557" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="123.9205" RightMargin="-866.9205" TopMargin="-3.5000" BottomMargin="-3.5000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="20" VerticalType="Align_VerticalCenter" ctype="ListViewObjectData">
+                <Size X="850.0000" Y="60.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="123.9200" Y="26.5000" />
+                <Position X="123.9205" Y="26.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="1.1581" Y="0.5000" />
-                <PreSize X="8.0374" Y="1.1321" />
+                <PreSize X="7.9439" Y="1.1321" />
                 <SingleColor A="255" R="150" G="150" B="255" />
                 <FirstColor A="255" R="150" G="150" B="255" />
                 <EndColor A="255" R="255" G="255" B="255" />

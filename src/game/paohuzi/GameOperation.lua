@@ -152,7 +152,7 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
     else
         if (Bit:_and(cbOperateCode,GameCommon.ACK_BIHU) ~= 0) then
             local item = self.Button_operation:clone()
-            item:loadTextures("game/op_hu.png","game/op_hu.png","game/op_hu.png")
+            item:loadTextures("game/yongzhou_hu.png","game/yongzhou_hu.png","game/yongzhou_hu.png")
             item:setPressedActionEnabled(true)
             if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
 				CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
@@ -171,11 +171,16 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                     self:dealHu()
                 end 
             end)
-            ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-            local armature=ccs.Armature:create("xuanzhuanxing")
-            armature:getAnimation():playWithIndex(0)
+            -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+            -- local armature=ccs.Armature:create("xuanzhuanxing")
+            -- armature:getAnimation():playWithIndex(0)
+            -- item:addChild(armature)
+            -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+            ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+            local armature=ccs.Armature:create("button_effects")
+            armature:getAnimation():playWithIndex(1)
             item:addChild(armature)
-            armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+            armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
         else
             if (Bit:_and(cbOperateCode,GameCommon.ACK_CHI) ~= 0) or (Bit:_and(cbOperateCode,GameCommon.ACK_CHI_EX) ~= 0) then
                 if Bit:_and(cbOperateCode,GameCommon.ACK_CHI_EX) ~= 0 then
@@ -184,7 +189,7 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                     self.operateClientData.cbOperateCode = GameCommon.ACK_CHI
                 end
                 local item = self.Button_operation:clone()
-                item:loadTextures("game/op_chi.png","game/op_chi.png","game/op_chi.png")
+                item:loadTextures("game/yongzhou_chi.png","game/yongzhou_chi.png","game/yongzhou_chi.png")
                 item:setPressedActionEnabled(true)
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
@@ -200,11 +205,17 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         end 
                     end 
                 end)
+
+                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                local armature=ccs.Armature:create("button_effects")
+                armature:getAnimation():playWithIndex(0)
+                item:addChild(armature)
+                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
           
             end
             if Bit:_and(cbOperateCode,GameCommon.ACK_PENG) ~= 0  then
                 local item = self.Button_operation:clone()
-                item:loadTextures("game/op_peng.png","game/op_peng.png","game/op_peng.png")
+                item:loadTextures("game/yongzhou_peng.png","game/yongzhou_peng.png","game/yongzhou_peng.png")
                 item:setPressedActionEnabled(true)
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
@@ -220,10 +231,16 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         end 
                     end 
                 end)
+
+                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                local armature=ccs.Armature:create("button_effects")
+                armature:getAnimation():playWithIndex(0)
+                item:addChild(armature)
+                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
             end
             if Bit:_and(cbOperateCode,GameCommon.ACK_CHIHU) ~= 0  then
                 local item = self.Button_operation:clone()
-                item:loadTextures("game/op_hu.png","game/op_hu.png","game/op_hu.png")
+                item:loadTextures("game/yongzhou_hu.png","game/yongzhou_hu.png","game/yongzhou_hu.png")
                 item:setPressedActionEnabled(true)
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
@@ -300,18 +317,23 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                     end
                     
                 end
-                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-                local armature=ccs.Armature:create("xuanzhuanxing")
-                armature:getAnimation():playWithIndex(0)
+                -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+                -- local armature=ccs.Armature:create("xuanzhuanxing")
+                -- armature:getAnimation():playWithIndex(0)
+                -- item:addChild(armature)
+                -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                local armature=ccs.Armature:create("button_effects")
+                armature:getAnimation():playWithIndex(1)
                 item:addChild(armature)
-                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)  
             end
             if Bit:_and(cbOperateCode,GameCommon.ACK_WD) ~= 0  then
                 if GameCommon.tableConfig.wKindID == 33 or GameCommon.tableConfig.wKindID == 34 or GameCommon.tableConfig.wKindID == 35 or GameCommon.tableConfig.wKindID == 36 or GameCommon.tableConfig.wKindID == 32 or GameCommon.tableConfig.wKindID == 37 or GameCommon.tableConfig.wKindID == 27 or GameCommon.tableConfig.wKindID == 31 then
                     if Bit:_and(cbSubOperateCode,0x04) ~= 0  then
                         --4王 三王闯
                         local item = self.Button_operation:clone()
-                        item:loadTextures("game/op_wangzha.png","game/op_wangzha.png","game/op_wangzha.png")
+                        item:loadTextures("game/yongzhou_wangzha.png","game/yongzhou_wangzha.png","game/yongzhou_wangzha.png")
                         item:setPressedActionEnabled(true)
                         uiPanel_operation:addChild(item)
                         item:addTouchEventListener(function(sender,event) 
@@ -320,16 +342,21 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                                 self:deal3Wc()
                             end 
                         end)
-                        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-                        local armature=ccs.Armature:create("xuanzhuanxing")
-                        armature:getAnimation():playWithIndex(0)
+                        -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+                        -- local armature=ccs.Armature:create("xuanzhuanxing")
+                        -- armature:getAnimation():playWithIndex(0)
+                        -- item:addChild(armature)
+                        -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                        local armature=ccs.Armature:create("button_effects")
+                        armature:getAnimation():playWithIndex(1)
                         item:addChild(armature)
-                        armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                        armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
                     end
                     if Bit:_and(cbSubOperateCode,0x02) ~= 0  then
                         --4王 王闯
                         local item = self.Button_operation:clone()
-                        item:loadTextures("game/op_wangchuang.png","game/op_wangchuang.png","game/op_wangchuang.png")
+                        item:loadTextures("game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png")
                         item:setPressedActionEnabled(true)
                         uiPanel_operation:addChild(item)
                         item:addTouchEventListener(function(sender,event) 
@@ -338,16 +365,21 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                                 self:dealWc()
                             end 
                         end)
-                        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-                        local armature=ccs.Armature:create("xuanzhuanxing")
-                        armature:getAnimation():playWithIndex(0)
+                        -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+                        -- local armature=ccs.Armature:create("xuanzhuanxing")
+                        -- armature:getAnimation():playWithIndex(0)
+                        -- item:addChild(armature)
+                        -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                        local armature=ccs.Armature:create("button_effects")
+                        armature:getAnimation():playWithIndex(1)
                         item:addChild(armature)
-                        armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                        armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
                     end
                     if Bit:_and(cbSubOperateCode,0x01) ~= 0  then
                         --4王 王钓
                         local item = self.Button_operation:clone()
-                        item:loadTextures("game/op_wangdiao.png","game/op_wangdiao.png","game/op_wangdiao.png")
+                        item:loadTextures("game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png")
                         item:setPressedActionEnabled(true)
                         uiPanel_operation:addChild(item)
                         item:addTouchEventListener(function(sender,event) 
@@ -356,15 +388,20 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                                 self:dealWd()
                             end 
                         end)
-                        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-                        local armature=ccs.Armature:create("xuanzhuanxing")
-                        armature:getAnimation():playWithIndex(0)
+                        -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+                        -- local armature=ccs.Armature:create("xuanzhuanxing")
+                        -- armature:getAnimation():playWithIndex(0)
+                        -- item:addChild(armature)
+                        -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                        local armature=ccs.Armature:create("button_effects")
+                        armature:getAnimation():playWithIndex(1)
                         item:addChild(armature)
-                        armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                        armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
                     end
                 else
                     local item = self.Button_operation:clone()
-                    item:loadTextures("game/op_wangdiao.png","game/op_wangdiao.png","game/op_wangdiao.png")
+                    item:loadTextures("game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png")
                     item:setPressedActionEnabled(true)
                     uiPanel_operation:addChild(item)
                     item:addTouchEventListener(function(sender,event) 
@@ -373,16 +410,21 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                             self:dealWd()
                         end 
                     end)
-                    ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-                    local armature=ccs.Armature:create("xuanzhuanxing")
-                    armature:getAnimation():playWithIndex(0)
+                    -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+                    -- local armature=ccs.Armature:create("xuanzhuanxing")
+                    -- armature:getAnimation():playWithIndex(0)
+                    -- item:addChild(armature)
+                    -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                    ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                    local armature=ccs.Armature:create("button_effects")
+                    armature:getAnimation():playWithIndex(1)
                     item:addChild(armature)
-                    armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                    armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
                 end
             end
             if Bit:_and(cbOperateCode,GameCommon.ACK_WC) ~= 0 then
                 local item = self.Button_operation:clone()
-                item:loadTextures("game/op_wangchuang.png","game/op_wangchuang.png","game/op_wangchuang.png")
+                item:loadTextures("game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png")
                 item:setPressedActionEnabled(true)
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
@@ -391,11 +433,16 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         self:dealWc()
                     end 
                 end)
-                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
-                local armature=ccs.Armature:create("xuanzhuanxing")
-                armature:getAnimation():playWithIndex(0)
+                -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xuanzhuanxing/xuanzhuanxing.ExportJson")
+                -- local armature=ccs.Armature:create("xuanzhuanxing")
+                -- armature:getAnimation():playWithIndex(0)
+                -- item:addChild(armature)
+                -- armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/button_effects/button_effects.ExportJson")
+                local armature=ccs.Armature:create("button_effects")
+                armature:getAnimation():playWithIndex(1)
                 item:addChild(armature)
-                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
+                armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2) 
             end
             
             if Bit:_and(cbOperateCode,GameCommon.ACK_PAO) ~= 0 then
@@ -420,7 +467,7 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
             end
             if cbOperateCode ~= GameCommon.ACK_PAO then
                 local item = self.Button_operation:clone()
-                item:loadTextures("game/op_guo.png","game/op_guo.png","game/op_guo.png")
+                item:loadTextures("game/yongzhou_guo.png","game/yongzhou_guo.png","game/yongzhou_guo.png")
                 item:setPressedActionEnabled(true)                 
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 

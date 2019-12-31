@@ -2825,6 +2825,10 @@ function GameLogic:_calculateThreeHuXi(colData)
             return 6
         elseif colData[1].data == 18 and colData[2].data == 23 and colData[3].data == 26 then
             return 6
+        elseif colData[1].data == 1 and colData[2].data == 5 and colData[3].data == 10 then
+            return 3
+        elseif colData[1].data == 17 and colData[2].data == 21 and colData[3].data == 26 then
+            return 6
         end
     end
     return 0

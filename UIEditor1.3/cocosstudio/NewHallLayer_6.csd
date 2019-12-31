@@ -23,21 +23,10 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Particle_yanhua" ActionTag="-935488208" Tag="164" IconVisible="True" LeftMargin="466.8192" RightMargin="813.1808" TopMargin="254.6894" BottomMargin="465.3106" ctype="ParticleObjectData">
-                <Size X="0.0000" Y="0.0000" />
-                <AnchorPoint />
-                <Position X="466.8192" Y="465.3106" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3647" Y="0.6463" />
-                <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="common/yanhua.plist" Plist="" />
-                <BlendFunc Src="770" Dst="1" />
-              </AbstractNodeData>
               <AbstractNodeData Name="Panel_quick" ActionTag="884275949" Tag="207" IconVisible="False" PositionPercentXEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="3.7120" RightMargin="-3.7120" TopMargin="150.0795" BottomMargin="94.9205" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1280.0000" Y="475.0000" />
                 <Children>
-                  <AbstractNodeData Name="Button_region" ActionTag="-653161376" Tag="208" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="0.7680" RightMargin="1215.2321" TopMargin="42.5000" BottomMargin="23.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="34" Scale9Height="387" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                  <AbstractNodeData Name="Button_region" ActionTag="-653161376" Tag="208" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="0.7680" RightMargin="1215.2321" TopMargin="80.5000" BottomMargin="-14.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="34" Scale9Height="387" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                     <Size X="64.0000" Y="409.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_region" ActionTag="1410906915" Tag="198" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="15.4400" RightMargin="20.5600" TopMargin="72.1500" BottomMargin="194.8500" LeftEage="9" RightEage="9" TopEage="28" BottomEage="28" Scale9OriginX="9" Scale9OriginY="28" Scale9Width="10" Scale9Height="86" ctype="ImageViewObjectData">
@@ -62,10 +51,10 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="32.7680" Y="228.0000" />
+                    <Position X="32.7680" Y="190.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.0256" Y="0.4800" />
+                    <PrePosition X="0.0256" Y="0.4000" />
                     <PreSize X="0.0500" Y="0.8611" />
                     <TextColor A="255" R="65" G="65" B="70" />
                     <DisabledFileData Type="Normal" Path="hall_6/hall_qiehuan.png" Plist="" />
@@ -173,7 +162,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Panel_function" ActionTag="1555877464" Tag="181" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="2.9440" RightMargin="-2.9441" TopMargin="0.1440" BottomMargin="-0.1440" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_function" ActionTag="1555877464" Tag="181" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1280.0000" Y="720.0000" />
                 <Children>
                   <AbstractNodeData Name="Panel_broadcast" ActionTag="-1756420887" Tag="182" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="328.3063" RightMargin="298.6937" TopMargin="81.3880" BottomMargin="595.6120" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -239,7 +228,7 @@
                     <EndColor A="255" R="255" G="255" B="255" />
                     <ColorVector ScaleY="1.0000" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_user" ActionTag="-1831844767" Tag="186" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="23.0335" RightMargin="56.9666" TopMargin="0.4000" BottomMargin="637.6000" LeftEage="178" RightEage="178" TopEage="26" BottomEage="26" Scale9OriginX="178" Scale9OriginY="26" Scale9Width="844" Scale9Height="30" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_user" ActionTag="-1831844767" Tag="186" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="23.0335" RightMargin="56.9666" TopMargin="0.4000" BottomMargin="637.6000" LeftEage="178" RightEage="178" TopEage="26" BottomEage="26" Scale9OriginX="178" Scale9OriginY="26" Scale9Width="844" Scale9Height="30" ctype="ImageViewObjectData">
                     <Size X="1200.0000" Y="82.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_avatar" ActionTag="-1290569455" Tag="187" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-14.6125" RightMargin="1144.6125" TopMargin="4.9176" BottomMargin="7.0824" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="34" Scale9Height="34" ctype="ImageViewObjectData">
@@ -291,7 +280,7 @@
                         <PreSize X="0.0583" Y="0.8537" />
                         <FileData Type="Normal" Path="common/hall_avatar.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_gold" ActionTag="659798112" Tag="359" IconVisible="False" LeftMargin="268.5468" RightMargin="742.4532" TopMargin="15.2588" BottomMargin="18.7412" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_gold" ActionTag="659798112" Tag="359" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="268.5000" RightMargin="742.5000" TopMargin="15.2588" BottomMargin="18.7412" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
                         <Size X="189.0000" Y="48.0000" />
                         <Children>
                           <AbstractNodeData Name="Text_gold" ActionTag="1929427217" Tag="192" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="37.1989" RightMargin="60.8011" TopMargin="7.6112" BottomMargin="14.3888" FontSize="26" LabelText="9999999" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -332,14 +321,14 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="363.0468" Y="42.7412" />
+                        <Position X="363.0000" Y="42.7412" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.3025" Y="0.5212" />
                         <PreSize X="0.1575" Y="0.5854" />
                         <FileData Type="Normal" Path="hall_6/hall_goldbg.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_roomCard" ActionTag="-74946459" Tag="360" IconVisible="False" LeftMargin="553.9442" RightMargin="457.0558" TopMargin="16.4900" BottomMargin="17.5100" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_roomCard" ActionTag="-74946459" Tag="360" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="538.8600" RightMargin="472.1400" TopMargin="16.4897" BottomMargin="17.5103" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
                         <Size X="189.0000" Y="48.0000" />
                         <Children>
                           <AbstractNodeData Name="Text_roomCard" ActionTag="-427373226" Tag="196" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="31.0683" RightMargin="66.9317" TopMargin="7.3472" BottomMargin="14.6528" FontSize="26" LabelText="9999999" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -380,20 +369,68 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="648.4442" Y="41.5100" />
+                        <Position X="633.3600" Y="41.5103" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5404" Y="0.5062" />
+                        <PrePosition X="0.5278" Y="0.5062" />
                         <PreSize X="0.1575" Y="0.5854" />
                         <FileData Type="Normal" Path="hall_6/hall_goldbg.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_PerfectInfo" ActionTag="-1089683957" Tag="198" IconVisible="False" LeftMargin="885.8019" RightMargin="238.1981" TopMargin="5.6900" BottomMargin="14.3100" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="46" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                        <Size X="76.0000" Y="62.0000" />
+                      <AbstractNodeData Name="Image_yuanbao" ActionTag="-90583329" Tag="99" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="833.2200" RightMargin="177.7800" TopMargin="16.4897" BottomMargin="17.5103" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
+                        <Size X="189.0000" Y="48.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Text_yuanbao" ActionTag="-1343648098" Tag="100" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="32.0684" RightMargin="65.9316" TopMargin="7.3471" BottomMargin="14.6529" FontSize="26" LabelText="9999999" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="91.0000" Y="26.0000" />
+                            <AnchorPoint ScaleY="0.5000" />
+                            <Position X="32.0684" Y="27.6529" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="251" B="208" />
+                            <PrePosition X="0.1697" Y="0.5761" />
+                            <PreSize X="0.4815" Y="0.5417" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_ybIcon" ActionTag="1579664913" Tag="101" IconVisible="False" LeftMargin="-17.4161" RightMargin="157.4161" TopMargin="2.6505" BottomMargin="9.3495" LeftEage="22" RightEage="22" TopEage="11" BottomEage="11" Scale9OriginX="22" Scale9OriginY="11" Scale9Width="5" Scale9Height="14" ctype="ImageViewObjectData">
+                            <Size X="49.0000" Y="36.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="7.0839" Y="27.3495" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.0375" Y="0.5698" />
+                            <PreSize X="0.2593" Y="0.7500" />
+                            <FileData Type="Normal" Path="common/yuanbaoc_icon.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Button_addYB" ActionTag="359287327" Tag="102" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="143.2031" RightMargin="-45.2031" TopMargin="-4.4016" BottomMargin="4.4016" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="61" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                            <Size X="91.0000" Y="48.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="188.7031" Y="28.4016" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.9984" Y="0.5917" />
+                            <PreSize X="0.4815" Y="1.0000" />
+                            <TextColor A="255" R="65" G="65" B="70" />
+                            <DisabledFileData Type="Normal" Path="hall_6/hall_goumai.png" Plist="" />
+                            <PressedFileData Type="Normal" Path="hall_6/hall_goumai.png" Plist="" />
+                            <NormalFileData Type="Normal" Path="hall_6/hall_goumai.png" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="923.8019" Y="45.3100" />
+                        <Position X="927.7200" Y="41.5103" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.7698" Y="0.5526" />
+                        <PrePosition X="0.7731" Y="0.5062" />
+                        <PreSize X="0.1575" Y="0.5854" />
+                        <FileData Type="Normal" Path="hall_6/hall_goldbg.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Button_PerfectInfo" ActionTag="-1089683957" Tag="198" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="1166.5457" RightMargin="-42.5457" TopMargin="150.3603" BottomMargin="-130.3603" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="46" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                        <Size X="76.0000" Y="62.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="1204.5457" Y="-99.3603" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="1.0038" Y="-1.2117" />
                         <PreSize X="0.0633" Y="0.7561" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_PerfectInfo.png" Plist="" />
@@ -402,13 +439,13 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_invite" ActionTag="1092170479" ZOrder="1" Tag="93" IconVisible="False" LeftMargin="991.4825" RightMargin="130.5175" TopMargin="0.1900" BottomMargin="8.8100" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="4" BottomEage="4" Scale9OriginX="15" Scale9OriginY="4" Scale9Width="48" Scale9Height="65" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_invite" ActionTag="1092170479" ZOrder="1" Tag="93" IconVisible="False" LeftMargin="1165.5566" RightMargin="-43.5566" TopMargin="252.2885" BottomMargin="-243.2885" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="4" BottomEage="4" Scale9OriginX="15" Scale9OriginY="4" Scale9Width="48" Scale9Height="65" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="78.0000" Y="73.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="1030.4825" Y="45.3100" />
+                        <Position X="1204.5566" Y="-206.7885" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.8587" Y="0.5526" />
+                        <PrePosition X="1.0038" Y="-2.5218" />
                         <PreSize X="0.0650" Y="0.8902" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_yaoqingyouli.png" Plist="" />
@@ -417,7 +454,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_51live" ActionTag="-1467130792" Tag="200" IconVisible="False" LeftMargin="782.5819" RightMargin="339.4181" TopMargin="5.6900" BottomMargin="14.3100" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="4" BottomEage="4" Scale9OriginX="15" Scale9OriginY="4" Scale9Width="20" Scale9Height="42" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_51live" Visible="False" ActionTag="-1467130792" Tag="200" IconVisible="False" LeftMargin="782.5819" RightMargin="339.4181" TopMargin="5.6900" BottomMargin="14.3100" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="4" BottomEage="4" Scale9OriginX="15" Scale9OriginY="4" Scale9Width="20" Scale9Height="42" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="78.0000" Y="62.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="821.5819" Y="45.3100" />
@@ -469,13 +506,13 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_game" ActionTag="910426302" ZOrder="1" Tag="2335" IconVisible="False" LeftMargin="248.0000" RightMargin="1072.0000" TopMargin="2.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="25" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_game" ActionTag="910426302" ZOrder="1" Tag="2335" IconVisible="False" LeftMargin="274.0000" RightMargin="1046.0000" TopMargin="2.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="25" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="55.0000" Y="72.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="301.5000" Y="36.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.2004" Y="0.4865" />
+                        <PrePosition X="0.2193" Y="0.4865" />
                         <PreSize X="0.0400" Y="0.9730" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_game.png" Plist="" />
@@ -484,13 +521,13 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_setting" ActionTag="-1279319515" ZOrder="2" Tag="202" IconVisible="False" LeftMargin="407.0000" RightMargin="913.0000" TopMargin="2.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="25" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_setting" ActionTag="-1279319515" ZOrder="2" Tag="202" IconVisible="False" LeftMargin="459.0000" RightMargin="861.0000" TopMargin="2.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="25" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="55.0000" Y="72.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="486.5000" Y="36.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.3160" Y="0.4865" />
+                        <PrePosition X="0.3538" Y="0.4865" />
                         <PreSize X="0.0400" Y="0.9730" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_settings.png" Plist="" />
@@ -499,13 +536,13 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_record" ActionTag="774202757" ZOrder="3" Tag="203" IconVisible="False" LeftMargin="566.0000" RightMargin="755.0000" TopMargin="6.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="24" Scale9Height="46" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_record" ActionTag="774202757" ZOrder="3" Tag="203" IconVisible="False" LeftMargin="644.0000" RightMargin="677.0000" TopMargin="6.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="24" Scale9Height="46" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="54.0000" Y="68.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="671.0000" Y="34.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.4313" Y="0.4595" />
+                        <PrePosition X="0.4880" Y="0.4595" />
                         <PreSize X="0.0393" Y="0.9189" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_record.png" Plist="" />
@@ -514,13 +551,13 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_welfare" ActionTag="-1429401316" ZOrder="4" Tag="204" IconVisible="False" LeftMargin="724.0000" RightMargin="602.0000" TopMargin="3.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="19" Scale9Height="49" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_welfare" ActionTag="-1429401316" ZOrder="4" Tag="204" IconVisible="False" LeftMargin="828.0000" RightMargin="498.0000" TopMargin="3.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="19" Scale9Height="49" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="49.0000" Y="71.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="852.5000" Y="35.5000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5444" Y="0.4797" />
+                        <PrePosition X="0.6200" Y="0.4797" />
                         <PreSize X="0.0356" Y="0.9595" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_welfare.png" Plist="" />
@@ -529,7 +566,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_email" ActionTag="1259748489" ZOrder="5" Tag="51" IconVisible="False" LeftMargin="877.0000" RightMargin="444.0000" TopMargin="6.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="24" Scale9Height="46" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_email" ActionTag="1259748489" ZOrder="5" Tag="51" IconVisible="False" LeftMargin="1007.0000" RightMargin="314.0000" TopMargin="6.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="24" Scale9Height="46" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="54.0000" Y="68.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_look" ActionTag="1513389012" Tag="52" IconVisible="False" LeftMargin="36.7700" RightMargin="-15.7700" TopMargin="-7.7700" BottomMargin="42.7700" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="13" Scale9Height="13" ctype="ImageViewObjectData">
@@ -560,7 +597,7 @@
                         <Position X="1034.0000" Y="34.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.6575" Y="0.4595" />
+                        <PrePosition X="0.7520" Y="0.4595" />
                         <PreSize X="0.0393" Y="0.9189" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="Email/Email_13.png" Plist="" />
@@ -569,13 +606,13 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_mall" ActionTag="1159247911" ZOrder="6" Tag="205" IconVisible="False" LeftMargin="1189.0000" RightMargin="42.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="114" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_mall" ActionTag="1159247911" ZOrder="6" Tag="205" IconVisible="False" LeftMargin="1191.0000" RightMargin="40.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="114" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="144.0000" Y="74.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="1263.0000" Y="37.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.9171" Y="0.5000" />
+                        <PrePosition X="0.9185" Y="0.5000" />
                         <PreSize X="0.1047" Y="1.0000" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="hall_6/hall_mall.png" Plist="" />
@@ -628,10 +665,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="642.9440" Y="359.8560" />
+                <Position X="640.0000" Y="360.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5023" Y="0.4998" />
+                <PrePosition X="0.5000" Y="0.5000" />
                 <PreSize X="1.0000" Y="1.0000" />
                 <SingleColor A="255" R="150" G="200" B="255" />
                 <FirstColor A="255" R="150" G="200" B="255" />

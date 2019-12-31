@@ -197,7 +197,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Panel_ReadEmail" ActionTag="-2096522064" Tag="173" IconVisible="False" LeftMargin="-1.4333" RightMargin="1.4333" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" LeftEage="326" RightEage="326" TopEage="197" BottomEage="197" Scale9OriginX="326" Scale9OriginY="197" Scale9Width="337" Scale9Height="203" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_ReadEmail" Visible="False" ActionTag="-2096522064" Tag="173" IconVisible="False" LeftMargin="-1.4333" RightMargin="1.4333" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" LeftEage="326" RightEage="326" TopEage="197" BottomEage="197" Scale9OriginX="326" Scale9OriginY="197" Scale9Width="337" Scale9Height="203" ctype="PanelObjectData">
                 <Size X="1280.0000" Y="720.0000" />
                 <Children>
                   <AbstractNodeData Name="Button_shut" ActionTag="1783300676" Tag="59" IconVisible="False" LeftMargin="1078.3826" RightMargin="129.6174" TopMargin="29.4509" BottomMargin="618.5491" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="42" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">

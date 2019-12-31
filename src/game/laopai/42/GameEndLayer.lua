@@ -181,19 +181,30 @@ function GameEndLayer:onCreate(pBuffer)
 
         local uiAtlasLabel_score1 = ccui.Helper:seekWidgetByName(item,"AtlasLabel_score1")
         local uiAtlasLabel_score2 = ccui.Helper:seekWidgetByName(item,"AtlasLabel_score2")
-        print ("玩家结算积分：",i,pBuffer.lGameScore[i])
-        if pBuffer.lGameScore[i] < 0 then       
-            uiAtlasLabel_score1:setVisible(false)
-            uiAtlasLabel_score2:setString(string.format(".%d",pBuffer.lGameScore[i]))                    
-        elseif  pBuffer.lGameScore[i] > 0 then
-            uiAtlasLabel_score1:setString(string.format(".%d",pBuffer.lGameScore[i]))
-            uiAtlasLabel_score2:setVisible(false)
-        else
-            uiAtlasLabel_score1:setString(string.format(".%d",pBuffer.lGameScore[i]))
-            uiAtlasLabel_score2:setVisible(false)
-            --uiAtlasLabel_score:setString(string.format(".%d",pBuffer.lGameScore[i]))
-        end                                     
+        uiAtlasLabel_score1:setVisible(false)
+        uiAtlasLabel_score2:setVisible(false)
+        -- print ("玩家结算积分：",i,pBuffer.lGameScore[i])
+        -- if pBuffer.lGameScore[i] < 0 then       
+        --     uiAtlasLabel_score1:setVisible(false)
+        --     uiAtlasLabel_score2:setString(string.format(".%d",pBuffer.lGameScore[i]))                    
+        -- elseif  pBuffer.lGameScore[i] > 0 then
+        --     uiAtlasLabel_score1:setString(string.format(".%d",pBuffer.lGameScore[i]))
+        --     uiAtlasLabel_score2:setVisible(false)
+        -- else
+        --     uiAtlasLabel_score1:setString(string.format(".%d",pBuffer.lGameScore[i]))
+        --     uiAtlasLabel_score2:setVisible(false)
+        --     --uiAtlasLabel_score:setString(string.format(".%d",pBuffer.lGameScore[i]))
+        -- end                                     
 
+        local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
+        uiText_result:setTextColor(cc.c3b(255,238,158))
+        uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
+        local dwGold = pBuffer.fWriteScoreArr[i]/100
+        if pBuffer.lGameScore[i] > 0 then 
+            uiText_result:setString(string.format(" +%0.2f",dwGold))
+        else      
+            uiText_result:setString(string.format(" %0.2f",dwGold))
+        end 
 
         local uiListView_card = ccui.Helper:seekWidgetByName(item,"ListView_card") 
        

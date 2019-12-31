@@ -14,12 +14,14 @@ local StaticData        = require("app.static.StaticData")
 local UserData          = require("app.user.UserData")
 local Common            = require("common.Common")
 local GameConfig        = require("common.GameConfig")
+local Bit               = require("common.Bit")
 
 local NewClubSetPlaywayLayer = class("NewClubSetPlaywayLayer", cc.load("mvc").ViewBase)
 
 function NewClubSetPlaywayLayer:onConfig()
     self.widget         = {
         {"Button_close", "onClose"},
+        {"Button_cw", "onCW"},
         {"Button_all", "onAll"},
         {"Button_mj", "onMj"},
         {"Button_pk", "onPK"},
@@ -47,7 +49,6 @@ end
 function NewClubSetPlaywayLayer:onCreate(param)
 	self.clubData = param[1]
 	self.allTableData = param[2]
-	dump(self.clubData)
 
 	if not (self.clubData.dwUserID == UserData.User.userID or self:isAdmin(UserData.User.userID)) or self.allTableData then
 		self.Button_add:setVisible(false)
@@ -60,20 +61,24 @@ function NewClubSetPlaywayLayer:onClose()
     self:removeFromParent()
 end
 
-function NewClubSetPlaywayLayer:onAll()
-	self:switchType(0)
+function NewClubSetPlaywayLayer:onCW()
+    self:switchType(0)
 end
 
-function NewClubSetPlaywayLayer:onMj()
+function NewClubSetPlaywayLayer:onAll()
 	self:switchType(1)
 end
 
-function NewClubSetPlaywayLayer:onPK()
+function NewClubSetPlaywayLayer:onMj()
 	self:switchType(2)
 end
 
-function NewClubSetPlaywayLayer:onZP()
+function NewClubSetPlaywayLayer:onPK()
 	self:switchType(3)
+end
+
+function NewClubSetPlaywayLayer:onZP()
+	self:switchType(4)
 end
 
 function NewClubSetPlaywayLayer:onAdd()
@@ -86,22 +91,32 @@ end
 -- itype 0 全部 1 麻将 2 扑克 3 字牌
 function NewClubSetPlaywayLayer:switchType(itype)
 	self.curSelType = itype
-	if itype == 0 then
+    if itype == 0 then
+        self.Button_cw:setBright(false)
+        self.Button_all:setBright(true)
+        self.Button_mj:setBright(true)
+        self.Button_pk:setBright(true)
+        self.Button_zp:setBright(true)
+	elseif itype == 1 then
+        self.Button_cw:setBright(true)
 		self.Button_all:setBright(false)
 		self.Button_mj:setBright(true)
 		self.Button_pk:setBright(true)
 		self.Button_zp:setBright(true)
-	elseif itype == 1 then
+	elseif itype == 2 then
+        self.Button_cw:setBright(true)
 		self.Button_all:setBright(true)
 		self.Button_mj:setBright(false)
 		self.Button_pk:setBright(true)
 		self.Button_zp:setBright(true)
-	elseif itype == 2 then
+	elseif itype == 3 then
+        self.Button_cw:setBright(true)
 		self.Button_all:setBright(true)
 		self.Button_mj:setBright(true)
 		self.Button_pk:setBright(false)
 		self.Button_zp:setBright(true)
-	elseif itype == 3 then
+	elseif itype == 4 then
+        self.Button_cw:setBright(true)
 		self.Button_all:setBright(true)
 		self.Button_mj:setBright(true)
 		self.Button_pk:setBright(true)
@@ -110,16 +125,25 @@ function NewClubSetPlaywayLayer:switchType(itype)
 	self:initSelectPage(itype)
 end
 
+function NewClubSetPlaywayLayer:isCWPlayways(playway)
+    for i,v in ipairs(UserData.Game.tableCommonPlayways) do
+        if v ~= 0 and v == playway then
+            return true;
+        end
+    end
+    return false
+end
+
 function NewClubSetPlaywayLayer:initSelectPage(itype)
 	local items = self.ListView_playway:getChildren()
 	for i,v in ipairs(items) do
 		v:setVisible(false)
 	end
     local playwaynum = self:getPlayWayNums()
-    for i=playwaynum+1, #items do
-        items[i]:removeFromParent()
-        items[i] = nil
-    end
+    -- for i=playwaynum+1, #items do
+    --     items[i]:removeFromParent()
+    --     items[i] = nil
+    -- end
 
     if playwaynum > 0 then
 		self.Image_noPlayway:setVisible(false)
@@ -131,7 +155,22 @@ function NewClubSetPlaywayLayer:initSelectPage(itype)
 	end
 
 	local count = 0
-	if itype == 0 then
+    if itype == 0 then
+        dump(UserData.Game.tableCommonPlayways)
+        for i,v in ipairs(self.clubData.dwPlayID) do
+            if self:isCWPlayways(v) then
+                count = count + 1
+                local item = items[count]
+                if not item then
+                    item = self.Image_item:clone()
+                    self.ListView_playway:pushBackCustomItem(item)
+                end
+                item:setVisible(true)
+                self:initPlaywayItem(item, count, i)
+            end
+        end
+
+	elseif itype == 1 then
 		for i,id in ipairs(self.clubData.dwPlayID) do
 			local kindid = self.clubData.wKindID[i]
 	        local gameinfo = StaticData.Games[kindid]
@@ -146,7 +185,7 @@ function NewClubSetPlaywayLayer:initSelectPage(itype)
 		        self:initPlaywayItem(item, count, i)
 	        end
 		end
-	elseif itype == 1 then
+	elseif itype == 2 then
 		for i,id in ipairs(self.clubData.dwPlayID) do
 			local kindid = self.clubData.wKindID[i]
 	        local gameinfo = StaticData.Games[kindid]
@@ -161,7 +200,7 @@ function NewClubSetPlaywayLayer:initSelectPage(itype)
 		        self:initPlaywayItem(item, count, i)
 	        end
 		end
-	elseif itype == 2 then
+	elseif itype == 3 then
 		for i,id in ipairs(self.clubData.dwPlayID) do
 			local kindid = self.clubData.wKindID[i]
 	        local gameinfo = StaticData.Games[kindid]
@@ -176,7 +215,7 @@ function NewClubSetPlaywayLayer:initSelectPage(itype)
 		        self:initPlaywayItem(item, count, i)
 	        end
 		end
-	elseif itype == 3 then
+	elseif itype == 4 then
 		for i,id in ipairs(self.clubData.dwPlayID) do
 			local kindid = self.clubData.wKindID[i]
 	        local gameinfo = StaticData.Games[kindid]
@@ -227,8 +266,14 @@ function NewClubSetPlaywayLayer:initPlaywayItem(item, count, index)
     	Button_quick:setPressedActionEnabled(true)
 	    Button_quick:addClickEventListener(function(sender)
 	        require("common.Common"):playEffect("common/buttonplay.mp3")
-	    	local kindid = self.clubData.wKindID[index]
+	    	if Bit:_and(0x01, self.clubData.bIsDisable) == 0x01 then
+                require("common.MsgBoxLayer"):create(0,nil,'亲友圈打烊中')
+                return
+            end
+
+            local kindid = self.clubData.wKindID[index]
 	    	local playwayid = self.clubData.dwPlayID[index]
+            cc.UserDefault:getInstance():setIntegerForKey('club_quick_game_playwayid', playwayid)
 	        for _,v in pairs(self.allTableData) do
 	            if v and v.wTableSubType == playwayid then
 	                if (kindid == 51 or kindid == 53 or kindid == 55 or kindid == 56 or kindid == 57 or kindid == 58 or kindid == 59) and v.tableParameter.bCanPlayingJoin == 1 and v.wCurrentChairCount < v.wChairCount  then
@@ -255,26 +300,27 @@ function NewClubSetPlaywayLayer:initPlaywayItem(item, count, index)
     	Button_remove:setVisible(true)
     	Button_modify:setVisible(true)
     	Button_quick:setVisible(false)
-    end
 
-    Button_remove:setPressedActionEnabled(true)
-    Button_remove:addClickEventListener(function(sender)
-        require("common.Common"):playEffect("common/buttonplay.mp3")
-        local kindid = self.clubData.wKindID[index]
-        local playwayid = self.clubData.dwPlayID[index]
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddw",
-            2,self.clubData.dwClubID,playwayid,kindid)
-    end)
-    Button_modify:setPressedActionEnabled(true)
-    Button_modify:addClickEventListener(function(sender)
-        require("common.Common"):playEffect("common/buttonplay.mp3")
-        local kindid = self.clubData.wKindID[index]
-        local playwayid = self.clubData.dwPlayID[index]
-        local roomNode = require("app.MyApp"):create(kindid,1):createView("RoomCreateLayer")
-        self:addChild(roomNode)
-        roomNode.data = {playid = playwayid, settype = 3, idx = index}
-        roomNode:setName('RoomCreateLayer')
-    end)
+    	Button_remove:setPressedActionEnabled(true)
+	    Button_remove:addClickEventListener(function(sender)
+	        require("common.Common"):playEffect("common/buttonplay.mp3")
+	        local kindid = self.clubData.wKindID[index]
+	        local playwayid = self.clubData.dwPlayID[index]
+	        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddw",
+	            2,self.clubData.dwClubID,playwayid,kindid)
+	    end)
+	    Button_modify:setPressedActionEnabled(true)
+	    Button_modify:addClickEventListener(function(sender)
+	        require("common.Common"):playEffect("common/buttonplay.mp3")
+	        local kindid = self.clubData.wKindID[index]
+	        local playwayid = self.clubData.dwPlayID[index]
+            local parameter = self.clubData.tableParameter[index]
+	        local roomNode = require("app.MyApp"):create(kindid,1,parameter):createView("RoomCreateLayer")
+	        self:addChild(roomNode)
+	        roomNode.data = {playid = playwayid, settype = 3, idx = index}
+	        roomNode:setName('RoomCreateLayer')
+	    end)
+    end
 
     AtlasLabel_index:setString(count)
     Text_name:setString(gameinfo.name)
@@ -297,20 +343,39 @@ function NewClubSetPlaywayLayer:initPlaywayItem(item, count, index)
     else
         des = '圈主模式/'
     end
-
-    if self.clubData.isTableCharge[index] then
-	    des = des .. string.format('倍率:%d/门槛:%d/解散限制:%d/', self.clubData.wFatigueCell[index], self.clubData.lTableLimit[index], self.clubData.lFatigueLimit[index])
-	end
-
-	local cbPayMode = self.clubData.cbPayMode[index]
-    if cbPayMode == 1 then
-        des = des .. string.format('大赢家支付%s',self:getLimitDes(self.clubData.dwPayLimit[index], self.clubData.dwPayCount[index], self.clubData.isPercentage[index]))
-    elseif cbPayMode == 2 then
-        des = des .. string.format('赢家支付%s',self:getLimitDes(self.clubData.dwPayLimit[index], self.clubData.dwPayCount[index], self.clubData.isPercentage[index]))
-    elseif cbPayMode == 3 then
-        des = des .. string.format('AA支付:%d', self.clubData.dwPayCount[index][1])
+    
+    if CHANNEL_ID == 26 or CHANNEL_ID == 27 then
+        if self.clubData.wAntiCell[index] and self.clubData.wAntiCell[index] ~= 0 then
+            des = des .. string.format('倍率:%s/', self.clubData.wAntiCell[index])
+        end
     else
-        des = des .. string.format('免费')
+        if self.clubData.isTableCharge[index] then
+            des = des .. string.format('倍率:%s/门槛:%s/解散限制:%s/', self.clubData.wFatigueCell[index], self.clubData.lTableLimit[index], self.clubData.lFatigueLimit[index])
+        end
+    end
+    
+    local cbPayMode = self.clubData.cbPayMode[index]
+    if not (UserData.User.userID == self.clubData.dwUserID or self:isAdmin(UserData.User.userID)) and 
+        not (Bit:_and(0x10, self.clubData.bIsDisable) == 0x10) then
+        if cbPayMode == 1 then
+            des = des .. '大赢家支付'
+        elseif cbPayMode == 2 then
+            des = des .. '赢家支付'
+        elseif cbPayMode == 3 then
+            des = des .. 'AA支付'
+        else
+            --des = des .. '免费'
+        end
+    else
+        if cbPayMode == 1 then
+            des = des .. string.format('大赢家支付%s',self:getLimitDes(self.clubData.dwPayLimit[index], self.clubData.dwPayCount[index], self.clubData.isPercentage[index]))
+        elseif cbPayMode == 2 then
+            des = des .. string.format('赢家支付%s',self:getLimitDes(self.clubData.dwPayLimit[index], self.clubData.dwPayCount[index], self.clubData.isPercentage[index]))
+        elseif cbPayMode == 3 then
+            des = des .. string.format('AA支付:%s', self.clubData.dwPayCount[index][1])
+        else
+            --des = des .. '免费'
+        end
     end
 
     local desc = require("common.GameDesc"):getGameDesc(self.clubData.wKindID[index], self.clubData.tableParameter[index])
@@ -322,7 +387,7 @@ function NewClubSetPlaywayLayer:getPlayWayNums()
     local num = 0
     for i,v in ipairs(self.clubData.wKindID or {}) do
         local gameinfo = StaticData.Games[v]
-        if gameinfo then
+        if v ~= 0 and gameinfo then
             num = num + 1
         end
     end
@@ -334,16 +399,16 @@ function NewClubSetPlaywayLayer:getLimitDes(limitArr, payCountArr, isPercentage)
     for i,v in ipairs(limitArr) do
         if i == 1 then
             if isPercentage then
-                des = string.format('>%d:%d', v, payCountArr[i]) .. '%'
+                des = string.format('>%s:%s', v, payCountArr[i]) .. '%'
             else
-                des = string.format('>%d:%d', v, payCountArr[i])
+                des = string.format('>%s:%s', v, payCountArr[i])
             end
         else
             if v > 0 then
                 if isPercentage then
-                    des = des .. (string.format(' >%d:%d', v, payCountArr[i]) .. '%')
+                    des = des .. (string.format(' >%s:%s', v, payCountArr[i]) .. '%')
                 else
-                    des = des .. string.format(' >%d:%d', v, payCountArr[i])
+                    des = des .. string.format(' >%s:%s', v, payCountArr[i])
                 end
             end
         end
@@ -417,7 +482,7 @@ function NewClubSetPlaywayLayer:RET_SETTINGS_CLUB_PLAY(event)
     local data = event._usedata
     dump(data)
     if data.lRet ~= 0 then
-        require("common.MsgBoxLayer"):create(0,nil,"设置玩法失败")
+        require("common.MsgBoxLayer"):create(0,nil,"设置玩法失败! code=" .. data.lRet)
         return
     end
 

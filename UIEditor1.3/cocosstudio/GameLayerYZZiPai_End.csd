@@ -936,18 +936,18 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_continue" ActionTag="1392539957" Tag="111" IconVisible="False" LeftMargin="522.1786" RightMargin="527.8214" TopMargin="620.9300" BottomMargin="8.0700" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="200" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="230.0000" Y="91.0000" />
+              <AbstractNodeData Name="Button_continue" ActionTag="1392539957" Tag="111" IconVisible="False" LeftMargin="761.1613" RightMargin="278.8387" TopMargin="625.4301" BottomMargin="4.5699" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="210" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="240.0000" Y="90.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="637.1786" Y="53.5700" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="881.1613" Y="49.5699" />
+                <Scale ScaleX="0.9000" ScaleY="0.9000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4978" Y="0.0744" />
-                <PreSize X="0.1797" Y="0.1264" />
+                <PrePosition X="0.6884" Y="0.0688" />
+                <PreSize X="0.1875" Y="0.1250" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="yongzhou/ui/yongzhou_gameend6.png" Plist="" />
-                <PressedFileData Type="Normal" Path="yongzhou/ui/yongzhou_gameend6.png" Plist="" />
-                <NormalFileData Type="Normal" Path="yongzhou/ui/yongzhou_gameend6.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="game/game_table_continue.png" Plist="" />
+                <PressedFileData Type="Normal" Path="game/game_table_continue.png" Plist="" />
+                <NormalFileData Type="Normal" Path="game/game_table_continue.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -978,6 +978,21 @@
                 <DisabledFileData Type="Normal" Path="yongzhou/ui/yongzhou_gameend8.png" Plist="" />
                 <PressedFileData Type="Normal" Path="yongzhou/ui/yongzhou_gameend7.png" Plist="" />
                 <NormalFileData Type="Normal" Path="yongzhou/ui/yongzhou_gameend7.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_dissolve" ActionTag="712037955" Tag="442" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="434.8032" RightMargin="725.1968" TopMargin="644.9301" BottomMargin="24.0699" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="90" Scale9Height="29" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="120.0000" Y="51.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="494.8032" Y="49.5699" />
+                <Scale ScaleX="1.6000" ScaleY="1.4500" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.3866" Y="0.0688" />
+                <PreSize X="0.0938" Y="0.0708" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="game/btnJiesan.png" Plist="" />
+                <PressedFileData Type="Normal" Path="game/btnJiesan.png" Plist="" />
+                <NormalFileData Type="Normal" Path="game/btnJiesan.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

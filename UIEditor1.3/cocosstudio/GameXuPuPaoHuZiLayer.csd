@@ -1028,24 +1028,24 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_huXi" ActionTag="2042155337" Tag="806" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="142.8600" BottomMargin="11.1400" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_huXi" ActionTag="2042155337" Tag="806" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="137.5200" BottomMargin="16.4800" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="60.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="23.1400" />
+                            <Position X="84.0000" Y="28.4800" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.1300" />
+                            <PrePosition X="0.5000" Y="0.1600" />
                             <PreSize X="0.3571" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_score" ActionTag="-1118117895" Tag="807" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="118.2248" BottomMargin="35.7752" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_score" ActionTag="-1118117895" Tag="807" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="114.3800" BottomMargin="39.6200" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="72.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="47.7752" />
+                            <Position X="84.0000" Y="51.6200" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.2684" />
+                            <PrePosition X="0.5000" Y="0.2900" />
                             <PreSize X="0.4286" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -1092,6 +1092,17 @@
                             <PrePosition X="0.6895" Y="0.5038" />
                             <PreSize X="1.4107" Y="0.7079" />
                             <FileData Type="Normal" Path="game/game_table_chat.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="1918984632" Tag="3121" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="53.4785" RightMargin="54.5215" TopMargin="155.3200" BottomMargin="-1.3200" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="83.4785" Y="10.6800" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="0.4969" Y="0.0600" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1207,24 +1218,24 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_huXi" ActionTag="1176967588" Tag="239" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="142.8600" BottomMargin="11.1400" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_huXi" ActionTag="1176967588" Tag="239" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="137.5200" BottomMargin="16.4800" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="60.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="23.1400" />
+                            <Position X="84.0000" Y="28.4800" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.1300" />
+                            <PrePosition X="0.5000" Y="0.1600" />
                             <PreSize X="0.3571" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_score" ActionTag="-1496393031" Tag="236" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="118.2248" BottomMargin="35.7752" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_score" ActionTag="-1496393031" Tag="236" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="114.3800" BottomMargin="39.6200" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="72.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="47.7752" />
+                            <Position X="84.0000" Y="51.6200" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.2684" />
+                            <PrePosition X="0.5000" Y="0.2900" />
                             <PreSize X="0.4286" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -1271,6 +1282,17 @@
                             <PrePosition X="0.6700" Y="0.4800" />
                             <PreSize X="1.4107" Y="0.7079" />
                             <FileData Type="Normal" Path="game/game_table_chat.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="-2037908332" Tag="3124" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="157.1000" BottomMargin="-3.1000" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="84.0000" Y="8.9000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="0.5000" Y="0.0500" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1386,24 +1408,24 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_huXi" ActionTag="-520060180" Tag="839" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="142.8600" BottomMargin="11.1400" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_huXi" ActionTag="-520060180" Tag="839" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="137.5200" BottomMargin="16.4800" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="60.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="23.1400" />
+                            <Position X="84.0000" Y="28.4800" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.1300" />
+                            <PrePosition X="0.5000" Y="0.1600" />
                             <PreSize X="0.3571" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_score" ActionTag="-1412115718" Tag="840" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="118.2248" BottomMargin="35.7752" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_score" ActionTag="-1412115718" Tag="840" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="114.3800" BottomMargin="39.6200" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="72.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="47.7752" />
+                            <Position X="84.0000" Y="51.6200" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.2684" />
+                            <PrePosition X="0.5000" Y="0.2900" />
                             <PreSize X="0.4286" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -1450,6 +1472,17 @@
                             <PrePosition X="0.3100" Y="0.7195" />
                             <PreSize X="1.4107" Y="0.7079" />
                             <FileData Type="Normal" Path="game/game_table_chat.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="-1356933707" Tag="3123" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="157.1000" BottomMargin="-3.1000" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="84.0000" Y="8.9000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="0.5000" Y="0.0500" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1565,24 +1598,24 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_huXi" ActionTag="-608386646" Tag="827" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="142.8600" BottomMargin="11.1400" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_huXi" ActionTag="-608386646" Tag="827" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="137.5200" BottomMargin="16.4800" FontSize="24" LabelText="0胡息" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="60.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="23.1400" />
+                            <Position X="84.0000" Y="28.4800" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.1300" />
+                            <PrePosition X="0.5000" Y="0.1600" />
                             <PreSize X="0.3571" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_score" ActionTag="-87040482" Tag="828" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="118.2248" BottomMargin="35.7752" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_score" ActionTag="-87040482" Tag="828" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="48.0000" RightMargin="48.0000" TopMargin="114.3800" BottomMargin="39.6200" FontSize="24" LabelText="100000" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="72.0000" Y="24.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="84.0000" Y="47.7752" />
+                            <Position X="84.0000" Y="51.6200" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="223" B="113" />
-                            <PrePosition X="0.5000" Y="0.2684" />
+                            <PrePosition X="0.5000" Y="0.2900" />
                             <PreSize X="0.4286" Y="0.1348" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -1629,6 +1662,17 @@
                             <PrePosition X="0.3100" Y="0.7200" />
                             <PreSize X="1.4107" Y="0.7079" />
                             <FileData Type="Normal" Path="game/game_table_chat.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="1918877160" Tag="3122" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="54.0000" RightMargin="54.0000" TopMargin="155.3200" BottomMargin="-1.3200" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="84.0000" Y="10.6800" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="0.5000" Y="0.0600" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -2045,7 +2089,7 @@
                       <AbstractNodeData Name="Panel_hostedBg" ActionTag="-1510965748" Tag="116" IconVisible="False" PositionPercentXEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" TopMargin="520.0000" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="1280.0000" Y="200.0000" />
                         <Children>
-                          <AbstractNodeData Name="Button_cancelHosted" ActionTag="-751246009" Tag="117" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="480.0000" RightMargin="480.0000" TopMargin="54.5000" BottomMargin="54.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="290" Scale9Height="69" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                          <AbstractNodeData Name="Button_cancelHosted" ActionTag="-751246009" Tag="117" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="480.0000" RightMargin="480.0000" TopMargin="54.5000" BottomMargin="54.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="146" Scale9Height="63" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                             <Size X="320.0000" Y="91.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="640.0000" Y="100.0000" />

@@ -1019,13 +1019,13 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_continue" ActionTag="1392539957" Tag="111" IconVisible="False" LeftMargin="518.5300" RightMargin="521.4700" TopMargin="636.3300" BottomMargin="-6.3300" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="210" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_continue" ActionTag="1392539957" Tag="111" IconVisible="False" LeftMargin="772.2278" RightMargin="267.7722" TopMargin="637.3434" BottomMargin="-7.3434" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="210" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="240.0000" Y="90.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="638.5300" Y="38.6700" />
+                <Position X="892.2278" Y="37.6566" />
                 <Scale ScaleX="0.8500" ScaleY="0.8500" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4989" Y="0.0537" />
+                <PrePosition X="0.6971" Y="0.0523" />
                 <PreSize X="0.1875" Y="0.1250" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="game/game_table_continue.png" Plist="" />
@@ -1061,6 +1061,21 @@
                 <DisabledFileData Type="Normal" Path="game/game_table_show_end.png" Plist="" />
                 <PressedFileData Type="Normal" Path="game/game_table_show_table.png" Plist="" />
                 <NormalFileData Type="Normal" Path="game/game_table_show_table.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_dissolve" ActionTag="-2060097881" Tag="357" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="319.8176" RightMargin="840.1824" TopMargin="656.8434" BottomMargin="12.1566" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="90" Scale9Height="29" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="120.0000" Y="51.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="379.8176" Y="37.6566" />
+                <Scale ScaleX="1.6000" ScaleY="1.4500" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.2967" Y="0.0523" />
+                <PreSize X="0.0938" Y="0.0708" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="game/btnJiesan.png" Plist="" />
+                <PressedFileData Type="Normal" Path="game/btnJiesan.png" Plist="" />
+                <NormalFileData Type="Normal" Path="game/btnJiesan.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

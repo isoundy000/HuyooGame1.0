@@ -9,7 +9,7 @@
           <AbstractNodeData Name="Panel_root" ActionTag="1175190593" Tag="492" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="1280.0000" Y="720.0000" />
             <Children>
-              <AbstractNodeData Name="Image_bg" ActionTag="217245130" Tag="493" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="431.0000" RightMargin="431.0000" TopMargin="298.0000" BottomMargin="298.0000" LeftEage="162" RightEage="162" TopEage="51" BottomEage="51" Scale9OriginX="162" Scale9OriginY="51" Scale9Width="94" Scale9Height="22" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_bg" ActionTag="217245130" Tag="493" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="431.0000" RightMargin="431.0000" TopMargin="427.6000" BottomMargin="168.4000" LeftEage="162" RightEage="162" TopEage="51" BottomEage="51" Scale9OriginX="162" Scale9OriginY="51" Scale9Width="94" Scale9Height="22" ctype="ImageViewObjectData">
                 <Size X="418.0000" Y="124.0000" />
                 <Children>
                   <AbstractNodeData Name="Button_return" ActionTag="-2003974734" Tag="494" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="282.5300" RightMargin="25.4700" TopMargin="25.5000" BottomMargin="25.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="80" Scale9Height="51" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -74,10 +74,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="640.0000" Y="360.0000" />
+                <Position X="640.0000" Y="230.4000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.5000" />
+                <PrePosition X="0.5000" Y="0.3200" />
                 <PreSize X="0.3266" Y="0.1722" />
                 <FileData Type="Normal" Path="record/playback1.png" Plist="" />
               </AbstractNodeData>

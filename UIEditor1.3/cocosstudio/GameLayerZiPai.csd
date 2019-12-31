@@ -93,6 +93,18 @@
                     <PreSize X="0.2430" Y="0.1125" />
                     <FileData Type="Normal" Path="game/tablenew_17.png" Plist="" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="Text_table" ActionTag="2038779171" Tag="831" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="586.5000" RightMargin="586.5000" TopMargin="78.5800" BottomMargin="609.4200" FontSize="30" LabelText="1毛永州" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="107.0000" Y="32.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="640.0000" Y="625.4200" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="0.8686" />
+                    <PreSize X="0.0836" Y="0.0444" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="255" G="0" B="0" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="640.0000" Y="360.0000" />
@@ -795,6 +807,19 @@
                         <Children>
                           <AbstractNodeData Name="Image_offline" ActionTag="-1767541143" VisibleForFrame="False" Tag="1219" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="44.9992" RightMargin="83.0008" TopMargin="123.2978" BottomMargin="30.7022" LeftEage="13" RightEage="13" TopEage="7" BottomEage="7" Scale9OriginX="13" Scale9OriginY="7" Scale9Width="14" Scale9Height="10" ctype="ImageViewObjectData">
                             <Size X="40.0000" Y="24.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_1" ActionTag="2029633465" Tag="677" IconVisible="False" LeftMargin="-30.0000" RightMargin="-30.0000" TopMargin="-68.0000" BottomMargin="72.0000" FontSize="20" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="100.0000" Y="20.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="20.0000" Y="82.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="0.5000" Y="3.4167" />
+                                <PreSize X="2.5000" Y="0.8333" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="64.9992" Y="42.7022" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -942,6 +967,17 @@
                             <PrePosition X="0.3889" Y="0.1137" />
                             <PreSize X="0.4881" Y="0.2191" />
                             <FileData Type="Normal" Path="game/room_LY_qipai2.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="-290666595" Tag="2703" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-3.6123" RightMargin="111.6123" TopMargin="187.1172" BottomMargin="-33.1172" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="26.3877" Y="-21.1172" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="0.1571" Y="-0.1186" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -1168,6 +1204,17 @@
                             <PreSize X="0.4881" Y="0.2191" />
                             <FileData Type="Normal" Path="game/room_LY_qipai2.png" Plist="" />
                           </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="-1668611953" Tag="2702" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-191.6425" RightMargin="299.6425" TopMargin="200.2053" BottomMargin="-46.2053" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="-161.6425" Y="-34.2053" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="-0.9622" Y="-0.1922" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="84.0000" Y="89.0000" />
@@ -1393,6 +1440,17 @@
                             <PreSize X="0.4881" Y="0.2191" />
                             <FileData Type="Normal" Path="game/room_LY_qipai2.png" Plist="" />
                           </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="-2049846240" Tag="2701" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="593.6794" RightMargin="-485.6794" TopMargin="109.5611" BottomMargin="44.4389" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="623.6794" Y="56.4389" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="3.7124" Y="0.3171" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="84.0000" Y="89.0000" />
@@ -1617,6 +1675,17 @@
                             <PrePosition X="0.6343" Y="2.0713" />
                             <PreSize X="0.4881" Y="0.2191" />
                             <FileData Type="Normal" Path="game/room_LY_qipai2.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_fatigue" ActionTag="1609014594" Tag="2545" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="384.9026" RightMargin="-276.9026" TopMargin="238.4821" BottomMargin="-84.4821" FontSize="24" LabelText="25500" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="60.0000" Y="24.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="414.9026" Y="-72.4821" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="38" B="0" />
+                            <PrePosition X="2.4697" Y="-0.4072" />
+                            <PreSize X="0.3571" Y="0.1348" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

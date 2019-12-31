@@ -47,7 +47,11 @@ function RoomCreateLayer:initUI()
     local csb = cc.CSLoader:createNode("RoomCreateLayer55.csb")
     self:addChild(csb)
     self.root = csb:getChildByName("Panel_root")
-    self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    if self.showType == 1 then
+        self.recordCreateParameter = self.dwClubID;  --showType = 1是创房参数
+    else
+        self.recordCreateParameter = UserData.Game:readCreateParameter(self.wKindID)
+    end
     if self.recordCreateParameter == nil then
         self.recordCreateParameter = {}
     end
@@ -651,6 +655,7 @@ function RoomCreateLayer:setParameter()
     else
         return
     end
+
     --选择庄家
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(2),"ListView_parameter"):getItems()
     if items[1]:isBright() then
@@ -770,6 +775,10 @@ function RoomCreateLayer:setParameter1011()
     else
         return
     end
+
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+        self.tableParameter.bBettingType = 10       
+    end 
     --选择庄家
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(2),"ListView_parameter"):getItems()
     if items[1]:isBright() then

@@ -4,12 +4,12 @@
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="Layer" Tag="902" ctype="GameLayerObjectData">
-        <Size X="1280.0000" Y="720.0000" />
+        <Size X="1334.0000" Y="750.0000" />
         <Children>
           <AbstractNodeData Name="Panel_mask" ActionTag="30675911" Tag="904" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="179" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-            <Size X="1280.0000" Y="720.0000" />
+            <Size X="1334.0000" Y="750.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="640.0000" Y="360.0000" />
+            <Position X="667.0000" Y="375.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
@@ -19,7 +19,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_bg" ActionTag="755856799" Tag="905" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="110.0000" RightMargin="110.0000" TopMargin="52.5000" BottomMargin="52.5000" Scale9Enable="True" LeftEage="73" RightEage="84" TopEage="84" BottomEage="75" Scale9OriginX="73" Scale9OriginY="84" Scale9Width="63" Scale9Height="33" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_bg" ActionTag="755856799" Tag="905" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="137.0000" RightMargin="137.0000" TopMargin="67.5000" BottomMargin="67.5000" Scale9Enable="True" LeftEage="73" RightEage="84" TopEage="84" BottomEage="75" Scale9OriginX="73" Scale9OriginY="84" Scale9Width="63" Scale9Height="33" ctype="ImageViewObjectData">
             <Size X="1060.0000" Y="615.0000" />
             <Children>
               <AbstractNodeData Name="Image_title" ActionTag="-283023040" Tag="238" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="323.5000" RightMargin="323.5000" TopMargin="-16.6274" BottomMargin="575.6274" LeftEage="116" RightEage="116" TopEage="22" BottomEage="22" Scale9OriginX="116" Scale9OriginY="22" Scale9Width="181" Scale9Height="12" ctype="ImageViewObjectData">
@@ -125,7 +125,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Panel_info" Visible="False" ActionTag="-1301533035" Tag="252" IconVisible="False" LeftMargin="261.9700" RightMargin="23.0300" TopMargin="49.3942" BottomMargin="15.6058" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_info" ActionTag="-1301533035" Tag="252" IconVisible="False" LeftMargin="261.9700" RightMargin="23.0300" TopMargin="49.3942" BottomMargin="15.6058" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="775.0000" Y="550.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_1" ActionTag="1242682694" Tag="1475" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="12.5000" RightMargin="12.5000" TopMargin="2.7000" BottomMargin="97.3000" Scale9Enable="True" LeftEage="34" RightEage="34" TopEage="33" BottomEage="33" Scale9OriginX="34" Scale9OriginY="33" Scale9Width="37" Scale9Height="36" ctype="ImageViewObjectData">
@@ -435,7 +435,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Panel_playway" ActionTag="-399474717" Tag="257" IconVisible="False" LeftMargin="261.9700" RightMargin="23.0300" TopMargin="49.3900" BottomMargin="15.6100" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_playway" Visible="False" ActionTag="-399474717" Tag="257" IconVisible="False" LeftMargin="261.9700" RightMargin="23.0300" TopMargin="49.3900" BottomMargin="15.6100" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="775.0000" Y="550.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_frame" ActionTag="904327456" Tag="278" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="12.5000" RightMargin="12.5000" TopMargin="2.2949" BottomMargin="17.7051" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="19" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="83" Scale9Height="59" ctype="ImageViewObjectData">
@@ -572,14 +572,14 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="640.0000" Y="360.0000" />
+            <Position X="667.0000" Y="375.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="0.8281" Y="0.8542" />
+            <PreSize X="0.7946" Y="0.8200" />
             <FileData Type="Normal" Path="kwxclub/kwxclub_163.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_item" ActionTag="-1986468682" Tag="280" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="289.1607" RightMargin="260.8393" TopMargin="764.7920" BottomMargin="-244.7920" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_item" ActionTag="-1986468682" Tag="280" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="289.1607" RightMargin="314.8393" TopMargin="800.8250" BottomMargin="-250.8250" Scale9Enable="True" LeftEage="13" RightEage="13" TopEage="53" BottomEage="53" Scale9OriginX="13" Scale9OriginY="53" Scale9Width="16" Scale9Height="56" ctype="ImageViewObjectData">
             <Size X="730.0000" Y="200.0000" />
             <Children>
               <AbstractNodeData Name="Panel_noway" Visible="False" ActionTag="130343620" Tag="283" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="15.0000" RightMargin="15.0000" TopMargin="19.0000" BottomMargin="19.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -769,11 +769,11 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="654.1607" Y="-144.7920" />
+            <Position X="654.1607" Y="-150.8250" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5111" Y="-0.2011" />
-            <PreSize X="0.5703" Y="0.2778" />
+            <PrePosition X="0.4904" Y="-0.2011" />
+            <PreSize X="0.5472" Y="0.2667" />
             <FileData Type="Normal" Path="kwxclub/qyq_40.png" Plist="" />
           </AbstractNodeData>
         </Children>

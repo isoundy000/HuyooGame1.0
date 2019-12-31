@@ -137,7 +137,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="kwxclub/club_45.png" Plist="" />
+                        <FileData Type="Normal" Path="club/club_45.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_1" Visible="False" ActionTag="-2011418324" Tag="327" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="45.0000" RightMargin="45.0000" TopMargin="22.5000" BottomMargin="22.5000" LeftEage="38" RightEage="38" TopEage="9" BottomEage="9" Scale9OriginX="38" Scale9OriginY="9" Scale9Width="14" Scale9Height="14" ctype="ImageViewObjectData">
                         <Size X="90.0000" Y="32.0000" />
@@ -147,7 +147,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="kwxclub/club_46.png" Plist="" />
+                        <FileData Type="Normal" Path="club/club_46.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -163,7 +163,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Button_player_4" ActionTag="-1727581551" Tag="685" IconVisible="False" LeftMargin="-190.6000" RightMargin="1083.6000" TopMargin="212.0100" BottomMargin="210.9900" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="150" Scale9Height="55" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                  <AbstractNodeData Name="Button_player_4" ActionTag="-1727581551" VisibleForFrame="False" Tag="685" IconVisible="False" LeftMargin="-190.6000" RightMargin="1083.6000" TopMargin="212.0100" BottomMargin="210.9900" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="150" Scale9Height="55" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                     <Size X="180.0000" Y="77.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_press" Visible="False" ActionTag="-955836984" Tag="686" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TopMargin="3.5000" BottomMargin="3.5000" LeftEage="38" RightEage="38" TopEage="9" BottomEage="9" Scale9OriginX="38" Scale9OriginY="9" Scale9Width="104" Scale9Height="52" ctype="ImageViewObjectData">
@@ -194,7 +194,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.5000" Y="0.4156" />
-                        <FileData Type="Normal" Path="kwxclub/club_51.png" Plist="" />
+                        <FileData Type="Normal" Path="club/club_51.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

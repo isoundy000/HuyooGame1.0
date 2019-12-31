@@ -38,6 +38,9 @@ end
 function FriendsRoomEndLayer:onEnter()
     EventMgr:registListener(EventType.REQ_GR_USER_CONTINUE_CLUB_FAILD,self,self.REQ_GR_USER_CONTINUE_CLUB_FAILD) 
     EventMgr:registListener(EventType.RET_CLUB_CHAT_BACK_RECORD, self, self.RET_CLUB_CHAT_BACK_RECORD)
+    EventMgr:registListener(EventType.RET_MATCH_CLUB_TABLE, self, self.RET_MATCH_CLUB_TABLE)
+    EventMgr:registListener(EventType.SUB_GR_CREATE_TABLE_FAILED,self,self.SUB_GR_CREATE_TABLE_FAILED)
+    EventMgr:registListener(EventType.SUB_GR_JOIN_TABLE_FAILED,self,self.SUB_GR_JOIN_TABLE_FAILED)
 
     --保存游戏截屏
     local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
@@ -61,6 +64,9 @@ end
 function FriendsRoomEndLayer:onExit()
     EventMgr:unregistListener(EventType.REQ_GR_USER_CONTINUE_CLUB_FAILD,self,self.REQ_GR_USER_CONTINUE_CLUB_FAILD) 
     EventMgr:unregistListener(EventType.RET_CLUB_CHAT_BACK_RECORD, self, self.RET_CLUB_CHAT_BACK_RECORD)
+    EventMgr:unregistListener(EventType.RET_MATCH_CLUB_TABLE, self, self.RET_MATCH_CLUB_TABLE)
+    EventMgr:unregistListener(EventType.SUB_GR_CREATE_TABLE_FAILED,self,self.SUB_GR_CREATE_TABLE_FAILED)
+    EventMgr:unregistListener(EventType.SUB_GR_JOIN_TABLE_FAILED,self,self.SUB_GR_JOIN_TABLE_FAILED)
 end
 
 function FriendsRoomEndLayer:onCreate(pBuffer)
@@ -131,7 +137,7 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
     local function onEventContinue(sender,event)
         if event == ccui.TouchEventType.ended then
             Common:palyButton()
-            require("common.SceneMgr"):switchTips(require("app.MyApp"):create(self.tableConfig.nTableType,self.tableConfig.cbLevel,self.tableConfig.wKindID,self.tableConfig.wTableNumber,self.tableConfig.dwClubID,self.gameConfig,self.inviteID):createView("InterfaceCreateRoomNode"))
+            UserData.Guild:sendMatchClubTable(UserData.User.userID, self.tableConfig.dwClubID, self.tableConfig.dwPlayID)
         end
     end
     uiButton_continue:addTouchEventListener(onEventContinue)
@@ -244,11 +250,22 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                     armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
                 end
                 local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
-                if tScoreInfo.totalScore >= 0 then
-                    uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
-                else
-                    uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
-                end   
+                uiAtlasLabel_integral:setVisible(false)
+                local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
+                    uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
+                local dwGold = pBuffer.tWriteScoreArr[i]/100
+                if pBuffer.tWriteScoreArr[i] > 0 then 
+                    uiText_result:setTextColor(cc.c3b(233,30,37))
+                    uiText_result:setString(string.format(" +%0.2f",dwGold))
+                else 
+                    uiText_result:setTextColor(cc.c3b(74,164,8))     
+                    uiText_result:setString(string.format(" %0.2f",dwGold))
+                end 
+                -- if tScoreInfo.totalScore >= 0 then
+                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
+                -- else
+                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
+                -- end   
             end  
         end
     elseif  self.tableConfig.wKindID == 55 then
@@ -283,11 +300,23 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                     armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
                 end
                 local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
-                if tScoreInfo.totalScore >= 0 then
-                    uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
-                else
-                    uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
-                end   
+                uiAtlasLabel_integral:setVisible(false)
+                local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
+                    uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
+                local dwGold = pBuffer.tWriteScoreArr[i]/100
+                if pBuffer.tWriteScoreArr[i] > 0 then 
+                    uiText_result:setTextColor(cc.c3b(233,30,37))
+                    uiText_result:setString(string.format(" +%0.2f",dwGold))
+                else 
+                    uiText_result:setTextColor(cc.c3b(74,164,8))     
+                    uiText_result:setString(string.format(" %0.2f",dwGold))
+                end 
+
+                -- if tScoreInfo.totalScore >= 0 then
+                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
+                -- else
+                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
+                -- end   
             end  
         end
     else 
@@ -327,11 +356,24 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                 armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
             end
             local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
-            if tScoreInfo.totalScore >= 0 then
-                uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
-            else
-                uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
-            end       
+            uiAtlasLabel_integral:setVisible(false)
+            -- if tScoreInfo.totalScore >= 0 then
+            --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
+            -- else
+            --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
+            -- end 
+            
+            local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
+            uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
+            local dwGold = pBuffer.tWriteScoreArr[i]/100
+            if pBuffer.tWriteScoreArr[i] > 0 then 
+                uiText_result:setTextColor(cc.c3b(233,30,37))
+                uiText_result:setString(string.format(" +%0.2f",dwGold))
+            else 
+                uiText_result:setTextColor(cc.c3b(74,164,8))     
+                uiText_result:setString(string.format(" %0.2f",dwGold))
+            end 
+
             if self.tableConfig.wKindID == 20 then
                 local uiTotalHuXi = ccui.ImageView:create("zipai/table/endlayerzonghuxi.png")
                 item:addChild(uiTotalHuXi)
@@ -357,11 +399,11 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                 uiText_num:setString(string.format("第%d局",i))
                 local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_info,"Text_score")
                 uiText_score:setColor(cc.c3b(0,0,0))
-                local tScoreInfo = pBuffer.tScoreInfo[j]
-                if tScoreInfo.lScore[i] >= 0 then
-                    uiText_score:setString(string.format("+%d",tScoreInfo.lScore[i]))
+                local tScoreInfo = pBuffer.tScoreInfoEx[j]
+                if tScoreInfo.fScore[i] >= 0 then
+                    uiText_score:setString(string.format("+%0.2f",tScoreInfo.fScore[i]/100))
                 else
-                    uiText_score:setString(string.format("%d",tScoreInfo.lScore[i]))
+                    uiText_score:setString(string.format("%0.2f",tScoreInfo.fScore[i]/100))
                 end
             end
         end
@@ -402,6 +444,122 @@ end
 function FriendsRoomEndLayer:RET_CLUB_CHAT_BACK_RECORD(event)
     local data = event._usedata
     require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data):createView("PleaseReciveLayer"))
+end
+
+function FriendsRoomEndLayer:RET_MATCH_CLUB_TABLE(event)
+    local data = event._usedata
+    dump(data)
+    if data.lRet ~= 0 then
+        require("common.MsgBoxLayer"):create(0,nil,"再来一局错误! code="..data.lRet)
+        return;
+    end
+
+    if data.dwTableID ~= 0 then
+        require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data.dwTableID):createView("InterfaceJoinRoomNode"))
+    else
+        require("common.SceneMgr"):switchTips(require("app.MyApp"):create(-2,data.dwPlayID,data.wKindID,data.wGameCount,data.dwClubID,data.tableParameter):createView("InterfaceCreateRoomNode"))
+    end
+end
+
+function FriendsRoomEndLayer:SUB_GR_CREATE_TABLE_FAILED(event)
+    -- self:removeFromParent()
+    local errorID = event._usedata
+    if errorID == 1 then
+        require("common.MsgBoxLayer"):create(0,nil,"房间配置错误!")
+    elseif errorID == 2 then
+        require("common.MsgBoxLayer"):create(0,nil,"您的道具不足!")
+    elseif errorID == 3 then
+        require("common.MsgBoxLayer"):create(0,nil,"房间已满!")
+    elseif errorID == 11 then
+        require("common.MsgBoxLayer"):create(2,nil,"请先加入公会!")
+    elseif errorID == 12 then
+        require("common.MsgBoxLayer"):create(2,nil,"代理房卡不够不能创建!")
+    elseif errorID == 13 then
+        require("common.MsgBoxLayer"):create(2,nil,"未授权代开权限,请联系代理授权代开权限!")
+    elseif errorID == 14 then
+        require("common.MsgBoxLayer"):create(2,nil,"您已经达到代开房上限，不能再创建了!")
+    elseif errorID == 15 then
+        require("common.MsgBoxLayer"):create(2,nil,"该亲友圈不存在!",function()
+            require("common.SceneMgr"):switchOperation()
+            cc.UserDefault:getInstance():setIntegerForKey("UserDefault_NewClubID", 0)
+        end)
+    elseif errorID == 16 then
+        require("common.MsgBoxLayer"):create(2,nil,"您已经不在该亲友圈了!")
+    elseif errorID == 17 then
+        require("common.MsgBoxLayer"):create(2,nil,"该亲友圈未设置玩法!")
+    elseif errorID == 18 then
+        require("common.MsgBoxLayer"):create(2,nil,"亲友圈群主房卡不够不能创建!")
+    elseif errorID == 19 then
+        require("common.MsgBoxLayer"):create(2,nil,"亲友圈房卡不够不能创建!")
+    elseif errorID == 20 then
+        require("common.MsgBoxLayer"):create(2,nil,"您已被群主暂停娱乐,请联系群主恢复!")
+    elseif errorID == 21 then
+        require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,请联系群主!")
+    elseif errorID == 22 then
+        require("common.MsgBoxLayer"):create(2,nil,"防沉迷配置错误,请联系群主重新设置!")
+    elseif errorID == 23 then
+        require("common.MsgBoxLayer"):create(2,nil,"亲友圈玩法不存在,请重新刷新亲友圈!")
+    elseif errorID == 24 then
+        require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足,请及时充值!",function() 
+            local data = clone(UserData.Share.tableShareParameter[12])
+            require("app.MyApp"):create(data):createView("ShareLayer")
+        end)
+    elseif errorID == 25 then
+        require("common.MsgBoxLayer"):create(2,nil,"防沉迷值已达下限!")
+    elseif errorID == 30 then
+        require("common.MsgBoxLayer"):create(2,nil,"该房间有距离限制,请开启定位!")
+    else
+        require("common.MsgBoxLayer"):create(2,nil,"请升级您的版本!")
+    end
+    NetMgr:getGameInstance():closeConnect()
+end
+
+function FriendsRoomEndLayer:SUB_GR_JOIN_TABLE_FAILED(event)
+    local data = event._usedata
+    -- self:removeFromParent()
+    NetMgr:getGameInstance():closeConnect()
+    UserData.User.externalAdditional = ""
+    if data.wErrorCode == 1 then
+        require("common.MsgBoxLayer"):create(0,nil,"该房间不存在!")
+    elseif data.wErrorCode == 2 then
+        require("common.MsgBoxLayer"):create(0,nil,"该房间人数已满!")
+    elseif data.wErrorCode == 11 then
+        require("common.MsgBoxLayer"):create(0,nil,"最后一局禁止加入!")
+    elseif data.wErrorCode == 21 then
+        require("common.MsgBoxLayer"):create(0,nil,"您不是该亲友圈不存在!")
+    elseif data.wErrorCode == 22 then
+        require("common.MsgBoxLayer"):create(0,nil,"您不是该亲友圈成员!")
+    elseif data.wErrorCode == 23 then
+        require("common.MsgBoxLayer"):create(0,nil,"您不是该亲友圈成员,正在审核中!")
+    elseif data.wErrorCode == 24 then
+        require("common.MsgBoxLayer"):create(0,nil,"您已被群主禁止娱乐,请联系群主恢复!")
+    elseif data.wErrorCode == 25 then
+        require("common.MsgBoxLayer"):create(2,nil,"防沉迷配置错误,请联系群主重新设置!")
+    elseif data.wErrorCode == 26 then
+        -- require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不够,请联系群主!")
+        if FatigueLimit and FatigueLimit > 0 then
+            local str = string.format("您的疲劳值不足[%d],请联系群主!", FatigueLimit)
+            require("common.MsgBoxLayer"):create(2,nil, str)
+        else
+            require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,请联系群主!")
+        end
+        
+    elseif data.wErrorCode == 27 then
+        require("common.MsgBoxLayer"):create(2,nil,"亲友圈玩法不存在,请重新刷新亲友圈!")
+    elseif data.wErrorCode == 28 then
+        require("common.MsgBoxLayer"):create(1,nil,"您的元宝不足,请及时充值!",function() 
+            local data = clone(UserData.Share.tableShareParameter[12])
+            require("app.MyApp"):create(data):createView("ShareLayer")
+        end)
+    elseif data.wErrorCode == 29 then
+        require("common.MsgBoxLayer"):create(2,nil,"防沉迷值已达下限!")
+    elseif data.wErrorCode == 30 then
+        require("common.MsgBoxLayer"):create(2,nil,"该房间有距离限制,请开启定位!")
+    elseif data.wErrorCode == 31 then
+        require("common.MsgBoxLayer"):create(2,nil,"该房间有距离限制,您同其他成员距离太近!")
+    else
+        require("common.MsgBoxLayer"):create(0,nil,"请升级版本!")
+    end
 end
 
 return FriendsRoomEndLayer

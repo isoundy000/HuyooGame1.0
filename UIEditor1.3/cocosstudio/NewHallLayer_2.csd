@@ -569,7 +569,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_doshare" ActionTag="744048915" ZOrder="6" Tag="132" IconVisible="False" LeftMargin="1035.0000" RightMargin="291.0000" TopMargin="3.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="19" Scale9Height="49" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_doshare" ActionTag="744048915" ZOrder="6" Tag="132" IconVisible="False" LeftMargin="1035.0000" RightMargin="291.0000" TopMargin="3.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="-15" Scale9OriginY="-11" Scale9Width="30" Scale9Height="22" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="49.0000" Y="71.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="1059.5000" Y="35.5000" />
@@ -578,9 +578,6 @@
                         <PrePosition X="0.7705" Y="0.4797" />
                         <PreSize X="0.0356" Y="0.9595" />
                         <TextColor A="255" R="65" G="65" B="70" />
-                        <DisabledFileData Type="Normal" Path="hall_2/hall_share.png" Plist="" />
-                        <PressedFileData Type="Normal" Path="hall_2/hall_share.png" Plist="" />
-                        <NormalFileData Type="Normal" Path="hall_2/hall_share.png" Plist="" />
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>

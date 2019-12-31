@@ -483,6 +483,26 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
         end 
+
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
     elseif wKindID == 27 then 
         if data.bLaiZiCount == 0 then
             desc = "无王"
@@ -570,18 +590,20 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             if data.bDeathCard == 1 then
                 desc = desc.."/亡牌"         
             end
-            if data.bHostedTime == 1 then
-                desc = desc.."/一分钟托管"
-            elseif data.bHostedTime == 2 then
-                desc = desc.."/两分钟托管"
-            elseif data.bHostedTime == 3 then
-                desc = desc.."/三分钟托管"
-            elseif data.bHostedTime == 5 then
-                desc = desc.."/五分钟托管"
-            elseif data.bHostedTime == 0 then
-                desc = desc.."/无托管"
-            end
-        end 
+        end  
+           
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+     
 
         if data.bHostedSession == 1 then
             desc = desc.."/单局托管"
@@ -689,11 +711,23 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if Bit:_and(data.dwMingTang,0x01) ~= 0 then
             desc = desc.."/带底"
         end
+
         if data.bMaxLost == 300 then
             desc = desc.."/300封顶"
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
         end
+
+        if wKindID == 37 then
+            if data.bSettlement == 1 then
+                desc = desc.."/带一底"
+            elseif data.bSettlement == 3 then
+                desc = desc.."/带三底"
+            elseif data.bSettlement == 5 then
+                desc = desc.."/带五底"
+            end
+        end
+
         if data.bHostedTime == 1 then
             desc = desc.."/一分钟托管"
         elseif data.bHostedTime == 2 then
@@ -706,12 +740,14 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/无托管"
         end
 
-        if data.bHostedSession == 1 then
-            desc = desc.."/单局托管"
-        elseif data.bHostedSession == 3 then
-            desc = desc.."/三局托管"
-        elseif data.bHostedSession >= 6 then
-            desc = desc.."/全局托管"
+        if data.bHostedSession then
+            if data.bHostedSession == 1 then
+                desc = desc.."/单局托管"
+            elseif data.bHostedSession == 3 then
+                desc = desc.."/三局托管"
+            elseif data.bHostedSession >= 6 then
+                desc = desc.."/全局托管"
+            end
         end
         
     elseif wKindID == 31 then   
@@ -834,6 +870,8 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
     elseif wKindID == 40 then         
         if data.bPlayerCount == 3 then
             desc = desc.."3人房"
+        elseif data.bPlayerCount == 2 then
+            desc = desc.."2人房"
         else
             desc = desc.."4人房"
         end
@@ -878,6 +916,26 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/300封顶"
         elseif data.bMaxLost == 600 then
             desc = desc.."/600封顶"
+        end
+
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
         end
         
     elseif wKindID == 22 then       
@@ -1189,6 +1247,15 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         end
         if data.bRed10 == 1 then
             desc = desc.."/红桃10扎鸟"
+        elseif data.bRed10 == 2 then
+            desc = desc.."/红桃10三分"
+        elseif data.bRed10 == 3 then
+            desc = desc.."/红桃10五分"
+        elseif data.bRed10 == 4 then
+            desc = desc.."/红桃10十分"
+        end
+        if data.b4Add2 == 1 then
+            desc = desc.."/可4带2"
         end
         if data.b4Add3 == 1 then
             desc = desc.."/可4带3"
@@ -1206,15 +1273,15 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/假春天"
         end
         if data.bHostedTime == 1 then
-            desc = desc.."/一分钟托管"
+            desc = desc.."一分钟托管"
         elseif data.bHostedTime == 2 then
-            desc = desc.."/两分钟托管"
+            desc = desc.."两分钟托管"
         elseif data.bHostedTime == 3 then
-            desc = desc.."/三分钟托管"
+            desc = desc.."三分钟托管"
         elseif data.bHostedTime == 5 then
-            desc = desc.."/五分钟托管"
+            desc = desc.."五分钟托管"
         elseif data.bHostedTime == 0 then
-            desc = desc.."/无托管"
+            desc = desc.."无托管"
         end
 
         if data.bHostedSession == 1 then
@@ -1224,6 +1291,10 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bHostedSession >= 6 then
             desc = desc.."/全局托管"
         end
+        -- if data.blBelowFanBei ~= 0 then
+        --     desc = desc..string.format("/低于%d分翻倍",data.blBelowFanBei)       
+        -- end
+
         desc = desc..string.format("/%d张全关",data.bSpringMinCount)
                 
     elseif wKindID == 26 then         
@@ -1242,6 +1313,15 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         end
         if data.bRed10 == 1 then
             desc = desc.."/红桃10扎鸟"
+        elseif data.bRed10 == 2 then
+            desc = desc.."/红桃10三分"
+        elseif data.bRed10 == 3 then
+            desc = desc.."/红桃10五分"
+        elseif data.bRed10 == 4 then
+            desc = desc.."/红桃10十分"
+        end
+        if data.b4Add2 == 1 then
+            desc = desc.."/可4带2"
         end
         if data.b4Add3 == 1 then
             desc = desc.."/可4带3"
@@ -1277,6 +1357,10 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         elseif data.bHostedSession >= 6 then
             desc = desc.."/全局托管"
         end
+        
+        -- if data.blBelowFanBei ~= 0 then
+        --     desc = desc..string.format("/低于%d分翻倍",data.blBelowFanBei)       
+        -- end
 
         desc = desc..string.format("/%d张全关",data.bSpringMinCount)
         
@@ -1318,6 +1402,8 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/(4/8)分"
         elseif data.bBettingType == 7 then
             desc = desc.."/(5/10)分"
+        elseif data.bBettingType == 10 then
+            desc = desc.."/(5/10/20/25/50)分"
         else
         
         end
@@ -1707,21 +1793,101 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if data.bQiDui == 1 then
             desc = desc.."/七对"
         end
+        
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
     end
+
+
+    local playwayArr = string.split(desc, "/")
+	local len = #playwayArr
+	if len < 1 then
+		return desc 
+	end
+	-- if GameCommon.tableConfig.nTableType == TableType_ClubRoom and GameCommon.tableConfig.dwClubID ~= 0  then
+    --    table.remove( playwayArr, 1)
+	-- end 
+	
+	local des = ""
+	for i, v in ipairs(playwayArr) do
+		if len <= 2 then
+			des = des .. " " .. v
+		elseif len <= 5 then
+			if i == 1 then
+				des = des .. "\n" .. v
+			else
+				des = des .. " " .. v
+			end
+		elseif len <= 8 then
+			if i == len - 5 then
+				des = des .. " " .. v .. "\n"
+			else
+				des = des .. " " .. v
+			end
+		elseif len <= 12 then
+			if i == 1 then
+				des = des .. " " .. v .. "\n"
+			elseif i <= 6 then
+				if i == 6 then
+					des = des .. " " .. v .. "\n"
+				else
+					des = des .. " " .. v
+				end
+			else
+				des = des .. " " .. v
+            end
+        else
+            -- if i == 1 then
+			-- 	des = des .. " " .. v .. "\n"
+            -- else
+            if i <= 8 then
+				if i == 8 then
+					des = des .. " " .. v .. "\n"
+				else
+					des = des .. " " .. v
+				end
+			else
+				des = des .. " " .. v
+            end
+		end
+	end
+	-- if GameCommon.tableConfig.nTableType == TableType_ClubRoom and GameCommon.tableConfig.dwClubID ~= 0  then
+	-- 	desc = desc.."\n"..string.format("(亲友圈[%d])",GameCommon.tableConfig.dwClubID)
+	--  end 
+
+
+
     
     if tableConfig ~= nil and tableConfig.nTableType ~= nil then
         if tableConfig.nTableType >= TableType_GuildRoom then
-            desc = desc.."(公会房)"
+            des = des.."(公会房)"
         elseif tableConfig.nTableType == TableType_HelpRoom then
-            desc = desc.."(代开房)"
+            des = des.."(代开房)"
         elseif tableConfig.nTableType == TableType_ClubRoom and tableConfig.dwClubID ~= 0 then
-            desc = string.format("(亲友圈[%d])",tableConfig.dwClubID)..desc
+            des = string.format("(亲友圈[%d])",tableConfig.dwClubID)..des
         elseif tableConfig.nTableType == TableType_SportsRoom and tableConfig.dwClubID ~= 0 then
-            desc = string.format("(竞技场次[%d])",tableConfig.dwClubID)..desc
+            des = string.format("(竞技场次[%d])",tableConfig.dwClubID)..des
         else
         end
     end
-    return desc    
+    return des    
 end
 
 return GameDesc
