@@ -461,6 +461,36 @@ function NewClubFatigueLayer:RET_GET_CLUB_MEMBER_FATIGUE_RECORD(event)
         end
         Text_des:setString('')
 
+    elseif data.cbType == 3 then
+        --玩家买卖疲劳值
+        local item = self.Panel_item:clone()
+        listview:pushBackCustomItem(item)
+        listview:refreshView()
+        local Text_time = ccui.Helper:seekWidgetByName(item, "Text_time")
+        local Text_type = ccui.Helper:seekWidgetByName(item, "Text_type")
+        local Text_playway = ccui.Helper:seekWidgetByName(item, "Text_playway")
+        local Text_xnum = ccui.Helper:seekWidgetByName(item, "Text_xnum")
+        local Text_snum = ccui.Helper:seekWidgetByName(item, "Text_snum")
+        local Text_des = ccui.Helper:seekWidgetByName(item, "Text_des")
+        Text_time:setColor(cc.c3b(131, 88, 45))
+        Text_type:setColor(cc.c3b(131, 88, 45))
+        Text_playway:setColor(cc.c3b(131, 88, 45))
+        Text_xnum:setColor(cc.c3b(131, 88, 45))
+        Text_snum:setColor(cc.c3b(131, 88, 45))
+        Text_des:setColor(cc.c3b(131, 88, 45))
+        Text_time:setString(os.date('%m-%d %H:%M', data.dwOperTime))
+        Text_playway:setString('')
+        Text_type:setString('疲劳值')
+        if data.lFatigue >= 0 then
+            Text_xnum:setString('+' .. data.lFatigue)
+            Text_snum:setString(data.lNewFatigue)
+        else
+            Text_xnum:setString(data.lFatigue)
+            Text_snum:setString(data.lNewFatigue)
+        end
+        local name = Common:getShortName(data.szOriginNickName, 14 , 7)
+        Text_des:setString(string.format('%s(%d)操作', name, data.dwOriginID))
+
     elseif data.cbType == 4 or data.cbType == 5 then
         --设置疲劳值
         local item = self.Panel_item:clone()

@@ -308,11 +308,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         end
         local wKindID = math.floor(data.dwTableID/10000)
         data.wKindID = wKindID
-        local haveReadByte = 0
-        data.tableParameter, haveReadByte = require("common.GameConfig"):getParameter(wKindID,luaFunc)
-        if haveReadByte < 128 then
-            luaFunc:readRecvBuffer(128-haveReadByte)
-        end
+        data.tableParameter = require("common.GameConfig"):getParameter(wKindID,luaFunc)
         data.lScore = {}
         for i = 1, 6 do
             data.lScore[i] = luaFunc:readRecvLong()
@@ -448,11 +444,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         end
         local wKindID = math.floor(data.dwTableID/10000)
         data.wKindID = wKindID
-        local haveReadByte = 0
-        data.tableParameter, haveReadByte = require("common.GameConfig"):getParameter(wKindID,luaFunc)
-        if haveReadByte < 128 then
-            luaFunc:readRecvBuffer(128-haveReadByte)
-        end
+        data.tableParameter = require("common.GameConfig"):getParameter(wKindID,luaFunc)
         data.lScore = {}
         for i = 1, 6 do
             data.lScore[i] = luaFunc:readRecvLong()
@@ -513,11 +505,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         end
         local wKindID = math.floor(data.dwTableID/10000)
         data.wKindID = wKindID
-        local haveReadByte = 0
-        data.tableParameter, haveReadByte = require("common.GameConfig"):getParameter(wKindID,luaFunc)
-        if haveReadByte < 128 then
-            luaFunc:readRecvBuffer(128-haveReadByte)
-        end
+        data.tableParameter = require("common.GameConfig"):getParameter(wKindID,luaFunc)
         data.lScore = {}
         for i = 1, 6 do
             data.lScore[i] = luaFunc:readRecvLong()
@@ -695,7 +683,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for idx=1, 10 do
             data.dwPayLimit[idx] = {}
             for i=1,3 do
-                data.dwPayLimit[idx][i] = luaFunc:readRecvDWORD() / 100
+                data.dwPayLimit[idx][i] = luaFunc:readRecvDWORD()
             end
         end
         data.dwPayCount = {}
@@ -738,11 +726,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         end
         data.tableParameter = {}
         for i = 1,10 do
-            local haveReadByte = 0
-            data.tableParameter[i], haveReadByte = require("common.GameConfig"):getParameter(data.wKindID[i],luaFunc)
-            if haveReadByte < 128 then
-                luaFunc:readRecvBuffer(128-haveReadByte)
-            end
+            data.tableParameter[i] = require("common.GameConfig"):getParameter(data.wKindID[i],luaFunc)
         end
 
         data.dwTargetID = luaFunc:readRecvDWORD()
@@ -791,7 +775,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for idx=1,10 do
             data.dwPayLimit[idx] = {}
             for i=1,3 do
-                data.dwPayLimit[idx][i] = luaFunc:readRecvDWORD() / 100
+                data.dwPayLimit[idx][i] = luaFunc:readRecvDWORD()
             end
         end
         data.dwPayCount = {}
@@ -834,11 +818,7 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         end
         data.tableParameter = {}
         for i = 1,10 do
-            local haveReadByte = 0
-            data.tableParameter[i], haveReadByte = require("common.GameConfig"):getParameter(data.wKindID[i],luaFunc)
-            if haveReadByte < 128 then
-                luaFunc:readRecvBuffer(128-haveReadByte)
-            end
+            data.tableParameter[i] = require("common.GameConfig"):getParameter(data.wKindID[i],luaFunc)
         end
 
         data.dwTargetID = luaFunc:readRecvDWORD()
@@ -891,6 +871,10 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwDistributionRatio = luaFunc:readRecvDWORD()
         data.dwPartnerLevel = luaFunc:readRecvDWORD()
         data.lScorePoint = luaFunc:readRecvLong() / 100
+        data.lFatigueTotal = luaFunc:readRecvLong() / 100
+        data.dwSuperiorID = luaFunc:readRecvDWORD()
+        data.szSuperiorNickName = luaFunc:readRecvString(32)
+        data.dwTargetPartnerID = luaFunc:readRecvDWORD()
 
         EventMgr:dispatch(EventType.RET_GET_CLUB_PARTNER, data)
 
@@ -1043,7 +1027,8 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.isProhibit = luaFunc:readRecvBool()
         data.szRemarks = luaFunc:readRecvString(32)
         data.lFatigueValue = luaFunc:readRecvLong() / 100
-        -- data.dwACard = luaFunc:readRecvDWORD()
+        data.szPartnerNickName = luaFunc:readRecvString(32)
+        data.lAntiValue = luaFunc:readRecvLong() / 100
         EventMgr:dispatch(EventType.RET_UPDATE_CLUB_PLAYER_INFO, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_SETTINGS_CONFIG then
@@ -1142,6 +1127,9 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.dwTargetYuanBaoIncome = luaFunc:readRecvLong() / 100
         data.dwTargetFatigueTip = luaFunc:readRecvLong() / 100
         data.dwBigWinnerTime = luaFunc:readRecvDWORD()
+        data.lTotalScoreTotal = luaFunc:readRecvLong()
+        data.lTotalScorePoint = luaFunc:readRecvLong()
+        data.lRet = luaFunc:readRecvLong()
         EventMgr:dispatch(EventType.RET_CLUB_PAGE_PLAYER_COUNT, data)
 
     elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_CLUB_PAGE_PLAYER_COUNT_FINISH then
@@ -1366,12 +1354,35 @@ function Guild:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.wKindID = luaFunc:readRecvWORD()
         data.wGameCount = luaFunc:readRecvWORD()
         data.wTableCell = luaFunc:readRecvWORD()
-        local haveReadByte = 0
-        data.tableParameter, haveReadByte = require("common.GameConfig"):getParameter(data.wKindID,luaFunc)
-        if haveReadByte < 128 then
-            luaFunc:readRecvBuffer(128-haveReadByte)
-        end
+        data.tableParameter = require("common.GameConfig"):getParameter(data.wKindID,luaFunc)
         EventMgr:dispatch(EventType.RET_MATCH_CLUB_TABLE, data)
+
+    elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_CLUB_PLAY_DISTRIBUTION then
+        local data = {}
+        data.lRet = luaFunc:readRecvLong()
+        data.dwClubID = luaFunc:readRecvDWORD()
+        data.dwPlayID = luaFunc:readRecvDWORD()
+        data.dwAdministratorID = luaFunc:readRecvDWORD()
+        data.dwTargetUserID = luaFunc:readRecvDWORD()
+        data.dwAdministratorDistributionRatio = luaFunc:readRecvDWORD()
+        data.dwUserID = luaFunc:readRecvDWORD()
+        data.szNickName = luaFunc:readRecvString(32)
+        data.szLogoInfo = luaFunc:readRecvString(256)
+        data.dwDistributionRatio = luaFunc:readRecvDWORD()
+        data.dwPartnerLevel = luaFunc:readRecvDWORD()
+        data.dwSuperiorID = luaFunc:readRecvDWORD()
+        data.SuperiorNickName = luaFunc:readRecvString(32)
+        EventMgr:dispatch(EventType.RET_CLUB_PLAY_DISTRIBUTION, data)
+
+    elseif mainCmdID == NetMsgId.MDM_CL_CLUB and subCmdID == NetMsgId.RET_SETTINGS_CLUB_PLAY_DISTRIBUTION then
+        local data = {}
+        data.lRet = luaFunc:readRecvLong()
+        data.dwClubID = luaFunc:readRecvDWORD()
+        data.dwPlayID = luaFunc:readRecvDWORD()
+        data.dwAdministratorID = luaFunc:readRecvDWORD()
+        data.dwTargetUserID = luaFunc:readRecvDWORD()
+        data.dwDistributionRatio = luaFunc:readRecvDWORD()
+        EventMgr:dispatch(EventType.RET_SETTINGS_CLUB_PLAY_DISTRIBUTION, data)
 
     else
         return
@@ -1589,9 +1600,8 @@ end
 
 --请求俱乐部成员疲劳值记录
 function Guild:getClubFatigueRecord(dwClubID, dwUserID, wPage, bType, dwBeganTime, dwEndTime)
-    if not dwUserID then
-        return
-    end
+    local UserData = require("app.user.UserData")
+    dwUserID = dwUserID or UserData.User.userID
     bType = bType or 0
     dwBeganTime = dwBeganTime or 0
     dwEndTime = dwEndTime or 0
@@ -1629,8 +1639,9 @@ function Guild:getClubAllPlayerCount(dwUserID, dwClubID, dwBeganTime, dwEndTime)
 end
 
 --请求我的玩家统计分页
-function Guild:getClubPagePlayerCount(dwClubID, dwUserID, dwBeganTime, dwEndTime, wPageIndex)
-    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_CLUB_PAGE_PLAYER_COUNT, "ddddw", dwClubID, dwUserID, dwBeganTime, dwEndTime, wPageIndex)
+function Guild:getClubPagePlayerCount(dwClubID, dwUserID, dwBeganTime, dwEndTime, wPageIndex,dwTargetUserID)
+    dwTargetUserID = dwTargetUserID or 0
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_CLUB_PAGE_PLAYER_COUNT, "ddddwd", dwClubID, dwUserID, dwBeganTime, dwEndTime, wPageIndex,dwTargetUserID)
 end
 
 --请求我的玩家详情
@@ -1707,6 +1718,18 @@ end
 -- 再来一局
 function Guild:sendMatchClubTable(dwUserID, dwClubID, dwPlayID)
     NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_MATCH_CLUB_TABLE, "ddd", dwUserID, dwClubID, dwPlayID)
+end
+
+-- 请求亲友群玩法分成
+function Guild:getClubPlayDistribution(dwClubID, dwPlayID, dwAdministratorID, dwTargetUserID)
+    dwTargetUserID = dwTargetUserID or 0
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_CLUB_PLAY_DISTRIBUTION, "dddd", dwClubID, dwPlayID, dwAdministratorID, dwTargetUserID)
+end
+
+-- 请求设置亲友群玩法分成
+function Guild:setClubPlayDistribution(dwClubID, dwPlayID, dwAdministratorID, dwTargetUserID, dwDistributionRatio)
+    dwTargetUserID = dwTargetUserID or 0
+    NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB, NetMsgId.REQ_SETTINGS_CLUB_PLAY_DISTRIBUTION, "ddddd", dwClubID, dwPlayID, dwAdministratorID, dwTargetUserID, dwDistributionRatio)
 end
 
 return Guild

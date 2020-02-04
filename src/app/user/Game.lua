@@ -136,11 +136,7 @@ function Game:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.wCellScore = luaFunc:readRecvWORD()            --用户 倍率
         data.wTableNumber = luaFunc:readRecvWORD()          --总局数
         data.wCurrentNumber = luaFunc:readRecvWORD()        --当前局数
-        local haveReadByte = 0
-        data.tableParameter, haveReadByte = require("common.GameConfig"):getParameter(data.wKindID,luaFunc)
-        if haveReadByte < 128 then
-            luaFunc:readRecvBuffer(128-haveReadByte)
-        end
+        data.tableParameter = require("common.GameConfig"):getParameter(data.wKindID,luaFunc)
         data.szGameID = luaFunc:readRecvString(32)
         EventMgr:dispatch(EventType.SUB_GR_MATCH_TABLE_ING,data)
         
@@ -163,11 +159,7 @@ function Game:EVENT_TYPE_NET_RECV_MESSAGE(event)
         data.wCellScore = luaFunc:readRecvWORD()            --用户 倍率
         data.wTableNumber = luaFunc:readRecvWORD()          --总局数
         data.wCurrentNumber = luaFunc:readRecvWORD()        --当前局数
-        local haveReadByte = 0
-        data.tableParameter, haveReadByte = require("common.GameConfig"):getParameter(data.wKindID,luaFunc)
-        if haveReadByte < 128 then
-            luaFunc:readRecvBuffer(128-haveReadByte)
-        end
+        data.tableParameter = require("common.GameConfig"):getParameter(data.wKindID,luaFunc)
         data.szGameID = luaFunc:readRecvString(32)
         data.szTableName = luaFunc:readRecvString(32)
         data.dwPlayID = luaFunc:readRecvDWORD()
@@ -293,7 +285,7 @@ function Game:saveCommonPlayways()
         return
     end
     local data = json.encode(self.tableCommonPlayways)
-    local fp = io.open(FileName.talbeCommonPlayways,"wb+")
+    local fp = io.open(FileName.tableCommonPlayways,"wb+")
     fp:write(data)
     fp:close()
 end

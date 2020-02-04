@@ -473,7 +473,7 @@ function HallLayer:onCreate(parames)
         end
 
         if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
-            uiListView_function:setItemsMargin(120)
+            uiListView_function:setItemsMargin(180)
         end 
     end
 

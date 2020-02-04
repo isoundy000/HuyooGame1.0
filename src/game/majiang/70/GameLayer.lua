@@ -317,6 +317,10 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 8 do
                 data.szNickNameALL[i] = luaFunc:readRecvString(32)
             end
+            data.cbDisbandeCount = {}   --解散次数
+            for i = 1, 8 do
+                data.cbDisbandeCount[i] = luaFunc:readRecvByte()
+            end
             require("common.DissolutionLayer"):create(GameCommon:getRoleChairID(),GameCommon.player,data)
             return true
             
@@ -454,13 +458,14 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
                 uiText_table:setString(GameCommon.tableConfig.szTableName)
                 local CellScore = GameCommon.tableConfig.wCellScore / GameCommon.tableConfig.wTableCellDenominator
-                uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
+                --uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
             end 
             return true
             
         elseif subCmdID == NetMsgId.SUB_S_GAME_SelectZhuang then
             _tagMsg.pBuffer.wBankerUser = luaFunc:readRecvWORD()        --庄家用户
             self:updatePlayerPiaoFen()
+            self.tableLayer:showCountDown(GameCommon.wBankerUser)
             return true                    
         elseif subCmdID == NetMsgId.SUB_S_GAME_START_MAJIANG then
             _tagMsg.pBuffer.wSiceCount = luaFunc:readRecvWORD()         --骰子点数
@@ -1139,6 +1144,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
                     GameCommon.player[i-1].mPiaoUser = pBuffer.mPiaoUser[i]
                 end
                 self:updatePlayerPiaoFen()
+                self.tableLayer:showCountDown(GameCommon.wBankerUser)
             end
             self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
             
@@ -1270,7 +1276,7 @@ function GameLayer:EVENT_TYPE_OPERATIONAL_OUT_CARD(event)
         return
     end
 
-    if GameCommon.IsOfHu == 1 then  --如果是胡牌
+    if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then  --如果是胡牌
         require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
             if GameCommon.iNOoutcard == true then --当前是明牌
                 NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
@@ -1342,7 +1348,7 @@ function GameLayer:updatePlayerlScore()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
         local dwGold = Common:itemNumberToString(GameCommon.player[wChairID].lScore)
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        uiText_score:setString(string.format(" %d",dwGold))   
     end
 end
 
@@ -1356,8 +1362,8 @@ function GameLayer:updatePlayerlfatigue()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
 
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
-        local dwGold = GameCommon.tableConfig.fUserScore[i]/100
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        local dwGold = GameCommon.tableConfig.fUserScore[i]
+        uiText_score:setString(string.format(" %d",dwGold))   
 
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
@@ -1365,10 +1371,7 @@ function GameLayer:updatePlayerlfatigue()
             uiText_fatigue:setVisible(false)
         end 
         if GameCommon.tableConfig.lFatigueValue~= nil then
-            local fatigue =GameCommon.tableConfig.lFatigueValue[i]/ 100.00
-            if fatigue ~= 0.00 then 
-                uiText_fatigue:setString(string.format("%0.2f",fatigue))   
-            end 
+            uiText_fatigue:setString(string.format("%0.2f",GameCommon.tableConfig.lFatigueValue[i]/ 100.00))
         end
     end 
 end 

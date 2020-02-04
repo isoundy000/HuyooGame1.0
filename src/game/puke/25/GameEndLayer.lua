@@ -160,13 +160,17 @@ function GameEndLayer:onCreate(pBuffer)
             uiImage_red10:setVisible(false)
         end
         local uiText_result = ccui.Helper:seekWidgetByName(root,"Text_result")
-      --  uiText_result:setString(string.format("%d",pBuffer.lGameScore[key+1]))      
+        uiText_result:setString(string.format("%d",pBuffer.lGameScore[key+1]))      
 
+
+        local uiText_fatigue = ccui.Helper:seekWidgetByName(root,"Text_fatigue")
         local dwGold = pBuffer.fWriteScoreArr[var.wChairID + 1]/100
-        if pBuffer.lGameScore[var.wChairID + 1] > 0 then 
-            uiText_result:setString(string.format(" +%0.2f",dwGold))
-        else      
-            uiText_result:setString(string.format(" %0.2f",dwGold))
+        if pBuffer.lGameScore[var.wChairID + 1] >= 0 then 
+            uiText_fatigue:setColor(cc.c3b(175,49,52))  
+            uiText_fatigue:setString(string.format("(赛:+%0.2f)",dwGold))
+        else
+            uiText_fatigue:setColor(cc.c3b(30,85,60))      
+            uiText_fatigue:setString(string.format("(赛:%0.2f)",dwGold))
         end     
         local uiText_abandon = ccui.Helper:seekWidgetByName(root,"Text_abandon")
         if pBuffer.wChariIDAbandon == var.wChairID then

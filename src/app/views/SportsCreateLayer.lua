@@ -313,11 +313,11 @@ function SportsCreateLayer:createSports()
             CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,                 
             self.settingsData.tableParameter.bPlayerCountType,self.settingsData.tableParameter.bPlayerCount,self.settingsData.tableParameter.bTotalHuXi) 
     elseif self.settingsData.wKindID == 25 or self.settingsData.wKindID == 26  then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbbbbb",
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbbbbbb",
             CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
             self.settingsData.tableParameter.bPlayerCount, self.settingsData.tableParameter.bStartCard,self.settingsData.tableParameter.bBombSeparation,self.settingsData.tableParameter.bRed10,
             self.settingsData.tableParameter.b4Add3,self.settingsData.tableParameter.bShowCardCount,self.settingsData.tableParameter.bSpringMinCount,self.settingsData.tableParameter.bAbandon,self.settingsData.tableParameter.bCheating,self.settingsData.tableParameter.bFalseSpring,
-            self.settingsData.tableParameter.bHostedTime,self.settingsData.tableParameter.bHostedSession,self.settingsData.tableParameter.b4Add2)
+            self.settingsData.tableParameter.bHostedTime,self.settingsData.tableParameter.bHostedSession,self.settingsData.tableParameter.b4Add2,self.settingsData.tableParameter.bDel345)
     elseif self.settingsData.wKindID == 27 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbwbbbbbbbbd",
             CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
@@ -439,24 +439,6 @@ function SportsCreateLayer:createSports()
             self.settingsData.tableParameter.bHuangZhuangHG,self.settingsData.tableParameter.bQingSH,self.settingsData.tableParameter.bJiePao)   
 
     elseif self.settingsData.wKindID == 47 then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbwbbbbbbbbdb",
-            CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
-            self.settingsData.tableParameter.FanXing.bType,self.settingsData.tableParameter.FanXing.bCount,self.settingsData.tableParameter.FanXing.bAddTun,
-            self.settingsData.tableParameter.bPlayerCountType,self.settingsData.tableParameter.bPlayerCount,self.settingsData.tableParameter.bLaiZiCount,self.settingsData.tableParameter.bMaxLost,
-            self.settingsData.tableParameter.bYiWuShi,self.settingsData.tableParameter.bLiangPai,self.settingsData.tableParameter.bCanHuXi,self.settingsData.tableParameter.bHuType,
-            self.settingsData.tableParameter.bFangPao,self.settingsData.tableParameter.bSettlement,self.settingsData.tableParameter.bStartTun,self.settingsData.tableParameter.bSocreType,
-            self.settingsData.tableParameter.dwMingTang,self.settingsData.tableParameter.bTurn)  
-
-    elseif self.settingsData.wKindID == 48 then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbwbbbbbbbbdbbb",
-            CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
-            self.settingsData.tableParameter.FanXing.bType,self.settingsData.tableParameter.FanXing.bCount,self.settingsData.tableParameter.FanXing.bAddTun,
-            self.settingsData.tableParameter.bPlayerCountType,self.settingsData.tableParameter.bPlayerCount,self.settingsData.tableParameter.bLaiZiCount,self.settingsData.tableParameter.bMaxLost,
-            self.settingsData.tableParameter.bYiWuShi,self.settingsData.tableParameter.bLiangPai,self.settingsData.tableParameter.bCanHuXi,self.settingsData.tableParameter.bHuType,
-            self.settingsData.tableParameter.bFangPao,self.settingsData.tableParameter.bSettlement,self.settingsData.tableParameter.bStartTun,self.settingsData.tableParameter.bSocreType,
-            self.settingsData.tableParameter.dwMingTang,self.settingsData.tableParameter.bTurn,self.settingsData.tableParameter.bPaoTips,self.settingsData.tableParameter.bStartBanker)  
-
-    elseif self.settingsData.wKindID == 49 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbwbbbbbbbbdbbbbb",
             CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
             self.settingsData.tableParameter.FanXing.bType,self.settingsData.tableParameter.FanXing.bCount,self.settingsData.tableParameter.FanXing.bAddTun,
@@ -464,7 +446,28 @@ function SportsCreateLayer:createSports()
             self.settingsData.tableParameter.bYiWuShi,self.settingsData.tableParameter.bLiangPai,self.settingsData.tableParameter.bCanHuXi,self.settingsData.tableParameter.bHuType,
             self.settingsData.tableParameter.bFangPao,self.settingsData.tableParameter.bSettlement,self.settingsData.tableParameter.bStartTun,self.settingsData.tableParameter.bSocreType,
             self.settingsData.tableParameter.dwMingTang,self.settingsData.tableParameter.bTurn,self.settingsData.tableParameter.bDeathCard,self.settingsData.tableParameter.bStartBanker,
-            self.settingsData.tableParameter.bHuangFanAddUp,self.settingsData.tableParameter.STWK)  
+            self.settingsData.tableParameter.bHostedTime,self.settingsData.tableParameter.bHostedSession) 
+
+    elseif self.settingsData.wKindID == 48 then
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbwbbbbbbbbdbbbbbbbbbb",
+            CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
+            self.settingsData.tableParameter.FanXing.bType,self.settingsData.tableParameter.FanXing.bCount,self.settingsData.tableParameter.FanXing.bAddTun,
+            self.settingsData.tableParameter.bPlayerCountType,self.settingsData.tableParameter.bPlayerCount,self.settingsData.tableParameter.bLaiZiCount,self.settingsData.tableParameter.bMaxLost,
+            self.settingsData.tableParameter.bYiWuShi,self.settingsData.tableParameter.bLiangPai,self.settingsData.tableParameter.bCanHuXi,self.settingsData.tableParameter.bHuType,
+            self.settingsData.tableParameter.bFangPao,self.settingsData.tableParameter.bSettlement,self.settingsData.tableParameter.bStartTun,self.settingsData.tableParameter.bSocreType,
+            self.settingsData.tableParameter.dwMingTang,self.settingsData.tableParameter.bTurn,self.settingsData.tableParameter.bPaoTips,self.settingsData.tableParameter.bStartBanker,
+            self.settingsData.tableParameter.bSiQiHong,self.settingsData.tableParameter.bDelShuaHou,self.settingsData.tableParameter.bHuangFanAddUp,self.settingsData.tableParameter.bTingHuAll,
+            self.settingsData.tableParameter.bDeathCard,self.settingsData.tableParameter.bHostedTime,self.settingsData.tableParameter.bHostedSession)  
+
+    elseif self.settingsData.wKindID == 49 then
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbwbbbbbbbbdbbbbbbb",
+            CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
+            self.settingsData.tableParameter.FanXing.bType,self.settingsData.tableParameter.FanXing.bCount,self.settingsData.tableParameter.FanXing.bAddTun,
+            self.settingsData.tableParameter.bPlayerCountType,self.settingsData.tableParameter.bPlayerCount,self.settingsData.tableParameter.bLaiZiCount,self.settingsData.tableParameter.bMaxLost,
+            self.settingsData.tableParameter.bYiWuShi,self.settingsData.tableParameter.bLiangPai,self.settingsData.tableParameter.bCanHuXi,self.settingsData.tableParameter.bHuType,
+            self.settingsData.tableParameter.bFangPao,self.settingsData.tableParameter.bSettlement,self.settingsData.tableParameter.bStartTun,self.settingsData.tableParameter.bSocreType,
+            self.settingsData.tableParameter.dwMingTang,self.settingsData.tableParameter.bTurn,self.settingsData.tableParameter.bDeathCard,self.settingsData.tableParameter.bStartBanker,
+            self.settingsData.tableParameter.bHuangFanAddUp,self.settingsData.tableParameter.STWK,self.settingsData.tableParameter.bHostedTime,self.settingsData.tableParameter.bHostedSession) 
 
     elseif self.settingsData.wKindID == 50 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbbbbbbbbb",
@@ -476,14 +479,14 @@ function SportsCreateLayer:createSports()
             self.settingsData.tableParameter.mZTSXlag,self.settingsData.tableParameter.bJJHFlag,self.settingsData.tableParameter.bWuTong,self.settingsData.tableParameter.mMaOne)   
 
     elseif self.settingsData.wKindID == 70 then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbbbbbbbbbbb",
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbbbbbbbbbbbbb",
             CHANNEL_ID,self.sportsData.dwKey,1,dwCost,self.settingsData.wKindID,self.settingsData.tableParameter.bPlayerCount,
             self.settingsData.tableParameter.bPlayerCount,
             self.settingsData.tableParameter.bNiaoAdd,self.settingsData.tableParameter.mNiaoCount,self.settingsData.tableParameter.bLLSFlag,self.settingsData.tableParameter.bQYSFlag,
             self.settingsData.tableParameter.bWJHFlag,self.settingsData.tableParameter.bDSXFlag,self.settingsData.tableParameter.bBBGFlag,self.settingsData.tableParameter.bSTFlag,
             self.settingsData.tableParameter.bYZHFlag,self.settingsData.tableParameter.bMQFlag,self.settingsData.tableParameter.mZXFlag,self.settingsData.tableParameter.mPFFlag,
             self.settingsData.tableParameter.mZTSXlag,self.settingsData.tableParameter.bJJHFlag,self.settingsData.tableParameter.bWuTong,self.settingsData.tableParameter.mMaOne,
-            self.settingsData.tableParameter.mZTLLSFlag,self.settingsData.tableParameter.mKGNPFlag)   
+            self.settingsData.tableParameter.mZTLLSFlag,self.settingsData.tableParameter.mKGNPFlag,self.settingsData.tableParameter.bHostedTime,self.settingsData.tableParameter.bHostedSession)   
 
     elseif self.settingsData.wKindID == 51 or self.settingsData.wKindID == 55 or self.settingsData.wKindID == 56 or self.settingsData.wKindID == 57 or self.settingsData.wKindID == 58 or self.settingsData.wKindID == 59 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_SPORTS,NetMsgId.REQ_SPORTS_CREATE,"ddbdwbbbbbbbbbbbbbb",

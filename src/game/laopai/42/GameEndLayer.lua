@@ -201,9 +201,9 @@ function GameEndLayer:onCreate(pBuffer)
         uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
         local dwGold = pBuffer.fWriteScoreArr[i]/100
         if pBuffer.lGameScore[i] > 0 then 
-            uiText_result:setString(string.format(" +%0.2f",dwGold))
+            uiText_result:setString(string.format(" +%d\n(赛:+%0.2f)",pBuffer.lGameScore[i],dwGold))
         else      
-            uiText_result:setString(string.format(" %0.2f",dwGold))
+             uiText_result:setString(string.format(" %d\n(赛:%0.2f)",pBuffer.lGameScore[i],dwGold))
         end 
 
         local uiListView_card = ccui.Helper:seekWidgetByName(item,"ListView_card") 

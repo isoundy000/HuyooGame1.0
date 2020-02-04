@@ -169,7 +169,61 @@ function RoomCreateLayer:onCreate(parameter)
         items[1]:setBright(true)
     else
         items[1]:setBright(false)
-    end    
+    end 
+    
+    --选择托管时间
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+        if index == 1 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+                var:setBright(false)
+                var:setEnabled(false)
+                var:setColor(cc.c3b(170,170,170))
+            end
+        else
+            local isHaveDefault = false
+            for key, var in pairs(items) do
+                var:setEnabled(true)
+                var:setColor(cc.c3b(255,255,255)) 
+                if var:isBright() then
+                    isHaveDefault = true
+                end
+            end
+            if isHaveDefault == false then
+                items[1]:setBright(true)
+            end
+        end
+    end)
+    if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 2 then
+        items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 3 then
+        items[4]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+    
+    --选择托管局数
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bHostedTime"] == nil or self.recordCreateParameter["bHostedTime"] == 0 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+            var:setBright(false)
+            var:setEnabled(false)
+            var:setColor(cc.c3b(170,170,170))
+        end
+    elseif self.recordCreateParameter["bHostedSession"] ~= nil and self.recordCreateParameter["bHostedSession"] == 3 then
+        items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedSession"] ~= nil and self.recordCreateParameter["bHostedSession"] >= 6 then
+        items[2]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}
         self:SUB_CL_FRIENDROOM_CONFIG_END()
@@ -297,6 +351,27 @@ function RoomCreateLayer:onEventCreate(nTableType)
     else
         tableParameter.bTurn = 0
     end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedTime = 0
+    elseif items[2]:isBright() then
+        tableParameter.bHostedTime = 1
+    elseif items[3]:isBright() then
+        tableParameter.bHostedTime = 3
+    elseif items[4]:isBright() then
+        tableParameter.bHostedTime = 5
+    end  
+    tableParameter.bHostedSession = 0
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedSession = 1
+    elseif items[2]:isBright() then
+        tableParameter.bHostedSession = tableParameter.wGameCount
+    elseif items[3]:isBright() then
+        tableParameter.bHostedSession = 3
+    end  
+
     tableParameter.FanXing = {}
     tableParameter.FanXing.bType = 0
     tableParameter.FanXing.bCount = 0

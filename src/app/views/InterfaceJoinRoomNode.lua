@@ -89,10 +89,10 @@ function InterfaceJoinRoomNode:SUB_GR_JOIN_TABLE_FAILED(event)
     elseif data.wErrorCode == 26 then
         -- require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不够,请联系群主!")
         if FatigueLimit and FatigueLimit > 0 then
-            local str = string.format("您的疲劳值不足[%d],请联系群主!", FatigueLimit)
+            local str = string.format("您的疲劳值不足[%d],无法进入房间!", FatigueLimit)
             require("common.MsgBoxLayer"):create(2,nil, str)
         else
-            require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,请联系群主!")
+            require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,无法进入房间!")
         end
         
     elseif data.wErrorCode == 27 then

@@ -153,7 +153,7 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            if GameCommon.IsOfHu == 1 then
+            if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                 require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
                      NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_C_OPERATE_CARD,"wb",GameCommon.WIK_NULL,0)
             	     self:removeFromParent()

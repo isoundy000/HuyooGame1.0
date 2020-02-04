@@ -8,7 +8,7 @@ require "config"
 require "cocos.init"
 
 --渠道ID
-cc.exports.CHANNEL_ID = 0
+cc.exports.CHANNEL_ID = 11
 
 --平台类型整理
 --cc.PLATFORM_OS_WINDOWS = 0
@@ -40,9 +40,9 @@ if cc.PLATFORM_OS_DEVELOPER == PLATFORM_TYPE then
     IS_OPEN_UPDATE = false
 end
 
-cc.exports.CONST_ACCOUNTS = 'cxx'
+cc.exports.CONST_ACCOUNTS = 'o5sqS1BAbUxrFCkGr0L6HHmIaqUk'
 -- cc.exports.CONST_ACCOUNTS = "ob0xh1AzAedxBHDttu5bEA5lRmDk"--李禹陵武陵
--- cc.exports.CONST_ACCOUNTS = "o5sqS1Pt9oqFrP9sgWbpOXO80vyo"  --李禹陵天娱
+-- cc.exports.CONST_ACCOUNTS = "oKOaiuHRu3AcZFoP16h5w58PaQ7k"  --李禹陵天娱
 
 
 local searchPaths = cc.FileUtils:getInstance():getSearchPaths()

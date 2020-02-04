@@ -1095,4 +1095,14 @@ function Common:isInterNumber(srcNum)
     end
 end
 
+function Common:isToday(timestamp)
+    local today = os.date("*t")
+    local secondOfToday = os.time({day=today.day, month=today.month,year=today.year, hour=0, minute=0, second=0})
+    if timestamp >= secondOfToday and timestamp < secondOfToday + 24 * 60 * 60 then
+        return true
+    else
+        return false
+    end
+end
+
 return Common

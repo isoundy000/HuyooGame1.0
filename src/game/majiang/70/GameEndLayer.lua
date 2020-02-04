@@ -305,9 +305,11 @@ function GameEndLayer:onCreate(pBuffer)
         uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
         local dwGold = pBuffer.fWriteScoreArr[i]/100
         if pBuffer.lGameScore[i] > 0 then 
-            uiText_result:setString(string.format(" +%0.2f",dwGold))
-        else      
-            uiText_result:setString(string.format(" %0.2f",dwGold))
+            uiText_result:setColor(cc.c3b(175,49,52))
+            uiText_result:setString(string.format(" +%d\n(赛:+%0.2f)",pBuffer.lGameScore[i],dwGold))
+        else   
+            uiText_result:setColor(cc.c3b(30,85,60))   
+            uiText_result:setString(string.format(" %d\n(赛:%0.2f)",pBuffer.lGameScore[i],dwGold))
         end 
         -- if pBuffer.lGameScore[i] < 0 then       
         --     uiAtlasLabel_score:setProperty(string.format(".%d",pBuffer.lGameScore[i]),"fonts/fonts_12.png",26,45,'.')              

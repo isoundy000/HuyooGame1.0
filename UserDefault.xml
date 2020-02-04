@@ -2,7 +2,7 @@
 <userDefaultRoot>
     <UserDefault_RegionID>1</UserDefault_RegionID>
     <UserDefault_Operation>NewClubInfoLayer</UserDefault_Operation>
-    <UserDefault_NewClubID>231422</UserDefault_NewClubID>
+    <UserDefault_NewClubID>807113</UserDefault_NewClubID>
     <avatar_10037008.png>http://thirdwx.qlogo.cn/mmopen/vi_32/B8PYStWiafWZ7ibc1Ur2oJuSSnokvbekLw6x9iaxdCDvdEtnbq1drYMOEibY7COKL6eHmMEsvLaEgaCeklIHGWm3ug/132</avatar_10037008.png>
     <UserDefault_Guil>1543887028</UserDefault_Guil>
     <UserDefault_Sign_10038285>1543830456</UserDefault_Sign_10038285>
@@ -46,5 +46,65 @@
     <UserDefault_Sign_10027098>1572578308</UserDefault_Sign_10027098>
     <UserDefault_Sign_56260955>1573530862</UserDefault_Sign_56260955>
     <UserDefault_Sign_10021738>1573730330</UserDefault_Sign_10021738>
-    <club_quick_game_playwayid>650</club_quick_game_playwayid>
+    <club_quick_game_playwayid>10958</club_quick_game_playwayid>
+    <UserDefault_Sign_87035033>1577948615</UserDefault_Sign_87035033>
+    <club_ClubName>大萨达所</club_ClubName>
+    <club_dwUserID>81747326</club_dwUserID>
+    <club_dwClubID>603962</club_dwClubID>
+    <club_isAdmin>true</club_isAdmin>
+    <avatar_607415.png>http://thirdwx.qlogo.cn/mmopen/vi_32/4PvE1oOdiaKt1CO3iaTQgt0W92ryKFEOkicTShcJkEHaQCAqnbYFfWiael1ZDNIsiaWiaIgVDK3caHqgxo1nGIBLiaJIQ/132</avatar_607415.png>
+    <avatar_704729.png>http://thirdwx.qlogo.cn/mmopen/vi_32/FlGlx9CGduzo6qia8cXWfrlNf20MZ4B11kBjBjib2sHjJkWL0Jc0dkTyHPMrOrjbI47Ticn1lBoZRGfga6NZSUV8w/132</avatar_704729.png>
+    <avatar_342287.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKBrqTKvvrFicrIHkEBWKk6ZHlWPw6COIQ9rtcpGBRecjMJJyXgskVEbL8dVMMq04juJXZaicU2lIyQ/132</avatar_342287.png>
+    <avatar_807113.png>http://thirdwx.qlogo.cn/mmopen/vi_32/4PvE1oOdiaKt1CO3iaTQgt0W92ryKFEOkicTShcJkEHaQCAqnbYFfWiael1ZDNIsiaWiaIgVDK3caHqgxo1nGIBLiaJIQ/132</avatar_807113.png>
+    <avatar_308122.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIibzjzUQQ0e836mrr5ibdWibRphsMxjJfyjSXtE3Kl4aDK3EKtu5lTYy4KOc881CibG5SRk7bFicyKNBQ/132</avatar_308122.png>
+    <avatar_922195.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJCsXpUUw1POde4KiaWT9tm20giaXKh4yuRImiczU7LqAylsia8micFfVzLtbRibINHaG3RRD1ovwJ6iceog/132</avatar_922195.png>
+    <avatar_339124.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLU9gpb0Rqlo2tEoTu4Wuy2VSo4zy0rhvnOI12iaEr1KicPh3o2jc6dAHsArl1vmTibymIu5IOu6zicJQ/132</avatar_339124.png>
+    <avatar_434686.png>http://thirdwx.qlogo.cn/mmopen/vi_32/VbH6KmPR0IddibChvblkqXZ7xGLssZa1LEDmXyx0WtYWKovrhAVGAgDKdGLbVNslrOnXCGGmVd2spNML5LLjyyQ/132</avatar_434686.png>
+    <avatar_646639.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKfBgs5MGiaEl20WYuFMavYLPqvXpAa9ibsnjuuuAufpI1Tu5ibr8nIJhkibJvX43WfusY0kjbdI1x73g/132</avatar_646639.png>
+    <avatar_634299.png>http://thirdwx.qlogo.cn/mmopen/vi_32/DMrj1Gdmqq1QkRicVTrhUdmeB2r11HhUzKK6sFQPib02LVIYsbZF4tiaywmwicr7lYyWuNicnmM4VrdmMQKwW5pbAUw/132</avatar_634299.png>
+    <avatar_944300.png>http://thirdwx.qlogo.cn/mmopen/vi_32/hSXmd9IZuYibZOhltcpiaoW2FrVdNclokZ50dnw98JJgXt7wicJj1qg8ib1vr00KEONDzVo4LIhI6wmZ4CMZ4aF9tg/132</avatar_944300.png>
+    <avatar_850278.png>http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83erFLNqas1S9vwVQzIFu1HvStNDaHk1S4rl81t0ITDiasSLaAKkKWJkULSdPNrPhEx57UBv9icclK3sg/132</avatar_850278.png>
+    <avatar_404208.png>http://thirdwx.qlogo.cn/mmopen/vi_32/cN97ibxoLmrjYzXg3fJCkgcwqOMpnUpdOzY17ETzzzm0UoqmrBSvN6kT8b33NpOppvvTS1J2RNOwaOeicAXpCPXA/132</avatar_404208.png>
+    <avatar_852922.png>http://thirdwx.qlogo.cn/mmopen/vi_32/wEp1klRJVpjNFAvstvUwPOQ3r4YyWChkPewjzRWxofZUImSotA5Ev3er4obdk2QZTFu6xKSgxgLPmenbdVT57g/132</avatar_852922.png>
+    <avatar_807533.png>http://thirdwx.qlogo.cn/mmopen/vi_32/pDDqWm9fhzSAMMxDlsJ8Zf1AGQz2eOOEHSCvDlrwlcPTo5obJUA8iaKxMWDBeHVdMFYATRnkCmSDe7tZEScgl4g/132</avatar_807533.png>
+    <avatar_404221.png>http://thirdwx.qlogo.cn/mmopen/vi_32/gfL2PBF1FnUD6MUgYBNYs6konkqCJORN4FltxKtBUFoiclKDd8E8hKiaeiawj3vYhG7nSlsgIeXHMHmoH1Z4Q85xg/132</avatar_404221.png>
+    <avatar_540555.png>http://thirdwx.qlogo.cn/mmopen/vi_32/CbibyDibXns3J1WQuv1fr7aAjsOKGxTyCYRsYbXyCYSu0zafhND5EAHeZhIicEzxXDO0uKe0Dvmcv5zdWNqPIIIPA/132</avatar_540555.png>
+    <avatar_977625.png>http://thirdwx.qlogo.cn/mmopen/vi_32/CI6yB1BRqYgImP8Ep1DCq4BVp8siaAIEnbNqtZhjgGSpia7ehakpdT2kdXVibcomHpEHjOJBdSK9wHATIGO16P5tQ/132</avatar_977625.png>
+    <avatar_581269.png>http://thirdwx.qlogo.cn/mmopen/vi_32/f7etKIiaq1pGDpbRJHwUhKbOTQ0g3kKrXgllBPqQ2KIrwtxOLicNOy6e9J19x6zeQ70BtCLHTdGQnQO2wndKMwnw/132</avatar_581269.png>
+    <avatar_418087.png>http://thirdwx.qlogo.cn/mmopen/vi_32/UniaxFelbP10PC7DMEGQNAcGkhWgQOXChlAYvqNlPjxl7bkZSOMCUtaBzj8TQianzOzR5dcLv1Q6k2SibpTB44EicA/132</avatar_418087.png>
+    <avatar_429404.png>https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM7YYhacB5SCRsG54C11LiaYjGxo2BYGTzBqMeXR3RjzhtJiaqOFIN3ziaMHq2uygelqcFlSNv8KV0wdw/132</avatar_429404.png>
+    <avatar_961592.png>https://thirdwx.qlogo.cn/mmopen/vi_32/gnPHbqfl7kiadyrhWDtaeynBLkLUbe3GfEmhUggUU3uoc6FQ8cNXa18HJyo2b5N11x573L5kH77nIRmicg0JHy3Q/132</avatar_961592.png>
+    <avatar_520450.png>http://thirdwx.qlogo.cn/mmopen/vi_32/sjgABxtn8WbnXsevKmo8M2OZ2wftvgD4fn00FUwyzjacBP58l0K9qC1KecBDThnkjZB1GY8iczeMgzRHODSkutw/132</avatar_520450.png>
+    <avatar_678687.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKDLEPxpE3gIJiaY15luGLlMIaib1urflAKXJuKNAVX2Ion3EB2mYQfomOo8YMd3MZ9G37jQNMhssgA/132</avatar_678687.png>
+    <avatar_459677.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIqdQvzmFDicEYzgaKFnVZzzqGfraDZWKokbLfULlkwXxeQZbbBX0dlKVeTd3YAeUnzmv9shz8GKrw/132</avatar_459677.png>
+    <avatar_355465.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLibIEcr7JnLic4vfmYONFR46oV0VDoTtUVBLria3tCwXwZVTRU6p0cmngOUd4Bkq0YkoicZrsvdT6Qicw/132</avatar_355465.png>
+    <avatar_452264.png>http://thirdwx.qlogo.cn/mmopen/vi_32/eNAcmEVkvf27ZmibzicUQib38221nGdNAxAthxplmKBrFXy6yia9TkvE51kuqg5fC0cXRaJdic0icIUWOE3PcAPuJTFw/132</avatar_452264.png>
+    <avatar_552694.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIV2fcnaxxRI6NyXJpN5OcuhYZ1DAJnm32xxRRdzlnLonfElrGIMCJjwyCGmMfLwpF2IibE32qpYOw/132</avatar_552694.png>
+    <avatar_508310.png>http://thirdwx.qlogo.cn/mmopen/vi_32/4U0qVMaIibKUkrj7CR1Mans9ibB5eJz5CQraq84icWQsK139RAAib2Az6TgfMnl6c11SSMnThtKquwX4fXibkdHAFPQ/132</avatar_508310.png>
+    <avatar_722417.png>http://thirdwx.qlogo.cn/mmopen/vi_32/qU72qr5erKGxBEMJQAz3IqGPyUH3QYfYSCA1mcM8CQw0YvmyhxibPxfzhSoVibGHl0XIYNCmu9wErOtrrs2tHzlw/132</avatar_722417.png>
+    <avatar_638113.png>http://thirdwx.qlogo.cn/mmopen/vi_32/jQNyKqaK3ibKKhvJeUokAnQNXtZqoqibLibs9uIGUOvZ7fa64LN12fFeOx9VFMT8ULVFxjA6BkWy791nnVFbOfsXQ/132</avatar_638113.png>
+    <avatar_662214.png>https://thirdwx.qlogo.cn/mmopen/vi_32/otlSicAwSJwyZ5XGZglhdl3o8m9qQooiarfaRVhc0YibgqkOmDaYCPxOJK4XMmicDpvUTDQbN19yazlRxB4ElZsPGQ/132</avatar_662214.png>
+    <avatar_463484.png>http://thirdwx.qlogo.cn/mmopen/vi_32/RIiaEicdGEJSWickvorEbI2VLibxr8l1VzEwSIPwub4xQGWDZibwOCic4icuia7hyIMkaX12E0O2DKfrQWEOklqCa6BqKg/132</avatar_463484.png>
+    <avatar_851240.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLdfGdP8iaibnLOA3fibIIDSLic0EGCzPcmxicBAuibDJ9kFgL5O244ufdFXbX7Xje1ulTAIK3Ua6klQSSA/132</avatar_851240.png>
+    <avatar_599169.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJPlIdSW95gtibGxZmqFPiaDdQlf60q2XWCGPic4QxmfaQlvv1SIF9QSr9YTlmyMTVVpjmsO7JrtNwaQ/132</avatar_599169.png>
+    <avatar_419231.png>http://thirdwx.qlogo.cn/mmopen/vi_32/sSkHeZwicicjRCvXkfzZQ8iaGTmK8Bet3hsMmZLiaWuu5nQDnYjibUlIzERh7M5OnmbB3ODnLibUYuEAnwNRLy4s5anw/132</avatar_419231.png>
+    <avatar_993483.png>http://thirdwx.qlogo.cn/mmopen/vi_32/DGyjfRUWdHq3bgpQ7bxbqugBvxEzXwEdeGZeeJqgh6g7Ax4E29rDHosYnibicutxUYEJhvKR73JpeCtQZrheib2Gw/132</avatar_993483.png>
+    <avatar_838353.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Nk8QbHA6Dic12gDkDBlDauB6XfUUbNKYEtvqzXMH4MAenVV2m3zf2LtLlQpcAkWiaRt8VbCWMpZKrSN20zvibgNYA/132</avatar_838353.png>
+    <avatar_279050.png>https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM49FwPptjqpDtkwzicdTUcibU1UFjRVLbad4UicmCFCicibzrcXrXf2uhm6wzukoJSqOia2zVxtfPf1LZyw/132</avatar_279050.png>
+    <avatar_735292.png>http://thirdwx.qlogo.cn/mmopen/vi_32/2OtfdOksJSHDvfLFQ5aqSFbrKFMNC7dvHTgajfo0tL5UIZI3BqowPBz4pz4Sdm1qSAFpyQcaOPTykX6YzBWbVw/132</avatar_735292.png>
+    <avatar_378663.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Oh6EPXibMcduWibfLEEqW4VP3qle38xICjfWFNVu90VEX22YvkMsic0VVN1d0ic4CEKEziaKPibGXeJXKhHibdXEBB8Kw/132</avatar_378663.png>
+    <avatar_861711.png>http://thirdwx.qlogo.cn/mmopen/vi_32/plqjbPh40gRlfMdibsHibgthqRLZbUPLt2RMk5tgW7FUKicgZd2l9CSoqX84cPLkqLOM562GnsYOuRymERxANPBibg/132</avatar_861711.png>
+    <avatar_761580.png>http://thirdwx.qlogo.cn/mmopen/vi_32/SyrX8rf2tWJ1VeiaTuVTrrOgiaClRouS78AOic928EDSlwCsdLBqibWOuQx1m7mVsZMqGgPia3rtpK3XLW27S6sTRDQ/132</avatar_761580.png>
+    <avatar_356393.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJfeo7ZYD3Sf7Udibhqt3NMPVF45QdGr66vicCYcGyoHGT56qyTUC2C6k19u71AhQ8CpSmibwJgdBaeA/132</avatar_356393.png>
+    <avatar_474063.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Boot3z4UqbZzjlWyv0wAFvyylqgFFfmQribXpp0ILVSZbjtcJzePWiaBJZMhtrfg9jx1UkNWfr0ARosf3bfzHbvw/132</avatar_474063.png>
+    <avatar_508740.png>http://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaELO7iajic9YO2djIOwaudpSsVM5rlkuQhUiaLVkefrMtyibh34ZiaHGF5tT60eBqiaMGnFyBibxqibv4ibcQJg/132</avatar_508740.png>
+    <avatar_975286.png>http://thirdwx.qlogo.cn/mmopen/vi_32/lgPvsXor4SJ5VF6shmQ7TutSBicptVicZaM8LVib7l90f5z7trklVFpdxTmic6sYXtYzj7pbcnj0Z680zAWpqq1IRw/132</avatar_975286.png>
+    <avatar_755739.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKtDYTj7AaX8jFFQDP4tcDG7WNP8FYbTPiaKNm2xALhP9uFVJ9cKwB5dNCZgdMycY9ahtQc4NLffVQ/132</avatar_755739.png>
+    <avatar_690596.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSibsARF2lJHlcIrtcqU6IPusL1pvzylDia7JzmEJtj0QE03g5LxC4kegbNJc6UanDqSz8mVO0AKPg/132</avatar_690596.png>
+    <avatar_390468.png>http://thirdwx.qlogo.cn/mmopen/vi_32/phASmVKGjbw9kutf6yDW8YGFPnEzDibnySkqTLCrYhlD97cknVsPRNBgnEVpmdu2wjJzDaZyDsAEy8GYjOkKQGA/132</avatar_390468.png>
+    <avatar_822171.png>http://thirdwx.qlogo.cn/mmopen/vi_32/ibz2EntB8LhjAF4N3XSKafY12icE27Scypzy9icX2rfzR4WsQgpuicZP3wzTw2AqPDGdpTP1JY8lwEMu0DnOavVLEA/132</avatar_822171.png>
+    <avatar_422746.png>http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83epabIP4hY7DibWuP7ENOEGpqrAfT9zIHeicD4WDia61Clyeq8G5lWqfiaictaL8k1R31cMqCWtRDcelgJw/132</avatar_422746.png>
+    <avatar_790621.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKVoibBdscahPHaoQkc5MMhytPh7jJGnIKDNtgQpl4ia93jDcoqMkEAyHUQoDjyqRxmH9bBrVlGESaA/132</avatar_790621.png>
+    <avatar_447019.png>http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKrh9NibbLoShIvMeyC5dwBySPJWdIWZjLYXb2dw7T8Vt825JQatvXLJPNPZOQfBuLSn3pibp09kkng/132</avatar_447019.png>
+    <avatar_475027.png>http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqSn7SKIwE2NKqyUI0eMkXAZfKsd5R30ZMv5eX7RdfKvMUMZBc0EN6xraibR3MzS2jEPuk7evZVVvg/132</avatar_475027.png>
 </userDefaultRoot>

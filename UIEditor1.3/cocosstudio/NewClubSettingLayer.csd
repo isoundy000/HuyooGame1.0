@@ -175,7 +175,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_baseFrame" Visible="False" ActionTag="2146920548" Tag="636" IconVisible="False" LeftMargin="239.8700" RightMargin="11.1300" TopMargin="10.8000" BottomMargin="10.0000" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="26" BottomEage="26" Scale9OriginX="28" Scale9OriginY="26" Scale9Width="30" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_baseFrame" ActionTag="2146920548" Tag="636" IconVisible="False" LeftMargin="239.8700" RightMargin="11.1300" TopMargin="10.8000" BottomMargin="10.0000" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="26" BottomEage="26" Scale9OriginX="28" Scale9OriginY="26" Scale9Width="30" Scale9Height="28" ctype="ImageViewObjectData">
                 <Size X="1029.0000" Y="620.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_129" ActionTag="74856862" Tag="635" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" BottomMargin="520.0000" Scale9Enable="True" LeftEage="47" RightEage="47" TopEage="20" BottomEage="20" Scale9OriginX="47" Scale9OriginY="20" Scale9Width="51" Scale9Height="23" ctype="ImageViewObjectData">
@@ -272,14 +272,14 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="TextField_notice" ActionTag="-957544457" Tag="756" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="10.0842" RightMargin="10.0842" TopMargin="48.3154" BottomMargin="6.4926" TouchEnable="True" FontSize="26" IsCustomSize="True" LabelText="" PlaceHolderText="输入亲友圈公告" MaxLengthEnable="True" MaxLengthText="200" ctype="TextFieldObjectData">
-                        <Size X="988.2516" Y="366.7920" />
+                      <AbstractNodeData Name="TextField_notice" ActionTag="-957544457" Tag="756" IconVisible="False" LeftMargin="10.2100" RightMargin="10.2101" TopMargin="48.3200" BottomMargin="7.2800" TouchEnable="True" FontSize="26" IsCustomSize="True" LabelText="" PlaceHolderText="输入亲友圈公告" MaxLengthEnable="True" MaxLengthText="200" ctype="TextFieldObjectData">
+                        <Size X="988.0000" Y="366.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                        <Position X="504.2100" Y="373.2846" />
+                        <Position X="504.2100" Y="373.2800" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="131" G="88" B="45" />
                         <PrePosition X="0.5000" Y="0.8854" />
-                        <PreSize X="0.9800" Y="0.8700" />
+                        <PreSize X="0.9798" Y="0.8681" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
@@ -1460,7 +1460,7 @@
                 <PreSize X="0.8039" Y="0.9675" />
                 <FileData Type="Normal" Path="kwxclub/club_notice_3.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_partnerFrame" ActionTag="1522157931" Tag="476" IconVisible="False" LeftMargin="239.8700" RightMargin="11.1300" TopMargin="10.7987" BottomMargin="10.0013" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="26" BottomEage="26" Scale9OriginX="28" Scale9OriginY="26" Scale9Width="30" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_partnerFrame" Visible="False" ActionTag="1522157931" Tag="476" IconVisible="False" LeftMargin="239.8700" RightMargin="11.1300" TopMargin="10.7987" BottomMargin="10.0013" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="26" BottomEage="26" Scale9OriginX="28" Scale9OriginY="26" Scale9Width="30" Scale9Height="28" ctype="ImageViewObjectData">
                 <Size X="1029.0000" Y="620.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_1" ActionTag="580177084" Tag="1105" IconVisible="False" LeftMargin="12.5381" RightMargin="863.4619" TopMargin="27.8073" BottomMargin="564.1927" FontSize="28" LabelText="合伙人层级：" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -1500,7 +1500,7 @@
                         <PreSize X="0.3399" Y="1.8571" />
                         <FileData Type="Normal" Path="kwxclub/kwxclub_157.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_two" ActionTag="-947158499" Tag="1109" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="403.9926" RightMargin="-302.9926" TopMargin="-12.0000" BottomMargin="-12.0000" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_two" ActionTag="-947158499" Tag="1109" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="353.0300" RightMargin="-252.0300" TopMargin="-12.0001" BottomMargin="-11.9999" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
                         <Size X="52.0000" Y="52.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_light" Visible="False" ActionTag="1786944868" Tag="1110" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TouchEnable="True" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
@@ -1513,28 +1513,28 @@
                             <PreSize X="1.0000" Y="1.0000" />
                             <FileData Type="Normal" Path="kwxclub/kwxclub_156.png" Plist="" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_3_0" ActionTag="84010498" Tag="1111" IconVisible="False" LeftMargin="65.7338" RightMargin="-127.7338" TopMargin="13.1759" BottomMargin="10.8241" FontSize="28" LabelText="无限分销" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="114.0000" Y="28.0000" />
+                          <AbstractNodeData Name="Text_3_0" ActionTag="84010498" Tag="1111" IconVisible="False" LeftMargin="65.2338" RightMargin="-128.2338" TopMargin="13.1759" BottomMargin="10.8241" FontSize="28" LabelText="无限分成" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="115.0000" Y="28.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="122.7338" Y="24.8241" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="127" G="90" B="33" />
                             <PrePosition X="2.3603" Y="0.4774" />
-                            <PreSize X="2.1923" Y="0.5385" />
+                            <PreSize X="2.2115" Y="0.5385" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="429.9926" Y="14.0000" />
+                        <Position X="379.0300" Y="14.0001" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="2.8104" Y="0.5000" />
+                        <PrePosition X="2.4773" Y="0.5000" />
                         <PreSize X="0.3399" Y="1.8571" />
                         <FileData Type="Normal" Path="kwxclub/kwxclub_157.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_three" ActionTag="-413298359" Tag="851" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="673.2958" RightMargin="-572.2958" TopMargin="-12.0000" BottomMargin="-12.0000" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_three" ActionTag="-413298359" Tag="851" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="581.0800" RightMargin="-480.0800" TopMargin="-12.0001" BottomMargin="-11.9999" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
                         <Size X="52.0000" Y="52.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_light" Visible="False" ActionTag="1434133774" Tag="852" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TouchEnable="True" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
@@ -1547,24 +1547,58 @@
                             <PreSize X="1.0000" Y="1.0000" />
                             <FileData Type="Normal" Path="kwxclub/kwxclub_156.png" Plist="" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_3_0" ActionTag="-458785144" Tag="853" IconVisible="False" LeftMargin="65.7338" RightMargin="-127.7338" TopMargin="11.7079" BottomMargin="12.2921" FontSize="28" LabelText="固定分销" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="114.0000" Y="28.0000" />
+                          <AbstractNodeData Name="Text_3_0" ActionTag="-458785144" Tag="853" IconVisible="False" LeftMargin="65.2338" RightMargin="-128.2338" TopMargin="11.7079" BottomMargin="12.2921" FontSize="28" LabelText="固定分成" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="115.0000" Y="28.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="122.7338" Y="26.2921" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="127" G="90" B="33" />
                             <PrePosition X="2.3603" Y="0.5056" />
-                            <PreSize X="2.1923" Y="0.5385" />
+                            <PreSize X="2.2115" Y="0.5385" />
                             <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="699.2958" Y="14.0000" />
+                        <Position X="607.0800" Y="14.0001" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="4.5706" Y="0.5000" />
+                        <PrePosition X="3.9678" Y="0.5000" />
+                        <PreSize X="0.3399" Y="1.8571" />
+                        <FileData Type="Normal" Path="kwxclub/kwxclub_157.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_four" ActionTag="851090746" Tag="1175" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="805.1250" RightMargin="-704.1250" TopMargin="-12.0001" BottomMargin="-11.9999" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
+                        <Size X="52.0000" Y="52.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_light" Visible="False" ActionTag="-2010943177" Tag="1176" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TouchEnable="True" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
+                            <Size X="52.0000" Y="52.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="26.0000" Y="26.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="0.5000" Y="0.5000" />
+                            <PreSize X="1.0000" Y="1.0000" />
+                            <FileData Type="Normal" Path="kwxclub/kwxclub_156.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Text_3_0" ActionTag="1094281972" Tag="1177" IconVisible="False" LeftMargin="65.2338" RightMargin="-128.2338" TopMargin="11.7079" BottomMargin="12.2921" FontSize="28" LabelText="玩法分成" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="115.0000" Y="28.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="122.7338" Y="26.2921" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="127" G="90" B="33" />
+                            <PrePosition X="2.3603" Y="0.5056" />
+                            <PreSize X="2.2115" Y="0.5385" />
+                            <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="831.1250" Y="14.0001" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="5.4322" Y="0.5000" />
                         <PreSize X="0.3399" Y="1.8571" />
                         <FileData Type="Normal" Path="kwxclub/kwxclub_157.png" Plist="" />
                       </AbstractNodeData>

@@ -285,7 +285,10 @@ function GameEndLayer:onCreate(pBuffer)
         ListView_Characterbox = ListView_Characterbox2
     end 
     for key, var in pairs(GameCommon.player) do    
-        local viewID = GameCommon:getViewIDByChairID(var.wChairID)           
+        local viewID = GameCommon:getViewIDByChairID(var.wChairID) 
+        if GameCommon.gameConfig.bPlayerCount == 2 and  (CHANNEL_ID ==0 or CHANNEL_ID == 1)  and viewID == 2 then
+            viewID = 3
+        end            
         local root = ccui.Helper:seekWidgetByName(ListView_Characterbox,string.format("Panel_Characterbox%d",viewID))
         local uiImage_avatar = ccui.Helper:seekWidgetByName(root,"Image_avatar")
         Common:requestUserAvatar(var.dwUserID,var.szPto,uiImage_avatar,"img") 
@@ -300,9 +303,11 @@ function GameEndLayer:onCreate(pBuffer)
         local dwGold = pBuffer.fWriteScoreArr[var.wChairID + 1]/100
         if pBuffer.lGameScore[var.wChairID + 1] > 0 then 
             --uiImage_yingjia:setVisible(false) 
-            uiAtlasLabel_money:setString(string.format(" +%0.2f",dwGold))
-        else      
-            uiAtlasLabel_money:setString(string.format(" %0.2f",dwGold))
+            uiAtlasLabel_money:setColor(cc.c3b(175,49,52))
+            uiAtlasLabel_money:setString(string.format(" +%d\n(赛:+%0.2f)",pBuffer.lGameScore[var.wChairID + 1],dwGold))
+        else   
+            uiAtlasLabel_money:setColor(cc.c3b(30,85,60))        
+            uiAtlasLabel_money:setString(string.format(" %d\n(赛:%0.2f)",pBuffer.lGameScore[var.wChairID + 1],dwGold))
         end   
         -- local dwGold = Common:itemNumberToString(pBuffer.lGameScore[var.wChairID + 1])   
         -- if pBuffer.lGameScore[var.wChairID + 1] > 0 then 

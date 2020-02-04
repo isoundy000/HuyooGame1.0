@@ -328,6 +328,10 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 8 do
                 data.szNickNameALL[i] = luaFunc:readRecvString(32)
             end
+            data.cbDisbandeCount = {}   --解散次数
+            for i = 1, 8 do
+                data.cbDisbandeCount[i] = luaFunc:readRecvByte()
+            end
             require("common.DissolutionLayer"):create(GameCommon:getRoleChairID(),GameCommon.player,data)
             return true
             
@@ -415,7 +419,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
                 uiText_table:setString(GameCommon.tableConfig.szTableName)
                 local CellScore = GameCommon.tableConfig.wCellScore / GameCommon.tableConfig.wTableCellDenominator
-                uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
+                --uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
             end 
             return true
             
@@ -642,7 +646,11 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             local wChairID = pBuffer.wChairID
             for i = 0, 3 do
                 if GameCommon.player[i] ~= nil then
-                    GameCommon.player[i].bUserCardCount = GameCommon.MAX_COUNT
+                    if GameCommon.gameConfig.bDel345 == 1 then
+                        GameCommon.player[i].bUserCardCount = 12
+                    else
+                        GameCommon.player[i].bUserCardCount = GameCommon.MAX_COUNT
+                    end
                 end
             end
             GameCommon.wBankerUser = pBuffer.wCurrentUser
@@ -657,7 +665,12 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             
         elseif subCmdID == NetMsgId.REC_SUB_S_SHOW_CARD_PDK then
             local wChairID = pBuffer.wChairID
-            GameCommon.player[wChairID].bUserCardCount = GameCommon.MAX_COUNT
+            if GameCommon.gameConfig.bDel345 == 1 then
+                GameCommon.player[i].bUserCardCount = 12
+            else
+                GameCommon.player[i].bUserCardCount = GameCommon.MAX_COUNT
+            end
+            -- GameCommon.player[wChairID].bUserCardCount = GameCommon.MAX_COUNT
             self.tableLayer:setHandCard(wChairID,GameCommon.player[wChairID].bUserCardCount, pBuffer.cbCardData)
             self.tableLayer:showHandCard(wChairID,1)     
             self:runAction(cc.Sequence:create(cc.DelayTime:create(0),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
@@ -843,7 +856,7 @@ function GameLayer:updatePlayerlScore()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
         local dwGold = Common:itemNumberToString(GameCommon.player[wChairID].lScore)
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        uiText_score:setString(string.format(" %d",dwGold))   
     end
 end
 
@@ -978,8 +991,8 @@ function GameLayer:updatePlayerlfatigue()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
 
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
-        local dwGold = GameCommon.tableConfig.fUserScore[i]/100
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        local dwGold = GameCommon.tableConfig.fUserScore[i]
+        uiText_score:setString(string.format(" %d",dwGold))   
 
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
@@ -987,10 +1000,7 @@ function GameLayer:updatePlayerlfatigue()
             uiText_fatigue:setVisible(false)
         end 
         if GameCommon.tableConfig.lFatigueValue~= nil then
-            local fatigue =GameCommon.tableConfig.lFatigueValue[i]/ 100.00
-            if fatigue ~= 0.00 then 
-                uiText_fatigue:setString(string.format("%0.2f",fatigue))   
-            end 
+            uiText_fatigue:setString(string.format("%0.2f",GameCommon.tableConfig.lFatigueValue[i]/ 100.00))
         end
     end 
 end 

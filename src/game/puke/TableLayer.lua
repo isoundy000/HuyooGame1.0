@@ -359,20 +359,18 @@ function TableLayer:showCountDown(wChairID,isHide)
     uiAtlasLabel_countdownTime:stopAllActions()
 
     local time = 15
-
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
-        if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
-            -- if GameCommon.bHosted[wChairID] == false  then  
-                if GameCommon.gameConfig.bHostedTime ~= 0 then 
-                    time = 60*GameCommon.gameConfig.bHostedTime
-                else
-                    time = 15
-                end 
-            -- else
-            --     time = 3
-            -- end 
-        end 
+    if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
+        -- if GameCommon.bHosted[wChairID] == false  then  
+            if GameCommon.gameConfig.bHostedTime ~= nil and  GameCommon.gameConfig.bHostedTime ~= 0 then 
+                time = 60*GameCommon.gameConfig.bHostedTime
+            else
+                time = 15
+            end 
+        -- else
+        --     time = 3
+        -- end 
     end 
+
 
     uiAtlasLabel_countdownTime:setString(time)
     local function onEventTime(sender,event)

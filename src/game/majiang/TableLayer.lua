@@ -992,19 +992,16 @@ function TableLayer:showCountDown(wChairID)
 
 
     local time = 15
-
-    if (CHANNEL_ID == 10 or CHANNEL_ID == 11) and (GameCommon.wKindID == 67 or GameCommon.wKindID == 68) then
-        if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
-            -- if GameCommon.bHosted[wChairID] == false  then  
-                if GameCommon.gameConfig.bHostedTime ~= 0 then 
-                    time = 60*GameCommon.gameConfig.bHostedTime
-                else
-                    time = 15
-                end 
-            -- else
-            --     time = 3
-            -- end 
-        end 
+    if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
+        -- if GameCommon.bHosted[wChairID] == false  then  
+            if GameCommon.gameConfig.bHostedTime ~= nil and GameCommon.gameConfig.bHostedTime ~= 0 then 
+                time = 60*GameCommon.gameConfig.bHostedTime
+            else
+                time = 15
+            end 
+        -- else
+        --     time = 3
+        -- end 
     end 
 
     uiAtlasLabel_countdownTime:setString(time)

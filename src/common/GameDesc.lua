@@ -390,6 +390,26 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         if data.bWuTong == 0 then
             desc = desc.."/去掉筒子"
         end
+
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
         
     elseif wKindID == 16 then           
         if data.bPlayerCount == 3 then
@@ -1110,6 +1130,46 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         else
             desc = desc.."/抢庄"
         end
+
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
+
+        if data.bHostedTime == 1 then
+            desc = desc.."一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
         
     elseif wKindID == 48 then        
         if data.bPlayerCount == 3 then
@@ -1187,6 +1247,26 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/去牌"
         end
         
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
+
     elseif wKindID == 49 then        
         if data.bPlayerCount == 3 then
             desc = desc.."3人房"
@@ -1230,12 +1310,35 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."/黄番"
         end
 
+        if data.bHostedTime == 1 then
+            desc = desc.."/一分钟托管"
+        elseif data.bHostedTime == 2 then
+            desc = desc.."/两分钟托管"
+        elseif data.bHostedTime == 3 then
+            desc = desc.."/三分钟托管"
+        elseif data.bHostedTime == 5 then
+            desc = desc.."/五分钟托管"
+        elseif data.bHostedTime == 0 then
+            desc = desc.."/无托管"
+        end
+
+        if data.bHostedSession == 1 then
+            desc = desc.."/单局托管"
+        elseif data.bHostedSession == 3 then
+            desc = desc.."/三局托管"
+        elseif data.bHostedSession >= 6 then
+            desc = desc.."/全局托管"
+        end
+
         
     elseif wKindID == 25 then        
         if data.bPlayerCount == 3 then
             desc = desc.."3人房"
         else
             desc = desc.."2人(PK)"
+        end
+        if data.bDel345 == 1 then
+            desc = desc.."/去345"
         end
         if data.bStartCard ~= 0 then
             desc = desc.."/首局黑桃3必出"
@@ -1302,6 +1405,9 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
             desc = desc.."3人房"
         else
             desc = desc.."2人(PK)"
+        end
+        if data.bDel345 == 1 then
+            desc = desc.."/去345"
         end
         if data.bStartCard ~= 0 then
             desc = desc.."/首局黑桃3必出"

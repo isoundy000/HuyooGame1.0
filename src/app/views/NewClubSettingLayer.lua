@@ -44,6 +44,7 @@ function NewClubSettingLayer:onConfig()
         {"Image_one", "onOnePartner"},
         {"Image_two", "onMorePartner"},
         {"Image_three", "onThreePartner"},
+        {"Image_four", "onFourPartner"},
         {"Button_oneSet", "onOneSet"},
         {"Text_one"},
         {"Text_oneValue"},
@@ -85,6 +86,8 @@ function NewClubSettingLayer:onExit()
 end
 
 function NewClubSettingLayer:onCreate(param)
+    self.isOS = PLATFORM_TYPE == cc.PLATFORM_OS_APPLE_REAL
+    self:createrInput()
 	self.clubData = param[1]
 	self:switchType(0)
 	if self.clubData.dwUserID == UserData.User.userID or self:isAdmin(UserData.User.userID) then
@@ -95,6 +98,41 @@ function NewClubSettingLayer:onCreate(param)
 
     if CHANNEL_ID == 26 or CHANNEL_ID == 27 then
         self.Button_partnerSet:setVisible(false)
+    end
+end
+
+function NewClubSettingLayer:createrInput( ... )
+    self.TextField_name:setVisible(not self.isOS)
+    -- self.TextField_notice:setVisible(not self.isOS)
+
+    if self.isOS then
+        local parent = self.TextField_name:getParent()
+        self.TextField_name = ccui.EditBox:create(cc.size(245,30), "chat/playinfo1.png")
+        self.TextField_name:setPosition(parent:getContentSize().width / 2,parent:getContentSize().height / 2)
+        self.TextField_name:setAnchorPoint(cc.p(0.5,0.5))
+        self.TextField_name:setFontSize(30)
+        self.TextField_name:setPlaceHolder("输入亲友圈昵称")
+        self.TextField_name:setPlaceholderFontSize(30)
+        self.TextField_name:setFontColor(cc.c3b(132, 52, 12))
+        self.TextField_name:setMaxLength(7)
+        self.TextField_name:setInputMode(cc.EDITBOX_INPUT_MODE_SINGLELINE)
+        self.TextField_name:setInputFlag(cc.EDITBOX_INPUT_FLAG_INITIAL_CAPS_WORD)
+        self.TextField_name:setReturnType(cc.KEYBOARD_RETURNTYPE_DONE)
+        parent:addChild(self.TextField_name)
+
+        -- local parent = self.TextField_notice:getParent()
+        -- self.TextField_notice = ccui.EditBox:create(cc.size(988,366), "chat/playinfo1.png")
+        -- self.TextField_notice:setPosition(504.21, 373.28)
+        -- self.TextField_notice:setAnchorPoint(cc.p(0.5,1))
+        -- self.TextField_notice:setFontSize(10)
+        -- self.TextField_notice:setPlaceHolder("输入亲友圈公告")
+        -- self.TextField_notice:setPlaceholderFontSize(26)
+        -- self.TextField_notice:setFontColor(cc.c3b(131, 88, 45))
+        -- self.TextField_notice:setMaxLength(200)
+        -- self.TextField_notice:setInputMode(cc.EDITBOX_INPUT_MODE_ANY)
+        -- self.TextField_notice:setInputFlag(cc.EDITBOX_INPUT_FLAG_SENSITIVE)
+        -- self.TextField_notice:setReturnType(cc.KEYBOARD_RETURNTYPE_DONE)
+        -- parent:addChild(self.TextField_notice)
     end
 end
 
@@ -120,14 +158,22 @@ end
 
 function NewClubSettingLayer:onModify()
 	local isUseSave = false
-	local nickName = self.TextField_name:getString()
+	local nickName = ''
+    local noticeStr = ''
+    if self.isOS then
+        nickName = self.TextField_name:getText()
+        noticeStr = self.TextField_notice:getString()
+    else
+        nickName = self.TextField_name:getString()
+        noticeStr = self.TextField_notice:getString()
+    end
+
     if nickName ~= "" and nickName ~= self.clubData.szClubName then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdod",
                 3,self.clubData.dwClubID,32,nickName,false,256,"",0,false,0)
         isUseSave = true
     end
 
-    local noticeStr = self.TextField_notice:getString()
     if noticeStr ~= self.clubData.szAnnouncement then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsdod",
                 5,self.clubData.dwClubID,32,nickName,false,256,noticeStr,0,false,0)
@@ -159,6 +205,7 @@ function NewClubSettingLayer:onOnePartner()
     self.Image_one:getChildByName('Image_light'):setVisible(true)
     self.Image_two:getChildByName('Image_light'):setVisible(false)
     self.Image_three:getChildByName('Image_light'):setVisible(false)
+    self.Image_four:getChildByName('Image_light'):setVisible(false)
     self.Text_one:setVisible(true)
     self.Text_two:setVisible(false)
     self.Text_three:setVisible(false)
@@ -169,6 +216,7 @@ function NewClubSettingLayer:onMorePartner()
     self.Image_one:getChildByName('Image_light'):setVisible(false)
     self.Image_two:getChildByName('Image_light'):setVisible(true)
     self.Image_three:getChildByName('Image_light'):setVisible(false)
+    self.Image_four:getChildByName('Image_light'):setVisible(false)
     self.Text_one:setVisible(true)
     self.Text_two:setVisible(true)
     self.Text_three:setVisible(true)
@@ -179,6 +227,18 @@ function NewClubSettingLayer:onThreePartner()
     self.Image_one:getChildByName('Image_light'):setVisible(false)
     self.Image_two:getChildByName('Image_light'):setVisible(false)
     self.Image_three:getChildByName('Image_light'):setVisible(true)
+    self.Image_four:getChildByName('Image_light'):setVisible(false)
+    self.Text_one:setVisible(false)
+    self.Text_two:setVisible(false)
+    self.Text_three:setVisible(false)
+    self.Button_setPercent:setVisible(true)
+end
+
+function NewClubSettingLayer:onFourPartner()
+    self.Image_one:getChildByName('Image_light'):setVisible(false)
+    self.Image_two:getChildByName('Image_light'):setVisible(false)
+    self.Image_three:getChildByName('Image_light'):setVisible(false)
+    self.Image_four:getChildByName('Image_light'):setVisible(true)
     self.Text_one:setVisible(false)
     self.Text_two:setVisible(false)
     self.Text_three:setVisible(false)
@@ -186,7 +246,11 @@ function NewClubSettingLayer:onThreePartner()
 end
 
 function NewClubSettingLayer:onSetPercent()
-    self:addChild(require("app.MyApp"):create(self.clubData, 4):createView("NewClubPartnerLayer"))
+    if self.Image_four:getChildByName('Image_light'):isVisible() then
+        self:addChild(require("app.MyApp"):create(self.clubData):createView("NewClubSetPartnerPercentLayer"))
+    else
+        self:addChild(require("app.MyApp"):create(self.clubData, 4):createView("NewClubPartnerLayer"))
+    end
 end
 
 function NewClubSettingLayer:onOneSet()
@@ -277,6 +341,8 @@ function NewClubSettingLayer:onPartnerSave()
         bMode = 1
     elseif self.Image_three:getChildByName('Image_light'):isVisible() then
         bMode = 2
+    elseif self.Image_four:getChildByName('Image_light'):isVisible() then
+        bMode = 3
     end
 
     local oneStr = self.Text_oneValue:getString()
@@ -364,8 +430,14 @@ end
 
 function NewClubSettingLayer:initBasePage()
 	Common:requestUserAvatar(self.clubData.dwUserID, self.clubData.szLogoInfo, self.Image_head, "img")
-    self.TextField_name:setString(self.clubData.szClubName)
-    self.TextField_notice:setString(self.clubData.szAnnouncement)
+
+    if self.isOS then
+        self.TextField_name:setText(self.clubData.szClubName)
+        self.TextField_notice:setString(self.clubData.szAnnouncement)
+    else
+        self.TextField_name:setString(self.clubData.szClubName)
+        self.TextField_notice:setString(self.clubData.szAnnouncement)
+    end
     
     if self.clubData.dwUserID == UserData.User.userID then
 		self.Button_quitClub:setVisible(true)
@@ -709,6 +781,7 @@ function NewClubSettingLayer:RET_SETTINGS_CONFIG(event)
         self.Image_one:getChildByName('Image_light'):setVisible(true)
         self.Image_two:getChildByName('Image_light'):setVisible(false)
         self.Image_three:getChildByName('Image_light'):setVisible(false)
+        self.Image_four:getChildByName('Image_light'):setVisible(false)
         self.Text_one:setVisible(true)
         self.Text_two:setVisible(false)
         self.Text_three:setVisible(false)
@@ -717,14 +790,25 @@ function NewClubSettingLayer:RET_SETTINGS_CONFIG(event)
         self.Image_one:getChildByName('Image_light'):setVisible(false)
         self.Image_two:getChildByName('Image_light'):setVisible(true)
         self.Image_three:getChildByName('Image_light'):setVisible(false)
+        self.Image_four:getChildByName('Image_light'):setVisible(false)
         self.Text_one:setVisible(true)
         self.Text_two:setVisible(true)
         self.Text_three:setVisible(true)
         self.Button_setPercent:setVisible(false)
-    else
+    elseif data.bDistributionModel == 2 then
         self.Image_one:getChildByName('Image_light'):setVisible(false)
         self.Image_two:getChildByName('Image_light'):setVisible(false)
         self.Image_three:getChildByName('Image_light'):setVisible(true)
+        self.Image_four:getChildByName('Image_light'):setVisible(false)
+        self.Text_one:setVisible(false)
+        self.Text_two:setVisible(false)
+        self.Text_three:setVisible(false)
+        self.Button_setPercent:setVisible(true)
+    else
+        self.Image_one:getChildByName('Image_light'):setVisible(false)
+        self.Image_two:getChildByName('Image_light'):setVisible(false)
+        self.Image_three:getChildByName('Image_light'):setVisible(false)
+        self.Image_four:getChildByName('Image_light'):setVisible(true)
         self.Text_one:setVisible(false)
         self.Text_two:setVisible(false)
         self.Text_three:setVisible(false)

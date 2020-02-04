@@ -266,6 +266,7 @@ end
 
 --连接登陆服
 function User:sendMsgConnectLogin(data)
+	--data.szUnionid = "o5sqS1HmgVfPHwkM3Tifr6I4uzLQ"
     local function callback(ip, port)
         if ip ~= nil and port ~= nil and NetMgr:getLoginInstance():connectGameSvr(ip, port) then
             NetMgr:getLoginInstance():sendMsgToSvr(NetMsgId.MDM_GP_LOGON, NetMsgId.SUB_GP_LOGON_ACCOUNTS, "wwnsnsnsbdns",
@@ -304,6 +305,10 @@ function User:sendMsgConnectLogic()
         ip = NetMgr:getLogicInstance().cppFunc:int2ip(self.logicData.dwServerAddr)
     end
     local port = self.logicData.wServerPort
+
+    -- ip = '192.168.1.3'
+    -- port = 5555
+
     if PLATFORM_TYPE ~= cc.PLATFORM_OS_DEVELOPER and StaticData.Condition[UserLevel].isUseTaijidun == true and OPEN_TAIJIDUN == true then
         self:taijidun(StaticData.Condition[UserLevel].taijidunName,port,callback)
     else

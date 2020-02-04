@@ -44,7 +44,7 @@ function GameOperation:onExit()
         self.uiListView_list:release()
         self.uiListView_list = nil
     end
-    
+    GameCommon.IsOfHu =0
 end
 
 function GameOperation:onCleanup()
@@ -95,6 +95,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
         item:loadTextures(textureName,textureName,textureName)
         item:setContentSize(texture:getContentSizeInPixels())  
         item:setPressedActionEnabled(true)
+        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+            item:setScale(0.8)
+        end 
         uiPanel_operation:addChild(item)
         item:addTouchEventListener(function(sender,event) 
             if event == ccui.TouchEventType.ended then 
@@ -110,6 +113,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
         item:loadTextures(textureName,textureName,textureName)
         item:setContentSize(texture:getContentSizeInPixels())  
         item:setPressedActionEnabled(true)
+        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+            item:setScale(0.8)
+        end 
         uiPanel_operation:addChild(item)
         item:addTouchEventListener(function(sender,event) 
             if event == ccui.TouchEventType.ended then 
@@ -126,6 +132,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
         item:loadTextures(textureName,textureName,textureName)
         item:setContentSize(texture:getContentSizeInPixels())  
         item:setPressedActionEnabled(true)
+        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+            item:setScale(0.8)
+        end 
         uiPanel_operation:addChild(item)
         item:addTouchEventListener(function(sender,event) 
             if event == ccui.TouchEventType.ended then 
@@ -141,6 +150,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
         item:loadTextures(textureName,textureName,textureName)
         item:setContentSize(texture:getContentSizeInPixels())     
         item:setPressedActionEnabled(true)
+        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+            item:setScale(0.8)
+        end 
         uiPanel_operation:addChild(item)
         item:addTouchEventListener(function(sender,event) 
             if event == ccui.TouchEventType.ended then 
@@ -154,13 +166,10 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
             local item = self.Button_operation:clone()
             item:loadTextures("game/yongzhou_hu.png","game/yongzhou_hu.png","game/yongzhou_hu.png")
             item:setPressedActionEnabled(true)
-            if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
-				CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
-				CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
-				CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
-				CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 or GameCommon.tableConfig.wKindID == 44 then 
-                GameCommon.IsOfHu = 1
-            end
+            if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                item:setScale(0.8)
+            end 
+            GameCommon.IsOfHu = 1
             if  GameCommon.tableConfig.wKindID == 39 or GameCommon.tableConfig.wKindID == 16  then       
                 self:runAction(cc.Sequence:create(cc.DelayTime:create(1),cc.CallFunc:create(function(sender,event)  self:dealHu() item:setVisible(false) end)))      
             end 
@@ -191,12 +200,15 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 local item = self.Button_operation:clone()
                 item:loadTextures("game/yongzhou_chi.png","game/yongzhou_chi.png","game/yongzhou_chi.png")
                 item:setPressedActionEnabled(true)
+                if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                    item:setScale(0.8)
+                end 
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
                         --self:dealChi()
-                        if GameCommon.IsOfHu == 1 then
+                        if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11  then
                             require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
                                 self:dealChi()
                             end)
@@ -217,12 +229,15 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 local item = self.Button_operation:clone()
                 item:loadTextures("game/yongzhou_peng.png","game/yongzhou_peng.png","game/yongzhou_peng.png")
                 item:setPressedActionEnabled(true)
+                if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                    item:setScale(0.8)
+                end 
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
                         --self:dealPen()
-                        if GameCommon.IsOfHu == 1 then
+                        if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                             require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
                                 self:dealPen()
                             end)
@@ -242,6 +257,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 local item = self.Button_operation:clone()
                 item:loadTextures("game/yongzhou_hu.png","game/yongzhou_hu.png","game/yongzhou_hu.png")
                 item:setPressedActionEnabled(true)
+                if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                    item:setScale(0.8)
+                end 
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
@@ -250,13 +268,7 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                     end 
                 end)
 
-                if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 and
-				CHANNEL_ID ~= 2 and CHANNEL_ID ~= 3 and
-				CHANNEL_ID ~= 6 and CHANNEL_ID ~= 7 and
-				CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 and
-				CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 or GameCommon.tableConfig.wKindID == 44 then 
-                    GameCommon.IsOfHu = 1
-                end
+                GameCommon.IsOfHu = 1
 
                 if GameCommon.tableConfig.wKindID == 33 or GameCommon.tableConfig.wKindID == 34 or GameCommon.tableConfig.wKindID == 35 or GameCommon.tableConfig.wKindID == 36 or GameCommon.tableConfig.wKindID == 32 or GameCommon.tableConfig.wKindID == 37 or GameCommon.tableConfig.wKindID == 27 or GameCommon.tableConfig.wKindID == 31 then
                     if Bit:_and(cbSubOperateCode,0x0800) ~= 0  then
@@ -335,6 +347,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         local item = self.Button_operation:clone()
                         item:loadTextures("game/yongzhou_wangzha.png","game/yongzhou_wangzha.png","game/yongzhou_wangzha.png")
                         item:setPressedActionEnabled(true)
+                        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                            item:setScale(0.8)
+                        end 
                         uiPanel_operation:addChild(item)
                         item:addTouchEventListener(function(sender,event) 
                             if event == ccui.TouchEventType.ended then 
@@ -358,6 +373,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         local item = self.Button_operation:clone()
                         item:loadTextures("game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png")
                         item:setPressedActionEnabled(true)
+                        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                            item:setScale(0.8)
+                        end 
                         uiPanel_operation:addChild(item)
                         item:addTouchEventListener(function(sender,event) 
                             if event == ccui.TouchEventType.ended then 
@@ -381,6 +399,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                         local item = self.Button_operation:clone()
                         item:loadTextures("game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png")
                         item:setPressedActionEnabled(true)
+                        if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                            item:setScale(0.8)
+                        end 
                         uiPanel_operation:addChild(item)
                         item:addTouchEventListener(function(sender,event) 
                             if event == ccui.TouchEventType.ended then 
@@ -403,6 +424,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                     local item = self.Button_operation:clone()
                     item:loadTextures("game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png","game/yongzhou_wangdiao.png")
                     item:setPressedActionEnabled(true)
+                    if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                        item:setScale(0.8)
+                    end 
                     uiPanel_operation:addChild(item)
                     item:addTouchEventListener(function(sender,event) 
                         if event == ccui.TouchEventType.ended then 
@@ -426,6 +450,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 local item = self.Button_operation:clone()
                 item:loadTextures("game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png","game/yongzhou_wangchuang.png")
                 item:setPressedActionEnabled(true)
+                if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                    item:setScale(0.8)
+                end 
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
@@ -449,13 +476,16 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
                 --跑牌提示
                 local item = self.Button_operation:clone()
                 item:loadTextures("game/op_pao.png","game/op_pao.png","game/op_pao.png")
-                item:setPressedActionEnabled(true)                
+                item:setPressedActionEnabled(true)   
+                if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                    item:setScale(0.8)
+                end              
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
                         --self:dealGuo()
-                        if GameCommon.IsOfHu == 1 then
+                        if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                             require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
                                 self:dealGuo()
                             end)
@@ -468,13 +498,16 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
             if cbOperateCode ~= GameCommon.ACK_PAO then
                 local item = self.Button_operation:clone()
                 item:loadTextures("game/yongzhou_guo.png","game/yongzhou_guo.png","game/yongzhou_guo.png")
-                item:setPressedActionEnabled(true)                 
+                item:setPressedActionEnabled(true)   
+                if CHANNEL_ID == 0 or CHANNEL_ID == 1 then  
+                    item:setScale(0.8)
+                end               
                 uiPanel_operation:addChild(item)
                 item:addTouchEventListener(function(sender,event) 
                     if event == ccui.TouchEventType.ended then 
                         Common:palyButton() 
                         --self:dealGuo()
-                        if GameCommon.IsOfHu == 1 then
+                        if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                             require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
                                 self:dealGuo()
                             end)
@@ -529,14 +562,14 @@ function GameOperation:dealChi()
             uiButton_chi.cbChiKind = pChiCardInfo1[i].cbChiKind
             if uiButton_chi.cardIndex[j] == self.cbOperateCard then      
                 if j == 1 then  
-                    card:setColor(cc.c3b(150,150,150))                  
+                    card:setColor(cc.c3b(120,120,120))                  
                 elseif j == 2 then
                   if uiButton_chi.cardIndex[j-1] ~= uiButton_chi.cardIndex[j] then 
-                        card:setColor(cc.c3b(150,150,150))  
+                        card:setColor(cc.c3b(120,120,120))  
                   end   
                 else 
                     if uiButton_chi.cardIndex[j-1] ~= uiButton_chi.cardIndex[j] and uiButton_chi.cardIndex[j-2] ~= uiButton_chi.cardIndex[j]  then 
-                        card:setColor(cc.c3b(150,150,150))  
+                        card:setColor(cc.c3b(120,120,120))  
                     end    
                 end                
             end 
@@ -595,6 +628,9 @@ function GameOperation:dealChi()
                     local item = self.uiPanel_item:clone()
                     if  i ==  1 then 
                     local item_jiantou2 = self.Panel_jiantou:clone()
+                    local uiText_bi = ccui.Helper:seekWidgetByName(item_jiantou2,"Text_bi")
+                    uiText_bi:setTextColor(cc.c3b(255,255,0))
+                    uiText_bi:setFontName("fonts/fzcy.TTF")
                     uiListViewList2:pushBackCustomItem(item_jiantou2)
                     end
                     uiListViewList2:pushBackCustomItem(item)
@@ -607,14 +643,14 @@ function GameOperation:dealChi()
                         uiButton_chi.cbChiKind = pChiCardInfo2[i].cbChiKind                        
                         if uiButton_chi.cardIndex[j] == self.cbOperateCard then      
                             if j == 1 then  
-                                card:setColor(cc.c3b(150,150,150))                  
+                                card:setColor(cc.c3b(120,120,120))                  
                             elseif j == 2 then
                                 if uiButton_chi.cardIndex[j-1] ~= uiButton_chi.cardIndex[j] then 
-                                    card:setColor(cc.c3b(150,150,150))  
+                                    card:setColor(cc.c3b(120,120,120))  
                                 end   
                             else 
                                 if uiButton_chi.cardIndex[j-1] ~= uiButton_chi.cardIndex[j] and uiButton_chi.cardIndex[j-2] ~= uiButton_chi.cardIndex[j]  then 
-                                    card:setColor(cc.c3b(150,150,150))  
+                                    card:setColor(cc.c3b(120,120,120))  
                                 end    
                             end                
                         end 
@@ -674,6 +710,9 @@ function GameOperation:dealChi()
                                 local item = self.uiPanel_item:clone()
                                 if  i ==  1 then 
                                     local item_jiantou3 = self.Panel_jiantou:clone()
+                                    local uiText_bi = ccui.Helper:seekWidgetByName(item_jiantou3,"Text_bi")
+                                    uiText_bi:setTextColor(cc.c3b(255,255,0))
+                                    uiText_bi:setFontName("fonts/fzcy.TTF")
                                     uiListViewList3:pushBackCustomItem(item_jiantou3)
                                 end
                                 uiListViewList3:pushBackCustomItem(item)
@@ -687,14 +726,14 @@ function GameOperation:dealChi()
                                     
                                     if uiButton_chi.cardIndex[j] == self.cbOperateCard then      
                                         if j == 1 then  
-                                            card:setColor(cc.c3b(150,150,150))                  
+                                            card:setColor(cc.c3b(120,120,120))                  
                                         elseif j == 2 then
                                             if uiButton_chi.cardIndex[j-1] ~= uiButton_chi.cardIndex[j] then 
-                                                card:setColor(cc.c3b(150,150,150))  
+                                                card:setColor(cc.c3b(120,120,120))  
                                             end   
                                         else 
                                             if uiButton_chi.cardIndex[j-1] ~= uiButton_chi.cardIndex[j] and uiButton_chi.cardIndex[j-2] ~= uiButton_chi.cardIndex[j]  then 
-                                                card:setColor(cc.c3b(150,150,150))  
+                                                card:setColor(cc.c3b(120,120,120))  
                                             end    
                                         end                
                                     end 

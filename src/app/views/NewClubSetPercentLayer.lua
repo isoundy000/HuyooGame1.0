@@ -61,7 +61,7 @@ function NewClubSetPercentLayer:onCreate(param)
         self.Text_selfPercent:setString('亲友圈最低刷新分数:' .. self.data.curClubAntiLimit)
         self.Text_setPercent:setString('设置分数：')
         self.Text_tips:setVisible(false)
-    else
+    elseif self.setType == 3 then
         --设置成员分成比例
         self.Text_selfPercent:setString('自身比例：' .. self.userSelfPartnerData.dwDistributionRatio .. '%')
         self.TextField_percent:setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER)
@@ -70,7 +70,7 @@ function NewClubSetPercentLayer:onCreate(param)
 end
 
 function NewClubSetPercentLayer:onYes()
-    if self.setType then
+    if self.setType == 1 or self.setType == 2 then
         local num = tonumber(self.TextField_percent:getString())
         if not num or num > 0 then
             require("common.MsgBoxLayer"):create(0,nil,"只能输入小于等于零的整数!")
@@ -80,7 +80,7 @@ function NewClubSetPercentLayer:onYes()
             self.cb(num)
             self:removeFromParent()
         end
-    else
+    elseif self.setType == 3 then
         local num = tonumber(self.TextField_percent:getString())
         local lastPer = self.userSelfPartnerData.dwDistributionRatio
         if not (num and num >= 0 and num <= lastPer) then

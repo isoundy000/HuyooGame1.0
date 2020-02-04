@@ -238,7 +238,7 @@ function NewClubMemLayer:addMemItem(item, data)
         Text_state:setVisible(false)
     end
 
-    if self:isHasAdmin() or (self.clubData.bIsPartnerRemoveMember and self.userOffice == 3) then
+    if self:isHasAdmin() or (self.clubData.bIsPartnerRemoveMember and (self.userOffice == 3 or self.userOffice == 4)) then
         item:setTouchEnabled(true)
         item:addClickEventListener(function() 
         	local node = require("app.MyApp"):create(data, self.clubData, self.userOffice):createView("NewClubMemberInfoLayer")

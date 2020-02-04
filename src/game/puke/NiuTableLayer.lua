@@ -274,10 +274,12 @@ function TableLayer:doAction(action,pBuffer)
         local dwGold = pBuffer.fWriteScoreArr/100
         if pBuffer.fWriteScoreArr > 0 then 
             uiText_result:setTextColor(cc.c3b(255,234,1))
-            uiText_result:setString(string.format(" +%0.2f",dwGold))
+            --uiText_result:setString(string.format(" +%0.2f",dwGold))
+            uiText_result:setString(string.format("+%d",pBuffer.lGameScore))
         else     
             uiText_result:setTextColor(cc.c3b(91,248,229))      
-            uiText_result:setString(string.format(" %0.2f",dwGold))
+            --uiText_result:setString(string.format(" %0.2f",dwGold))
+            uiText_result:setString(string.format("%d",pBuffer.lGameScore))
         end  
 
         -- if pBuffer.lGameScore > 0 then

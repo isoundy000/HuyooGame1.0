@@ -93,7 +93,7 @@ function NewClubRecord:onCreate(params)
 	self.clubData = params[1]
 	self.clubID = self.clubData.dwClubID
 	self.isAdmin = params[2]
-	-- self.adminID = self.clubData.dwUserID
+	self.adminID = self.clubData.dwUserID
 	self.clubName = self.clubData.szClubName
 	self.isLoadStatics = false
 	self:initUI()
@@ -116,10 +116,13 @@ end
 
 function NewClubRecord:initUI( ... )
 	self.allStatics = {}
+	self.allStaticsEx = {}
 	for i=1,3 do
 		local score 	= self:seekWidgetByNameEx(self.Panel_record,'Text_score_' .. i)
 		local personScore = self:seekWidgetByNameEx(score,'Text_score')
+		local Text_scoreEx = self:seekWidgetByNameEx(score,'Text_scoreEx')
 		table.insert( self.allStatics,personScore)
+		table.insert(self.allStaticsEx, Text_scoreEx)
 	end
 	self.Button_close:setZOrder(100)
 	self.Button_top_3:setVisible(self.isAdmin and not self.targetId)
@@ -201,10 +204,10 @@ function NewClubRecord:onCallOtherReplay( ... )
 end
 
 function NewClubRecord:onClickTopRecord( sender )
-	-- if sender:getName() == 'Button_top_2' and not self.isAdmin then
-	-- 	require("common.MsgBoxLayer"):create(0,self,"您不是群主或管理员")
-	-- 	return
-	-- end
+	if sender:getName() == 'Button_top_2' and not self.isAdmin then
+		require("common.MsgBoxLayer"):create(0,self,"您不是群主或管理员")
+		return
+	end
 
 	if sender.isClick then
 		return
@@ -303,12 +306,12 @@ end
 
 function NewClubRecord:chageRecord( type_record )
 	self:changePage(Page_State.RECORD_PAGE)
-	-- if type_record == RECORD_TYPE.CLUB_RECORD then
-	-- 	if not self.isAdmin then
-	-- 		require("common.MsgBoxLayer"):create(0,self,"您不是群主或管理员")
-	-- 		return
-	-- 	end
-	-- end
+	if type_record == RECORD_TYPE.CLUB_RECORD then
+		if not self.isAdmin then
+			require("common.MsgBoxLayer"):create(0,self,"您不是群主或管理员")
+			return
+		end
+	end
 	self.isCanBottom = false
 	self.recordType = type_record
 	self:reqRecord(self.dayType,self.recordType)
@@ -364,10 +367,12 @@ function NewClubRecord:createSubRecord( data )
 		local child = self:seekWidgetByNameEx(target,'Image_detail_' .. i)
 		local Text_playername = self:seekWidgetByNameEx(child,'Text_playername');
 		local score = self:seekWidgetByNameEx(target_child,'Text_score_' .. i)
+		local scoreEx = self:seekWidgetByNameEx(target_child,'Text_scoreex_' .. i)
 		local Text_total_score_1 = self:seekWidgetByNameEx(target,'Text_total_score_' .. i)
 		local isHave = i <= data.wChairCount
 		child:setVisible(isHave)
 		score:setVisible(isHave)
+		scoreEx:setVisible(isHave)
 		Text_total_score_1:setVisible(isHave)
 		if isHave then
 			local name = Common:getShortName(data.szNickName[i],8,6)
@@ -375,9 +380,12 @@ function NewClubRecord:createSubRecord( data )
 			if not self.totalScore[i] then
 				self.totalScore[i] = 0
 			end
-			self.totalScore[i] = self.totalScore[i] + data.fUserScore[i]
-			self:setStrColor(score,data.fUserScore[i],'分')
+			self.totalScore[i] = self.totalScore[i] + data.lScore[i]
+			self:setStrColor(score,data.lScore[i],'分')
 			self:setStrColor(Text_total_score_1,self.totalScore[i],'分')
+			-- scoreEx:setString('赛:' .. data.fUserScore[i])
+			-- scoreEx:setColor(cc.c3b(231, 112, 41))
+			self:setStrColor(scoreEx,data.fUserScore[i],nil,'赛:')
 		end
 		local Panel_click = self:seekWidgetByNameEx(child,'Panel_click')
 		self:addLayerEventListener(Panel_click,handler(self,self.showClickName))
@@ -491,7 +499,7 @@ function NewClubRecord:reqRecord( day_type,record_type )
 		local recordType = self:getServerTypRecord(record_type)
 		local id = UserData.User.userID
 		if record_type == RECORD_TYPE.CLUB_RECORD then --亲友圈场
-			id = UserData.User.userID --self.adminID
+			id = self.adminID
 		elseif record_type == RECORD_TYPE.PERSON_RECORD then --个人所在俱乐部
 			id = self.targetId or UserData.User.userID
 		end
@@ -544,13 +552,17 @@ function NewClubRecord:setColor( text,value )
 	text:setString(value)
 end
 
-function NewClubRecord:setStrColor( text,value,str )
+function NewClubRecord:setStrColor( text,value,str,strEx )
 	if value < 0 then
 		self:setScoreColor(text,2)
 	else
 		self:setScoreColor(text,0)
 	end
-	text:setString(value .. str)
+	if str then
+		text:setString(value .. str)
+	else
+		text:setString(strEx .. value)
+	end
 end
 
 
@@ -628,8 +640,8 @@ function NewClubRecord:checkReq( dt )
 				local main = self:getEndMainID()
 				if main then
 					print('----分页请求普通房')
-					-- UserData.Record:sendMsgGetMainRecord(3, self.clubID, MAX_ITEM, tostring(main.szMainGameID),self.adminID,self.dayType) ----普通场
-					UserData.Record:sendMsgGetMainRecord(3, self.clubID, MAX_ITEM, tostring(main.szMainGameID),UserData.User.userID,self.dayType)
+					UserData.Record:sendMsgGetMainRecord(3, self.clubID, MAX_ITEM, tostring(main.szMainGameID),self.adminID,self.dayType) ----普通场
+					-- UserData.Record:sendMsgGetMainRecord(3, self.clubID, MAX_ITEM, tostring(main.szMainGameID),UserData.User.userID,self.dayType)
 				end 
 			end
 		end
@@ -663,6 +675,7 @@ function NewClubRecord:updateNameItem( item,data )
 		local name_player = target:getChildByName('Image_' .. i)
 		local text_playername = name_player:getChildByName('Text_playername')
 		local text_score = name_player:getChildByName('Text_score')
+		local text_score_ex = name_player:getChildByName('Text_scoreEx')
 		local Panel_click = name_player:getChildByName('Panel_click')
 		local userID = data.dwUserIDEx[i]
 		local isHave = userID ~= 0
@@ -677,7 +690,12 @@ function NewClubRecord:updateNameItem( item,data )
 			Panel_click:setSwallowTouches(false)
 			text_playername:setString(name)
 			self:setScoreColor(text_playername,3)
-			self:setColor(text_score,data.fAllUserScoreScore[i])
+			self:setColor(text_score,data.lScoreEx[i])
+			-- text_score_ex:setString('赛:' .. data.fAllUserScoreScore[i])
+			-- text_score_ex:setColor(cc.c3b(231, 112, 41))
+			-- self:setColor(text_score_ex,data.fAllUserScoreScore[i],nil, '赛:')
+
+			self:setStrColor(text_score_ex,data.fAllUserScoreScore[i],nil,'赛:')
 		end
 	end
 end
@@ -687,6 +705,15 @@ function NewClubRecord:updateTotalScore( today,another,eve )
 	self:setColor(self.allStatics[1],today)
 	self:setColor(self.allStatics[2],another)
 	self:setColor(self.allStatics[3],eve)
+end
+
+function NewClubRecord:updateTotalScoreEx( today,another,eve )
+	self:setColor(self.allStaticsEx[1],today)
+	self:setColor(self.allStaticsEx[2],another)
+	self:setColor(self.allStaticsEx[3],eve)
+	self.allStaticsEx[1]:setString('赛:' .. self.allStaticsEx[1]:getString())
+	self.allStaticsEx[2]:setString('赛:' .. self.allStaticsEx[2]:getString())
+	self.allStaticsEx[3]:setString('赛:' .. self.allStaticsEx[3]:getString())
 end
 
 function NewClubRecord:showClickName( sender,state )
@@ -822,7 +849,8 @@ end
 --战绩总分刷新
 function NewClubRecord:RET_CL_MAIN_RECORD_TOTAL_SCORE( event )
 	local data = event._usedata
-	self:updateTotalScore(data.fScore[0],data.fScore[1],data.fScore[2])
+	self:updateTotalScore(data.lScore[0],data.lScore[1],data.lScore[2])
+	self:updateTotalScoreEx(data.fScore[0],data.fScore[1],data.fScore[2])
 end
 
 function NewClubRecord:enterGameRePlay(data)

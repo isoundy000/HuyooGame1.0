@@ -249,23 +249,17 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                     uiPanel_winner:addChild(armature)
                     armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
                 end
-                local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
-                uiAtlasLabel_integral:setVisible(false)
+                -- local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
+                -- uiAtlasLabel_integral:setVisible(false)
+
                 local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
-                    uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
-                local dwGold = pBuffer.tWriteScoreArr[i]/100
-                if pBuffer.tWriteScoreArr[i] > 0 then 
-                    uiText_result:setTextColor(cc.c3b(233,30,37))
-                    uiText_result:setString(string.format(" +%0.2f",dwGold))
-                else 
-                    uiText_result:setTextColor(cc.c3b(74,164,8))     
-                    uiText_result:setString(string.format(" %0.2f",dwGold))
-                end 
-                -- if tScoreInfo.totalScore >= 0 then
-                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
-                -- else
-                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
-                -- end   
+                if tScoreInfo.totalScore >= 0 then
+                    uiText_result:setColor(cc.c3b(175,49,52))
+                    uiText_result:setString(string.format("+%d\n(赛:%0.2f)",tScoreInfo.totalScore,pBuffer.tWriteScoreArr[i]/100))
+                else
+                    uiText_result:setColor(cc.c3b(35,102,69))
+                    uiText_result:setString(string.format("%d\n(赛:%0.2f)",tScoreInfo.totalScore,pBuffer.tWriteScoreArr[i]/100))
+                end
             end  
         end
     elseif  self.tableConfig.wKindID == 55 then
@@ -299,24 +293,15 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                     uiPanel_winner:addChild(armature)
                     armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
                 end
-                local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
-                uiAtlasLabel_integral:setVisible(false)
-                local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
-                    uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
-                local dwGold = pBuffer.tWriteScoreArr[i]/100
-                if pBuffer.tWriteScoreArr[i] > 0 then 
-                    uiText_result:setTextColor(cc.c3b(233,30,37))
-                    uiText_result:setString(string.format(" +%0.2f",dwGold))
-                else 
-                    uiText_result:setTextColor(cc.c3b(74,164,8))     
-                    uiText_result:setString(string.format(" %0.2f",dwGold))
-                end 
 
-                -- if tScoreInfo.totalScore >= 0 then
-                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
-                -- else
-                --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
-                -- end   
+                local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
+                if tScoreInfo.totalScore >= 0 then
+                    uiText_result:setColor(cc.c3b(175,49,52))
+                    uiText_result:setString(string.format("+%d\n(赛:%0.2f)",tScoreInfo.totalScore,pBuffer.tWriteScoreArr[i]/100))
+                else
+                    uiText_result:setColor(cc.c3b(35,102,69))
+                    uiText_result:setString(string.format("%d\n(赛:%0.2f)",tScoreInfo.totalScore,pBuffer.tWriteScoreArr[i]/100))
+                end
             end  
         end
     else 
@@ -355,24 +340,14 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                 uiPanel_winner:addChild(armature)
                 armature:setPosition(armature:getParent():getContentSize().width/2,armature:getParent():getContentSize().height/2)
             end
-            local uiAtlasLabel_integral = ccui.Helper:seekWidgetByName(item,"AtlasLabel_integral")
-            uiAtlasLabel_integral:setVisible(false)
-            -- if tScoreInfo.totalScore >= 0 then
-            --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore),"record/rocord_shuzi1.png",22,29,".")
-            -- else
-            --     uiAtlasLabel_integral:setProperty(string.format(".%d",tScoreInfo.totalScore*-1),"record/rocord_shuzi2.png",22,29,".")
-            -- end 
-            
             local uiText_result = ccui.Helper:seekWidgetByName(item,"Text_result")
-            uiText_result:setFontName("fonts/DFYuanW7-GB2312.ttf")
-            local dwGold = pBuffer.tWriteScoreArr[i]/100
-            if pBuffer.tWriteScoreArr[i] > 0 then 
-                uiText_result:setTextColor(cc.c3b(233,30,37))
-                uiText_result:setString(string.format(" +%0.2f",dwGold))
-            else 
-                uiText_result:setTextColor(cc.c3b(74,164,8))     
-                uiText_result:setString(string.format(" %0.2f",dwGold))
-            end 
+            if tScoreInfo.totalScore >= 0 then
+                uiText_result:setColor(cc.c3b(175,49,52))
+                uiText_result:setString(string.format("+%d\n(赛:%0.2f)",tScoreInfo.totalScore,pBuffer.tWriteScoreArr[i]/100))
+            else
+                uiText_result:setColor(cc.c3b(30,85,60))
+                uiText_result:setString(string.format("%d\n(赛:%0.2f)",tScoreInfo.totalScore,pBuffer.tWriteScoreArr[i]/100))
+            end
 
             if self.tableConfig.wKindID == 20 then
                 local uiTotalHuXi = ccui.ImageView:create("zipai/table/endlayerzonghuxi.png")
@@ -399,11 +374,11 @@ function FriendsRoomEndLayer:onCreate(pBuffer)
                 uiText_num:setString(string.format("第%d局",i))
                 local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_info,"Text_score")
                 uiText_score:setColor(cc.c3b(0,0,0))
-                local tScoreInfo = pBuffer.tScoreInfoEx[j]
-                if tScoreInfo.fScore[i] >= 0 then
-                    uiText_score:setString(string.format("+%0.2f",tScoreInfo.fScore[i]/100))
+                local tScoreInfo = pBuffer.tScoreInfo[j]
+                if tScoreInfo.lScore[i] >= 0 then
+                    uiText_score:setString(string.format("+%d",tScoreInfo.lScore[i]))
                 else
-                    uiText_score:setString(string.format("%0.2f",tScoreInfo.fScore[i]/100))
+                    uiText_score:setString(string.format("%d",tScoreInfo.lScore[i]))
                 end
             end
         end
@@ -494,7 +469,7 @@ function FriendsRoomEndLayer:SUB_GR_CREATE_TABLE_FAILED(event)
     elseif errorID == 20 then
         require("common.MsgBoxLayer"):create(2,nil,"您已被群主暂停娱乐,请联系群主恢复!")
     elseif errorID == 21 then
-        require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,请联系群主!")
+        require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,无法进入房间!")
     elseif errorID == 22 then
         require("common.MsgBoxLayer"):create(2,nil,"防沉迷配置错误,请联系群主重新设置!")
     elseif errorID == 23 then
@@ -536,14 +511,7 @@ function FriendsRoomEndLayer:SUB_GR_JOIN_TABLE_FAILED(event)
     elseif data.wErrorCode == 25 then
         require("common.MsgBoxLayer"):create(2,nil,"防沉迷配置错误,请联系群主重新设置!")
     elseif data.wErrorCode == 26 then
-        -- require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不够,请联系群主!")
-        if FatigueLimit and FatigueLimit > 0 then
-            local str = string.format("您的疲劳值不足[%d],请联系群主!", FatigueLimit)
-            require("common.MsgBoxLayer"):create(2,nil, str)
-        else
-            require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,请联系群主!")
-        end
-        
+        require("common.MsgBoxLayer"):create(2,nil,"您的疲劳值不足,无法进入房间!")
     elseif data.wErrorCode == 27 then
         require("common.MsgBoxLayer"):create(2,nil,"亲友圈玩法不存在,请重新刷新亲友圈!")
     elseif data.wErrorCode == 28 then

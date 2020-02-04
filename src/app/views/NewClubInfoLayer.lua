@@ -83,6 +83,13 @@ function NewClubInfoLayer:onConfig()
         {"Button_zjShare", "onZJShare"},
         {"Text_yuanbaoNum"},
         {"Button_addYB", "onAddYB"},
+        {"Button_ybFrame"},
+        {"Image_lAntiValue"},
+        {"Text_lAntiValue"},
+
+        {"Panel_tempNotice"},
+        {"Button_tempClose", "onTempClose"},
+        {"Text_tempNotice"},
     }
     self.clubData           = {}      --亲友圈大厅数据
     self.userOffice         = 2       --普通成员
@@ -115,6 +122,7 @@ function NewClubInfoLayer:onEnter()
     EventMgr:registListener(EventType.RET_SETTINGS_CONFIG ,self,self.RET_SETTINGS_CONFIG)
     EventMgr:registListener(EventType.RET_CLUB_CHAT_GET_UNREAD_MSG, self, self.RET_CLUB_CHAT_GET_UNREAD_MSG)
     EventMgr:registListener(EventType.REFRESH_CLUB_BG, self, self.REFRESH_CLUB_BG)
+    EventMgr:registListener(EventType.RET_CLUB_SETTING_ANTI_MEMBER,self,self.RET_CLUB_SETTING_ANTI_MEMBER)
     cc.UserDefault:getInstance():setStringForKey("UserDefault_Operation","NewClubInfoLayer")
 end
 
@@ -142,6 +150,7 @@ function NewClubInfoLayer:onExit()
     EventMgr:unregistListener(EventType.RET_SETTINGS_CONFIG ,self,self.RET_SETTINGS_CONFIG)
     EventMgr:unregistListener(EventType.RET_CLUB_CHAT_GET_UNREAD_MSG, self, self.RET_CLUB_CHAT_GET_UNREAD_MSG)
     EventMgr:unregistListener(EventType.REFRESH_CLUB_BG, self, self.REFRESH_CLUB_BG)
+    EventMgr:unregistListener(EventType.RET_CLUB_SETTING_ANTI_MEMBER,self,self.RET_CLUB_SETTING_ANTI_MEMBER)
     if self.clubData ~= nil then
         UserData.Guild:removeCloseClub(self.clubData.dwClubID)
         cc.UserDefault:getInstance():setIntegerForKey("UserDefault_NewClubID", self.clubData.dwClubID)
@@ -225,10 +234,18 @@ function NewClubInfoLayer:onCreate(param)
         self.Button_fatigue:loadTextures(path, path, path)
         self.Button_give:setVisible(false)
         self.Image_moneyIcon:loadTexture('common/yuanbaoc_icon.png')
+        self.Image_lAntiValue:setVisible(true)
     else
         local path = 'kwxclub/club_info_6.png'
         self.Button_fatigue:loadTextures(path, path, path)
         self.Image_moneyIcon:loadTexture('kwxclub/club_hall_3.png')
+        self.Image_lAntiValue:setVisible(false)
+    end
+
+    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
+        self.Button_ybFrame:setVisible(true)
+    else
+        self.Button_ybFrame:setVisible(false)
     end
 end
 
@@ -504,6 +521,10 @@ function NewClubInfoLayer:onAddYB()
     require("app.MyApp"):create(data):createView("ShareLayer") 
 end
 
+function NewClubInfoLayer:onTempClose()
+    self.Panel_tempNotice:setVisible(false)
+end
+
 ------------------------------------------------------------------------
 
 function NewClubInfoLayer:createClubTable(playwayId)
@@ -698,16 +719,6 @@ function NewClubInfoLayer:updateClubInfo()
         self:playBroadcast('欢迎加入亲友圈，祝大家生活愉快')
     else
         self:playBroadcast(self.clubData.szAnnouncement)
-    end
-
-    if not (UserData.User.userID == self.clubData.dwUserID or self:isAdmin(UserData.User.userID)) then
-        if Bit:_and(0x02, self.clubData.bIsDisable) == 0x02 then
-            self.Button_mem:setVisible(true)
-        else
-            self.Button_mem:setVisible(false)
-        end
-    else
-        self.Button_mem:setVisible(true)
     end
 
     if not (UserData.User.userID == self.clubData.dwUserID or self:isAdmin(UserData.User.userID)) then
@@ -946,7 +957,9 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
             uiPanel_head:setVisible(false)
             if i <= data.wChairCount and data.dwUserID[i] ~= 0 then
                 local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_head,"Image_avatar")
+                local uiText_playerName = ccui.Helper:seekWidgetByName(uiPanel_head,"Text_playerName")
                 Common:requestUserAvatar(data.dwUserID[i],data.szLogoInfo[i],uiImage_avatar,"clip")
+                uiText_playerName:setString(Common:getShortName(data.szNickName[i], 8, 8))
                 uiPanel_head:setVisible(true)
             end
         end
@@ -956,7 +969,9 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
             uiPanel_head:setVisible(false)
             if i <= data.wChairCount and data.dwUserID[i] ~= 0 then
                 local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_head,"Image_avatar")
+                local uiText_playerName = ccui.Helper:seekWidgetByName(uiPanel_head,"Text_playerName")
                 Common:requestUserAvatar(data.dwUserID[i],data.szLogoInfo[i],uiImage_avatar,"clip")
+                uiText_playerName:setString(Common:getShortName(data.szNickName[i], 8, 8))
                 uiPanel_head:setVisible(true)
             end
         end
@@ -982,7 +997,7 @@ function NewClubInfoLayer:refreshTableOneByOne(data)
                     require("common.MsgBoxLayer"):create(0,nil,'亲友圈打烊中')
                     return
                 end
-                self:addChild(require("app.MyApp"):create(item.data, isAdmin):createView("ClubTableLayer")) 
+                self:addChild(require("app.MyApp"):create(item.data, isAdmin, self:getEnterTableFigueValue(idx)):createView("ClubTableLayer")) 
             end
             performWithDelay(self, isDisableCB, 0.1)
         end):createView("InterfaceCheckRoomNode")
@@ -1008,6 +1023,8 @@ function NewClubInfoLayer:playBroadcast(notice)
         end
     end
     showBroadcast()
+
+    self.Text_tempNotice:setString(notice)
 end
 
 --添加一个亲友圈节点
@@ -1202,7 +1219,11 @@ function NewClubInfoLayer:getEnterTableFigueValue(curPlaywayIdx)
                 maxValue = v
             end
         end
-        local value = self.clubData.lTableLimit[idx] + maxValue
+
+        local value = maxValue
+        if self.clubData.lTableLimit[idx] > maxValue then
+            value = self.clubData.lTableLimit[idx]
+        end
         return value
     else
         return 0
@@ -1273,6 +1294,14 @@ function NewClubInfoLayer:RET_REFRESH_CLUB(event)
     cc.UserDefault:getInstance():setIntegerForKey("UserDefault_NewClubID", self.clubData.dwClubID)
     self:updateClubInfo()
     UserData.Guild:getPartnerConfig(UserData.User.userID, self.clubData.dwClubID)
+
+    -- if CHANNEL_ID == 10 or CHANNEL_ID == 11  then
+    --     local recordTime = cc.UserDefault:getInstance():getIntegerForKey("Temp_Club_Notice", 0)
+    --     if self.clubData.dwClubID == 55404967 and not Common:isToday(recordTime) then
+    --         self.Panel_tempNotice:setVisible(true)
+    --         cc.UserDefault:getInstance():setIntegerForKey("Temp_Club_Notice", os.time())
+    --     end
+    -- end
 end
 
 --返回刷新俱乐部玩法
@@ -1442,6 +1471,7 @@ function NewClubInfoLayer:RET_UPDATE_CLUB_PLAYER_INFO(event)
     Log.d(data)
     if CHANNEL_ID == 26 or CHANNEL_ID == 27 then
         self.Text_pilaozhi:setString(UserData.Bag:getBagPropCount(1009))
+        self.Text_lAntiValue:setString('沉迷值:' .. data.lAntiValue)
     else
         self.Text_pilaozhi:setString(data.lFatigueValue)
     end
@@ -1454,16 +1484,23 @@ function NewClubInfoLayer:RET_UPDATE_CLUB_PLAYER_INFO(event)
         self.Button_notice:setVisible(true)
         self.Button_partner:setVisible(true)
         self.Button_share:setVisible(true)
+        self.Button_mem:setVisible(true)
     else
         self.Button_notice:setVisible(false)
-        if self.userOffice == 3 then
+        if self.userOffice == 3 or self.userOffice == 4 then
             -- 合伙人
             self.Button_partner:setVisible(true)
             self.Button_share:setVisible(true)
+            if Bit:_and(0x02, self.clubData.bIsDisable) == 0x02 and self.userOffice ~= 2 then
+                self.Button_mem:setVisible(true)
+            else
+                self.Button_mem:setVisible(false)
+            end
         else
             --普通成员
             self.Button_partner:setVisible(false)
             self.Button_share:setVisible(false)
+            self.Button_mem:setVisible(false)
             self.Button_mp:setPositionX(66)
         end
     end
@@ -1550,6 +1587,20 @@ function NewClubInfoLayer:REFRESH_CLUB_BG(event)
         if box then
             box.Image_CPWAll:setVisible(true)
             self.ScrollView_clubTbl:setPositionY(376)
+        end
+    end
+end
+
+function NewClubInfoLayer:RET_CLUB_SETTING_ANTI_MEMBER(event)
+    local data = event._usedata
+    dump(data)
+    if data.lRet ~= 0 then
+        return
+    end
+
+    if data.bOperatorType ~= 0 and data.dwUserID == UserData.User.userID then
+        if CHANNEL_ID == 26 or CHANNEL_ID == 27 then
+            self.Text_lAntiValue:setString('沉迷值:0')
         end
     end
 end

@@ -558,7 +558,7 @@ function TableLayer:doAction(action,pBuffer)
         end
         self:showCountDown(wChairID)
         GameCommon:playAnimation(self.root, GameLogic:SwitchToCardIndex(cbCardData),wChairID)
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.4),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.2),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
     elseif action == GameCommon.ACTION_WD then
         local wChairID = pBuffer.wCurrentUser
@@ -800,17 +800,11 @@ function TableLayer:showCountDown(wChairID)
     AtlasLabel_countdownTime:stopAllActions()
     local time = 15
 
-    if (GameCommon.wKindID == 37 or GameCommon.wKindID == 34 or GameCommon.wKindID == 24 or GameCommon.wKindID == 40) then
-        if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
-            -- if GameCommon.bHosted[wChairID] == false  then  
-                if GameCommon.gameConfig.bHostedTime ~= 0 then 
-                    time = 60*GameCommon.gameConfig.bHostedTime
-                else
-                    time = 15
-                end 
-            -- else
-            --     time = 3
-            -- end 
+    if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
+        if GameCommon.gameConfig.bHostedTime~= nil and  GameCommon.gameConfig.bHostedTime ~= 0 then 
+            time = 60*GameCommon.gameConfig.bHostedTime
+        else
+            time = 15
         end 
     end 
 
@@ -995,7 +989,7 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
                 if var.cbWeaveKind == GameCommon.ACK_CHI then
                     card = GameCommon:getDiscardCardAndWeaveItemArray(v)
                     if k == 3 then
-                        card:setColor(cc.c3b(150,150,150)) 
+                        card:setColor(cc.c3b(120,120,120)) 
                     end
                     
                 elseif var.cbWeaveKind == GameCommon.ACK_CHOUWEI then
@@ -1015,7 +1009,7 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
                     else
                         if GameCommon.tableConfig.nTableType == TableType_Playback or viewID == 1 or GameCommon.gameState == GameCommon.GameState_Over then
                             card = GameCommon:getDiscardCardAndWeaveItemArray(v)
-                            card:setColor(cc.c3b(150,150,150)) 
+                            card:setColor(cc.c3b(120,120,120)) 
                         else
                             card = GameCommon:getDiscardCardAndWeaveItemArray(0)
                             if k == 3 and (GameCommon.tableConfig.wKindID == 20 or GameCommon.tableConfig.wKindID == 17 )  then
@@ -1034,7 +1028,7 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
                     else
                         if GameCommon.tableConfig.nTableType == TableType_Playback or viewID == 1 or GameCommon.gameState == GameCommon.GameState_Over then
                             card = GameCommon:getDiscardCardAndWeaveItemArray(v)
-                            card:setColor(cc.c3b(150,150,150)) 
+                            card:setColor(cc.c3b(120,120,120)) 
                         else
                             card = GameCommon:getDiscardCardAndWeaveItemArray(0)
                         end

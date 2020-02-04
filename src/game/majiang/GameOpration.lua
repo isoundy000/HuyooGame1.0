@@ -77,7 +77,7 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)        
         Common:addTouchEventListener(item,function()
-            if GameCommon.IsOfHu == 1 then
+            if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                 require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
                     if (pBuffer.cbActionCard >= 49 and pBuffer.cbActionCard <= 55) and GameCommon.tableConfig.wKindID == 65 then
                         self:deal65Chi(pBuffer)
@@ -100,7 +100,7 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            if GameCommon.IsOfHu == 1 then
+            if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                 require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
                     self:dealPeng(pBuffer)
                 end)  
@@ -115,7 +115,7 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            if GameCommon.IsOfHu == 1 then
+            if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                 require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
                     self:dealBu(pBuffer)
                 end)  
@@ -131,7 +131,7 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            if GameCommon.IsOfHu == 1 then
+            if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                 require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()  
                     self:dealGang(pBuffer)
                 end)  
@@ -204,7 +204,7 @@ function GameOpration:showOpration(pBuffer)
         local item = ccui.Button:create(img,img,img)
         uiListView_Opration:pushBackCustomItem(item)
         Common:addTouchEventListener(item,function() 
-            if GameCommon.IsOfHu == 1 then
+            if GameCommon.IsOfHu == 1 and CHANNEL_ID ~= 10 and CHANNEL_ID ~= 11 then
                 require("common.MsgBoxLayer"):create(1,nil,"是否放弃胡牌？",function()
                     self:dealGuo()
                 end)

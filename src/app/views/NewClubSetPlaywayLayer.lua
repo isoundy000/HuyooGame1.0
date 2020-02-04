@@ -27,6 +27,7 @@ function NewClubSetPlaywayLayer:onConfig()
         {"Button_pk", "onPK"},
         {"Button_zp", "onZP"},
         {"Button_add", "onAdd"},
+        {"Button_setPercent", "onPercent"},
         {"Image_noPlayway"},
         {"ListView_playway"},
         {"Image_item"},
@@ -38,12 +39,14 @@ function NewClubSetPlaywayLayer:onEnter()
 	EventMgr:registListener(EventType.EVENT_TYPE_SETTINGS_CLUB_PARAMETER,self,self.EVENT_TYPE_SETTINGS_CLUB_PARAMETER)
     EventMgr:registListener(EventType.RET_SETTINGS_CLUB_PLAY,self,self.RET_SETTINGS_CLUB_PLAY)
     EventMgr:registListener(EventType.RET_SETTINGS_CLUB_PLAY_FINISH,self,self.RET_SETTINGS_CLUB_PLAY_FINISH)
+    EventMgr:registListener(EventType.RET_SETTINGS_CONFIG ,self,self.RET_SETTINGS_CONFIG)
 end
 
 function NewClubSetPlaywayLayer:onExit()
 	EventMgr:unregistListener(EventType.EVENT_TYPE_SETTINGS_CLUB_PARAMETER,self,self.EVENT_TYPE_SETTINGS_CLUB_PARAMETER)
     EventMgr:unregistListener(EventType.RET_SETTINGS_CLUB_PLAY,self,self.RET_SETTINGS_CLUB_PLAY)
     EventMgr:unregistListener(EventType.RET_SETTINGS_CLUB_PLAY_FINISH,self,self.RET_SETTINGS_CLUB_PLAY_FINISH)
+    EventMgr:unregistListener(EventType.RET_SETTINGS_CONFIG ,self,self.RET_SETTINGS_CONFIG)
 end
 
 function NewClubSetPlaywayLayer:onCreate(param)
@@ -54,6 +57,7 @@ function NewClubSetPlaywayLayer:onCreate(param)
 		self.Button_add:setVisible(false)
 	end
 
+    UserData.Guild:getPartnerConfig(UserData.User.userID, self.clubData.dwClubID)
 	self:switchType(0)
 end
 
@@ -79,6 +83,10 @@ end
 
 function NewClubSetPlaywayLayer:onZP()
 	self:switchType(4)
+end
+
+function NewClubSetPlaywayLayer:onPercent()
+    self:addChild(require("app.MyApp"):create(self.clubData):createView("NewClubSetPartnerPercentLayer"))
 end
 
 function NewClubSetPlaywayLayer:onAdd()
@@ -126,7 +134,7 @@ function NewClubSetPlaywayLayer:switchType(itype)
 end
 
 function NewClubSetPlaywayLayer:isCWPlayways(playway)
-    for i,v in ipairs(UserData.Game.tableCommonPlayways) do
+    for i,v in ipairs(UserData.Game.tableCommonPlayways or {}) do
         if v ~= 0 and v == playway then
             return true;
         end
@@ -156,7 +164,7 @@ function NewClubSetPlaywayLayer:initSelectPage(itype)
 
 	local count = 0
     if itype == 0 then
-        dump(UserData.Game.tableCommonPlayways)
+        -- dump(UserData.Game.tableCommonPlayways)
         for i,v in ipairs(self.clubData.dwPlayID) do
             if self:isCWPlayways(v) then
                 count = count + 1
@@ -445,7 +453,10 @@ function NewClubSetPlaywayLayer:getEnterTableFigueValue(curPlaywayIdx)
                 maxValue = v
             end
         end
-        local value = self.clubData.lTableLimit[idx] + maxValue
+        local value = maxValue
+        if self.clubData.lTableLimit[idx] > maxValue then
+            value = self.clubData.lTableLimit[idx]
+        end
         return value
     else
         return 0
@@ -514,6 +525,22 @@ function NewClubSetPlaywayLayer:RET_SETTINGS_CLUB_PLAY_FINISH(event)
     UserData.Guild:refreshClub(self.playwayData.dwClubID)
     self:megerClubData(self.playwayData)
     self:initSelectPage(self.curSelType)
+end
+
+-- 合伙人设置配置
+function NewClubSetPlaywayLayer:RET_SETTINGS_CONFIG(event)
+    local data = event._usedata
+    dump(data)
+    if data.lRet ~= 0 then
+        require("common.MsgBoxLayer"):create(0,nil,"获取合伙人设置配置失败！")
+        return 
+    end
+
+    if data.bDistributionModel == 3 then
+        self.Button_setPercent:setVisible(true)
+    else
+        self.Button_setPercent:setVisible(false)
+    end
 end
 
 return NewClubSetPlaywayLayer

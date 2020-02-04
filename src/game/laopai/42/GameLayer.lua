@@ -751,6 +751,11 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 8 do
                 data.szNickNameALL[i] = luaFunc:readRecvString(32)
             end
+
+            data.cbDisbandeCount = {}   --解散次数
+            for i = 1, 8 do
+                data.cbDisbandeCount[i] = luaFunc:readRecvByte()
+            end
             data.wKindID = GameCommon.serverData.wKindID
             require("common.DissolutionLayer"):create(GameCommon:getRoleChairID(),GameCommon.tagUserInfoList,data)
             return true
@@ -2593,8 +2598,8 @@ function GameLayer:updatePlayerlfatigue()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
 
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
-        local dwGold = GameCommon.friendsRoomInfo.fUserScore[i]/100
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        local dwGold = GameCommon.friendsRoomInfo.fUserScore[i]
+        uiText_score:setString(string.format(" %d",dwGold))   
 
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
@@ -2602,10 +2607,7 @@ function GameLayer:updatePlayerlfatigue()
             uiText_fatigue:setVisible(false)
         end 
         if GameCommon.friendsRoomInfo.lFatigueValue~= nil then
-            local fatigue =GameCommon.friendsRoomInfo.lFatigueValue[i]/ 100.00
-            if fatigue ~= 0.00 then 
-                uiText_fatigue:setString(string.format("%0.2f",fatigue))   
-            end 
+            uiText_fatigue:setString(string.format("%0.2f",GameCommon.tableConfig.lFatigueValue[i]/ 100.00))
         end
     end 
 end 

@@ -23,7 +23,6 @@ function PleaseReciveLayer:onConfig()
     self.widget         = {
         {"Button_close", "onClose"},
         {"Text_topName"},
-        {"Text_playway"},
         {"Image_head"},
         {"Text_name"},
         {"Text_ID"},
@@ -32,6 +31,7 @@ function PleaseReciveLayer:onConfig()
         {"Text_waydes"},
         {"Button_yes", "onYes"},
         {"Button_no", "onNo"},
+        {"Image_headSelf"},
     }
 end
 
@@ -66,11 +66,15 @@ end
 --                            game logic                              --
 ------------------------------------------------------------------------
 function PleaseReciveLayer:initUI(data)
-	self.Text_topName:setString(data.szNickName)
 	self.Text_name:setString(data.szClubName)
-	local gamename = StaticData.Games[data.wKindID].name
-	self.Text_playway:setString('邀请您玩:' .. gamename)
+	if data.szTableName and data.szTableName ~= '' then
+		self.Text_topName:setString(string.format('(%s)邀请您玩:%s', data.szNickName, data.szTableName))
+	else
+		local gamename = StaticData.Games[data.wKindID].name
+		self.Text_topName:setString(string.format('(%s)邀请您玩:%s', data.szNickName, gamename))
+	end
 	Common:requestUserAvatar(data.dwClubID, data.szClubLogoInfo, self.Image_head, "img")
+	Common:requestUserAvatar(data.dwUserID, data.szLogoInfo, self.Image_headSelf, "img")
 	self.Text_ID:setString('圈ID:' .. data.dwClubID)
 	self.Text_roomid:setString('房间号:' .. data.dwTableID)
 	self.Text_jushu:setString('局数:' .. data.wGameCount)

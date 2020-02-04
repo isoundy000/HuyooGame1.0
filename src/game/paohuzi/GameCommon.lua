@@ -270,9 +270,11 @@ function GameCommon:getViewIDByChairID(wChairID, isNoSwitch)
 
     --两人玩法调整头像位置
     if not isNoSwitch and wPlayerCount == 2 and viewID == 2 then
-        --if (CHANNEL_ID ==10 or CHANNEL_ID == 11) then  --and self.tableConfig.wKindID == 34
+        if (CHANNEL_ID ==0 or CHANNEL_ID == 1) then  --and self.tableConfig.wKindID == 34
+            viewID = 2
+        else
             viewID = 3
-        --end
+        end
     end
 
     return viewID

@@ -325,6 +325,10 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             for i = 1, 8 do
                 data.szNickNameALL[i] = luaFunc:readRecvString(32)
             end
+            data.cbDisbandeCount = {}   --解散次数
+            for i = 1, 8 do
+                data.cbDisbandeCount[i] = luaFunc:readRecvByte()
+            end
             require("common.DissolutionLayer"):create(GameCommon:getRoleChairID(),GameCommon.player,data)
             return true
 
@@ -388,7 +392,23 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             _tagMsg.pBuffer.szChatContent = luaFunc:readRecvString(_tagMsg.pBuffer.dwChatLength)
             self.tableLayer:showChat(_tagMsg.pBuffer)
             return
-            
+        elseif subCmdID == NetMsgId.RET_USER_HOSTED then            
+            --托管
+            _tagMsg.pBuffer.dwUserID = luaFunc:readRecvDWORD()              --用户ID
+            _tagMsg.pBuffer.wChairID = luaFunc:readRecvWORD()               --桌子ID
+
+            _tagMsg.pBuffer.bHosted = {}                                            --托管或取消托管
+            for i = 0, 7 do
+                _tagMsg.pBuffer.bHosted[i] = luaFunc:readRecvByte()
+            end  
+
+            _tagMsg.pBuffer.cbHostedSession = {}                                    --已托管场次
+            for i = 0, 7 do
+                _tagMsg.pBuffer.cbHostedSession[i] = luaFunc:readRecvByte()
+            end
+
+            self:updatePlayerTG(_tagMsg.pBuffer)
+            return true     
         else
             print("not found this subCmdID : %d",subCmdID)
             return false
@@ -421,7 +441,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
                 uiText_table:setString(GameCommon.tableConfig.szTableName)
                 local CellScore = GameCommon.tableConfig.wCellScore / GameCommon.tableConfig.wTableCellDenominator
-                uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
+                --uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
             end 
             return true
             
@@ -826,8 +846,11 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
         elseif subCmdID == NetMsgId.SUB_S_SEND_CARD then
-            self.tableLayer:doAction(GameCommon.ACTION_SEND_CARD, pBuffer)
-
+            --self.tableLayer:doAction(GameCommon.ACTION_SEND_CARD, pBuffer)
+            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.35),
+                cc.CallFunc:create(function(sender,event) 
+                self.tableLayer:doAction(GameCommon.ACTION_SEND_CARD, pBuffer)  
+            end)))
         elseif subCmdID == NetMsgId.SUB_S_CLIENTERROR then
             local wChairID = GameCommon:getRoleChairID()
             self.tableLayer:setHandCard(wChairID, GameCommon.player[wChairID].bUserCardCount,pBuffer.cbCardIndex,10,0)
@@ -1129,7 +1152,7 @@ function GameLayer:updatePlayerlScore()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
         local dwGold = Common:itemNumberToString(GameCommon.player[wChairID].lScore)
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        uiText_score:setString(string.format(" %d",dwGold))   
     end
 end
 
@@ -1143,8 +1166,8 @@ function GameLayer:updatePlayerlfatigue()
         local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
 
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
-        local dwGold = GameCommon.tableConfig.fUserScore[i]/100
-        uiText_score:setString(string.format(" %0.2f",dwGold))   
+        local dwGold = GameCommon.tableConfig.fUserScore[i]
+        uiText_score:setString(string.format(" %d",dwGold))   
 
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
@@ -1152,10 +1175,7 @@ function GameLayer:updatePlayerlfatigue()
             uiText_fatigue:setVisible(false)
         end 
         if GameCommon.tableConfig.lFatigueValue~= nil then
-            local fatigue =GameCommon.tableConfig.lFatigueValue[i]/ 100.00
-            if fatigue ~= 0.00 then 
-                uiText_fatigue:setString(string.format("%0.2f",fatigue))   
-            end 
+            uiText_fatigue:setString(string.format("%0.2f",GameCommon.tableConfig.lFatigueValue[i]/ 100.00))
         end
     end 
 end 
@@ -1282,6 +1302,36 @@ function GameLayer:updatePlayerOnline()
             else
                 uiImage_offline:setVisible(false)
                 uiImage_avatar:setColor(cc.c3b(255,255,255))
+            end
+        end     
+    end
+end
+
+--托管中
+function GameLayer:updatePlayerTG(pBuffer)   
+    if GameCommon.gameConfig == nil then
+        return
+    end
+    local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,"Panel_player")
+    local uiPanel_TG = ccui.Helper:seekWidgetByName(self.root,"Panel_TG")
+    uiPanel_TG:setVisible(false)
+    GameCommon.bHosted = pBuffer.bHosted
+    for i = 1 , GameCommon.gameConfig.bPlayerCount do
+        local wChairID = i-1
+        if GameCommon.player ~= nil and GameCommon.player[wChairID] ~= nil then
+            local viewID = GameCommon:getViewIDByChairID(wChairID)
+            local Panel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
+            local uiImage_TG = ccui.Helper:seekWidgetByName(Panel_player,"Image_TG") 
+            print("托管——————————————",viewID,wChairID,i,GameCommon.gameConfig.bPlayerCount,uiImage_TG,Panel_player,pBuffer.bHosted[wChairID])
+            if pBuffer.bHosted[wChairID] == 0 then
+                uiImage_TG:setVisible(false)
+            else
+                if uiImage_TG ~= nil then 
+                    uiImage_TG:setVisible(true)
+                end 
+                if viewID  == 1 then
+                    uiPanel_TG:setVisible(true)
+                end
             end
         end     
     end

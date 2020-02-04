@@ -292,6 +292,11 @@ local NetMsgId = {
     RET_CLUB_ANTI_REFRESH_LOG           = 25006,                           --返回沉迷刷新日志
     RET_CLUB_ANTI_REFRESH_LOG_FINISH    = 25007,
 
+    REQ_CLUB_PLAY_DISTRIBUTION          = 2509,                            --请求亲友群玩法分成
+    RET_CLUB_PLAY_DISTRIBUTION          = 25009,                           --返回亲友群玩法分成
+    REQ_SETTINGS_CLUB_PLAY_DISTRIBUTION = 2510,                            --请求设置亲友群玩法分成
+    RET_SETTINGS_CLUB_PLAY_DISTRIBUTION = 25011,                           --返回设置亲友群玩法分成
+
 
     --统计
     REQ_GET_CLUB_STATISTICS_MYSELF      = 1657,                             ----请求亲友圈统计个人

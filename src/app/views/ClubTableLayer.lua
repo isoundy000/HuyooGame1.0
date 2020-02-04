@@ -20,6 +20,7 @@ end
 function ClubTableLayer:onCreate(parames)
     local data = parames[1]
     local isAdmin = parames[2] or false
+    local figueLimit = parames[3] or 0
     if not data then
         printError('ClubTableLayer:onCreate data error')
         return
@@ -65,7 +66,7 @@ function ClubTableLayer:onCreate(parames)
     Common:addTouchEventListener(uiButton_join,function() 
         uiButton_join:removeAllChildren()
         cc.UserDefault:getInstance():setIntegerForKey('club_quick_game_playwayid', data.wTableSubType)
-        uiButton_join:addChild(require("app.MyApp"):create(data.dwTableID):createView("InterfaceJoinRoomNode"))
+        uiButton_join:addChild(require("app.MyApp"):create(data.dwTableID, figueLimit):createView("InterfaceJoinRoomNode"))
     end)
 
     local uiButton_exit = ccui.Helper:seekWidgetByName(self.root,"Button_exit")

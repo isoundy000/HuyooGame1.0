@@ -157,7 +157,19 @@ function NewClubLayer:initNumberArea()
             Common:palyButton()
             local index = sender.index
             if index == 10 then
-                self:resetNumber()
+                -- self:resetNumber()
+                local roomNumber = ""
+                for i = 1 , 8 do
+                    local numName = string.format("Text_number%d", i)
+                    local Text_number = ccui.Helper:seekWidgetByName(self.Panel_join, numName)
+                    if Text_number:getString() == "" or i == 8 then
+                        self:sendJoinClub(roomNumber)                      
+                        break
+                    else
+                        roomNumber = roomNumber .. Text_number:getString()
+                    end
+                end
+
             elseif index == 11 then
                 self:deleteNumber()
             else
