@@ -273,7 +273,7 @@ function NewClubPartnerLayer:onFindMem()
         if dwUserID then
             -- local dwMinWinnerScore = 0
             self.isFindType = true
-            self.curPartnerIdx = 1
+            --self.curPartnerIdx = 1
             self.pCurID = dwUserID
             -- UserData.Guild:findPartnerMember(self.clubData.dwClubID,dwUserID,dwUserID,self.beganTime,self.endTime,dwMinWinnerScore)
             self:reqClubPartner(self.pCurID)
@@ -407,8 +407,8 @@ function NewClubPartnerLayer:research()
         if self:isAdmin(UserData.User.userID) then
             self.pCurID = self.clubData.dwUserID
         end
-        self.partnerReqState = 0
-        self.curPartnerIdx = 1
+        --self.partnerReqState = 0
+        --self.curPartnerIdx = 1
         self:reqClubPartner(self.pCurID)
 
     elseif self.curPartnerPage == 2 then
@@ -429,8 +429,8 @@ function NewClubPartnerLayer:research()
         else
             --某个合伙人名下成员
             self.ListView_pushMyPartner:removeAllItems()
-            self.partnerReqState = 0
-            self.curPartnerIdx = 1
+            --self.partnerReqState = 0
+            --self.curPartnerIdx = 1
             self:reqClubPartner(self.pCurID)
         end
 
@@ -459,9 +459,13 @@ end
 --请求亲友圈合伙人
 function NewClubPartnerLayer:reqClubPartner(dwPartnerID)
     local dwMinWinnerScore = 0
-    dwPartnerID = dwPartnerID or 0
+	dwPartnerID = dwPartnerID or 0
+	local partnerIdx = 1
+	if dwPartnerID == 0 then
+		partnerIdx = self.curPartnerIdx
+	end
     UserData.Statistics:req_statisticsManager(self.clubData.dwClubID, self.beganTime, self.endTime, dwMinWinnerScore)
-    UserData.Guild:getClubPartner(self.clubData.dwClubID, dwPartnerID, self.beganTime, self.endTime, self.curPartnerIdx, dwMinWinnerScore)
+    UserData.Guild:getClubPartner(self.clubData.dwClubID, dwPartnerID, self.beganTime, self.endTime, partnerIdx, dwMinWinnerScore)
 end
 
 --请求亲友圈合伙人成员
@@ -865,8 +869,8 @@ function NewClubPartnerLayer:insertMyPartnerItme(data)
 		self.Image_pushMyPartner:setVisible(true)
 		self.ListView_pushMyPartner:removeAllItems()
     	self.pCurID = data.dwUserID
-        self.partnerReqState = 0
-        self.curPartnerIdx = 1
+        --self.partnerReqState = 0
+        --self.curPartnerIdx = 1
         self:reqClubPartner(self.pCurID)
     end)
    	Common:addTouchEventListener(Button_remove, function()
