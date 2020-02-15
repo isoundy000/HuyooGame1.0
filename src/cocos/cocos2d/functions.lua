@@ -79,6 +79,10 @@ local function dump_value_(v)
 end
 
 function dump(value, desciption, nesting)
+	if true then
+		return
+	end
+
     if type(nesting) ~= "number" then nesting = 3 end
 
     local lookupTable = {}

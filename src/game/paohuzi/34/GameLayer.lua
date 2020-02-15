@@ -297,10 +297,9 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             local randFloor = GameCommon.tableConfig.wTableNumber or 0
             uiText_title:setString(StaticData.Games[GameCommon.tableConfig.wKindID].name)
             uiText_des:setString(string.format("房间号:%d 局数:%d/%d",roomId,randCeil,randFloor))
-
-            self:updatePlayerlfatigue()
-            return true
-
+            print("+++++++++++++++")
+           -- self:updatePlayerlfatigue()
+            -- return true
         elseif subCmdID == NetMsgId.SUB_GR_DISMISS_TABLE_SUCCESS then
             if GameCommon.gameState ~= GameCommon.GameState_Init then
                 require("common.MsgBoxLayer"):create(0,nil,"房间解散成功！") 
@@ -350,9 +349,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             data.bReady = luaFunc:readRecvBool() 
             data.location = {}
             data.location.x = luaFunc:readRecvDouble()
-            data.location.y = luaFunc:readRecvDouble()
-            
-            
+            data.location.y = luaFunc:readRecvDouble()            
             data.other = nil
             data.bUserCardCount = 0
             data.cbCardIndex = nil
@@ -599,7 +596,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 _tagMsg.pBuffer.fWriteScoreArr[i] = luaFunc:readRecvLong()--实际分
             end
             _tagMsg.pBuffer.invalid = luaFunc:readRecvDWORD()               --无效参数，因为回放有时候读不到最后一个字节，导致回放数据不准
-
+            print("__________-")       
             
         elseif subCmdID == NetMsgId.SUB_S_SITFAILED then
             _tagMsg.pBuffer.wErrorCode = luaFunc:readRecvWORD() --错误代码
@@ -771,12 +768,19 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             self:removeAllChildren()
             local layer = require("common.FriendsRoomEndLayer"):create(pBuffer)
             self:addChild(layer)
+        elseif subCmdID == NetMsgId.SUB_GR_TABLE_STATUS then 
+            self:updatePlayerlfatigue()
+            self:runAction(cc.Sequence:create(cc.DelayTime:create(1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+             
         else
             return print("error, not found this :",mainCmdID, subCmdID)
         end
-        
+  
+   
     elseif mainCmdID == NetMsgId.MDM_GF_GAME then
         if subCmdID == NetMsgId.SUB_S_GAME_START then
+
+            self:updatePlayerlfatigue()
             self.tableLayer:updateGameState(GameCommon.GameState_Start)
             --开始游戏
             local maxHanCardRow = 7
@@ -899,6 +903,9 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             uiPanel_end:setVisible(true)
             uiPanel_end:removeAllChildren()
             uiPanel_end:stopAllActions()
+
+            self:updatePlayerlfatigue()
+            
             if pBuffer.wWinUser ~= GameCommon.INVALID_CHAIR then
                 uiPanel_end:runAction(cc.Sequence:create(
                     cc.DelayTime:create(2),
@@ -976,6 +983,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
         if subCmdID == NetMsgId.SUB_GF_SCENE then
             --游戏重连
             self.tableLayer:updateGameState(GameCommon.GameState_Start)
+            self:updatePlayerlfatigue()            
             local wChairID = GameCommon:getRoleChairID()
             GameCommon.wBankerUser = pBuffer.wBankerUser
             --设置臭偎和吃牌的顺序
@@ -1046,7 +1054,8 @@ function GameLayer:OnGameMessageRun(_tagMsg)
                 self.tableLayer:doAction(GameCommon.ACTION_OPERATE_NOTIFY,{wResumeUser = wChairID, cbActionCard = pBuffer.cbOutCardData, cbOperateCode = pBuffer.bUserAction, cbSubOperateCode = pBuffer.bSubUserAction})
             end
             self:updatePlayerInfo()
-            self:updatehandplate()
+            self:updatehandplate()     
+
             self.tableLayer:updateLeftCardCount(pBuffer.bLeftCardCount)
             return
             
@@ -1157,6 +1166,11 @@ function GameLayer:updatePlayerlfatigue()
     if GameCommon.gameConfig == nil then
         return
     end
+
+    if GameCommon.tableConfig == nil or GameCommon.tableConfig.fUserScore == nil then
+        return
+    end
+    print("游戏变化")
     for i = 1 , GameCommon.gameConfig.bPlayerCount do
         local wChairID = i-1
         local viewID = GameCommon:getViewIDByChairID(wChairID)
@@ -1189,8 +1203,12 @@ function GameLayer:updatehandplate()
         if uiText_Houdplate == nil then
             return
         end
+        if GameCommon.player[wChairID] == nil then             
+            return
+        end 
         local Text_fontIcon = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fontIcon")
-        if GameCommon.player[wChairID].bUserCardCount <= 3 then
+        print("++++++++@@@@2",wChairID,GameCommon.player[wChairID].bUserCardCount,GameCommon.gameConfig.bPlayerCount)
+        if  GameCommon.player[wChairID].bUserCardCount <= 3 then  
             uiText_Houdplate:setTextColor(cc.c3b(255,40,40))
             Text_fontIcon:setTextColor(cc.c3b(255,40,40))
         else

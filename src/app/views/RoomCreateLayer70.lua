@@ -134,10 +134,14 @@ function RoomCreateLayer:onCreate(parameter)
         	end
         else
             for key, var in pairs(items) do
-                if key == 1 then
+                if key == 1 or key == 2 then
                     var:setColor(cc.c3b(255,255,255))
-                    var:setEnabled(false)
-                    var:setBright(true)
+                    var:setEnabled(true)
+                    if key == 1 then
+                        var:setBright(true)
+                    else
+                        var:setBright(false)
+                    end
                 else
                     var:setColor(cc.c3b(170,170,170))
                     var:setEnabled(false)
@@ -185,10 +189,14 @@ function RoomCreateLayer:onCreate(parameter)
     end
     if self.recordCreateParameter["bNiaoAdd"] ~= nil and self.recordCreateParameter["bNiaoAdd"] == 2 then
         for key, var in pairs(items) do
-            if key == 1 then
+            if key == 1 or key == 2 then
                 var:setColor(cc.c3b(255,255,255))
-                var:setEnabled(false)
-                var:setBright(true)
+                var:setEnabled(true)
+                if key == 1 then
+                    var:setBright(true)
+                else
+                    var:setBright(false)
+                end
             else
                 var:setColor(cc.c3b(170,170,170))
                 var:setEnabled(false)

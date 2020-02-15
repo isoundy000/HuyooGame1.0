@@ -520,9 +520,9 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
         end
     end
     local items = uiPanel_operation:getChildren()
-    local interval = 50
+    local interval = 30
     local width = items[1]:getContentSize().width
-    local beganPos = (uiPanel_operation:getContentSize().width -  #items * width - (#items-1)*interval)/2 + width/2
+    local beganPos = (uiPanel_operation:getContentSize().width -  #items * width - (#items-1)*interval)--/2 + width/2
     for key, var in pairs(items) do
         var:setPosition(beganPos + (key-1)*(width + interval), uiPanel_operation:getContentSize().height/2)
     end

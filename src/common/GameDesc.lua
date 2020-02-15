@@ -342,7 +342,7 @@ function GameDesc:getGameDesc(wKindID,data,tableConfig)
         else
         end
         if data.mMaOne == 1 then
-            desc = desc.."/一鸟一分"
+           -- desc = desc.."/一鸟一分"
         elseif data.mMaOne == 2 then
             desc = desc.."/一鸟两分"
         end
