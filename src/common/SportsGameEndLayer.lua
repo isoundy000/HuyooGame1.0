@@ -43,6 +43,10 @@ function SportsGameEndLayer:onCreate(pBuffer)
         GameCommon = require("game.laopai.GameCommon")
     elseif pBuffer.wKindID == 43 then
         GameCommon = require("game.paohuzi.43.GameCommon") 
+    elseif wKindID == 61 then
+        GameCommon = require("game.paohuzi.61.GameCommon") 
+    elseif wKindID == 97 then
+        GameCommon = require("game.majiang.97.GameCommon") 
     elseif StaticData.Games[pBuffer.wKindID].type == 1 then
         GameCommon = require("game.paohuzi.GameCommon")
     elseif StaticData.Games[pBuffer.wKindID].type == 2 then

@@ -155,8 +155,8 @@ function RoomCreateLayer:onCreate(parameter)
         for key, var in pairs(games) do
             local wKindID = tonumber(var)
             local data = StaticData.Games[wKindID]
-            if UserData.Game.tableGames[wKindID] ~= nil and Bit:_and(data.friends,1) ~= 0 and (type == 4 or data.type == type or type == nil ) and (StaticData.Games[wKindID].isVisible == 1 or UserData.User.wPrivilege == 1) and wKindID ~= 45 and wKindID ~= 50 then--
-                local item = ccui.Button:create(data.icon1,data.icons1,data.icons)
+            if UserData.Game.tableGames[wKindID] ~= nil and Bit:_and(data.friends,1) ~= 0 and (type == 4 or data.type == type or type == nil ) and (StaticData.Games[wKindID].isVisible == 1 or UserData.User.wPrivilege == 1) and wKindID ~= 45 and wKindID ~= 50 then--               
+                local item = ccui.Button:create("room/room_41.png","room/room_41.png","room/room_42.png")
                 item.wKindID = wKindID
                 item:setBright(false)
                 uiListView_games:pushBackCustomItem(item)
@@ -164,6 +164,15 @@ function RoomCreateLayer:onCreate(parameter)
                 if wKindID == locationID then
                     isFound = true
                 end
+                
+                local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","32")
+                uiText_OfflineTime:setName('Text_OfflineTime')
+                uiText_OfflineTime:setTextColor(cc.c3b(251,251,251)) 
+                uiText_OfflineTime:enableOutline(cc.c4b(205, 102, 70), 2)
+                uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                item:addChild(uiText_OfflineTime,100)
+                uiText_OfflineTime:setPosition(105.00,50)                
+                uiText_OfflineTime:setString(StaticData.Games[wKindID].name)     
             end	
         end
         if isFound == true then

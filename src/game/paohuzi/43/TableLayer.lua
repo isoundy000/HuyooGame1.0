@@ -1906,9 +1906,9 @@ function TableLayer:initUI()
     end 
     --灯光层
     local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
         uiButton_voice:setVisible(false) 
-    end
+    end 
     if GameCommon.tableConfig.nTableType > TableType_GoldRoom then
         self:addVoice()
         local uiListView_function = ccui.Helper:seekWidgetByName(self.root,"ListView_function")
@@ -2117,9 +2117,9 @@ function TableLayer:updateGameState(state)
             local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
             uiButton_expression:setVisible(true)
             local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-            if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
                 uiButton_voice:setVisible(false) 
-            else
+            else 
                 uiButton_voice:setVisible(true) 
             end
         end         

@@ -85,16 +85,16 @@ function RoomCreateLayer:onCreate(parameter)
     --选择人数
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(1),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,false,function(index) 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
-        local var = items[1]
-        if index == 3 then
-            var:setEnabled(true)
-            var:setColor(cc.c3b(255,255,255))
-        else            
-            var:setBright(false)
-            var:setEnabled(false)
-            var:setColor(cc.c3b(170,170,170))
-        end
+        -- local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+        -- local var = items[1]
+        -- if index == 3 then
+        --     var:setEnabled(true)
+        --     var:setColor(cc.c3b(255,255,255))
+        -- else            
+        --     var:setBright(false)
+        --     var:setEnabled(false)
+        --     var:setColor(cc.c3b(170,170,170))
+        -- end
     end)
     if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 2 then
         items[3]:setBright(true)
@@ -216,20 +216,20 @@ function RoomCreateLayer:onCreate(parameter)
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,true)
     
-    --两人场去掉筒子
-    if self.recordCreateParameter["bPlayerCount"] == nil or  self.recordCreateParameter["bPlayerCount"] ~= 2 then
-        items[1]:setBright(false)
-        items[1]:setEnabled(false)
-        items[1]:setColor(cc.c3b(170,170,170))
-    else            
-        items[1]:setEnabled(true)
-        items[1]:setColor(cc.c3b(255,255,255))        
+    -- --两人场去掉筒子
+    -- if self.recordCreateParameter["bPlayerCount"] == nil or  self.recordCreateParameter["bPlayerCount"] ~= 2 then
+    --     items[1]:setBright(false)
+    --     items[1]:setEnabled(false)
+    --     items[1]:setColor(cc.c3b(170,170,170))
+    -- else            
+    --     items[1]:setEnabled(true)
+    --     items[1]:setColor(cc.c3b(255,255,255))        
         if self.recordCreateParameter["bWuTong"] ~= nil and self.recordCreateParameter["bWuTong"] == 0 then
             items[1]:setBright(true)
         else
             items[1]:setBright(false)
         end
-    end
+    -- end
     
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}

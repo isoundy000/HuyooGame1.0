@@ -42,7 +42,7 @@ end
 
 cc.exports.CONST_ACCOUNTS = 'cxx'
 -- cc.exports.CONST_ACCOUNTS = "ob0xh1AzAedxBHDttu5bEA5lRmDk"--李禹陵武陵
--- cc.exports.CONST_ACCOUNTS = "oKOaiuHRu3AcZFoP16h5w58PaQ7k"  --李禹陵天娱
+ -- cc.exports.CONST_ACCOUNTS = "oKOaiuHRu3AcZFoP16h5w58PaQ7k"  --李禹陵天娱
 
 
 local searchPaths = cc.FileUtils:getInstance():getSearchPaths()

@@ -25,6 +25,8 @@ local Hide = {
     [19]={ id=19, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=0, btn7=0, btn8=0, btn9=0,btn10=1,btn11=1,btn12=0,btn13=0,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
     [20]={ id=20, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=0, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=0,btn13=0,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
     [21]={ id=21, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=0, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=0,btn13=0,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
+    [22]={ id=20, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=0, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=0,btn13=0,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
+    [23]={ id=21, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=0, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=0,btn13=0,btn14=0,btn15=1,btn16=0,btn17=1,btn18=0,btn19=1,btn20=1}, 
     [26]={ id=26, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=1,btn13=1,btn14=0,btn15=1,btn16=0,btn17=0,btn18=0,btn19=1,btn20=1}, 
     [27]={ id=27, btn1=1, btn2=1, btn3=1, btn4=1, btn5=1, btn6=1, btn7=0, btn8=0, btn9=0,btn10=1,btn11=0,btn12=1,btn13=1,btn14=0,btn15=1,btn16=0,btn17=0,btn18=0,btn19=1,btn20=1},
 }

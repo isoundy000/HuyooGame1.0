@@ -191,7 +191,7 @@ function PukesettingsLayer:buttonEvents(event)
     self.uiButton_Thebg = ccui.Helper:seekWidgetByName(self.root,"Button_Thebg")   
     local ZiPaipaizhu = nil
     if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
-        ZiPaipaizhu =  cc.UserDefault:getInstance():getIntegerForKey("UserDefault_Pukepaizhuo",2)
+        ZiPaipaizhu =  cc.UserDefault:getInstance():getIntegerForKey("UserDefault_Pukepaizhuo",1)
     else
         ZiPaipaizhu =  cc.UserDefault:getInstance():getIntegerForKey("UserDefault_Pukepaizhuo",0)
     end 
@@ -230,18 +230,18 @@ function PukesettingsLayer:buttonEvents(event)
             uiPanel_paizhubeijing:setVisible(false) 
             self:showPaizhu(4,0)
             self.uiButton_Thebg:loadTextures("settings/settings120.png","settings/settings120.png","settings/settings120.png")  
-            self.Thebg = 0            
+            data.Thebg = 0            
         elseif type == 1 then 
             uiPanel_paizhubeijing:setVisible(false)  
             self:showPaizhu(4,1)
             self.uiButton_Thebg:loadTextures ("settings/settings121.png","settings/settings121.png","settings/settings121.png") 
-            self.Thebg = 1 
+            data.Thebg = 1 
 
         elseif type == 2 then  
             uiPanel_paizhubeijing:setVisible(false)  
             self:showPaizhu(4,2)
             self.uiButton_Thebg:loadTextures ("settings/settings122.png","settings/settings122.png","settings/settings122.png") 
-            self.Thebg = 2        
+            data.Thebg = 2        
         end           
     end
 
@@ -350,13 +350,14 @@ function PukesettingsLayer:showPaizhu(type,event)
     local uiPanel_paizhu = ccui.Helper:seekWidgetByName(self.root,"Panel_paizhuo")   
     if  type ==  4 and event == 0  then  
         uiPanel_paizhu:removeAllChildren()
-        uiPanel_paizhu:addChild(ccui.ImageView:create(string.format("game/PDK_table_bg%d.jpg",event)))
+        uiPanel_paizhu:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",event)))
+       -- uiPanel_bg:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",UserDefault_Pukepaizhuo)))
     elseif  type == 4 and event == 1  then 
         uiPanel_paizhu:removeAllChildren()
-        uiPanel_paizhu:addChild(ccui.ImageView:create(string.format("game/PDK_table_bg%d.jpg",event)))
+        uiPanel_paizhu:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",event)))
     elseif  type == 4 and event == 2  then  
         uiPanel_paizhu:removeAllChildren()
-        uiPanel_paizhu:addChild(ccui.ImageView:create(string.format("game/PDK_table_bg%d.jpg",event)))
+        uiPanel_paizhu:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",event)))
     end 
 
 end

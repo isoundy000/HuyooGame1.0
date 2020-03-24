@@ -106,6 +106,10 @@ function GameEndLayer:onCreate(pBuffer)
         Button_dissolve:setVisible(false)
     end
 
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11)  and  GameCommon.tableConfig.dwClubID ==nil and  GameCommon.tableConfig.dwClubID == 55404967 then 
+        Button_dissolve:setVisible(false)
+    end 
+
     local uiPanel_result = ccui.Helper:seekWidgetByName(self.root,"Panel_result")
 --    local uiPanel_look = ccui.Helper:seekWidgetByName(self.root,"Panel_look")
     local uiButton_look = ccui.Helper:seekWidgetByName(self.root,"Button_look")

@@ -1129,9 +1129,21 @@ function TableLayer:addWeaveItemArray(wChairID,WeaveItemArray)
         elseif WeaveItemArray.cbPublicCard == 1 then
             --别人打的杠
             for key, var in pairs(cbCardList) do
-                if key ~= 4 then
-                    self:removeHandCard(wChairID,var)
-                end
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == WeaveItemArray.cbCenterCard  then
+                        TS_gang = true                       
+                    end 
+                end 
+                if TS_gang == true then
+                    if key ~= 4 or key ~= 3 then
+                        self:removeHandCard(wChairID,var)
+                    end
+                else
+                    if key ~= 4  then
+                        self:removeHandCard(wChairID,var)
+                    end
+                end 
             end
             if(GameCommon.tableConfig.wKindID == 50 or GameCommon.tableConfig.wKindID == 70)then 
                 for i = 1, GameCommon.player[wChairID].bWeaveItemCount do
@@ -1144,11 +1156,24 @@ function TableLayer:addWeaveItemArray(wChairID,WeaveItemArray)
                     end
                 end
             end 
-        elseif WeaveItemArray.cbPublicCard == 2 then          
-            --暗杠
-            for key, var in pairs(cbCardList) do
-                self:removeHandCard(wChairID,var)
-            end       
+        elseif WeaveItemArray.cbPublicCard == 2 then                    
+             --暗杠
+             for key, var in pairs(cbCardList) do
+
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == WeaveItemArray.cbCenterCard  then
+                        TS_gang = true                       
+                    end 
+                end 
+                if TS_gang == true then
+                    if key ~= 4 then
+                        self:removeHandCard(wChairID,var)
+                    end
+                else
+                    self:removeHandCard(wChairID,var)
+                end 
+            end
         else    
         end
         if(GameCommon.tableConfig.wKindID == 50 or GameCommon.tableConfig.wKindID == 70)then 
@@ -1170,9 +1195,21 @@ function TableLayer:addWeaveItemArray(wChairID,WeaveItemArray)
         elseif WeaveItemArray.cbPublicCard == 1 then
             --别人打的杠
             for key, var in pairs(cbCardList) do
-                if key ~= 4 then
-                    self:removeHandCard(wChairID,var)
-                end
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == WeaveItemArray.cbCenterCard  then
+                        TS_gang = true                       
+                    end 
+                end 
+                if TS_gang == true then
+                    if key ~= 4 or key ~= 3 then
+                        self:removeHandCard(wChairID,var)
+                    end
+                else
+                    if key ~= 4  then
+                        self:removeHandCard(wChairID,var)
+                    end
+                end 
             end
             for i = 1, GameCommon.player[wChairID].bWeaveItemCount do
                 local var = GameCommon.player[wChairID].WeaveItemArray[i]
@@ -1186,7 +1223,20 @@ function TableLayer:addWeaveItemArray(wChairID,WeaveItemArray)
         elseif WeaveItemArray.cbPublicCard == 2 then
             --暗杠
             for key, var in pairs(cbCardList) do
-                self:removeHandCard(wChairID,var)
+
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == WeaveItemArray.cbCenterCard  then
+                        TS_gang = true                       
+                    end 
+                end 
+                if TS_gang == true then
+                    if key ~= 4 then
+                        self:removeHandCard(wChairID,var)
+                    end
+                else
+                    self:removeHandCard(wChairID,var)
+                end 
             end
         else
 
@@ -1293,27 +1343,52 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
             local cbCardList = self:getWeaveItemArray(var)
             for k, v in pairs(cbCardList) do
                 local card = nil
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == v then
+                        TS_gang = true                       
+                    end 
+                end 
                 if k < 4 and var.cbPublicCard == 2 and (Bit:_and(var.cbWeaveKind,GameCommon.WIK_GANG) ~= 0 or Bit:_and(var.cbWeaveKind,GameCommon.WIK_FILL) ~= 0) then
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
-                else
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
-                    if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
+                    if TS_gang == true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
                     else
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
+                    end 
+                else
+                    if TS_gang ~= true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
+                        if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        else
+                        end
                     end
                 end
-                content:addChild(card)
-                if k == 4 then
-                    card:setScale(cardScale) 
-                    card:setPosition(cardWidth/2+(2-1)*cardWidth,size.height/2+20)
-                else
-                    card:setScale(cardScale) 
-                    card:setPosition(cardWidth/2+(k-1)*cardWidth,size.height/2)
-                end
+                if card ~= nil then 
+                    content:addChild(card)               
+                    if k == 4 then
+                        card:setScale(cardScale) 
+                        card:setPosition(cardWidth/2+(2-1)*cardWidth,size.height/2+20)
+                    else
+                        card:setScale(cardScale) 
+                        card:setPosition(cardWidth/2+(k-1)*cardWidth,size.height/2)
+                    end
+
+                    if TS_gang == true then                  
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(45,70)                
+                        uiText_OfflineTime:setString("朝")   
+                    end 
+                end 
             end
         end
         
@@ -1338,29 +1413,54 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
             local cbCardList = self:getWeaveItemArray(var)
             for k, v in pairs(cbCardList) do
                 local card = nil
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == v then
+                        TS_gang = true                       
+                    end 
+                end 
                 if k < 4 and var.cbPublicCard == 2 and (Bit:_and(var.cbWeaveKind,GameCommon.WIK_GANG) ~= 0 or Bit:_and(var.cbWeaveKind,GameCommon.WIK_FILL) ~= 0) then
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
-                else
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
-                    if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
+                    if TS_gang == true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
                     else
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
+                    end
+                else
+                    if TS_gang ~= true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
+                        if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        else
+                        end
                     end
                 end
-                content:addChild(card)
-                if k == 4 then
-                    card:setScale(cardScale) 
-                    card:setPosition(size.width/2,cardHeight/2+(2-1)*(cardHeight-20))
-                    card:setLocalZOrder(4)    
-                else
-                    card:setScale(cardScale) 
-                    card:setPosition(size.width/2,cardHeight/2-20+(k-1)*(cardHeight-20))
-                    card:setLocalZOrder(3-k)    
-                end  
+                if card ~= nil then
+                    content:addChild(card)
+                    if k == 4 then
+                        card:setScale(cardScale) 
+                        card:setPosition(size.width/2,cardHeight/2+(2-1)*(cardHeight-20))
+                        card:setLocalZOrder(4)    
+                    else
+                        card:setScale(cardScale) 
+                        card:setPosition(size.width/2,cardHeight/2-20+(k-1)*(cardHeight-20))
+                        card:setLocalZOrder(3-k)    
+                    end  
+
+                    if TS_gang == true then                  
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(45,70)                
+                        uiText_OfflineTime:setString("朝")   
+                    end 
+                end
             end
         end
     elseif viewID == 3 then
@@ -1384,29 +1484,53 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
             local cbCardList = self:getWeaveItemArray(var)
             for k, v in pairs(cbCardList) do
                 local card = nil
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == v then
+                        TS_gang = true                       
+                    end 
+                end 
                 if k < 4 and var.cbPublicCard == 2 and (Bit:_and(var.cbWeaveKind,GameCommon.WIK_GANG) ~= 0 or Bit:_and(var.cbWeaveKind,GameCommon.WIK_FILL) ~= 0) then
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
-                else
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
-                    if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
+                    if TS_gang == true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
                     else
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
+                    end
+                else
+                    if TS_gang ~= true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
+                        if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        else
+                        end
                     end
                 end
-                content:addChild(card)
-                if k == 4 then
-                    card:setScale(cardScale) 
-                    card:setPosition(cardWidth/2+(2-1)*cardWidth,size.height/2+12)
-                    card:setLocalZOrder(4)  
-                else
-                    card:setScale(cardScale) 
-                    card:setPosition(cardWidth/2+(k-1)*cardWidth,size.height/2)
-                    card:setLocalZOrder(3-k)      
-                end
+                if card ~= nil then 
+                    content:addChild(card)
+                    if k == 4 then
+                        card:setScale(cardScale) 
+                        card:setPosition(cardWidth/2+(2-1)*cardWidth,size.height/2+12)
+                        card:setLocalZOrder(4)  
+                    else
+                        card:setScale(cardScale) 
+                        card:setPosition(cardWidth/2+(k-1)*cardWidth,size.height/2)
+                        card:setLocalZOrder(3-k)      
+                    end
+                    if TS_gang == true then                  
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(45,70)                
+                        uiText_OfflineTime:setString("朝")   
+                    end 
+                end 
             end
         end
     elseif viewID == 4 then
@@ -1431,28 +1555,52 @@ function TableLayer:setWeaveItemArray(wChairID, bWeaveItemCount, WeaveItemArray,
             local cbCardList = self:getWeaveItemArray(var)
             for k, v in pairs(cbCardList) do
                 local card = nil
+                local TS_gang =  false
+                if GameCommon.tableConfig.wKindID == 97 then 
+                    if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == v then
+                        TS_gang = true                       
+                    end 
+                end 
                 if k < 4 and var.cbPublicCard == 2 and (Bit:_and(var.cbWeaveKind,GameCommon.WIK_GANG) ~= 0 or Bit:_and(var.cbWeaveKind,GameCommon.WIK_FILL) ~= 0) then
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
-                else
-                    card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
-                    if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
-                    elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
-                        card:setColor(cc.c3b(170,170,170))
+                    if TS_gang == true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
                     else
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(0,viewID)
+                    end
+                else
+                    if TS_gang ~= true then 
+                        card = GameCommon:getDiscardCardAndWeaveItemArray(v,viewID)
+                        if k == 1 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_LEFT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 2 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_CENTER) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        elseif k == 3 and Bit:_and(var.cbWeaveKind,GameCommon.WIK_RIGHT) ~= 0 then
+                            card:setColor(cc.c3b(170,170,170))
+                        else
+                        end
                     end
                 end
-                content:addChild(card)
-                if k == 4 then
-                    card:setScale(cardScale) 
-                    card:setPosition(size.width/2,cardHeight/2+(2-1)*(cardHeight))
-                    card:setLocalZOrder(4)  
-                else
-                    card:setScale(cardScale) 
-                    card:setPosition(size.width/2,cardHeight/2+(k-1)*(cardHeight-20))
-                    card:setLocalZOrder(3-k)   
+                if card ~= nil then 
+                    content:addChild(card)
+                    if k == 4 then
+                        card:setScale(cardScale) 
+                        card:setPosition(size.width/2,cardHeight/2+(2-1)*(cardHeight))
+                        card:setLocalZOrder(4)  
+                    else
+                        card:setScale(cardScale) 
+                        card:setPosition(size.width/2,cardHeight/2+(k-1)*(cardHeight-20))
+                        card:setLocalZOrder(3-k)   
+                    end 
+                    if TS_gang == true then                  
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(45,70)                
+                        uiText_OfflineTime:setString("朝")   
+                    end 
                 end 
             end
         end
@@ -1527,6 +1675,30 @@ function TableLayer:setDiscardCard(wChairID, cbDiscardCount, bDiscardCard)
             card:setScale(cardScale)
             card:setPosition(beganX + stepX*line ,beganY + stepY*row)
             card:setLocalZOrder(cbDiscardCount-i)   
+
+            if GameCommon.tableConfig.wKindID == 97 then 
+                if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,80)                
+                    uiText_OfflineTime:setString("朝")                 
+                end 
+                if GameCommon.mLaiZiCard ~= 0 and GameCommon.mLaiZiCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,80)                
+                    uiText_OfflineTime:setString("癞")                 
+                end 
+            end 
+
 --            ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("majiang/animation/hudepaitishi/hudepaitishi.ExportJson")
 --            local armature = ccs.Armature:create("hudepaitishi")
 --            armature:getAnimation():playWithIndex(0,-1,1)
@@ -1551,7 +1723,30 @@ function TableLayer:setDiscardCard(wChairID, cbDiscardCount, bDiscardCard)
             lastNode = card
             card:setScale(cardScale)
             uiPanel_discardCard:addChild(card)
-            card:setPosition(beganX + stepX*line ,beganY + stepY*row)   
+            card:setPosition(beganX + stepX*line ,beganY + stepY*row)  
+            
+            if GameCommon.tableConfig.wKindID == 97 then 
+                if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,40)                
+                    uiText_OfflineTime:setString("朝")                 
+                end 
+                if GameCommon.mLaiZiCard ~= 0 and GameCommon.mLaiZiCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,40)                
+                    uiText_OfflineTime:setString("癞")                 
+                end 
+            end 
         end
         
     elseif viewID == 3 then
@@ -1570,6 +1765,29 @@ function TableLayer:setDiscardCard(wChairID, cbDiscardCount, bDiscardCard)
             card:setScale(cardScale)
             uiPanel_discardCard:addChild(card)
             card:setPosition(beganX + stepX*line ,beganY + stepY*row)
+
+            if GameCommon.tableConfig.wKindID == 97 then 
+                if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,80)                
+                    uiText_OfflineTime:setString("朝")                 
+                end 
+                if GameCommon.mLaiZiCard ~= 0 and GameCommon.mLaiZiCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,80)                
+                    uiText_OfflineTime:setString("癞")                 
+                end 
+            end 
         end
         
     elseif viewID == 4 then
@@ -1589,6 +1807,29 @@ function TableLayer:setDiscardCard(wChairID, cbDiscardCount, bDiscardCard)
             uiPanel_discardCard:addChild(card)
             card:setPosition(beganX + stepX*line ,beganY + stepY*row)
             card:setLocalZOrder(cbDiscardCount-i)  
+
+            if GameCommon.tableConfig.wKindID == 97 then 
+                if GameCommon.mChaoTianCard ~= 0 and GameCommon.mChaoTianCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,40)                
+                    uiText_OfflineTime:setString("朝")                 
+                end 
+                if GameCommon.mLaiZiCard ~= 0 and GameCommon.mLaiZiCard == bDiscardCard[i] then
+                    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","16")
+                    uiText_OfflineTime:setName('Text_OfflineTime')
+                    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                    card:addChild(uiText_OfflineTime,100)
+                    uiText_OfflineTime:setPosition(50,40)                
+                    uiText_OfflineTime:setString("癞")                 
+                end 
+            end 
         end         
     end
     return lastNode
@@ -1819,6 +2060,27 @@ function TableLayer:removeHandCard(wChairID, cbCardData)
     return pos
 end
 
+function TableLayer:showTianCard()
+    if GameCommon.mChaoTianCard == nil or GameCommon.mChaoTianCard == 0  then 
+        return
+    end
+    local uiPanel_tiancard = ccui.Helper:seekWidgetByName(self.root,"Panel_tiancard")
+    uiPanel_tiancard:setVisible(true)
+    uiPanel_tiancard:removeAllChildren()
+    local card = GameCommon:GetCardHand(GameCommon.mChaoTianCard,0)
+    uiPanel_tiancard:addChild(card)
+    card:setPosition(45,45)    
+    local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+    uiText_OfflineTime:setName('Text_OfflineTime')
+    uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+    uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+    uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+    card:addChild(uiText_OfflineTime,100)
+    uiText_OfflineTime:setPosition(75,90)                
+    uiText_OfflineTime:setString("朝")     
+    print("输出王牌显示朝++++++++++++",GameCommon.mChaoTianCard)
+end 
+
 --更新手牌
 function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
     local viewID = GameCommon:getViewIDByChairID(wChairID)
@@ -1860,6 +2122,37 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
                         break
                     end 
                  end 
+            end 
+
+            -- GameCommon.mChaoTianCard = pBuffer.mChaoTianCard  --朝天牌
+            -- GameCommon.mLaiZiCard = pBuffer.mLaiZiCard     --癞子牌
+            if GameCommon.tableConfig.wKindID == 97 then
+                if GameCommon.mChaoTianCard ~= nil and GameCommon.mChaoTianCard ~= 0 then             
+                    if GameCommon.mChaoTianCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("朝")     
+                        print("输出王牌显示朝++++++++++++",GameCommon.mChaoTianCard)
+                    end 
+                end 
+                if GameCommon.mLaiZiCard ~= nil and GameCommon.mLaiZiCard ~= 0 then             
+                    if GameCommon.mLaiZiCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("癞")     
+                        print("输出王牌显示癞++++++++++++",GameCommon.mLaiZiCard)
+                    end 
+                end 
             end 
             uiPanel_handCard:addChild(card)
             card:setScale(cardScale)
@@ -1993,10 +2286,41 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
         end
         for i = 1, #GameCommon.player[wChairID].cardNode do
             local card = GameCommon:GetCardHand(GameCommon.player[wChairID].cardNode[i].data,viewID)
+
+            if GameCommon.tableConfig.wKindID == 97 then
+                if GameCommon.mChaoTianCard ~= nil and GameCommon.mChaoTianCard ~= 0 then             
+                    if GameCommon.mChaoTianCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("朝")     
+                        print("输出王牌显示朝++++++++++++",GameCommon.mChaoTianCard)
+                    end 
+                end 
+                if GameCommon.mLaiZiCard ~= nil and GameCommon.mLaiZiCard ~= 0 then             
+                    if GameCommon.mLaiZiCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("癞")     
+                        print("输出王牌显示癞++++++++++++",GameCommon.mLaiZiCard)
+                    end 
+                end 
+            end 
+
             uiPanel_handCard:addChild(card)
             card:setScale(cardScale)
             card.data = GameCommon.player[wChairID].cardNode[i].data
             GameCommon.player[wChairID].cardNode[i].node = card
+
             if effectsType == 0 then--发牌
                 if i == GameCommon.player[wChairID].cbCardCount and GameCommon.waitOutCardUser == wChairID then
                     card:setPosition(size.width/2,-15)
@@ -2043,6 +2367,35 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
         end
         for i = 1, #GameCommon.player[wChairID].cardNode do
             local card = GameCommon:GetCardHand(GameCommon.player[wChairID].cardNode[i].data,viewID)
+            
+            if GameCommon.tableConfig.wKindID == 97 then
+                if GameCommon.mChaoTianCard ~= nil and GameCommon.mChaoTianCard ~= 0 then             
+                    if GameCommon.mChaoTianCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("朝")     
+                        print("输出王牌显示朝++++++++++++",GameCommon.mChaoTianCard)
+                    end 
+                end 
+                if GameCommon.mLaiZiCard ~= nil and GameCommon.mLaiZiCard ~= 0 then             
+                    if GameCommon.mLaiZiCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("癞")     
+                        print("输出王牌显示癞++++++++++++",GameCommon.mLaiZiCard)
+                    end 
+                end 
+            end 
             uiPanel_handCard:addChild(card)
             card:setScale(cardScale)
             card.data = GameCommon.player[wChairID].cardNode[i].data
@@ -2094,6 +2447,35 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
         end
         for i = 1, #GameCommon.player[wChairID].cardNode do
             local card = GameCommon:GetCardHand(GameCommon.player[wChairID].cardNode[i].data,viewID)
+           
+            if GameCommon.tableConfig.wKindID == 97 then
+                if GameCommon.mChaoTianCard ~= nil and GameCommon.mChaoTianCard ~= 0 then             
+                    if GameCommon.mChaoTianCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("朝")     
+                        print("输出王牌显示朝++++++++++++",GameCommon.mChaoTianCard)
+                    end 
+                end 
+                if GameCommon.mLaiZiCard ~= nil and GameCommon.mLaiZiCard ~= 0 then             
+                    if GameCommon.mLaiZiCard == GameCommon.player[wChairID].cardNode[i].data then 
+                        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","24")
+                        uiText_OfflineTime:setName('Text_OfflineTime')
+                        uiText_OfflineTime:setTextColor(cc.c3b(251,201,99)) 
+                        uiText_OfflineTime:enableOutline(cc.c4b(101, 40, 14), 2)
+                        uiText_OfflineTime:setAnchorPoint(cc.p(0.5,0.5))
+                        card:addChild(uiText_OfflineTime,100)
+                        uiText_OfflineTime:setPosition(75,90)                
+                        uiText_OfflineTime:setString("癞")     
+                        print("输出王牌显示癞++++++++++++",GameCommon.mLaiZiCard)
+                    end 
+                end 
+            end 
             uiPanel_handCard:addChild(card)
 --            card:setColor(cc.c3b(i*(255/#GameCommon.player[wChairID].cardNode),0,0))
             card:setLocalZOrder(GameCommon.player[wChairID].cbCardCount - i)
@@ -2220,6 +2602,10 @@ function TableLayer:initUI()
         uiImage_chat:setVisible(false)
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
+
+        if i ~= 1 and CHANNEL_ID ~=10 and CHANNEL_ID ~= 11 and CHANNEL_ID ~=0 and CHANNEL_ID ~= 1 then 
+            uiText_fatigue:setVisible(false)
+        end 
     end
     --飘分
     local uiPanel_piaoFen = ccui.Helper:seekWidgetByName(self.root,"Panel_piaoFen")
@@ -2417,6 +2803,9 @@ function TableLayer:initUI()
                     self:showHandCard(wChairID,i)
                     self:setWeaveItemArray(wChairID, GameCommon.player[wChairID].bWeaveItemCount, GameCommon.player[wChairID].WeaveItemArray)
                     self:setDiscardCard(wChairID, GameCommon.player[wChairID].cbDiscardCount, GameCommon.player[wChairID].cbDiscardCard)
+                    if GameCommon.mChaoTianCard ~= nil and  GameCommon.mChaoTianCard ~= 0 then   --朝天牌
+                        self:showTianCard()  
+                    end
                 end
             end
         end 
@@ -2480,6 +2869,10 @@ function TableLayer:initUI()
         require("app.MyApp"):create(data, handler(self, self.pleaseOnlinePlayer)):createView("ShareLayer")
     end)
     local uiButton_disbanded = ccui.Helper:seekWidgetByName(self.root,"Button_disbanded")
+
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+        uiButton_disbanded:setVisible(false)
+    end 
     Common:addTouchEventListener(uiButton_disbanded,function() 
         require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
             NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
@@ -2547,10 +2940,9 @@ function TableLayer:initUI()
     uiPanel_hucardbg:setVisible(false)  
     --灯光层
     local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")   
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
         uiButton_voice:setVisible(false) 
-    end
-
+    end 
     local uiButton_chakan = ccui.Helper:seekWidgetByName(self.root,"Button_chakan")
     uiButton_chakan:setVisible(false)  
     Common:addTouchEventListener(uiButton_chakan,function() 
@@ -2816,7 +3208,7 @@ function TableLayer:huCardUpShow(data)
         self:huCardUpShowData()  
     -- end   
    -- GameCommon.cdTingData = data
--------- 
+   ------ 
     local uiImage_hucard = ccui.Helper:seekWidgetByName(self.root,"Image_hucard")       
     local uiListView_allhucard = ccui.Helper:seekWidgetByName(self.root,"ListView_allhucard")  
     if not self.uiListView_hucard then
@@ -3001,9 +3393,9 @@ function TableLayer:updateGameState(state)
             local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
             uiButton_expression:setVisible(true)
             local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-            if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
                 uiButton_voice:setVisible(false) 
-            else
+            else 
                 uiButton_voice:setVisible(true) 
             end
         end         

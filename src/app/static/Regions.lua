@@ -1,8 +1,8 @@
 local Regions = {
 --id="地区ID",name="地区名字",btnImg="地区按钮图片",highImg="选中时高亮图",nameImg="大厅地区显示图片",nameImgs="大厅地区显示图片",games="地区所包含的游戏",
 
-[0]={ id=0, name="所有", btnImg="region/region_btn_0.png", highImg="", nameImg="region/region_name_0.png", nameImgs="region/region_name_0s.png", games="51;54;55;25;26;45;46;50;70;63;31;33;35;36;37;32;34;27;24;40;47;48;49;60;20;22;23;38;39;44;15;16;17;18;19;21;53;67;68"}, 
-[1]={ id=1, name="长沙", btnImg="region/region_btn_1.png", highImg="region/region_high_1.png", nameImg="region/region_name_1.png", nameImgs="region/region_name_1s.png", games="54;25;55;26;45;46;50;70;63;31;33;35;36;37;32;34;27;24;40;47;48;49;60;22;23;38;39;44;15;16;17;18;19;20;21;51;53;67;68"}, 
+[0]={ id=0, name="所有", btnImg="region/region_btn_0.png", highImg="", nameImg="region/region_name_0.png", nameImgs="region/region_name_0s.png", games="51;54;55;25;26;45;46;50;70;63;31;33;35;36;37;32;34;27;24;40;47;48;49;60;20;22;23;38;39;44;15;16;17;18;19;21;53;67;68;61;97"}, 
+[1]={ id=1, name="长沙", btnImg="region/region_btn_1.png", highImg="region/region_high_1.png", nameImg="region/region_name_1.png", nameImgs="region/region_name_1s.png", games="54;25;55;26;45;46;50;70;63;31;33;35;36;37;32;34;27;24;40;47;48;49;60;22;23;38;39;44;15;16;17;18;19;20;21;51;53;67;68;61;97"}, 
 [2]={ id=2, name="株洲", btnImg="region/region_btn_2.png", highImg="region/region_high_2.png", nameImg="region/region_name_2.png", nameImgs="region/region_name_2s.png", games="25;26;45;55;46;50;70;63;16;47;48;49;67;68"}, 
 [3]={ id=3, name="湘潭", btnImg="region/region_btn_3.png", highImg="region/region_high_3.png", nameImg="region/region_name_3.png", nameImgs="region/region_name_3s.png", games="25;26;45;46;55;50;70;63;21;47;48;49;68"}, 
 [4]={ id=4, name="衡阳", btnImg="region/region_btn_4.png", highImg="region/region_high_4.png", nameImg="region/region_name_4.png", nameImgs="region/region_name_4s.png", games="24;40;22;23;38;55;39;34;37;32;25;26;45;46;50;70;63;48;68"}, 

@@ -55,12 +55,12 @@ function RoomCreateLayer:onCreate(parameter)
         uiListView_create:removeItem(0)
         uiListView_create:removeItem(0)
         uiListView_create:removeItem(0)
-        
+
     elseif self.showType ~= nil and self.showType == 3 then
         uiListView_create:removeItem(0)
         uiListView_create:removeItem(0)
         uiListView_create:removeItem(0)
-        
+
     elseif self.showType ~= nil and self.showType == 2 then
         uiListView_create:removeItem(0)
         uiListView_create:removeItem(1)
@@ -68,7 +68,6 @@ function RoomCreateLayer:onCreate(parameter)
     else
         uiListView_create:removeItem(3)
         uiListView_create:removeItem(0)
- 
         if StaticData.Hide[CHANNEL_ID].btn11 ~= 1 then 
             uiListView_create:removeItem(uiListView_create:getIndex(uiButton_help))
         end 
@@ -84,116 +83,159 @@ function RoomCreateLayer:onCreate(parameter)
     Common:addCheckTouchEventListener(items)
     --选择人数
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(1),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items)
+    Common:addCheckTouchEventListener(items,false,function(index)
+        -- local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(2),"ListView_parameter"):getItems()
+        -- -- local var = items[1]
+        -- if index ~= 2 then
+        --     for key, var in pairs(items) do
+        --         var:setBright(false)
+        --         var:setEnabled(false)
+        --         var:setColor(cc.c3b(170,170,170))
+        --     end 
+        -- else
+        --     local isHaveDefault = false
+        --     for key, var in pairs(items) do
+        --         var:setEnabled(true)
+        --         var:setColor(cc.c3b(255,255,255)) 
+        --         if var:isBright() then
+        --             isHaveDefault = true
+        --         end
+        --     end
+        --     if isHaveDefault == false then
+        --         items[1]:setBright(true)
+        --     end
+        -- end
+    end)
     if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 2 then
-        items[3]:setBright(true)
-    elseif self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 3 then
         items[2]:setBright(true)
     else
         items[1]:setBright(true)
     end
-    --选择奖马
+    --去牌
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(2),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items,false,function(index)
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):getItems()
-        if index == 1 then
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bDeathCard"] ~= nil and self.recordCreateParameter["bDeathCard"] == 2 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bDeathCard"] ~= nil and self.recordCreateParameter["bDeathCard"] == 1 then
+        items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
+    --选择玩法
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,true)
+
+    if self.recordCreateParameter["bKaWai"] ~= nil and self.recordCreateParameter["bKaWai"] == 1 then
+        items[1]:setBright(true)
+    end
+    if self.recordCreateParameter["bXianJiaDiHu"] ~= nil and self.recordCreateParameter["bXianJiaDiHu"] == 1 then
+        items[2]:setBright(true)
+    end    
+    if self.recordCreateParameter["bZhuangJiaDiHu"] and self.recordCreateParameter["bZhuangJiaDiHu"] == 1 then      --四七红
+        items[3]:setBright(true)
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(4),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,true)
+
+    if self.recordCreateParameter["bHuDaYuWai"] ~= nil and self.recordCreateParameter["bHuDaYuWai"] == 1 then
+        items[1]:setBright(true)
+    end
+    if self.recordCreateParameter["bStartBanker"] == nil or self.recordCreateParameter["bStartBanker"] == 0 then
+        items[2]:setBright(true)
+    end    
+    
+    --豪分
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    -- if self.recordCreateParameter["bPlayerCount"] == nil or self.recordCreateParameter["bPlayerCount"] ~= 4 then
+    --     items[1]:setBright(false)
+    --     items[1]:setEnabled(false)
+    --     items[1]:setColor(cc.c3b(170,170,170))
+    -- else
+    if self.recordCreateParameter["bHaoFen"] ~= nil and self.recordCreateParameter["bHaoFen"] == 1 then
+        items[1]:setBright(true)
+    else
+        items[2]:setBright(true)
+    end
+
+    --名堂
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+
+    if self.recordCreateParameter["dwMingTang"] ~= nil and self.recordCreateParameter["dwMingTang"] == 2 then
+        items[2]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
+    --飘分
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+
+    if self.recordCreateParameter["bPiaoFen"] ~= nil and self.recordCreateParameter["bPiaoFen"] == 1 then
+        items[2]:setBright(true)
+    elseif self.recordCreateParameter["bPiaoFen"] ~= nil and self.recordCreateParameter["bPiaoFen"] == 2 then
+        items[3]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
+
+
+    --选择托管时间
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+        if index == 1 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+                var:setBright(false)
+                var:setEnabled(false)
+                var:setColor(cc.c3b(170,170,170))
+            end
+        else
             local isHaveDefault = false
             for key, var in pairs(items) do
                 var:setEnabled(true)
-                var:setColor(cc.c3b(255,255,255))
+                var:setColor(cc.c3b(255,255,255)) 
                 if var:isBright() then
                     isHaveDefault = true
                 end
             end
             if isHaveDefault == false then
-                items[2]:setBright(true)
-            end
-        else
-            for key, var in pairs(items) do
-                var:setBright(false)
-                var:setEnabled(false)
-                var:setColor(cc.c3b(170,170,170))
+                items[1]:setBright(true)
             end
         end
---        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
---        local var = items[1]
---        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(4),"ListView_parameter"):getItems()
---        if index == 4 then
---            var:setBright(false)
---            var:setEnabled(false)
---            var:setColor(cc.c3b(170,170,170))
---        elseif items[2]:isBright() == false then
---            var:setEnabled(true)
---            var:setColor(cc.c3b(255,255,255))
---        end
     end)
-    if self.recordCreateParameter["bMaType"] ~= nil and self.recordCreateParameter["bMaType"] == 3 then
+    if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 1 then
         items[2]:setBright(true)
-    elseif self.recordCreateParameter["bMaType"] ~= nil and self.recordCreateParameter["bMaType"] == 5 then
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 2 then
         items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 3 then
+        items[4]:setBright(true)
     else
         items[1]:setBright(true)
     end
-    --奖马数量
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):getItems()
+
+    --选择托管局数
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items)
-    if self.recordCreateParameter["bMaCount"] ~= nil and self.recordCreateParameter["bMaCount"] == 2 then
-        items[1]:setBright(true)
-    elseif self.recordCreateParameter["bMaCount"] ~= nil and self.recordCreateParameter["bMaCount"] == 6 then
-        items[3]:setBright(true)
-    else
-        items[2]:setBright(true)
-    end
-    if self.recordCreateParameter["bMaType"] ~= nil and self.recordCreateParameter["bMaType"] ~= 1 then
+    if self.recordCreateParameter["bHostedTime"] == nil or self.recordCreateParameter["bHostedTime"] == 0 then
         for key, var in pairs(items) do
             var:setBright(false)
-            var:setEnabled(false)
-            var:setColor(cc.c3b(170,170,170))
-        end
-    end
-    --选择抢杠
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(4),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items,false,function(index) 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
-        local var = items[1]
-        if index == 2 then
             var:setBright(false)
             var:setEnabled(false)
             var:setColor(cc.c3b(170,170,170))
-        else
-            var:setEnabled(true)
-            var:setColor(cc.c3b(255,255,255))
         end
-    end)
-    if self.recordCreateParameter["bQGHu"] ~= nil and self.recordCreateParameter["bQGHu"] == 0 then
-        items[2]:setBright(true)
-    else
-        items[1]:setBright(true)
-    end
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
-    Common:addCheckTouchEventListener(items,true)
-    --抢杠胡奖马
-    if self.recordCreateParameter["bQGHuJM"] ~= nil and self.recordCreateParameter["bQGHuJM"] == 1 then
-        items[1]:setBright(true)
-    else
-        items[1]:setBright(false)
-    end
-    if self.recordCreateParameter["bQGHu"] ~= nil and self.recordCreateParameter["bQGHu"] == 0 then
-        items[1]:setBright(false)
-        items[1]:setEnabled(false)
-        items[1]:setColor(cc.c3b(170,170,170))
-    end
-    --黄庄荒杠
-    if self.recordCreateParameter["bHuangZhuangHG"] ~= nil and self.recordCreateParameter["bHuangZhuangHG"] == 1 then
-        items[2]:setBright(true)
-    else
-        items[2]:setBright(false)
-    end
-    if self.recordCreateParameter["bJiePao"] ~= nil and self.recordCreateParameter["bJiePao"] == 1 then
+    elseif self.recordCreateParameter["bHostedSession"] ~= nil and self.recordCreateParameter["bHostedSession"] == 3 then
         items[3]:setBright(true)
+    elseif self.recordCreateParameter["bHostedSession"] ~= nil and self.recordCreateParameter["bHostedSession"] >= 6 then
+        items[2]:setBright(true)
     else
-        items[3]:setBright(false)
+        items[1]:setBright(true)
     end
+    
     
     if self.showType == 3 then
         self.tableFriendsRoomParams = {[1] = {wGameCount = 1}}
@@ -234,7 +276,11 @@ function RoomCreateLayer:SUB_CL_FRIENDROOM_CONFIG_END(event)
             elseif data.dwExpendType == 2 then
                 uiText_addition:setString(string.format("元宝x%d",data.dwExpendCount))
             elseif data.dwExpendType == 3 then
-                uiText_addition:setString(string.format("(%sx%d)",StaticData.Items[data.dwSubType].name,data.dwExpendCount))   
+                if CHANNEL_ID == 20 or CHANNEL_ID == 21 then 
+                    uiText_addition:setString(string.format("(钻石x%d)",data.dwExpendCount)) 
+                else
+                    uiText_addition:setString(string.format("(%sx%d)",StaticData.Items[data.dwSubType].name,data.dwExpendCount)) 
+                end
             else
                 uiText_addition:setString("(无消耗)")
             end
@@ -269,78 +315,113 @@ function RoomCreateLayer:onEventCreate(nTableType)
     else
         return
     end
+
+    tableParameter.bMaxLost = 0
     --选择人数
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(1),"ListView_parameter"):getItems()
     if items[1]:isBright() then
-        tableParameter.bPlayerCount = 4
-    elseif items[2]:isBright() then
         tableParameter.bPlayerCount = 3
-    elseif items[3]:isBright() then
+        tableParameter.bPlayerCountType = 0
+    elseif items[2]:isBright() then
         tableParameter.bPlayerCount = 2
+        tableParameter.bPlayerCountType = 0
+    -- elseif items[3]:isBright() then
+    --     tableParameter.bPlayerCount = 4
+    --     tableParameter.bPlayerCountType = 2
     else
         return
     end
-    --选择奖马
+    --亡牌
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(2),"ListView_parameter"):getItems()
     if items[1]:isBright() then
-        tableParameter.bMaType = 1
+        tableParameter.bDeathCard = 0
     elseif items[2]:isBright() then
-        tableParameter.bMaType = 3
+        tableParameter.bDeathCard = 2
     elseif items[3]:isBright() then
-        tableParameter.bMaType = 5
+        tableParameter.bDeathCard = 1
     else
         return
     end
-    --奖马数量
-    tableParameter.bMaCount = 0
+    tableParameter.bCanHuXi = 7
+    --选择玩法
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(3),"ListView_parameter"):getItems()
     if items[1]:isBright() then
-        tableParameter.bMaCount = 2
-    elseif items[2]:isBright() then
-        tableParameter.bMaCount = 4
-    elseif items[3]:isBright() then
-        tableParameter.bMaCount = 6
+        tableParameter.bKaWai = 1
     else
+        tableParameter.bKaWai = 0
     end
-    --选择抢杠
+    if items[2]:isBright() then
+        tableParameter.bXianJiaDiHu = 1
+    else
+        tableParameter.bXianJiaDiHu = 0
+    end
+    if items[3]:isBright() then
+        tableParameter.bZhuangJiaDiHu = 1
+    else
+        tableParameter.bZhuangJiaDiHu = 0
+    end
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(4),"ListView_parameter"):getItems()
     if items[1]:isBright() then
-        tableParameter.bQGHu = 1
-    elseif items[2]:isBright() then
-        tableParameter.bQGHu = 0
+        tableParameter.bHuDaYuWai = 1
     else
-        return
+        tableParameter.bHuDaYuWai = 0
     end
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
-    --抢杠胡奖马
-    if items[1]:isBright() then
-        tableParameter.bQGHuJM = 1
-    else
-        tableParameter.bQGHuJM = 0
-    end
-    --黄庄荒杠
     if items[2]:isBright() then
-        tableParameter.bHuangZhuangHG = 1
+        tableParameter.bStartBanker = 0
     else
-        tableParameter.bHuangZhuangHG = 0
-    end
-    tableParameter.bQingSH = 0
-    --接炮
-    if items[3]:isBright() then
-        tableParameter.bJiePao = 1
-    else
-        tableParameter.bJiePao = 0
+        tableParameter.bStartBanker = 1
     end
 
-   
-    self.nTableType = nTableType
-    if self.nTableType == 1 and UserData.Guild.dwGuildID <= 0 then
-        require("common.MsgBoxLayer"):create(1,nil,"请先加入公会!")
+    tableParameter.bHaoFen = 0
+    --选择豪分
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(5),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHaoFen = 1
+    elseif items[2]:isBright() then
+        tableParameter.bHaoFen = 2
+    end
+  
+    --选择名堂
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bMingTang = 1
+    elseif items[2]:isBright() then
+        tableParameter.bMingTang = 2
+    end
+
+    --选择飘分
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bPiaoFen = 0
+    elseif items[2]:isBright() then
+        tableParameter.bPiaoFen = 1
+    elseif items[3]:isBright() then
+        tableParameter.bPiaoFen = 2
+    else
         return
     end
-if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == TableType_HelpRoom) then
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedTime = 0
+    elseif items[2]:isBright() then
+        tableParameter.bHostedTime = 1
+    elseif items[3]:isBright() then
+        tableParameter.bHostedTime = 3
+    elseif items[4]:isBright() then
+        tableParameter.bHostedTime = 5
+    end  
+    tableParameter.bHostedSession = 0
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bHostedSession = 1
+    elseif items[2]:isBright() then
+        tableParameter.bHostedSession = tableParameter.wGameCount
+    elseif items[3]:isBright() then
+        tableParameter.bHostedSession = 3
+    end  
+      
+   if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == TableType_HelpRoom) then
         --普通创房和代开需要判断金币
-
         local uiListView_parameterList = ccui.Helper:seekWidgetByName(self.root,"ListView_parameterList")
         local uiListView_parameter = uiListView_parameterList:getItem(0)
         local items = ccui.Helper:seekWidgetByName(uiListView_parameter,"ListView_parameter"):getItems()
@@ -375,7 +456,7 @@ if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == T
             end
         end
     end
-    
+
     UserData.Game:saveCreateParameter(self.wKindID,tableParameter)
 
     --亲友圈自定义创房
@@ -390,11 +471,11 @@ if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == T
         EventMgr:dispatch(EventType.EVENT_TYPE_SETTINGS_CLUB_PARAMETER,{wKindID = self.wKindID,wGameCount = tableParameter.wGameCount,tableParameter = tableParameter})      
         return
     end
-    
+
     local uiButton_create = ccui.Helper:seekWidgetByName(self.root,"Button_create")
     uiButton_create:removeAllChildren()
     uiButton_create:addChild(require("app.MyApp"):create(nTableType,0,self.wKindID,tableParameter.wGameCount,UserData.Guild.dwPresidentID,tableParameter):createView("InterfaceCreateRoomNode"))
-    
+
 end
 
 return RoomCreateLayer

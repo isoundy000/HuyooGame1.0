@@ -85,26 +85,26 @@ function RoomCreateLayer:onCreate(parameter)
     --选择人数
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(1),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,false,function(index)
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
-        if index == 3 then
-            local isHave = false
-            for key, var in pairs(items) do
-        		var:setColor(cc.c3b(255,255,255))
-                var:setEnabled(true)
-                if var:isBright() then
-                    isHave = true
-                end
-        	end
-        	if isHave == false then
-                items[1]:setBright(true)
-        	end
-        else
-            for key, var in pairs(items) do
-                var:setColor(cc.c3b(170,170,170))
-                var:setEnabled(false)
-                var:setBright(false)
-            end
-        end
+        -- local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        -- if index == 3 then
+        --     local isHave = false
+        --     for key, var in pairs(items) do
+        -- 		var:setColor(cc.c3b(255,255,255))
+        --         var:setEnabled(true)
+        --         if var:isBright() then
+        --             isHave = true
+        --         end
+        -- 	end
+        -- 	if isHave == false then
+        --         items[1]:setBright(true)
+        -- 	end
+        -- else
+        --     for key, var in pairs(items) do
+        --         var:setColor(cc.c3b(170,170,170))
+        --         var:setEnabled(false)
+        --         var:setBright(false)
+        --     end
+        -- end
     end)
     if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 3 then
         items[2]:setBright(true)
@@ -295,13 +295,14 @@ function RoomCreateLayer:onCreate(parameter)
     --选择筒子
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items)
-    if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] ~= 2 then
-        for key, var in pairs(items) do
-            var:setColor(cc.c3b(170,170,170))
-            var:setEnabled(false)
-            var:setBright(false)
-        end
-    elseif self.recordCreateParameter["bWuTong"] ~= nil and self.recordCreateParameter["bWuTong"] == 0 then
+    -- if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] ~= 2 then
+    --     for key, var in pairs(items) do
+    --         var:setColor(cc.c3b(170,170,170))
+    --         var:setEnabled(false)
+    --         var:setBright(false)
+    --     end
+    -- else
+    if self.recordCreateParameter["bWuTong"] ~= nil and self.recordCreateParameter["bWuTong"] == 0 then
         items[2]:setBright(true)
     else
         items[1]:setBright(true)

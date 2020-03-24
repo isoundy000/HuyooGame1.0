@@ -105,9 +105,12 @@ end
 --                            game logic                              --
 ------------------------------------------------------------------------
 function NewClubAllocationLayer:addNotParnterMember(data)
-	local item = self.Image_item:clone()
-    self.ScrollView_1:addChild(item)
-    item:setName('notparnter_' .. data.dwUserID)
+    local item = self.ScrollView_1:getChildByName('notparnter_' .. data.dwUserID)
+    if not item then
+        item = self.Image_item:clone()
+        self.ScrollView_1:addChild(item)
+        item:setName('notparnter_' .. data.dwUserID)
+    end
     self:setCloneItem(item, data)
 end
 

@@ -417,8 +417,11 @@ function FriendsRoomEndLayer:setInviteUserID(pBuffer)
 end
 
 function FriendsRoomEndLayer:RET_CLUB_CHAT_BACK_RECORD(event)
-    local data = event._usedata
-    require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data):createView("PleaseReciveLayer"))
+    local isShow = cc.UserDefault:getInstance():getBoolForKey("Is_Show_PleaseOnline", true)
+    if isShow then
+        local data = event._usedata
+        require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data):createView("PleaseReciveLayer"))
+    end
 end
 
 function FriendsRoomEndLayer:RET_MATCH_CLUB_TABLE(event)

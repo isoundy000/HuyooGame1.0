@@ -520,7 +520,7 @@ function NewClubSettingLayer:initHidePage()
 	local items = self.ListView_hide:getItems()
 	if not (self.clubData.dwUserID == UserData.User.userID or self:isAdmin(UserData.User.userID)) then
        	for i,v in ipairs(items) do
-       		if i > 2 then
+       		if i > 3 then
        			v:removeFromParent()
        			v = nil
        		end
@@ -529,8 +529,8 @@ function NewClubSettingLayer:initHidePage()
     end
 
     if not (CHANNEL_ID == 26 or CHANNEL_ID == 27) then
-        if items[8] then
-            items[8]:removeFromParent()
+        if items[9] then
+            items[9]:removeFromParent()
         end
     end
 
@@ -561,7 +561,18 @@ function NewClubSettingLayer:initHidePage()
 				Image_selRight:getChildByName('Image_selLight'):setVisible(false)
     		end
 
-    	elseif i == 3 then
+        elseif i == 3 then
+            -- 隐藏在线邀请
+            local isShow = cc.UserDefault:getInstance():getBoolForKey("Is_Show_PleaseOnline", true)
+            if isShow == true then
+                Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
+                Image_selRight:getChildByName('Image_selLight'):setVisible(true)
+            else
+                Image_selLeft:getChildByName('Image_selLight'):setVisible(true)
+                Image_selRight:getChildByName('Image_selLight'):setVisible(false)
+            end
+
+    	elseif i == 4 then
     		 -- 亲友圈工作
     		if Bit:_and(0x01, self.clubData.bIsDisable) == 0x01 then
 		        Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
@@ -571,7 +582,7 @@ function NewClubSettingLayer:initHidePage()
     			Image_selRight:getChildByName('Image_selLight'):setVisible(false)
 		    end
 
-		elseif i == 4 then
+		elseif i == 5 then
 			-- 隐藏成员列表
 		 	if Bit:_and(0x02, self.clubData.bIsDisable) == 0x02 then
 		        Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
@@ -581,7 +592,7 @@ function NewClubSettingLayer:initHidePage()
     			Image_selRight:getChildByName('Image_selLight'):setVisible(false)
 		    end
 
-		elseif i == 5 then
+		elseif i == 6 then
 			-- 隐藏亲友圈成员人数
     		if Bit:_and(0x04, self.clubData.bIsDisable) == 0x04 then
 		        Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
@@ -591,7 +602,7 @@ function NewClubSettingLayer:initHidePage()
     			Image_selRight:getChildByName('Image_selLight'):setVisible(false)
 		    end
 
-		elseif i == 6 then
+		elseif i == 7 then
 			-- 隐藏赠送
     		if Bit:_and(0x08, self.clubData.bIsDisable) == 0x08 then
 		        Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
@@ -601,7 +612,7 @@ function NewClubSettingLayer:initHidePage()
     			Image_selRight:getChildByName('Image_selLight'):setVisible(false)
 		    end
 
-		elseif i == 7 then
+		elseif i == 8 then
 			-- 隐藏扣费数量
     		if Bit:_and(0x10, self.clubData.bIsDisable) == 0x10 then
 		        Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
@@ -611,9 +622,19 @@ function NewClubSettingLayer:initHidePage()
     			Image_selRight:getChildByName('Image_selLight'):setVisible(false)
 		    end
 
-        elseif i == 8 then
+        elseif i == 9 then
             -- 防沉迷开关
             if Bit:_and(0x20, self.clubData.bIsDisable) == 0x20 then
+                Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
+                Image_selRight:getChildByName('Image_selLight'):setVisible(true)
+            else
+                Image_selLeft:getChildByName('Image_selLight'):setVisible(true)
+                Image_selRight:getChildByName('Image_selLight'):setVisible(false)
+			end
+			
+		elseif i == 10 then
+            -- 满人桌子显示
+            if Bit:_and(0x40, self.clubData.bIsDisable) == 0x40 then
                 Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
                 Image_selRight:getChildByName('Image_selLight'):setVisible(true)
             else
@@ -623,22 +644,23 @@ function NewClubSettingLayer:initHidePage()
 
     	end
 
-    	Image_selLeft:setTouchEnabled(true)
-	    Image_selLeft:addTouchEventListener(function(sender,event) 
-	        if event == ccui.TouchEventType.ended then
-	        	Image_selLeft:getChildByName('Image_selLight'):setVisible(true)
-	        	Image_selRight:getChildByName('Image_selLight'):setVisible(false)
-	        	self:selectHideItem(i, true)
-	        end
-	    end)
-	    Image_selRight:setTouchEnabled(true)
-	    Image_selRight:addTouchEventListener(function(sender,event) 
-	        if event == ccui.TouchEventType.ended then
-	        	Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
-	        	Image_selRight:getChildByName('Image_selLight'):setVisible(true)
-	        	self:selectHideItem(i, false)
-	        end
-	    end)  
+		Image_selLeft:setTouchEnabled(true)
+		Image_selLeft:addTouchEventListener(function(sender,event) 
+			if event == ccui.TouchEventType.ended then
+				Image_selLeft:getChildByName('Image_selLight'):setVisible(true)
+				Image_selRight:getChildByName('Image_selLight'):setVisible(false)
+				self:selectHideItem(i, true)
+			end
+		end)
+
+		Image_selRight:setTouchEnabled(true)
+		Image_selRight:addTouchEventListener(function(sender,event) 
+			if event == ccui.TouchEventType.ended then
+				Image_selLeft:getChildByName('Image_selLight'):setVisible(false)
+				Image_selRight:getChildByName('Image_selLight'):setVisible(true)
+				self:selectHideItem(i, false)
+			end
+		end)
 	end
 end
 
@@ -658,7 +680,12 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
 		end
 		require("common.MsgBoxLayer"):create(0,nil,"设置成功")
 
-	elseif index == 3 then
+    elseif index == 3 then
+        local isShow = not isLeft
+        cc.UserDefault:getInstance():setBoolForKey('Is_Show_PleaseOnline', isShow)
+        require("common.MsgBoxLayer"):create(0,nil,"设置成功")
+
+	elseif index == 4 then
 		local bitVal = 0
 		if isLeft then
 			bitVal = Bit:_and(self.clubData.bIsDisable, 0xFE)
@@ -667,7 +694,7 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
 		end
 		NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
                 6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
-	elseif index == 4 then
+	elseif index == 5 then
 		local bitVal = 0
 		if isLeft then
 			bitVal = Bit:_and(self.clubData.bIsDisable, 0xFD)
@@ -677,7 +704,7 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
 		NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
                 6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
 
-	elseif index == 5 then
+	elseif index == 6 then
 		local bitVal = 0
 		if isLeft then
 			bitVal = Bit:_and(self.clubData.bIsDisable, 0xFB)
@@ -687,7 +714,7 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
 		NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
                 6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
 
-	elseif index == 6 then
+	elseif index == 7 then
 		local bitVal = 0
 		if isLeft then
 			bitVal = Bit:_and(self.clubData.bIsDisable, 0xF7)
@@ -697,7 +724,7 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
 		NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
                 6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
 
-	elseif index == 7 then
+	elseif index == 8 then
 		local bitVal = 0
 		if isLeft then
 			bitVal = Bit:_and(self.clubData.bIsDisable, 0xEF)
@@ -707,7 +734,7 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
 		NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
                 6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
 
-    elseif index == 8 then
+    elseif index == 9 then
         local bitVal = 0
         if isLeft then
             bitVal = Bit:_and(self.clubData.bIsDisable, 0xDF)
@@ -715,7 +742,17 @@ function NewClubSettingLayer:selectHideItem(index, isLeft)
             bitVal = Bit:_or(self.clubData.bIsDisable, 0x20)
         end
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
-                6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
+				6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
+				
+	elseif index == 10 then
+		local bitVal = 0
+		if isLeft then
+			bitVal = Bit:_and(self.clubData.bIsDisable, 0xBF)
+		else
+			bitVal = Bit:_or(self.clubData.bIsDisable, 0x40)
+		end
+		NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB3,"bdnsonsddd",
+				6,self.clubData.dwClubID,32,nickName,false,256,"",0,bitVal,0)
 
 	end
 end

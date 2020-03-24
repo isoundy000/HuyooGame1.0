@@ -68,6 +68,12 @@ function PersonalLayer:onCreate(wKindID,dwUserID,dwShamUserID)
         self.GameCommon = require("game.laopai.GameCommon")
     elseif wKindID == 43 then
         self.GameCommon = require("game.paohuzi.43.GameCommon") 
+    elseif wKindID == 61 then
+        self.GameCommon = require("game.paohuzi.61.GameCommon") 
+    elseif wKindID == 97 then
+        self.GameCommon = require("game.majiang.97.GameCommon") 
+    elseif wKindID == 27 or wKindID == 31 or wKindID == 32 or wKindID == 33 or wKindID == 34 or wKindID == 35  or wKindID == 36  or wKindID == 37 then
+        self.GameCommon = require("game.yongzhou.GameCommon") 
     elseif StaticData.Games[wKindID].type == 1 then
         self.GameCommon = require("game.paohuzi.GameCommon")
     elseif StaticData.Games[wKindID].type == 2 then

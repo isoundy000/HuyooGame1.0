@@ -55,10 +55,16 @@ function NewClubMorePlaywayLayer:onCreate(param)
 	local curGameId = cc.UserDefault:getInstance():getIntegerForKey('CurSelGameID', 0)
 	self:switchChildPlaywayUI(curGameId)
 
-	-- local callback = function()
- --        self:onAllPWBtn()
- --    end
- --    Common:registerScriptMask(self.Panel_mask, callback)
+	local callback = function()
+        self:onAllPWBtn()
+    end
+	Common:registerScriptMask(self.Panel_mask, callback)
+	
+	local firstOpen = cc.UserDefault:getInstance():getIntegerForKey('FirstOpenRecord', 0)
+	if firstOpen == 0 then
+		cc.UserDefault:getInstance():setIntegerForKey('FirstOpenRecord', 1)
+		self:onAllPWBtn()
+	end
 end
 
 function NewClubMorePlaywayLayer:onEditorBtn()
@@ -80,7 +86,7 @@ function NewClubMorePlaywayLayer:onAllPWBtn()
         local moveto = cc.MoveTo:create(0.2, cc.p(133, -575))
         local callfunc = cc.CallFunc:create(function()
             self.Image_PWFrame:setVisible(false)
-            self.parent.ScrollView_clubTbl:setPositionX(30)
+            self.parent.listView:setPositionX(30)
 			self.Panel_mask:setVisible(false)
 			self.Button_editorBtn:setTitleText('聊天')
 			self.Image_CPWAll:setPositionX(62)
@@ -159,7 +165,7 @@ end
 
 -- ctype 1编辑  2确定
 function NewClubMorePlaywayLayer:switchPlaywayUI(ctype)
-	self.parent.ScrollView_clubTbl:setPositionX(300)
+	self.parent.listView:setPositionX(300)
 	self.Image_CPWAll:setPositionX(342)
 	self.ListView_CPWList:setContentSize(cc.size(860, 60))
 	self.ListView_CPWList:setInnerContainerSize(cc.size(860, 60))

@@ -305,9 +305,9 @@ function HallLayer:onCreate(parames)
             local uiImage_roomCard = ccui.Helper:seekWidgetByName(self.root,"Image_roomCard") 
             uiImage_roomCard:setEnabled(true)         
             uiImage_roomCard:addTouchEventListener(function(sender,event) 
-            if event == ccui.TouchEventType.ended then 
+                if event == ccui.TouchEventType.ended then 
                     Common:palyButton() 
-                require("common.MsgBoxLayer"):create(4,nil,"客服微信：wwdp7777","wwdp7777") 
+                    require("common.MsgBoxLayer"):create(4,nil,"客服微信：wwdp7777","wwdp7777") 
                 end 
             end)
      end 
@@ -475,9 +475,29 @@ function HallLayer:onCreate(parames)
         if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
             uiListView_function:setItemsMargin(180)
         end 
-    end
+    end 
+    
+    
+   
+    --代理  
+    local uiButton_daili = ccui.Helper:seekWidgetByName(self.root,"Button_daili")
+    if uiButton_daili ~= nil then 
+        Common:addTouchEventListener(uiButton_daili,function() 
+            local data = {
+                dwChannelID = CHANNEL_ID,
+                cbTargetID = 100,
+                cbTargetType = 0x02,
+                cbShareType = 1,
+                szShareTitle = StaticData.Channels[CHANNEL_ID].name.."代理后台",
+                szShareContent = "更多数据详情和推广活动尽在代理后台",
+                szShareUrl = StaticData.Channels[CHANNEL_ID].guildFunction,
+                szShareImg = "",
+            }
+            require("app.MyApp"):create(data):createView("ShareLayer")    
+        end)
+    end 
 
-    --商务合作
+    --商务合作   Button_recruit
     local uiButton_recruit = ccui.Helper:seekWidgetByName(self.root,"Button_recruit")
     if uiButton_recruit ~= nil then 
         Common:addTouchEventListener(uiButton_recruit,function() 
@@ -497,7 +517,7 @@ function HallLayer:onCreate(parames)
         Common:addTouchEventListener(uiButton_doshare,function() 
             require("app.MyApp"):create(self.data):createView("DailyShareLayer")    
         end) 
-        if CHANNEL_ID ~= 20 and  CHANNEL_ID ~= 21 then 
+        if CHANNEL_ID ~= 20 and  CHANNEL_ID ~= 21 and CHANNEL_ID ~= 22 and  CHANNEL_ID ~= 23  then 
             uiButton_doshare:setScale(1.3)         
             if CHANNEL_ID == 10 or  CHANNEL_ID == 11 then
                 uiButton_doshare:setScale(1.0)            
@@ -524,6 +544,14 @@ function HallLayer:onCreate(parames)
   
         end  
     end 
+
+    --郑重声明
+    local uiButton_SolemnlyState = ccui.Helper:seekWidgetByName(self.root,"Button_SolemnlyState")
+    if  uiButton_SolemnlyState ~= nil then 
+        Common:addTouchEventListener(uiButton_SolemnlyState,function()         
+            require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("BouncedLayer"))
+        end)   
+    end
 
     --个人历史战绩
     local uiButton_historicalRecord = ccui.Button:create("common/zjfxt.png","common/zjfxt.png","common/zjfxt.png")
@@ -681,8 +709,11 @@ function HallLayer:createGlobalCustomNode()
 end
 
 function HallLayer:RET_CLUB_CHAT_BACK_RECORD(event)
-    local data = event._usedata
-    require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data):createView("PleaseReciveLayer"))
+    local isShow = cc.UserDefault:getInstance():getBoolForKey("Is_Show_PleaseOnline", true)
+    if isShow then
+        local data = event._usedata
+        require("common.SceneMgr"):switchTips(require("app.MyApp"):create(data):createView("PleaseReciveLayer"))
+    end
 end
 
 function HallLayer:RET_NOTICE_GAME_START(event)

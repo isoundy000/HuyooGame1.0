@@ -55,7 +55,7 @@
                       <AbstractNodeData Name="Image_nameFrame" ActionTag="-1511241502" Tag="654" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="134.3108" RightMargin="-409.3108" TopMargin="-11.6716" BottomMargin="-8.3284" Scale9Enable="True" LeftEage="12" RightEage="12" TopEage="21" BottomEage="18" Scale9OriginX="12" Scale9OriginY="21" Scale9Width="101" Scale9Height="9" ctype="ImageViewObjectData">
                         <Size X="400.0000" Y="48.0000" />
                         <Children>
-                          <AbstractNodeData Name="TextField_playway" ActionTag="689219970" Tag="656" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="10.0000" TopMargin="6.4000" BottomMargin="1.6000" TouchEnable="True" FontSize="30" IsCustomSize="True" LabelText="" PlaceHolderText="请输入玩法名称" MaxLengthEnable="True" MaxLengthText="8" ctype="TextFieldObjectData">
+                          <AbstractNodeData Name="TextField_playway" ActionTag="689219970" Tag="656" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="10.0000" TopMargin="6.4000" BottomMargin="1.6000" TouchEnable="True" FontSize="30" IsCustomSize="True" LabelText="" PlaceHolderText="请输入玩法名称" MaxLengthEnable="True" MaxLengthText="10" ctype="TextFieldObjectData">
                             <Size X="380.0000" Y="40.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="200.0000" Y="21.6000" />
@@ -133,7 +133,7 @@
                         <PreSize X="0.4160" Y="1.8571" />
                         <FileData Type="Normal" Path="kwxclub/kwxclub_157.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_goldMode" ActionTag="728246658" Tag="249" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="375.6686" RightMargin="-302.6686" TopMargin="-11.9007" BottomMargin="-12.0993" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_goldMode" ActionTag="728246658" Tag="249" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="375.6686" RightMargin="-302.6686" TopMargin="-11.9012" BottomMargin="-12.0988" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
                         <Size X="52.0000" Y="52.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_light" Visible="False" ActionTag="-1918741042" Tag="250" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
@@ -160,14 +160,14 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5019" />
-                        <Position X="401.6686" Y="13.9995" />
+                        <Position X="401.6686" Y="14.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="3.2133" Y="0.5000" />
                         <PreSize X="0.4160" Y="1.8571" />
                         <FileData Type="Normal" Path="kwxclub/kwxclub_157.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_fatigueMode" ActionTag="546708721" Tag="246" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="615.3690" RightMargin="-542.3690" TopMargin="-11.9010" BottomMargin="-12.0990" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_fatigueMode" ActionTag="546708721" Tag="246" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="615.3690" RightMargin="-542.3690" TopMargin="-11.9012" BottomMargin="-12.0988" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
                         <Size X="52.0000" Y="52.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_light" Visible="False" ActionTag="-1308971962" Tag="247" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftEage="23" RightEage="23" TopEage="9" BottomEage="9" Scale9OriginX="23" Scale9OriginY="9" Scale9Width="6" Scale9Height="34" ctype="ImageViewObjectData">
@@ -194,7 +194,7 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5019" />
-                        <Position X="641.3690" Y="13.9998" />
+                        <Position X="641.3690" Y="14.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="5.1310" Y="0.5000" />

@@ -59,7 +59,7 @@
           <AbstractNodeData Name="Image_frame" ActionTag="1821723671" Tag="441" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TopMargin="76.6080" BottomMargin="2.5920" Scale9Enable="True" LeftEage="27" RightEage="27" TopEage="144" BottomEage="144" Scale9OriginX="27" Scale9OriginY="144" Scale9Width="30" Scale9Height="150" ctype="ImageViewObjectData">
             <Size X="1280.0000" Y="640.8000" />
             <Children>
-              <AbstractNodeData Name="Button_defendList" ActionTag="628884534" Tag="442" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="-1.0203" BottomMargin="545.8203" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_defendList" ActionTag="628884534" Tag="442" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="-3.6775" BottomMargin="548.4775" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="216.0000" Y="96.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_9" ActionTag="-764592962" Tag="443" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="4.9904" RightMargin="29.0096" TopMargin="30.0000" BottomMargin="30.0000" FontSize="36" LabelText="防沉迷列表" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -76,10 +76,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="106.6759" Y="593.8203" />
-                <Scale ScaleX="0.8500" ScaleY="0.8500" />
+                <Position X="106.6781" Y="596.4775" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0833" Y="0.9267" />
+                <PrePosition X="0.0833" Y="0.9308" />
                 <PreSize X="0.1688" Y="0.1498" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
@@ -88,7 +88,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_refreshTotal" ActionTag="-796501512" Tag="444" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="81.4200" BottomMargin="463.3800" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_refreshTotal" ActionTag="-796501512" Tag="444" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="74.1697" BottomMargin="470.6303" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="216.0000" Y="96.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_9" ActionTag="-1683734099" Tag="445" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="刷新统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -105,10 +105,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="106.6759" Y="511.3800" />
-                <Scale ScaleX="0.8500" ScaleY="0.8500" />
+                <Position X="106.6781" Y="518.6303" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0833" Y="0.7980" />
+                <PrePosition X="0.0833" Y="0.8093" />
                 <PreSize X="0.1688" Y="0.1498" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
@@ -117,7 +117,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_limitList" ActionTag="115044346" Tag="448" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="163.8601" BottomMargin="380.9399" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_limitList" ActionTag="115044346" Tag="448" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="152.0169" BottomMargin="392.7831" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="216.0000" Y="96.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_9" ActionTag="-136242494" Tag="449" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="限制列表" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -134,10 +134,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="106.6759" Y="428.9399" />
-                <Scale ScaleX="0.8500" ScaleY="0.8500" />
+                <Position X="106.6781" Y="440.7831" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0833" Y="0.6694" />
+                <PrePosition X="0.0833" Y="0.6879" />
                 <PreSize X="0.1688" Y="0.1498" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
@@ -146,7 +146,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_errorList" ActionTag="2013647110" Tag="450" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="246.3002" BottomMargin="298.4998" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_errorList" ActionTag="2013647110" Tag="450" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="229.8642" BottomMargin="314.9358" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="216.0000" Y="96.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_9" ActionTag="-155817255" Tag="451" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="异常列表" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -163,10 +163,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="106.6759" Y="346.4998" />
-                <Scale ScaleX="0.8500" ScaleY="0.8500" />
+                <Position X="106.6781" Y="362.9358" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0833" Y="0.5407" />
+                <PrePosition X="0.0833" Y="0.5664" />
                 <PreSize X="0.1688" Y="0.1498" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
@@ -175,10 +175,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_twoTotal" ActionTag="942999213" Tag="446" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="328.7400" BottomMargin="216.0600" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_twoTotal" ActionTag="942999213" Tag="446" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="307.7114" BottomMargin="237.0886" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="216.0000" Y="96.0000" />
                 <Children>
-                  <AbstractNodeData Name="Text_9" ActionTag="2082604029" Tag="447" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="二级统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_9" ActionTag="2082604029" Tag="447" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="一级统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="146.0000" Y="36.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="98.0710" Y="46.5433" />
@@ -192,10 +192,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="106.6759" Y="264.0600" />
-                <Scale ScaleX="0.8500" ScaleY="0.8500" />
+                <Position X="106.6759" Y="285.0886" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0833" Y="0.4121" />
+                <PrePosition X="0.0833" Y="0.4449" />
                 <PreSize X="0.1688" Y="0.1498" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
@@ -204,10 +204,68 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_threeTotal" ActionTag="-668862047" Tag="452" IconVisible="False" LeftMargin="-1.3241" RightMargin="1065.3241" TopMargin="411.1800" BottomMargin="133.6200" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_threeTotal" ActionTag="-668862047" Tag="452" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="385.5586" BottomMargin="159.2414" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="216.0000" Y="96.0000" />
                 <Children>
-                  <AbstractNodeData Name="Text_9" ActionTag="-260006183" Tag="453" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="三级统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="Text_9" ActionTag="-260006183" Tag="453" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4600" BottomMargin="28.5400" FontSize="36" LabelText="二级统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="146.0000" Y="36.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="98.0710" Y="46.5400" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="159" G="103" B="47" />
+                    <PrePosition X="0.4540" Y="0.4848" />
+                    <PreSize X="0.6759" Y="0.3750" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="190" G="183" B="183" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="106.6781" Y="207.2414" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.0833" Y="0.3234" />
+                <PreSize X="0.1688" Y="0.1498" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
+                <PressedFileData Type="Normal" Path="kwxclub/club_notice_2.png" Plist="" />
+                <NormalFileData Type="Normal" Path="kwxclub/club_notice_2.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_fourTotal" ActionTag="-1266065537" Tag="368" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="463.4058" BottomMargin="81.3942" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="216.0000" Y="96.0000" />
+                <Children>
+                  <AbstractNodeData Name="Text_9" ActionTag="1918719735" Tag="369" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4600" BottomMargin="28.5400" FontSize="36" LabelText="三级统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="146.0000" Y="36.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="98.0710" Y="46.5400" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="159" G="103" B="47" />
+                    <PrePosition X="0.4540" Y="0.4848" />
+                    <PreSize X="0.6759" Y="0.3750" />
+                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                    <OutlineColor A="255" R="190" G="183" B="183" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="106.6781" Y="129.3942" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.0833" Y="0.2019" />
+                <PreSize X="0.1688" Y="0.1498" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
+                <PressedFileData Type="Normal" Path="kwxclub/club_notice_2.png" Plist="" />
+                <NormalFileData Type="Normal" Path="kwxclub/club_notice_2.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_fiveTotal" ActionTag="-2002811063" Tag="370" IconVisible="False" LeftMargin="-1.3219" RightMargin="1065.3219" TopMargin="541.2531" BottomMargin="3.5469" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="186" Scale9Height="74" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="216.0000" Y="96.0000" />
+                <Children>
+                  <AbstractNodeData Name="Text_9" ActionTag="-1995005808" Tag="371" IconVisible="False" LeftMargin="25.0710" RightMargin="44.9290" TopMargin="31.4567" BottomMargin="28.5433" FontSize="36" LabelText="四级统计" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="146.0000" Y="36.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="98.0710" Y="46.5433" />
@@ -221,10 +279,10 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="106.6759" Y="181.6200" />
-                <Scale ScaleX="0.8500" ScaleY="0.8500" />
+                <Position X="106.6781" Y="51.5469" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0833" Y="0.2834" />
+                <PrePosition X="0.0833" Y="0.0804" />
                 <PreSize X="0.1688" Y="0.1498" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Normal" Path="kwxclub/club_notice_1.png" Plist="" />
@@ -236,7 +294,7 @@
               <AbstractNodeData Name="Image_bgFrame" ActionTag="420777438" Tag="458" IconVisible="False" LeftMargin="204.2800" RightMargin="11.7200" TopMargin="75.5159" BottomMargin="12.2841" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="26" BottomEage="26" Scale9OriginX="28" Scale9OriginY="26" Scale9Width="30" Scale9Height="28" ctype="ImageViewObjectData">
                 <Size X="1064.0000" Y="553.0000" />
                 <Children>
-                  <AbstractNodeData Name="Panel_defendList" ActionTag="-1388532488" Tag="459" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                  <AbstractNodeData Name="Panel_defendList" Visible="False" ActionTag="-1388532488" Tag="459" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="1064.0000" Y="553.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_1_1" ActionTag="-1328331089" Tag="460" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="37.8605" RightMargin="972.1395" TopMargin="11.6638" BottomMargin="515.3362" FontSize="26" LabelText="头像" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -251,10 +309,10 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_1_1_0" ActionTag="-1603998100" Tag="461" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="161.8721" RightMargin="808.1279" TopMargin="11.6639" BottomMargin="515.3361" FontSize="26" LabelText="ID/昵称" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_1_1_0" ActionTag="-1603998100" Tag="461" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="161.8721" RightMargin="808.1279" TopMargin="11.6638" BottomMargin="515.3362" FontSize="26" LabelText="ID/昵称" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="94.0000" Y="26.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="208.8721" Y="528.3361" />
+                        <Position X="208.8721" Y="528.3362" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="131" G="88" B="45" />
                         <PrePosition X="0.1963" Y="0.9554" />
@@ -263,10 +321,10 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_1_1_0_0" ActionTag="-1597726115" Tag="462" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="319.9099" RightMargin="612.0901" TopMargin="11.6639" BottomMargin="515.3361" FontSize="26" LabelText="当前防沉迷" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_1_1_0_0" ActionTag="-1597726115" Tag="462" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="319.9099" RightMargin="612.0901" TopMargin="11.6638" BottomMargin="515.3362" FontSize="26" LabelText="当前防沉迷" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="132.0000" Y="26.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="385.9099" Y="528.3361" />
+                        <Position X="385.9099" Y="528.3362" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="131" G="88" B="45" />
                         <PrePosition X="0.3627" Y="0.9554" />
@@ -275,7 +333,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_1_1_0_0_0" ActionTag="994329224" Tag="463" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="513.8998" RightMargin="470.1002" TopMargin="11.6773" BottomMargin="515.3227" FontSize="26" LabelText="所在组" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_1_1_0_0_0" ActionTag="994329224" Tag="463" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="513.8999" RightMargin="470.1001" TopMargin="11.6773" BottomMargin="515.3227" FontSize="26" LabelText="所在组" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="80.0000" Y="26.0000" />
                         <AnchorPoint ScaleX="0.5969" ScaleY="0.6175" />
                         <Position X="561.6519" Y="531.3777" />
@@ -287,10 +345,10 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_1_1_0_0_4" ActionTag="1462978952" Tag="467" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="799.4098" RightMargin="209.5902" TopMargin="11.6639" BottomMargin="515.3361" FontSize="26" LabelText="操作" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_1_1_0_0_4" ActionTag="1462978952" Tag="467" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="799.4098" RightMargin="209.5902" TopMargin="11.6638" BottomMargin="515.3362" FontSize="26" LabelText="操作" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="55.0000" Y="26.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="826.9098" Y="528.3361" />
+                        <Position X="826.9098" Y="528.3362" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="131" G="88" B="45" />
                         <PrePosition X="0.7772" Y="0.9554" />
@@ -391,7 +449,7 @@
                         <PreSize X="1.0000" Y="0.8318" />
                         <FileData Type="Normal" Path="kwxclub/club_notice_6.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Panel_cmItem" ActionTag="-1535222725" Tag="790" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-33.7349" RightMargin="44.7349" TopMargin="670.3913" BottomMargin="-187.3913" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                      <AbstractNodeData Name="Panel_cmItem" ActionTag="-1535222725" Tag="790" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-33.7349" RightMargin="44.7349" TopMargin="670.4117" BottomMargin="-187.4117" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                         <Size X="1053.0000" Y="70.0000" />
                         <Children>
                           <AbstractNodeData Name="Image_head" ActionTag="-572724529" Tag="476" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="24.2400" RightMargin="970.7600" TopMargin="6.0000" BottomMargin="6.0000" LeftEage="36" RightEage="36" TopEage="36" BottomEage="36" Scale9OriginX="36" Scale9OriginY="36" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
@@ -428,10 +486,10 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Text_id" ActionTag="998827658" Tag="480" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="162.1097" RightMargin="810.8903" TopMargin="36.9521" BottomMargin="7.0479" FontSize="26" LabelText="666666" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                          <AbstractNodeData Name="Text_id" ActionTag="998827658" Tag="480" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="162.1097" RightMargin="810.8903" TopMargin="36.9520" BottomMargin="7.0480" FontSize="26" LabelText="666666" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                             <Size X="80.0000" Y="26.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="202.1097" Y="20.0479" />
+                            <Position X="202.1097" Y="20.0480" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="131" G="88" B="45" />
                             <PrePosition X="0.1919" Y="0.2864" />
@@ -476,7 +534,7 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Button_qxSet" ActionTag="-2103558749" Tag="485" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="660.6928" RightMargin="282.3072" TopMargin="9.5003" BottomMargin="10.4997" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="147" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                          <AbstractNodeData Name="Button_qxSet" ActionTag="-2103558749" Tag="485" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="660.6928" RightMargin="282.3072" TopMargin="9.5030" BottomMargin="10.4970" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="147" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                             <Size X="110.0000" Y="50.0000" />
                             <Children>
                               <AbstractNodeData Name="Text_ybNum_0" ActionTag="-1270095748" Tag="709" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="5.5000" RightMargin="5.5000" TopMargin="13.0000" BottomMargin="13.0000" FontSize="24" LabelText="权限设置" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -493,7 +551,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="715.6928" Y="35.4997" />
+                            <Position X="715.6928" Y="35.4970" />
                             <Scale ScaleX="0.9000" ScaleY="0.9000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.6797" Y="0.5071" />
@@ -505,7 +563,7 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Button_refresh" ActionTag="1628650204" Tag="486" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="764.7888" RightMargin="178.2112" TopMargin="9.5003" BottomMargin="10.4997" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="147" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                          <AbstractNodeData Name="Button_refresh" ActionTag="1628650204" Tag="486" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="764.7888" RightMargin="178.2112" TopMargin="9.5030" BottomMargin="10.4970" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="147" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                             <Size X="110.0000" Y="50.0000" />
                             <Children>
                               <AbstractNodeData Name="Text_ybNum_0_0" ActionTag="-1970769790" Tag="710" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="30.0000" RightMargin="30.0000" TopMargin="13.0000" BottomMargin="13.0000" FontSize="24" LabelText="刷新" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -522,7 +580,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="819.7888" Y="35.4997" />
+                            <Position X="819.7888" Y="35.4970" />
                             <Scale ScaleX="0.9000" ScaleY="0.9000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.7785" Y="0.5071" />
@@ -534,7 +592,7 @@
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="Button_zj" ActionTag="274213303" Tag="1091" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="868.8848" RightMargin="74.1152" TopMargin="9.5003" BottomMargin="10.4997" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="147" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                          <AbstractNodeData Name="Button_zj" ActionTag="274213303" Tag="1091" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="868.8848" RightMargin="74.1152" TopMargin="9.5030" BottomMargin="10.4970" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="147" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                             <Size X="110.0000" Y="50.0000" />
                             <Children>
                               <AbstractNodeData Name="Text_ybNum_0_0" ActionTag="1733674508" Tag="1092" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="30.0000" RightMargin="30.0000" TopMargin="13.0000" BottomMargin="13.0000" FontSize="24" LabelText="战绩" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -551,7 +609,7 @@
                               </AbstractNodeData>
                             </Children>
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="923.8848" Y="35.4997" />
+                            <Position X="923.8848" Y="35.4970" />
                             <Scale ScaleX="0.9000" ScaleY="0.9000" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.8774" Y="0.5071" />
@@ -590,7 +648,7 @@
                           </AbstractNodeData>
                         </Children>
                         <AnchorPoint />
-                        <Position X="-33.7349" Y="-187.3913" />
+                        <Position X="-33.7349" Y="-187.4117" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="-0.0317" Y="-0.3389" />
@@ -1768,7 +1826,7 @@
                     <EndColor A="255" R="255" G="255" B="255" />
                     <ColorVector ScaleY="1.0000" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Panel_twoTotal" Visible="False" ActionTag="-1545377820" Tag="826" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                  <AbstractNodeData Name="Panel_twoTotal" ActionTag="-1545377820" Tag="826" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="1064.0000" Y="553.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_twoFrame" ActionTag="-1532122059" Tag="827" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" TopMargin="44.0188" BottomMargin="48.9812" Scale9Enable="True" LeftEage="31" RightEage="31" TopEage="31" BottomEage="31" Scale9OriginX="31" Scale9OriginY="31" Scale9Width="65" Scale9Height="32" ctype="ImageViewObjectData">

@@ -17,6 +17,8 @@ local TableLayer = class("TableLayer",function()
     return ccui.Layout:create()
 end)
 
+local APPNAME = 'puke'
+
 function TableLayer:create(root)
     local view = TableLayer.new()
     view:onCreate(root)
@@ -68,7 +70,8 @@ function TableLayer:onCreate(root)
     local uiPanel_handCard = ccui.Helper:seekWidgetByName(uiPanel_card,string.format("Panel_handCard%d",1))
     self.beganPos = nil
     local function onTouchBegan(touch , event)
-        return self:switchCard(touch:getLocation(),"began")
+        self:switchCard(touch:getLocation(),"began")
+        return true
     end
     local function onTouchMoved(touch , event)
         self:switchCard(touch:getLocation(),"moved")
@@ -88,10 +91,10 @@ end
 function TableLayer:switchCard(location,touchType)
     local wChairID = GameCommon:getRoleChairID()
     if GameCommon.gameState ~= GameCommon.GameState_Start then
-        return false
+        return
     end
     if GameCommon.player[wChairID].cbCardData == nil then
-    	return false
+    	return
     end
     local cardScale = 1
     local cardWidth = 161 * cardScale
@@ -105,7 +108,7 @@ function TableLayer:switchCard(location,touchType)
     if touchType == "began" then
         self.beganPos = pos
         if cc.rectContainsPoint(uiPanel_handCard:getBoundingBox(),location) == false then
-            return false
+            return
         end
         for key, var in pairs(tableCardNode) do
             local rect = var:getBoundingBox()
@@ -120,8 +123,13 @@ function TableLayer:switchCard(location,touchType)
         end
     elseif touchType == "moved" then
         if cc.rectContainsPoint(uiPanel_handCard:getBoundingBox(),location) == false then
-            return false
+            return
         end
+        if not self.beganPos then
+            -- 手机上多点触摸有可能跳过began事件
+            return
+        end
+
         local beganX = self.beganPos.x
         local endX = pos.x
         if endX < beganX then
@@ -187,7 +195,6 @@ function TableLayer:switchCard(location,touchType)
             end
         end
     end
-    return true 
 end
 
 function TableLayer:doAction(action,pBuffer)
@@ -208,9 +215,11 @@ function TableLayer:doAction(action,pBuffer)
             card:setPosition(uiPanel_tipsCardPosUser:getPosition())
         end
         GameCommon:playAnimation(self.root, "我先出",pBuffer.wCurrentUser)
-        self:showCountDown(pBuffer.wCurrentUser)
+        self:showCountDown(pBuffer.wCurrentUser,true)
         self:runAction(cc.Sequence:create(cc.DelayTime:create(1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
+        local uiButton_out = ccui.Helper:seekWidgetByName(self.root,"Button_out")
+        uiButton_out:setVisible(false)
     elseif action == NetMsgId.SUB_S_USER_PASS_CARD_PDK then
         GameCommon:playAnimation(self.root, "要不起",pBuffer.wPassUser)
         local wChairID = pBuffer.wPassUser
@@ -218,17 +227,17 @@ function TableLayer:doAction(action,pBuffer)
         local uiPanel_weaveItemArray = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_weaveItemArray%d",viewID))
         uiPanel_weaveItemArray:removeAllChildren()
         local wChairID = GameCommon:getRoleChairID()
+
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.2),cc.CallFunc:create(function(sender,event)  self:showCountDown(pBuffer.wCurrentUser,pBuffer.isShowOperate)  end)))
+
         if self.lastOutCardInfo ~= nil and pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and GameCommon.tableConfig.nTableType ~= TableType_Playback then
             self.lastOutCardInfo.tableCard = self:getExtractCardType(GameCommon.player[wChairID].cbCardData,GameCommon.player[wChairID].bUserCardCount,self.lastOutCardInfo.bCardData,self.lastOutCardInfo.bUserCardCount)
         end
-        if pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and #self.lastOutCardInfo.tableCard <= 0 then              
-            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.6),cc.CallFunc:create(function(sender,event)  self:showCountDown(pBuffer.wCurrentUser,true) end)))                             
-        --self:showCountDown(pBuffer.wCurrentUser,true)
-        else
-            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.6),cc.CallFunc:create(function(sender,event)  self:tryAutoSendCard(pBuffer.wCurrentUser) end)))                             
-           -- self:tryAutoSendCard(pBuffer.wCurrentUser)
+        if pBuffer.wCurrentUser == wChairID and pBuffer.isShowOperate == true then           
+            self:runAction(cc.Sequence:create(cc.DelayTime:create(0.2),cc.CallFunc:create(function(sender,event)  self:tryAutoSendCard(pBuffer.wCurrentUser,true)  end)))
         end
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.6),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
                              
     elseif action == NetMsgId.SUB_S_WARN_INFO_PDK then
         GameCommon:playAnimation(self.root, "报警",pBuffer.wWarnUser)
@@ -265,8 +274,6 @@ function TableLayer:doAction(action,pBuffer)
         elseif targetType == GameCommon.CardType_4Add3 then
             if pBuffer.bUserCardCount == 7 then
                 GameCommon:playAnimation(self.root, "四带三",pBuffer.wOutCardUser)
-            elseif pBuffer.bUserCardCount == 6 then
-                -- GameCommon:playAnimation(self.root, "四带二",pBuffer.wOutCardUser)
             end
         elseif targetType == GameCommon.CardType_bomb then
             GameCommon:playAnimation(self.root, "炸弹",pBuffer.wOutCardUser)
@@ -321,15 +328,17 @@ function TableLayer:doAction(action,pBuffer)
         self.lastOutCardInfo.tipsIndex = 0
         self.lastOutCardInfo.tableCard = {}
         local wChairID = GameCommon:getRoleChairID()
-        if self.lastOutCardInfo ~= nil and pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and GameCommon.tableConfig.nTableType ~= TableType_Playback then
-            self.lastOutCardInfo.tableCard = self:getExtractCardType(GameCommon.player[wChairID].cbCardData,GameCommon.player[wChairID].bUserCardCount,self.lastOutCardInfo.bCardData,self.lastOutCardInfo.bUserCardCount)
+
+         self:showCountDown(pBuffer.wCurrentUser,pBuffer.isShowOperate)
+        if pBuffer.wCurrentUser == wChairID and pBuffer.isShowOperate == true then 
+            if self.lastOutCardInfo ~= nil and pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and GameCommon.tableConfig.nTableType ~= TableType_Playback then
+                self.lastOutCardInfo.tableCard = self:getExtractCardType(GameCommon.player[wChairID].cbCardData,GameCommon.player[wChairID].bUserCardCount,self.lastOutCardInfo.bCardData,self.lastOutCardInfo.bUserCardCount)       
+            end
+            self:tryAutoSendCard() 
         end
-        if pBuffer.wCurrentUser == wChairID and self.lastOutCardInfo.wOutCardUser ~= wChairID and #self.lastOutCardInfo.tableCard <= 0 then  
-            self:showCountDown(pBuffer.wCurrentUser,true)
-        else
-            self:tryAutoSendCard(pBuffer.wCurrentUser)
-        end
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        
+
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.2),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
     elseif action == NetMsgId.SUB_S_GAME_END_PDK then
         local wChairID = pBuffer.wWinUser
@@ -348,7 +357,7 @@ function TableLayer:doAction(action,pBuffer)
 	
 end
 
-function TableLayer:showCountDown(wChairID,isHide)     
+function TableLayer:showCountDown(wChairID,isShowOperate)     
     self:resetUserCountTimeAni()
     local viewID = GameCommon:getViewIDByChairID(wChairID)
     local Panel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",viewID))
@@ -357,11 +366,11 @@ function TableLayer:showCountDown(wChairID,isHide)
     Panel_countdown:setVisible(true)
 
     uiAtlasLabel_countdownTime:stopAllActions()
-
     local time = 15
+
     if GameCommon.tableConfig.nTableType > TableType_GoldRoom and GameCommon.bHosted ~= nil then
         -- if GameCommon.bHosted[wChairID] == false  then  
-            if GameCommon.gameConfig.bHostedTime ~= nil and  GameCommon.gameConfig.bHostedTime ~= 0 then 
+            if GameCommon.gameConfig.bHostedTime ~= 0 then 
                 time = 60*GameCommon.gameConfig.bHostedTime
             else
                 time = 15
@@ -390,7 +399,7 @@ function TableLayer:showCountDown(wChairID,isHide)
     local uiImage_outTips = ccui.Helper:seekWidgetByName(self.root,"Image_outTips")
     uiImage_outTips:setVisible(false)
     if wChairID == GameCommon:getRoleChairID() then
-        if isHide ~= true and GameCommon.tableConfig.nTableType ~= TableType_Playback then
+        if isShowOperate == true and GameCommon.tableConfig.nTableType ~= TableType_Playback then
             uiPanel_out:setVisible(true)
             if GameCommon.gameConfig.bAbandon == 0 then
                 local wPlayerCount = GameCommon.gameConfig.bPlayerCount
@@ -458,8 +467,8 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
     local uiPanel_card = ccui.Helper:seekWidgetByName(self.root,"Panel_card")
     uiPanel_handCard = ccui.Helper:seekWidgetByName(uiPanel_card,string.format("Panel_handCard%d",viewID))
     if isShowEndCard == true then
-        local uiPanel_weaveItemArray = ccui.Helper:seekWidgetByName(self.root,"Panel_weaveItemArray")
-        uiPanel_weaveItemArray:setVisible(false)
+        -- local uiPanel_weaveItemArray = ccui.Helper:seekWidgetByName(self.root,"Panel_weaveItemArray")
+        -- uiPanel_weaveItemArray:setVisible(false)
 --        for i = 2, 3 do
 --            local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",i))
 --            uiPanel_player:setPositionY(cc.Director:getInstance():getVisibleSize().height*0.79)
@@ -531,9 +540,10 @@ end
 function TableLayer:initUI()
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     require("common.Common"):playEffect("game/pipeidonghua.mp3")
+    local wKindID = GameCommon.tableConfig.wKindID
     --背景层
     local uiImage_watermark = ccui.Helper:seekWidgetByName(self.root,"Image_watermark")
-    uiImage_watermark:loadTexture(StaticData.Channels[CHANNEL_ID].icon)
+    uiImage_watermark:loadTexture(StaticData.Games[wKindID].icon)
     uiImage_watermark:ignoreContentAdaptWithSize(true)
     uiImage_watermark:setVisible(false)
     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")
@@ -543,7 +553,7 @@ function TableLayer:initUI()
     local uiText_time = ccui.Helper:seekWidgetByName(self.root,"Text_time")
     uiText_time:runAction(cc.RepeatForever:create(cc.Sequence:create(cc.CallFunc:create(function(sender,event) 
         local date = os.date("*t",os.time())
-        uiText_time:setString(string.format("%d-%02d-%02d %02d:%02d:%02d",date.year,date.month,date.day,date.hour,date.min,date.sec))
+        uiText_time:setString(string.format("%02d:%02d",date.hour,date.min))
     end),cc.DelayTime:create(1))))
     --卡牌层
     
@@ -601,7 +611,7 @@ function TableLayer:initUI()
         uiPanel_player:setVisible(false)
         local uiImage_avatarFrame = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatarFrame")
         local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_avatar")
-        Common:setUserHeadCliping(uiImage_avatar)
+        self:setUserHeadCliping(uiImage_avatar)
 
         uiImage_avatarFrame:setTouchEnabled(true)
         uiImage_avatarFrame:addTouchEventListener(function(sender,event) 
@@ -624,11 +634,17 @@ function TableLayer:initUI()
         local uiText_score = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_score")
         uiText_score:setString("")
         local uiImage_ready = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_ready")
-        uiImage_ready:setVisible(false)
+        if uiImage_ready ~= nil then
+            uiImage_ready:setVisible(false)
+        end
         local uiImage_chat = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_chat")
         uiImage_chat:setVisible(false)
+
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
+        if i ~= 1 and CHANNEL_ID ~=10 and CHANNEL_ID ~= 11 and CHANNEL_ID ~=0 and CHANNEL_ID ~= 1 then 
+            uiText_fatigue:setVisible(false)
+        end 
     end
 
     --UI层
@@ -656,35 +672,36 @@ function TableLayer:initUI()
     local uiPanel_bg = ccui.Helper:seekWidgetByName(self.root,"Panel_bg")
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_skin"),function() 
         local UserDefault_Pukepaizhuo = nil
-        if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
-            UserDefault_Pukepaizhuo =  cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Pukepaizhuo,2)
-        else
+        -- if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+        --     UserDefault_Pukepaizhuo =  cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Pukepaizhuo,1)
+        -- else
             UserDefault_Pukepaizhuo =  cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Pukepaizhuo,0)
-        end 
+        -- end 
+
         UserDefault_Pukepaizhuo = UserDefault_Pukepaizhuo + 1
         if UserDefault_Pukepaizhuo < 0 or UserDefault_Pukepaizhuo > 2 then
             UserDefault_Pukepaizhuo = 0
         end
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_Pukepaizhuo,UserDefault_Pukepaizhuo)
         uiPanel_bg:removeAllChildren()
-        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/PDK_table_bg%d.jpg",UserDefault_Pukepaizhuo)))
+        uiPanel_bg:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",UserDefault_Pukepaizhuo)))
     end)
     local UserDefault_Pukepaizhuo = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Pukepaizhuo,0)
     if UserDefault_Pukepaizhuo < 0 or UserDefault_Pukepaizhuo > 2 then
         UserDefault_Pukepaizhuo = 0
         cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_Pukepaizhuo,UserDefault_Pukepaizhuo)
     end
-    if UserDefault_Pukepaizhuo ~= 0 then
+   -- if UserDefault_Pukepaizhuo ~= 0 then
         uiPanel_bg:removeAllChildren()
-        uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/PDK_table_bg%d.jpg",UserDefault_Pukepaizhuo)))
-    end
+        uiPanel_bg:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",UserDefault_Pukepaizhuo)))
+   -- end
     
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_font"),function() 
         local UserDefault_PukeCard = nil 
         -- if CHANNEL_ID == 20 or CHANNEL_ID == 21 then 
-            UserDefault_PukeCard = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_PukeCard,0)
+        --     UserDefault_PukeCard = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_PukeCard,0)
         -- else
-        --     UserDefault_PukeCard = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_PukeCard,1)
+            UserDefault_PukeCard = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_PukeCard,0)
         -- end 
         UserDefault_PukeCard = UserDefault_PukeCard + 1
         if UserDefault_PukeCard < 0 or UserDefault_PukeCard > 1 then
@@ -710,6 +727,9 @@ function TableLayer:initUI()
         uiPanel_night:setVisible(true)
     end
     Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_settings"),function() 
+        -- local path = self:requireClass('PDKSetting')
+		-- local box = require("app.MyApp"):create():createGame(path)
+        -- self:addChild(box)
         require("common.SceneMgr"):switchOperation(require("app.MyApp"):create():createView("SettingsLayer"))
     end)
     local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
@@ -728,6 +748,7 @@ function TableLayer:initUI()
     end
     uiButton_expression:addTouchEventListener(onEventExpression)
     local uiButton_ready = ccui.Helper:seekWidgetByName(self.root,"Button_ready")
+    uiButton_ready:setVisible(false)
     Common:addTouchEventListener(uiButton_ready,function() 
         NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_USER_READY,"o",false)
     end) 
@@ -747,16 +768,19 @@ function TableLayer:initUI()
         end
         player = player..")"
         local data = clone(UserData.Share.tableShareParameter[3])
-        data.dwClubID = GameCommon.tableConfig.dwClubID
-        data.szShareTitle = string.format(data.szShareTitle,StaticData.Games[GameCommon.tableConfig.wKindID].name,
-            GameCommon.tableConfig.wTbaleID,GameCommon.tableConfig.wTableNumber,
-            GameCommon.gameConfig.bPlayerCount,GameCommon.gameConfig.bPlayerCount-currentPlayerCount)..player
-        data.szShareContent = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig).." (点击加入游戏)"
-        data.szShareUrl = string.format(data.szShareUrl, GameCommon.tableConfig.szGameID)
+        if data then
+            data.dwClubID = GameCommon.tableConfig.dwClubID
+            data.szShareTitle = string.format(data.szShareTitle,StaticData.Games[GameCommon.tableConfig.wKindID].name,
+                GameCommon.tableConfig.wTbaleID,GameCommon.tableConfig.wTableNumber,
+                GameCommon.gameConfig.bPlayerCount,GameCommon.gameConfig.bPlayerCount-currentPlayerCount)..player
+            data.szShareContent = GameDesc:getGameDesc(GameCommon.tableConfig.wKindID,GameCommon.gameConfig,GameCommon.tableConfig).." (点击加入游戏)"
+            data.szShareUrl = string.format(data.szShareUrl,GameCommon.tableConfig.szGameID)
         if GameCommon.tableConfig.nTableType ~= TableType_ClubRoom then
             data.cbTargetType = Bit:_xor(data.cbTargetType,0x20)
         end
-        require("app.MyApp"):create(data, handler(self, self.pleaseOnlinePlayer)):createView("ShareLayer")
+            require("app.MyApp"):create(data, handler(self, self.pleaseOnlinePlayer)):createView("ShareLayer")
+        end
+        dump(data, 'ShareData:')
     end)
     local uiButton_disbanded = ccui.Helper:seekWidgetByName(self.root,"Button_disbanded")
     Common:addTouchEventListener(uiButton_disbanded,function() 
@@ -781,24 +805,23 @@ function TableLayer:initUI()
             require("common.SceneMgr"):switchScene(require("app.MyApp"):create():createView("HallLayer"),SCENE_HALL) 
         end)
     end) 
-    -- if CHANNEL_ID == 6 or  CHANNEL_ID  == 7  or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
-    -- else
-    --     uiButton_SignOut:setVisible(false)
-    --     uiButton_out:setPositionX(visibleSize.width*0.36)       
-    --     uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
-    -- end 
+    if CHANNEL_ID == 6 or  CHANNEL_ID  == 7  or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
+    else
+        uiButton_SignOut:setVisible(false)
+        -- uiButton_out:setPositionX(visibleSize.width*0.36)       
+        -- uiButton_Invitation:setPositionX(visibleSize.width*0.64)  
+    end 
     
     local uiButton_position = ccui.Helper:seekWidgetByName(self.root,"Button_position")   -- 定位
     Common:addTouchEventListener(uiButton_position,function() 
         require("common.PositionLayer"):create(GameCommon.tableConfig.wKindID)
+        --require("game.puke.PositionLayer"):create(GameCommon.tableConfig.wKindID)
     end)
+
     local uiPanel_playerInfoBg = ccui.Helper:seekWidgetByName(self.root,"Panel_playerInfoBg")
     if GameCommon.tableConfig.wCurrentNumber == 0 and  GameCommon.tableConfig.nTableType > TableType_GoldRoom then
         if CHANNEL_ID ~= 0 and CHANNEL_ID ~= 1 then
-            uiPanel_playerInfoBg:setVisible(true) 
-            if  CHANNEL_ID == 10 or CHANNEL_ID == 11 then
-                uiPanel_playerInfoBg:setVisible(false)
-            end 
+            uiPanel_playerInfoBg:setVisible(false) 
         else 
             uiPanel_playerInfoBg:setVisible(false)
         end
@@ -812,18 +835,33 @@ function TableLayer:initUI()
 
     --取消托管
     local uiButton_TG = ccui.Helper:seekWidgetByName(self.root,"Button_TG")
-    Common:addTouchEventListener(uiButton_TG,function() 
-        NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_USER_HOSTED,"o",false)
-    end)
+    if uiButton_TG ~= nil then 
+        Common:addTouchEventListener(uiButton_TG,function() 
+            NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_USER_HOSTED,"o",false)
+        end)
+    end
+
+    --详情
+    -- local uiButton_Details = ccui.Helper:seekWidgetByName(self.root,"Button_Details")
+    -- if uiButton_Details ~= nil then 
+    --     local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")    
+    --     Common:addTouchEventListener(uiButton_Details,function() 
+    --         if uiText_desc:isVisible() then 
+    --             uiText_desc:setVisible(false)
+    --         else
+    --             uiText_desc:setVisible(true)
+    --         end 
+    --     end)
+    -- end 
 
     --结算层
     local uiPanel_end = ccui.Helper:seekWidgetByName(self.root,"Panel_end")
     uiPanel_end:setVisible(false)
     --灯光层
     local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
         uiButton_voice:setVisible(false) 
-    end
+    end 
     local uiText_title = ccui.Helper:seekWidgetByName(self.root,"Text_title")
     local uiText_des = ccui.Helper:seekWidgetByName(self.root,"Text_des")
     uiText_title:setString(StaticData.Games[GameCommon.tableConfig.wKindID].name)    
@@ -851,16 +889,20 @@ function TableLayer:initUI()
             uiButton_out:setVisible(false)
             uiButton_SignOut:setVisible(false)
         end
+        if StaticData.Hide[CHANNEL_ID].btn4 ~= 1 then
+            uiButton_Invitation:setVisible(false)
+            -- uiButton_out:setPositionX(visibleSize.width*0.5)   
+        end
         uiText_des:setString(string.format("房间号:%d 局数:%d/%d",GameCommon.tableConfig.wTbaleID, GameCommon.tableConfig.wCurrentNumber, GameCommon.tableConfig.wTableNumber))
 
-        ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/dengdaihaoyou/dengdaihaoyou.ExportJson")
-        local waitArmature=ccs.Armature:create("dengdaihaoyou")
-        waitArmature:setPosition(-179.2,150)
-        if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
-            waitArmature:setPosition(0,150)
-        end 
-        waitArmature:getAnimation():playWithIndex(0)
-        uiButton_Invitation:addChild(waitArmature)   
+        -- ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/dengdaihaoyou/dengdaihaoyou.ExportJson")
+        -- local waitArmature=ccs.Armature:create("dengdaihaoyou")
+        -- waitArmature:setPosition(-179.2,150)
+        -- if CHANNEL_ID == 6 or  CHANNEL_ID  == 7 or CHANNEL_ID == 8 or  CHANNEL_ID  == 9 then
+        --     waitArmature:setPosition(0,150)
+        -- end 
+        -- waitArmature:getAnimation():playWithIndex(0)
+        -- uiButton_Invitation:addChild(waitArmature)   
 
     elseif GameCommon.tableConfig.nTableType == TableType_GoldRoom then            
         self:addVoice()
@@ -908,7 +950,7 @@ function TableLayer:initUI()
         uiButton_voice:setVisible(false)
         uiButton_expression:setVisible(false)
         uiText_des:setString("竞技场")
-        self:drawnout()  
+        --self:drawnout()  
         ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/xunzhaoduishou/xunzhaoduishou.ExportJson")
         local waitArmature=ccs.Armature:create("xunzhaoduishou")
         waitArmature:setPosition(0,150)
@@ -934,7 +976,7 @@ end
 
 function TableLayer:drawnout()
     local uiImage_timedown = ccui.Helper:seekWidgetByName(self.root,"Image_timedown")
-    uiImage_timedown:setVisible(true)
+    uiImage_timedown:setVisible(false)
     
     local uiText__timedown = ccui.Helper:seekWidgetByName(self.root,"Text__timedown")
     uiText__timedown:setPosition(uiText__timedown:getParent():getContentSize().width/2,uiText__timedown:getParent():getContentSize().height*0.56)
@@ -954,6 +996,8 @@ function TableLayer:updateGameState(state)
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     if state == GameCommon.GameState_Init then
     elseif state == GameCommon.GameState_Start then
+        -- local uiText_desc = ccui.Helper:seekWidgetByName(self.root,"Text_desc")    
+        -- uiText_desc:setVisible(false)  
 		require("common.SceneMgr"):switchOperation()
         local uiPanel_playerInfoBg = ccui.Helper:seekWidgetByName(self.root,"Panel_playerInfoBg")
         uiPanel_playerInfoBg:setVisible(false)
@@ -964,23 +1008,28 @@ function TableLayer:updateGameState(state)
             if GameCommon.tableConfig.wCurrentNumber ~= nil and GameCommon.tableConfig.wCurrentNumber == 1 and GameCommon.DistanceAlarm ~= 1  then
                 if StaticData.Hide[CHANNEL_ID].btn16 ==1 then 
                     GameCommon.DistanceAlarm = 1 
-                    require("common.DistanceAlarm"):create(GameCommon.tableConfig.wKindID)
+                    if GameCommon.gameConfig.bPlayerCount ~= 2 then 
+                       require("common.DistanceAlarm"):create(GameCommon)
+                    end                    
                 end 
             end
             for i = 1, 3 do
                 local uiPanel_player = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_player%d",i))
                 local uiImage_ready = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_ready")
-                uiImage_ready:setVisible(false)
+                if uiImage_ready ~= nil then 
+                    uiImage_ready:setVisible(false)
+                end 
             end
         elseif GameCommon.tableConfig.nTableType == TableType_GoldRoom or GameCommon.tableConfig.nTableType == TableType_SportsRoom then
             local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
             uiButton_expression:setVisible(true)
             local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-            if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
                 uiButton_voice:setVisible(false) 
-            else
+            else 
                 uiButton_voice:setVisible(true) 
             end
+            uiButton_voice:setVisible(true)
         end         
         local uiButton_cancel = ccui.Helper:seekWidgetByName(self.root,"Button_cancel")  --取消按钮
         uiButton_cancel:setVisible(false)
@@ -1001,6 +1050,9 @@ function TableLayer:addVoice()
     local intervalTimePackage = 0.1
     local fileName = "temp_voice.mp3"
     local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+        uiButton_voice:setVisible(false) 
+    end 
     local animVoice = cc.CSLoader:createNode("VoiceNode.csb")
     self:addChild(animVoice,120)
     local root = animVoice:getChildByName("Panel_root")
@@ -1091,6 +1143,7 @@ function TableLayer:addVoice()
             local periodSize = string.len(periodData)
             NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GF_GAME,NetMsgId.SUB_GF_USER_VOICE,"wwwdddnsnf",GameCommon:getRoleChairID(),packCount,i,data.time,fileSize,periodSize,32,data.file,periodSize,periodData)
         end
+
     end
 
     local function onEventVoice(sender,event)
@@ -1204,10 +1257,7 @@ function TableLayer:OnUserChatVoice(event)
     end
 end
 
-function TableLayer:showPlayerPosition()   -- 显示玩家距离   
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then
-        return
-    end  
+function TableLayer:showPlayerPosition()   -- 显示玩家距离    
     local wChairID = 0
     for key, var in pairs(GameCommon.player) do
         if var.dwUserID == GameCommon.dwUserID then
@@ -1215,7 +1265,6 @@ function TableLayer:showPlayerPosition()   -- 显示玩家距离
             break
         end
     end
-    EventMgr:dispatch(EventType.RET_GAMES_USER_POSITION)
     for wChairID = 1, 4 do
         local uiPanel_players = ccui.Helper:seekWidgetByName(self.root,string.format("Panel_players%d",wChairID))
         local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_players,"Image_avatar")
@@ -1372,19 +1421,14 @@ end
 
 function TableLayer:tryAutoSendCard(wCurrentUser)
     local wChairID = GameCommon:getRoleChairID()
-    if wCurrentUser ~= wChairID then
-        self:showCountDown(wCurrentUser)
-        return
-    end
-    --如果上次出牌是其他人
+    --如果上次出牌是其他人 
     if self.lastOutCardInfo.wOutCardUser ~= wChairID then
-        if #self.lastOutCardInfo.tableCard == 1 and #self.lastOutCardInfo.tableCard[1] == GameCommon.player[wChairID].bUserCardCount then
+        if self.lastOutCardInfo.tableCard ~= nil and #self.lastOutCardInfo.tableCard == 1 and #self.lastOutCardInfo.tableCard[1] == GameCommon.player[wChairID].bUserCardCount then
             local tabelCard = {}
             for i = 1, GameCommon.player[wChairID].bUserCardCount do
                 table.insert(tabelCard,#tabelCard+1,GameCommon.player[wChairID].cbCardData[i])
             end
             self:sendCard(wChairID,tabelCard)
-            self:showCountDown(wCurrentUser,true)
             return
         end
     else
@@ -1394,7 +1438,6 @@ function TableLayer:tryAutoSendCard(wCurrentUser)
             if targetType ~= GameCommon.CardType_bomb then 
                 local tableSortCard = self:getSortCard(GameCommon.player[wChairID].cbCardData,GameCommon.player[wChairID].bUserCardCount)
                 if #tableSortCard[4] > 0 then
-                    self:showCountDown(wCurrentUser)
                     return
                 end
             end
@@ -1403,11 +1446,9 @@ function TableLayer:tryAutoSendCard(wCurrentUser)
                 table.insert(tabelCard,#tabelCard+1,GameCommon.player[wChairID].cbCardData[i])
             end
             self:sendCard(wChairID,tabelCard)
-            self:showCountDown(wCurrentUser,true)
             return
         end
     end
-    self:showCountDown(wCurrentUser)
 end
 
 function TableLayer:sendCard(wChairID,tableCardData)
@@ -2186,18 +2227,18 @@ end
 
 function TableLayer:EVENT_TYPE_SKIN_CHANGE(event)
     local data = event._usedata
-    if data ~= 2 then
-        return
-    end
+    -- if data ~= 2 then
+    --     return
+    -- end
     --背景
     local uiPanel_bg = ccui.Helper:seekWidgetByName(self.root,"Panel_bg")
-    local UserDefault_Pukepaizhuo = cc.UserDefault:getInstance():getIntegerForKey(Default.UserDefault_Pukepaizhuo,0)
+    local UserDefault_Pukepaizhuo = cc.UserDefault:getInstance():getIntegerForKey('UserDefault_Pukepaizhuo',0)
     if UserDefault_Pukepaizhuo < 0 or UserDefault_Pukepaizhuo > 2 then
         UserDefault_Pukepaizhuo = 0
-        cc.UserDefault:getInstance():setIntegerForKey(Default.UserDefault_Pukepaizhuo,UserDefault_Pukepaizhuo)
+        cc.UserDefault:getInstance():setIntegerForKey('UserDefault_Pukepaizhuo',UserDefault_Pukepaizhuo)
     end
     uiPanel_bg:removeAllChildren()
-    uiPanel_bg:addChild(ccui.ImageView:create(string.format("game/PDK_table_bg%d.jpg",UserDefault_Pukepaizhuo)))
+    uiPanel_bg:addChild(ccui.ImageView:create(string.format("puke/ui/beijing_%d.jpg",UserDefault_Pukepaizhuo)))
 
     --亮度
     local uiPanel_night = ccui.Helper:seekWidgetByName(self.root,"Panel_night")
@@ -2209,10 +2250,12 @@ function TableLayer:EVENT_TYPE_SKIN_CHANGE(event)
     end
     --字体
     --牌背
-    for i = 0 , GameCommon.gameConfig.bPlayerCount-1 do
-        local wChairID = i
-        if GameCommon.player ~= nil and GameCommon.player[wChairID] ~= nil then
-            self:showHandCard(wChairID,3)
+    if GameCommon.gameConfig.bPlayerCount then
+        for i = 0 , GameCommon.gameConfig.bPlayerCount-1 do
+            local wChairID = i
+            if GameCommon.player ~= nil and GameCommon.player[wChairID] ~= nil then
+                self:showHandCard(wChairID,3)
+            end
         end
     end
 end
@@ -2288,7 +2331,6 @@ function TableLayer:EVENT_TYPE_SIGNAL(event)
     local time = event._usedata
     local uiImage_signal = ccui.Helper:seekWidgetByName(self.root,"Image_signal")
     local uiText_signal = ccui.Helper:seekWidgetByName(self.root,"Text_signal")
-    uiText_signal:setVisible(false)
     if GameCommon.tableConfig.nTableType ~= TableType_Playback then
         if time <= 100 then
             uiImage_signal:loadTexture("common/xinghao4.png")
@@ -2303,11 +2345,11 @@ function TableLayer:EVENT_TYPE_SIGNAL(event)
             uiImage_signal:loadTexture("common/xinghao1.png")
             uiText_signal:setColor(cc.c3b(255,0,20))
         end
-        -- if time < 0 then
-        --     uiText_signal:setString("")
-        -- else
-        --     uiText_signal:setString(string.format("%dms",time))
-        -- end
+        if time < 0 then
+            uiText_signal:setString("")
+        else
+            uiText_signal:setString(string.format("%dms",time))
+        end
     else
         uiImage_signal:setVisible(false)
     end
@@ -2337,20 +2379,22 @@ function TableLayer:setUserHeadCliping(headNode, headPath)
     if not headNode then
         return
     end
-    headPath = headPath --or "common/hall_avatar.png"
-    headNode:setVisible(false)
-    local headFrameNode = headNode:getParent():getChildByName("Image_avatarFrame")
-    local clipNode = cc.Sprite:create("common/hall_paohuzi_head.png")
-    local clip_node = cc.ClippingNode:create(clipNode)
-    local clip_size = clipNode:getContentSize()
-    local headNode = cc.Sprite:create(headPath)
-    local head_size = headNode:getContentSize()
-    headNode:setScale(clip_size.width / head_size.width, clip_size.height / head_size.height)
-    clip_node:addChild(headNode)
-    clip_node:setAlphaThreshold(0)
-    local size = headFrameNode:getContentSize()
-    clip_node:setPosition(size.width / 2, size.height / 2)
-    headFrameNode:addChild(clip_node)
+    headPath = headPath or "common/hall_avatar.png"
+    headNode:loadTexture(headPath)
+
+    -- headNode:setVisible(false)
+    -- local headFrameNode = headNode:getParent():getChildByName("Image_avatarFrame")
+    -- local clipNode = cc.Sprite:create("common/hall_paohuzi_head.png")
+    -- local clip_node = cc.ClippingNode:create(clipNode)
+    -- local clip_size = clipNode:getContentSize()
+    -- local headNode = cc.Sprite:create(headPath)
+    -- local head_size = headNode:getContentSize()
+    -- headNode:setScale(clip_size.width / head_size.width, clip_size.height / head_size.height)
+    -- clip_node:addChild(headNode)
+    -- clip_node:setAlphaThreshold(0)
+    -- local size = headFrameNode:getContentSize()
+    -- clip_node:setPosition(size.width / 2, size.height / 2)
+    -- headFrameNode:addChild(clip_node)
 end
 
 --[
@@ -2366,14 +2410,14 @@ function TableLayer:resetUserCountTimeAni()
         Panel_countdown:setVisible(false)
         AtlasLabel_countdownTime:stopAllActions()
 
-        local aniNode = Panel_countdown:getChildByName('AniTimeCount' .. i)
-        if not aniNode then
-            ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/wanjiachupaitishi/wanjiachupaitishi.ExportJson")
-            local waitArmature = ccs.Armature:create("wanjiachupaitishi")
-            waitArmature:getAnimation():playWithIndex(0)
-            Panel_countdown:addChild(waitArmature)
-            waitArmature:setName('AniTimeCount' .. i)
-        end
+        -- local aniNode = Panel_countdown:getChildByName('AniTimeCount' .. i)
+        -- if not aniNode then
+        --     ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/wanjiachupaitishi/wanjiachupaitishi.ExportJson")
+        --     local waitArmature = ccs.Armature:create("wanjiachupaitishi")
+        --     waitArmature:getAnimation():playWithIndex(0)
+        --     Panel_countdown:addChild(waitArmature)
+        --     waitArmature:setName('AniTimeCount' .. i)
+        -- end
     end
 end
 
@@ -2387,7 +2431,7 @@ end
 function TableLayer:getViewWorldPosByChairID(wChairID)
 	for key, var in pairs(GameCommon.player) do
 		if wChairID == var.wChairID then
-			local viewid = GameCommon:getViewIDByChairID(var.wChairID, true)
+			local viewid = GameCommon:getViewIDByChairID(var.wChairID)
 			local uiPanel_player = ccui.Helper:seekWidgetByName(self.root, string.format("Panel_player%d", viewid))
 			local uiImage_avatar = ccui.Helper:seekWidgetByName(uiPanel_player, "Image_avatar")
 			return uiImage_avatar:getParent():convertToWorldSpace(cc.p(uiImage_avatar:getPosition()))
@@ -2487,6 +2531,32 @@ end
 function TableLayer:pleaseOnlinePlayer()
     local dwClubID = GameCommon.tableConfig.dwClubID
     require("common.SceneMgr"):switchOperation(require("app.MyApp"):create(dwClubID):createView("PleaseOnlinePlayerLayer"))
+end
+
+function TableLayer:refreshTableInfo()
+    local playerNum = 0
+    for k, v in pairs(GameCommon.player or {}) do
+        playerNum = playerNum + 1
+    end
+    local Button_Invitation = ccui.Helper:seekWidgetByName(self.root, "Button_Invitation")
+    local Button_ready = ccui.Helper:seekWidgetByName(self.root, "Button_ready")
+    if playerNum >= GameCommon.gameConfig.bPlayerCount then
+        Button_Invitation:setVisible(false)
+        Button_ready:setVisible(true)
+    else
+        Button_Invitation:setVisible(true)
+        Button_ready:setVisible(false)
+    end
+
+    local Button_position = ccui.Helper:seekWidgetByName(self.root, "Button_position")
+    if GameCommon.gameConfig.bPlayerCount <= 2 and Button_position then
+        Button_position:removeFromParent()
+    end
+end
+
+function TableLayer:requireClass(name)
+	local path = string.format("game.%s.%s", APPNAME, name)
+	return path
 end
 
 return TableLayer

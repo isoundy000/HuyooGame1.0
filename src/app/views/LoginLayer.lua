@@ -107,7 +107,16 @@ function LoginLayer:onCreate(parames)
     if StaticData.Hide[CHANNEL_ID].btn4 == 0 then
         uiPanel_agreement:setVisible(false)  
     end 
-    Common:addTouchEventListener(ccui.Helper:seekWidgetByName(self.root,"Button_agreement"),function() 
+    local item =  ccui.Helper:seekWidgetByName(self.root,"Button_agreement")
+    if CHANNEL_ID ==22 or CHANNEL_ID == 23 then 
+        local textureName = "login/login_11.png"
+        local texture = cc.TextureCache:getInstance():addImage(textureName)
+        item:loadTextures(textureName,textureName,textureName)
+        item:setContentSize(texture:getContentSizeInPixels())  
+        item:setPressedActionEnabled(true)
+    end
+
+    Common:addTouchEventListener(item,function() 
         local csb = cc.CSLoader:createNode("AgreementLayer.csb")
         require("common.SceneMgr"):switchOperation(csb)
         local root = csb:getChildByName("Panel_root")
@@ -131,8 +140,18 @@ function LoginLayer:onCreate(parames)
             --uiWebView:enableDpadNavigation(false)
         end
     end)
+
+
     local uiCheckBox_agree = ccui.Helper:seekWidgetByName(self.root,"CheckBox_agree")
-    
+    local uiCheckBox_agree22 = ccui.Helper:seekWidgetByName(self.root,"CheckBox_agree22")
+
+    if  CHANNEL_ID == 22 or CHANNEL_ID == 23 then 
+        uiCheckBox_agree:setVisible(false) 
+        uiCheckBox_agree22:setVisible(true) 
+    else
+        uiCheckBox_agree:setVisible(true) 
+        uiCheckBox_agree22:setVisible(false) 
+    end 
     --处理登陆方式
     local uiListView_btn = ccui.Helper:seekWidgetByName(self.root,"ListView_btn")
     local loginType = StaticData.Channels[CHANNEL_ID].loginType
@@ -151,10 +170,17 @@ function LoginLayer:onCreate(parames)
             if event == ccui.TouchEventType.ended then
                 if event == ccui.TouchEventType.ended then
                     Common:palyButton()
-                    if uiCheckBox_agree:isSelected() == false then
-                        require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
-                        return 
-                    end
+                    if  CHANNEL_ID == 22 or CHANNEL_ID == 23 then 
+                        if uiCheckBox_agree22:isSelected() == false then
+                            require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                            return 
+                        end
+                    else
+                        if uiCheckBox_agree:isSelected() == false then
+                            require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                            return 
+                        end
+                    end 
                     if cc.Director:getInstance():getRunningScene():getChildByTag(LAYER_GLOBAL) ~= nil then
                         require("common.MsgBoxLayer"):create(0,nil,"请不要重复操作！")
                         return 
@@ -179,10 +205,17 @@ function LoginLayer:onCreate(parames)
                     btn = ccui.Button:create("login/login_tourist.png","login/login_tourist.png","login/login_tourist.png")
                     uiListView_btn:pushBackCustomItem(btn)
                     Common:addTouchEventListener(btn,function(sender,event) 
-                        if uiCheckBox_agree:isSelected() == false then
-                            require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
-                            return 
-                        end
+                        if  CHANNEL_ID == 22 or CHANNEL_ID == 23 then 
+                            if uiCheckBox_agree22:isSelected() == false then
+                                require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                                return 
+                            end
+                        else
+                            if uiCheckBox_agree:isSelected() == false then
+                                require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                                return 
+                            end
+                        end 
                         if cc.Director:getInstance():getRunningScene():getChildByTag(LAYER_GLOBAL) ~= nil then
                             require("common.MsgBoxLayer"):create(0,nil,"请不要重复操作！")
                             return 
@@ -196,10 +229,17 @@ function LoginLayer:onCreate(parames)
                     btn = ccui.Button:create("login/login_qq.png","login/login_qq.png","login/login_qq.png")
                     uiListView_btn:pushBackCustomItem(btn)
                     Common:addTouchEventListener(btn,function(sender,event) 
-                        if uiCheckBox_agree:isSelected() == false then
-                            require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
-                            return 
-                        end
+                        if  CHANNEL_ID == 22 or CHANNEL_ID == 23 then 
+                            if uiCheckBox_agree22:isSelected() == false then
+                                require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                                return 
+                            end
+                        else
+                            if uiCheckBox_agree:isSelected() == false then
+                                require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                                return 
+                            end
+                        end 
                         if cc.Director:getInstance():getRunningScene():getChildByTag(LAYER_GLOBAL) ~= nil then
                             require("common.MsgBoxLayer"):create(0,nil,"请不要重复操作！")
                             return 
@@ -217,13 +257,25 @@ function LoginLayer:onCreate(parames)
                     
                 else
                     --微信登录
-                    btn = ccui.Button:create("login/login_wx.png","login/login_wx.png","login/login_wx.png")
+
+                    if CHANNEL_ID == 22 or CHANNEL_ID == 23 then
+                        btn = ccui.Button:create("login/login_wx1.png","login/login_wx1.png","login/login_wx1.png") 
+                    else
+                        btn = ccui.Button:create("login/login_wx.png","login/login_wx.png","login/login_wx.png")
+                    end 
                     uiListView_btn:pushBackCustomItem(btn)
                     Common:addTouchEventListener(btn,function(sender,event) 
-                        if uiCheckBox_agree:isSelected() == false then
-                            require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
-                            return 
-                        end
+                        if  CHANNEL_ID == 22 or CHANNEL_ID == 23 then 
+                            if uiCheckBox_agree22:isSelected() == false then
+                                require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                                return 
+                            end
+                        else
+                            if uiCheckBox_agree:isSelected() == false then
+                                require("common.MsgBoxLayer"):create(0,nil,"请同意游戏协议！")
+                                return 
+                            end
+                        end 
                         if cc.Director:getInstance():getRunningScene():getChildByTag(LAYER_GLOBAL) ~= nil then
                             require("common.MsgBoxLayer"):create(0,nil,"请不要重复操作！")
                             return 

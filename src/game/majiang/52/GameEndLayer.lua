@@ -87,6 +87,9 @@ function GameEndLayer:onCreate(pBuffer)
         end
     end
     Button_dissolve:addTouchEventListener(onEventReturn)
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11)  and  GameCommon.tableConfig.dwClubID ==nil and  GameCommon.tableConfig.dwClubID == 55404967 then 
+        --Button_dissolve:setVisible(false)
+    end 
     
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("game/wuguidonghua/wuguidonghua.ExportJson")

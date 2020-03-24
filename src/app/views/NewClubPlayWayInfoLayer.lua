@@ -92,7 +92,7 @@ function NewClubPlayWayInfoLayer:onCreate(param)
 	self.TextField_powerNum:setTouchEnabled(false)
 	self:initUI(self.clubData, param[2])
 
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 or CHANNEL_ID == 26 or CHANNEL_ID == 27 then
+    if CHANNEL_ID == 26 or CHANNEL_ID == 27 then
         self.Image_goldMode:setVisible(true)
     else
         self.Image_goldMode:setVisible(false)
@@ -970,6 +970,14 @@ function NewClubPlayWayInfoLayer:sendSetPlayWay(data)
             data.tableParameter.bQGHuJM,data.tableParameter.bHuangZhuangHG,data.tableParameter.bQingSH,data.tableParameter.bJiePao,data.tableParameter.bNiaoType,data.tableParameter.bQiDui,
             data.tableParameter.bWuTong,data.tableParameter.bHostedTime,data.tableParameter.bHostedSession)
 
+    elseif data.wKindID == 97 then
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddwwwbbddddddolwolwnsbbbbbbbbbbbb",
+            data.settype,data.dwClubID,data.playid,data.wKindID,data.wGameCount,1,
+            data.cbMode,data.payMode,data.payLimit1,data.payCount1,data.payLimit2,data.payCount2,data.payLimit3,data.payCount3,data.isPercentage,data.tableLimit,data.fatigueCell,data.isTableCharge,data.fatigueLimit,data.antiCell,32,data.szParameterName,
+            data.tableParameter.bPlayerCount,data.tableParameter.bYJLY,data.tableParameter.bDiFen,data.tableParameter.bQGHu,data.tableParameter.bQGHuBaoPei,data.tableParameter.bLiangMenPai,
+            data.tableParameter.bDiaoYu,data.tableParameter.bLGDP,data.tableParameter.bSLYX,data.tableParameter.bSLYXNum,
+            data.tableParameter.bHostedTime,data.tableParameter.bHostedSession)
+
     elseif data.wKindID == 46 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddwwwbbddddddolwolwnsbbbbbbbbbb",
             data.settype,data.dwClubID,data.playid,data.wKindID,data.wGameCount,1,
@@ -978,12 +986,14 @@ function NewClubPlayWayInfoLayer:sendSetPlayWay(data)
             data.tableParameter.bHuangZhuangHG,data.tableParameter.bJiePao,data.tableParameter.mNiaoType,data.tableParameter.bQiDui,data.tableParameter.bWuTong)
 
     elseif data.wKindID == 61 then
-        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddwwwbbddddddolwolwnsbbbbbbbb",
+        NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddwwwbbddddddolwolwnsbbbbbbbbbbbbbb",
             data.settype,data.dwClubID,data.playid,data.wKindID,data.wGameCount,1,
-            data.cbMode,data.payMode,data.payLimit1,data.payCount1,data.payLimit2,data.payCount2,data.payLimit3,data.payCount3,data.isPercentage,data.tableLimit,data.fatigueCell,data.isTableCharge,data.fatigueLimit,data.antiCell,32,data.szParameterName,
-            data.tableParameter.bPlayerCount,data.tableParameter.bMaType,data.tableParameter.bMaCount,data.tableParameter.bQGHu,data.tableParameter.bQGHuJM,
-            data.tableParameter.bHuangZhuangHG,data.tableParameter.bQingSH,data.tableParameter.bJiePao)
-
+            data.cbMode,data.payMode,data.payLimit1,data.payCount1,data.payLimit2,data.payCount2,data.payLimit3,data.payCount3,data.isPercentage,data.tableLimit,data.fatigueCell,data.isTableCharge,data.fatigueLimit,data.antiCell,32,data.szParameterName,  
+            data.tableParameter.bPlayerCount,data.tableParameter.bMaxLost,
+            data.tableParameter.bCanHuXi,data.tableParameter.bStartBanker,data.tableParameter.bDeathCard,
+            data.tableParameter.bHostedTime,data.tableParameter.bHostedSession,data.tableParameter.bKaWai,
+            data.tableParameter.bXianJiaDiHu,data.tableParameter.bZhuangJiaDiHu,data.tableParameter.bHuDaYuWai,
+            data.tableParameter.bHaoFen,data.tableParameter.bMingTang,data.tableParameter.bPiaoFen)        
     elseif data.wKindID == 47 then
         NetMgr:getLogicInstance():sendMsgToSvr(NetMsgId.MDM_CL_CLUB,NetMsgId.REQ_SETTINGS_CLUB_PLAY,"bddwwwbbddddddolwolwnsbbbbbbwbbbbbbbbdbbbbb",
             data.settype,data.dwClubID,data.playid,data.wKindID,data.wGameCount,1,

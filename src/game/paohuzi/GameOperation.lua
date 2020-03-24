@@ -72,6 +72,11 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
     self.Button_operation = ccui.Helper:seekWidgetByName(self.root,"Button_operation")
     self.Button_operation:retain()
     uiPanel_operation:removeAllChildren()
+    if CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 then  
+        uiPanel_operation:setPositionX(1036.80)
+    else
+        uiPanel_operation:setPositionX(640)
+    end 
     local uiPanel_bg = ccui.Helper:seekWidgetByName(self.root,"Panel_bg")
     uiPanel_bg:setVisible(false)
     local uiListView_panel = ccui.Helper:seekWidgetByName(self.root,"ListView_panel")
@@ -519,10 +524,17 @@ function GameOperation:onCreate(opType,cbOperateCode,cbOperateCard,cbCardIndex,c
             end
         end
     end
+
     local items = uiPanel_operation:getChildren()
     local interval = 30
     local width = items[1]:getContentSize().width
-    local beganPos = (uiPanel_operation:getContentSize().width -  #items * width - (#items-1)*interval)--/2 + width/2
+    local beganPos = nil
+    if CHANNEL_ID ~= 20 and CHANNEL_ID ~= 21 then  
+        beganPos = (uiPanel_operation:getContentSize().width -  #items * width - (#items-1)*interval)--/2 + width/2
+    else
+        beganPos = (uiPanel_operation:getContentSize().width -  #items * width - (#items-1)*interval)/2 + width/2
+    end 
+   
     for key, var in pairs(items) do
         var:setPosition(beganPos + (key-1)*(width + interval), uiPanel_operation:getContentSize().height/2)
     end

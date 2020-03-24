@@ -664,6 +664,7 @@ function NewClubPartnerLayer:insertOncePartnerMember(data, listView)
     local Text_cyNum = ccui.Helper:seekWidgetByName(item, "Text_cyNum")
     local Text_ybNum = ccui.Helper:seekWidgetByName(item, "Text_ybNum")
     local Text_jfNum = ccui.Helper:seekWidgetByName(item, "Text_jfNum")
+    local Button_lookZJ = ccui.Helper:seekWidgetByName(item, "Button_lookZJ")
     local Button_setOffice = ccui.Helper:seekWidgetByName(item, "Button_setOffice")
     local Button_stop = ccui.Helper:seekWidgetByName(item, "Button_stop")
     local Button_quit = ccui.Helper:seekWidgetByName(item, "Button_quit")
@@ -688,11 +689,13 @@ function NewClubPartnerLayer:insertOncePartnerMember(data, listView)
     self:setStopPlayState(item, data.isProhibit, data.cbOnlineStatus)
     
     if data.dwUserID == UserData.User.userID then
+        Button_lookZJ:setVisible(false)
         Button_setOffice:setVisible(false)
     	Button_stop:setVisible(false)
 	    Button_quit:setVisible(false)
 	    Button_add:setVisible(true)
     else
+        Button_lookZJ:setVisible(true)
         Button_setOffice:setVisible(true)
     	Button_stop:setVisible(true)
 	    Button_quit:setVisible(true)
@@ -701,11 +704,13 @@ function NewClubPartnerLayer:insertOncePartnerMember(data, listView)
 
     if self:isAdmin(UserData.User.userID) then
         if self.clubData.dwUserID == data.dwUserID then
+            Button_lookZJ:setVisible(false)
             Button_setOffice:setVisible(false)
             Button_stop:setVisible(false)
             Button_quit:setVisible(false)
             Button_add:setVisible(true)
         elseif data.dwUserID == UserData.User.userID then
+            Button_lookZJ:setVisible(false)
             Button_setOffice:setVisible(false)
             Button_stop:setVisible(false)
             Button_quit:setVisible(false)
@@ -725,9 +730,14 @@ function NewClubPartnerLayer:insertOncePartnerMember(data, listView)
         --群主或管理员没有管家设置
         Button_setOffice:setVisible(false)
         Image_memFlag:setVisible(false)
-        Button_stop:setPositionY(47)
-        Button_quit:setPositionY(47)
+        -- Button_stop:setPositionY(47)
+        -- Button_quit:setPositionY(47)
     end
+
+    Common:addTouchEventListener(Button_lookZJ, function()
+        local box = require("app.MyApp"):create(self.clubData,self:isAdmin(UserData.User.userID),data.dwUserID):createView('NewClubRecord')
+        self:addChild(box)
+    end)
 
     Common:addTouchEventListener(Button_setOffice, function()
        if Button_setOffice:getTitleText() == '设置管家' then
@@ -894,6 +904,7 @@ function NewClubPartnerLayer:insertMyPushPartnerItme(data)
     local Text_playerNum = ccui.Helper:seekWidgetByName(item, "Text_playerNum")
     local Text_ybNum = ccui.Helper:seekWidgetByName(item, "Text_ybNum")
     local Button_pushCtr = ccui.Helper:seekWidgetByName(item, "Button_pushCtr")
+    local Button_lookZJ = ccui.Helper:seekWidgetByName(item, "Button_lookZJ")
     Text_fatigueNum:setColor(cc.c3b(131, 88, 45))
     Text_name:setColor(cc.c3b(131, 88, 45))
     Text_id:setColor(cc.c3b(131, 88, 45))
@@ -904,8 +915,7 @@ function NewClubPartnerLayer:insertMyPushPartnerItme(data)
 
     if data.dwUserID == self.pCurID then
         if self.clubData.dwUserID == UserData.User.userID or self:isAdmin(UserData.User.userID) then
-            local path = 'kwxclub/club_partner_6.png'
-            Button_pushCtr:loadTextures(path, path, path)
+            Button_pushCtr:setTitleText('调配成员')
             Common:addTouchEventListener(Button_pushCtr, function()
                 --调配成员
                 local leaderId = nil
@@ -919,8 +929,7 @@ function NewClubPartnerLayer:insertMyPushPartnerItme(data)
             Button_pushCtr:setVisible(false)
         end
     else
-        local path = 'kwxclub/club_partner_9.png'
-        Button_pushCtr:loadTextures(path, path, path)
+        Button_pushCtr:setTitleText('解绑成员')
         Common:addTouchEventListener(Button_pushCtr, function()
             --解绑成员
             require("common.MsgBoxLayer"):create(1,nil,"您确定要解绑成员？",function() 
@@ -928,6 +937,11 @@ function NewClubPartnerLayer:insertMyPushPartnerItme(data)
             end)
         end)
     end
+
+    Common:addTouchEventListener(Button_lookZJ, function()
+        local box = require("app.MyApp"):create(self.clubData,self:isAdmin(UserData.User.userID),data.dwUserID):createView('NewClubRecord')
+        self:addChild(box)
+    end)
     
     if data.isProhibit then
         Text_state:setColor(cc.c3b(255, 0, 0))
@@ -1099,7 +1113,7 @@ function NewClubPartnerLayer:RET_GET_CLUB_PARTNER(event)
             self.Button_addPartner:setVisible(true)
         else
             if CHANNEL_ID == 26 or CHANNEL_ID == 27 then
-                if data.dwPartnerLevel >= 3 then
+                if data.dwPartnerLevel >= 5 then
                     self.Button_addPartner:setVisible(false)
                 else
                     self.Button_addPartner:setVisible(true)

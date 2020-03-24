@@ -135,14 +135,19 @@ end
 function NewClubFreeTableLayer:RET_GET_CLUB_TABLE(event)
     local data = event._usedata
     Log.d(data)
-    if self:isFullPeopleTable(data) or Bit:_and(0x01, self.clubData.bIsDisable) == 0x01 then
-    	return
-    end
+    local item = self.ScrollView_table:getChildByName('free_table_' .. data.dwTableID)
 
     for i,v in ipairs(data.dwUserID) do
-    	if v == UserData.User.userID then
-    		return
-    	end
+        if v == UserData.User.userID then
+            return
+        end
+    end
+
+    if self:isFullPeopleTable(data) or Bit:_and(0x01, self.clubData.bIsDisable) == 0x01 then
+        if item then
+            item:removeFromParent()
+        end
+    	return
     end
 
     local i = #self.ScrollView_table:getChildren() + 1
@@ -150,23 +155,25 @@ function NewClubFreeTableLayer:RET_GET_CLUB_TABLE(event)
     	return
     end
 
-    local inerSize = self.ScrollView_table:getContentSize()
-    local scrollW = (inerSize.width / 2) * math.ceil(i / 2)
-    self.ScrollView_table:setInnerContainerSize(cc.size(scrollW, inerSize.height))
-    local item = self.Button_tblItem:clone()
-    self.ScrollView_table:addChild(item)
-    item.data = data
-    item:setName('free_table_' .. data.dwTableID)
-    
-    local row = i % 2
-    if row == 0 then
-        row = 2
+    if not item then
+        local inerSize = self.ScrollView_table:getContentSize()
+        local scrollW = (inerSize.width / 2) * math.ceil(i / 2)
+        self.ScrollView_table:setInnerContainerSize(cc.size(scrollW, inerSize.height))
+        item = self.Button_tblItem:clone()
+        self.ScrollView_table:addChild(item)
+        item.data = data
+        item:setName('free_table_' .. data.dwTableID)
+        
+        local row = i % 2
+        if row == 0 then
+            row = 2
+        end
+        local col = math.ceil(i / 2)
+        local x = 120 + (col - 1) * 250
+        local y = 220 - (row - 1) * 163
+        item:setPosition(x, y)
     end
-    local col = math.ceil(i / 2)
-	local x = 120 + (col - 1) * 250
-	local y = 220 - (row - 1) * 163
-	item:setPosition(x, y)
-    
+
     local Image_tableIdx = ccui.Helper:seekWidgetByName(item,"Image_tableIdx")
     local idx = self:getMoreTableIndex(data.wTableSubType)
     if idx then

@@ -28,6 +28,8 @@ function NewClubDefendLayer:onConfig()
         {"Button_errorList", "onErrorList"},
         {"Button_twoTotal", "onTwoTotal"},
         {"Button_threeTotal", "onThreeTotal"},
+        {"Button_fourTotal", "onFourTotal"},
+        {"Button_fiveTotal", "onFiveTotal"},
         {"Button_purviewSet", "onPurviewSet"},
         {"Text_timeNode"},
         {"Image_left", "onImageLeft"},
@@ -128,6 +130,8 @@ function NewClubDefendLayer:onCreate(param)
 	self.Button_errorList:setVisible(false)
 	self.Button_twoTotal:setVisible(false)
 	self.Button_threeTotal:setVisible(false)
+	self.Button_fourTotal:setVisible(false)
+	self.Button_fiveTotal:setVisible(false)
 end
 
 function NewClubDefendLayer:onClose()
@@ -207,6 +211,22 @@ function NewClubDefendLayer:research()
 		self.curSelUserID = UserData.User.userID
 		self.curTargetID = tonumber(self.TextField_memId:getString()) or 0
 		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 6, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
+
+	elseif self.curDefendPage == 7 then
+		self.ListView_twoTotal:removeAllItems()
+		self.defendIndex = 1
+		self.defendState = 0
+		self.curSelUserID = UserData.User.userID
+		self.curTargetID = tonumber(self.TextField_memId:getString()) or 0
+		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 7, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
+
+	elseif self.curDefendPage == 8 then
+		self.ListView_twoTotal:removeAllItems()
+		self.defendIndex = 1
+		self.defendState = 0
+		self.curSelUserID = UserData.User.userID
+		self.curTargetID = tonumber(self.TextField_memId:getString()) or 0
+		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 8, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
 	end
 end
 
@@ -225,7 +245,7 @@ function NewClubDefendLayer:onFindMem()
 		self.curSelUserID = UserData.User.userID
 		self.curTargetID = dwUserID
 		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 0, self.curTargetID, 0, 0, self.defendIndex)
-	elseif self.curDefendPage == 3 then
+	elseif self.curDefendPage == 2 then
 		self.ListView_refreshList:removeAllItems()
 		self.defendIndex = 1
 		self.defendState = 0
@@ -260,6 +280,20 @@ function NewClubDefendLayer:onFindMem()
 		self.curSelUserID = UserData.User.userID
 		self.curTargetID = dwUserID
 		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 6, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
+	elseif self.curDefendPage == 7 then
+		self.ListView_twoTotal:removeAllItems()
+		self.defendIndex = 1
+		self.defendState = 0
+		self.curSelUserID = UserData.User.userID
+		self.curTargetID = dwUserID
+		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 7, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
+	elseif self.curDefendPage == 8 then
+		self.ListView_twoTotal:removeAllItems()
+		self.defendIndex = 1
+		self.defendState = 0
+		self.curSelUserID = UserData.User.userID
+		self.curTargetID = dwUserID
+		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 8, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
 	end
 end
 
@@ -285,6 +319,14 @@ end
 
 function NewClubDefendLayer:onThreeTotal()
 	self:switchType(6)
+end
+
+function NewClubDefendLayer:onFourTotal()
+	self:switchType(7)
+end
+
+function NewClubDefendLayer:onFiveTotal()
+	self:switchType(8)
 end
 
 function NewClubDefendLayer:onPurviewSet()
@@ -365,13 +407,16 @@ function NewClubDefendLayer:isAdmin(userid, adminData)
     return false
 end
 
--- 1防沉迷列表 2刷新统计 3限制列表 4异常列表 5二级统计 6三级统计
+-- 1防沉迷列表 2刷新统计 3限制列表 4异常列表 5二级统计 6三级统计 7四级统计 8五级统计
 function NewClubDefendLayer:switchType(itype)
 	self.curDefendPage = itype
 	local items = self.Image_bgFrame:getChildren()
 	for i,v in ipairs(items) do
 		v:setVisible(false)
 	end
+
+	self.Text_totalNum:setString(0)
+	self.Text_noTotalNum:setString(0)
 
 	if itype == 1 then
 		self.Button_defendList:setBright(false)
@@ -380,6 +425,8 @@ function NewClubDefendLayer:switchType(itype)
 		self.Button_errorList:setBright(true)
 		self.Button_twoTotal:setBright(true)
 		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(true)
 		self.Panel_defendList:setVisible(true)
 		self.Text_timeNode:setVisible(false)
 		self.Button_cmLast:setVisible(false)
@@ -398,6 +445,8 @@ function NewClubDefendLayer:switchType(itype)
 		self.Button_errorList:setBright(true)
 		self.Button_twoTotal:setBright(true)
 		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(true)
 		self.Panel_refreshTotal:setVisible(true)
 		self.Image_refreshFrame:setVisible(true)
 		self.Image_refreshPushFrame:setVisible(false)
@@ -416,6 +465,8 @@ function NewClubDefendLayer:switchType(itype)
 		self.Button_errorList:setBright(true)
 		self.Button_twoTotal:setBright(true)
 		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(true)
 		self.Panel_limitList:setVisible(true)
 		self.Text_timeNode:setVisible(false)
 		self.ListView_limit:removeAllItems()
@@ -432,6 +483,8 @@ function NewClubDefendLayer:switchType(itype)
 		self.Button_errorList:setBright(false)
 		self.Button_twoTotal:setBright(true)
 		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(true)
 		self.Panel_errorList:setVisible(true)
 		self.Image_errorList:setVisible(true)
 		self.Image_errorPushList:setVisible(false)
@@ -450,6 +503,8 @@ function NewClubDefendLayer:switchType(itype)
 		self.Button_errorList:setBright(true)
 		self.Button_twoTotal:setBright(false)
 		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(true)
 		self.Panel_twoTotal:setVisible(true)
 		self.Image_twoFrame:setVisible(true)
 		self.Image_twoPushFrame:setVisible(false)
@@ -468,6 +523,8 @@ function NewClubDefendLayer:switchType(itype)
 		self.Button_errorList:setBright(true)
 		self.Button_twoTotal:setBright(true)
 		self.Button_threeTotal:setBright(false)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(true)
 		self.Panel_twoTotal:setVisible(true)
 		self.Image_twoFrame:setVisible(true)
 		self.Image_twoPushFrame:setVisible(false)
@@ -478,6 +535,46 @@ function NewClubDefendLayer:switchType(itype)
 		self.curSelUserID = UserData.User.userID
 		self.curTargetID = 0
 		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 6, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
+
+	elseif itype == 7 then
+		self.Button_defendList:setBright(true)
+		self.Button_refreshTotal:setBright(true)
+		self.Button_limitList:setBright(true)
+		self.Button_errorList:setBright(true)
+		self.Button_twoTotal:setBright(true)
+		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(false)
+		self.Button_fiveTotal:setBright(true)
+		self.Panel_twoTotal:setVisible(true)
+		self.Image_twoFrame:setVisible(true)
+		self.Image_twoPushFrame:setVisible(false)
+		self.Text_timeNode:setVisible(true)
+		self.ListView_twoTotal:removeAllItems()
+		self.defendIndex = 1
+		self.defendState = 0
+		self.curSelUserID = UserData.User.userID
+		self.curTargetID = 0
+		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 7, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
+
+	elseif itype == 8 then
+		self.Button_defendList:setBright(true)
+		self.Button_refreshTotal:setBright(true)
+		self.Button_limitList:setBright(true)
+		self.Button_errorList:setBright(true)
+		self.Button_twoTotal:setBright(true)
+		self.Button_threeTotal:setBright(true)
+		self.Button_fourTotal:setBright(true)
+		self.Button_fiveTotal:setBright(false)
+		self.Panel_twoTotal:setVisible(true)
+		self.Image_twoFrame:setVisible(true)
+		self.Image_twoPushFrame:setVisible(false)
+		self.Text_timeNode:setVisible(true)
+		self.ListView_twoTotal:removeAllItems()
+		self.defendIndex = 1
+		self.defendState = 0
+		self.curSelUserID = UserData.User.userID
+		self.curTargetID = 0
+		UserData.Guild:getClubAntiMemberInfo(self.clubData.dwClubID, self.curSelUserID, 8, self.curTargetID, self.beganTime, self.endTime, self.defendIndex)
 	end
 end
 
@@ -792,7 +889,7 @@ function NewClubDefendLayer:RET_CLUB_ANTI_LIST(event)
     	else
     		self:selectPage_4(data)
     	end
-    elseif self.curDefendPage == 5 or self.curDefendPage == 6 then
+    elseif self.curDefendPage == 5 or self.curDefendPage == 6 or self.curDefendPage == 7 or self.curDefendPage == 8 then
     	self:selectPage_5(data)
     end
 end
@@ -882,23 +979,54 @@ function NewClubDefendLayer:RET_CLUB_ANTI_LIMIT(event)
 		self.Button_errorList:setVisible(true)
 		self.Button_twoTotal:setVisible(false)
 		self.Button_threeTotal:setVisible(true)
-    	self.Button_threeTotal:setPositionY(264)
-    elseif self.curPartnerLevel > 2 then
-    	--三级合伙人及以上
+    	self.Button_fourTotal:setVisible(true)
+		self.Button_fiveTotal:setVisible(true)
+		self.Button_threeTotal:setPositionY(285)
+		self.Button_fourTotal:setPositionY(207)
+		self.Button_fiveTotal:setPositionY(129)
+	elseif self.curPartnerLevel == 3 then
+    	--三级合伙人
     	self.Button_limitList:setVisible(true)
 		self.Button_errorList:setVisible(true)
 		self.Button_twoTotal:setVisible(false)
 		self.Button_threeTotal:setVisible(false)
+    	self.Button_fourTotal:setVisible(true)
+		self.Button_fiveTotal:setVisible(true)
+		self.Button_fourTotal:setPositionY(285)
+		self.Button_fiveTotal:setPositionY(207)
+	elseif self.curPartnerLevel == 4 then
+    	--四级合伙人
+    	self.Button_limitList:setVisible(true)
+		self.Button_errorList:setVisible(true)
+		self.Button_twoTotal:setVisible(false)
+		self.Button_threeTotal:setVisible(false)
+    	self.Button_fourTotal:setVisible(false)
+		self.Button_fiveTotal:setVisible(true)
+		self.Button_fiveTotal:setPositionY(285)
+    elseif self.curPartnerLevel > 4 then
+    	--五级合伙人及以上
+    	self.Button_limitList:setVisible(true)
+		self.Button_errorList:setVisible(true)
+		self.Button_twoTotal:setVisible(false)
+		self.Button_threeTotal:setVisible(false)
+		self.Button_fourTotal:setVisible(false)
+		self.Button_fiveTotal:setVisible(false)
     elseif self.curPartnerLevel == 0 and not self:isAdmin(UserData.User.userID) then
+    	-- 普通成员
     	self.Button_limitList:setVisible(false)
     	self.Button_errorList:setVisible(false)
     	self.Button_twoTotal:setVisible(false)
     	self.Button_threeTotal:setVisible(false)
+    	self.Button_fourTotal:setVisible(false)
+		self.Button_fiveTotal:setVisible(false)
     else
+    	--群主，或管理员
     	self.Button_limitList:setVisible(true)
     	self.Button_errorList:setVisible(true)
     	self.Button_twoTotal:setVisible(true)
     	self.Button_threeTotal:setVisible(true)
+    	self.Button_fourTotal:setVisible(true)
+		self.Button_fiveTotal:setVisible(true)
     end
 end
 

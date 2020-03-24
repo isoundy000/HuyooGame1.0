@@ -91,6 +91,10 @@ function GameEndLayer:onCreate(pBuffer)
         end
     end
     Button_dissolve:addTouchEventListener(onEventReturn)
+
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11)  and  GameCommon.tableConfig.dwClubID ==nil and  GameCommon.tableConfig.dwClubID == 55404967 then 
+        Button_dissolve:setVisible(false)
+    end 
     
     local uiPanel_look = ccui.Helper:seekWidgetByName(self.root,"Panel_look")
     local uiButton_look = ccui.Helper:seekWidgetByName(self.root,"Button_look")
@@ -269,7 +273,7 @@ function GameEndLayer:onCreate(pBuffer)
 
     for key, var in pairs(GameCommon.player) do
         local viewID = GameCommon:getViewIDByChairID(var.wChairID)   
-        if GameCommon.gameConfig.bPlayerCount == 2 and  (CHANNEL_ID ==0 or CHANNEL_ID == 1)  and viewID == 2 then
+        if GameCommon.gameConfig.bPlayerCount == 2 and  (CHANNEL_ID ==0 or CHANNEL_ID == 1 or CHANNEL_ID == 20 or CHANNEL_ID == 21)  and viewID == 2 then
             viewID = 3
         end        
         local root = ccui.Helper:seekWidgetByName(ListView_Characterbox,string.format("Panel_Characterbox%d",viewID))

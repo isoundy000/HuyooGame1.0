@@ -75,6 +75,7 @@ function Record:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i=1,8 do
             data.fAllUserScoreScore[i] = luaFunc:readRecvLong()/100
         end 
+        data.szTableName = luaFunc:readRecvString(32) 
 
         EventMgr:dispatch(EventType.RET_CL_MAIN_RECORD_BY_TYPE0,data)
         
@@ -119,6 +120,7 @@ function Record:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i=1,8 do
             data.fAllUserScoreScore[i] = luaFunc:readRecvLong()/100
         end 
+        data.szTableName = luaFunc:readRecvString(32) 
 
         EventMgr:dispatch(EventType.RET_CL_MAIN_RECORD_BY_TYPE1,data)
     elseif netID == NetMgr.NET_LOGIC and mainCmdID == NetMsgId.MDM_CL_RECORD and subCmdID == NetMsgId.RET_CL_MAIN_RECORD_TOTAL_SCORE then
@@ -183,6 +185,7 @@ function Record:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i=1,8 do
             data.fAllUserScoreScore[i] = luaFunc:readRecvLong()/100
         end 
+        data.szTableName = luaFunc:readRecvString(32) 
 
         EventMgr:dispatch(EventType.RET_CL_MAIN_RECORD_BY_TYPE2,data)
         
@@ -227,6 +230,7 @@ function Record:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i=1,8 do
             data.fAllUserScoreScore[i] = luaFunc:readRecvLong()/100
         end 
+        data.szTableName = luaFunc:readRecvString(32) 
 
         EventMgr:dispatch(EventType.RET_CL_MAIN_RECORD_BY_TYPE3,data)
 
@@ -266,6 +270,7 @@ function Record:EVENT_TYPE_NET_RECV_MESSAGE(event)
         for i=1,8 do
             data.fUserScore[i] = luaFunc:readRecvLong()/100
         end 
+        data.szTableName = luaFunc:readRecvString(32)
 
 
         EventMgr:dispatch(EventType.SUB_CL_SUB_RECORD,data)

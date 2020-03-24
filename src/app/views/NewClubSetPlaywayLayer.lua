@@ -532,7 +532,7 @@ function NewClubSetPlaywayLayer:RET_SETTINGS_CONFIG(event)
     local data = event._usedata
     dump(data)
     if data.lRet ~= 0 then
-        require("common.MsgBoxLayer"):create(0,nil,"获取合伙人设置配置失败！")
+        -- require("common.MsgBoxLayer"):create(0,nil,"获取合伙人设置配置失败！")
         return 
     end
 

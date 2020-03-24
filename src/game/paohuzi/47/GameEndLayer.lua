@@ -91,6 +91,10 @@ function GameEndLayer:onCreate(pBuffer)
         end
     end
     Button_dissolve:addTouchEventListener(onEventReturn)
+
+    if (CHANNEL_ID == 10 or CHANNEL_ID == 11)  and  GameCommon.tableConfig.dwClubID ==nil and  GameCommon.tableConfig.dwClubID == 55404967 then 
+        Button_dissolve:setVisible(false)
+    end 
     
     local uiPanel_look = ccui.Helper:seekWidgetByName(self.root,"Panel_look")
     local uiButton_look = ccui.Helper:seekWidgetByName(self.root,"Button_look")
@@ -157,28 +161,28 @@ function GameEndLayer:onCreate(pBuffer)
     uiImage_result:setContentSize(texture:getContentSizeInPixels())   
     local distance = -90
 
-    if(pBuffer.wProvideUser== GameCommon.INVALID_CHAIR) then
-        --胡牌
-        local spt =cc.Sprite:create("zipai/table/endlayerhupai.png")
-        spt:setPosition(256 + distance,396)
-        uiPanel_look:addChild(spt)
-    else
-        local viewID = GameCommon:getViewIDByChairID(pBuffer.wProvideUser)
-        if viewID == 2 then
-            local spt =cc.Sprite:create("zipai/table/endlayerfangpao_s.png")
-            spt:setPosition(256 + distance,396)
-            uiPanel_look:addChild(spt)
-        elseif viewID == 1 then
-            local spt =cc.Sprite:create("zipai/table/endlayerfangpao.png")
-            spt:setPosition(256 + distance,396)
-            uiPanel_look:addChild(spt)
-        elseif viewID == 3 then
-            local spt =cc.Sprite:create("zipai/table/endlayerfangpao_x.png")
-            spt:setPosition(256 + distance,396)
-            uiPanel_look:addChild(spt)
-        else
-        end
-    end
+    -- if(pBuffer.wProvideUser== GameCommon.INVALID_CHAIR) then
+    --     --胡牌
+    --     local spt =cc.Sprite:create("zipai/table/endlayerhupai.png")
+    --     spt:setPosition(256 + distance,396)
+    --     uiPanel_look:addChild(spt)
+    -- else
+    --     local viewID = GameCommon:getViewIDByChairID(pBuffer.wProvideUser)
+    --     if viewID == 2 then
+    --         local spt =cc.Sprite:create("zipai/table/endlayerfangpao_s.png")
+    --         spt:setPosition(256 + distance,396)
+    --         uiPanel_look:addChild(spt)
+    --     elseif viewID == 1 then
+    --         local spt =cc.Sprite:create("zipai/table/endlayerfangpao.png")
+    --         spt:setPosition(256 + distance,396)
+    --         uiPanel_look:addChild(spt)
+    --     elseif viewID == 3 then
+    --         local spt =cc.Sprite:create("zipai/table/endlayerfangpao_x.png")
+    --         spt:setPosition(256 + distance,396)
+    --         uiPanel_look:addChild(spt)
+    --     else
+    --     end
+    -- end
     if GameCommon.tableConfig.nTableType  ~= TableType_GoldRoom then
         uiImage_iconjb:loadTexture("game/game_table_score.png")
     end
@@ -269,7 +273,7 @@ function GameEndLayer:onCreate(pBuffer)
 
     for key, var in pairs(GameCommon.player) do
         local viewID = GameCommon:getViewIDByChairID(var.wChairID) 
-        if GameCommon.gameConfig.bPlayerCount == 2 and  (CHANNEL_ID ==0 or CHANNEL_ID == 1)  and viewID == 2 then
+        if GameCommon.gameConfig.bPlayerCount == 2 and  (CHANNEL_ID ==0 or CHANNEL_ID == 1 or CHANNEL_ID == 20 or CHANNEL_ID == 21)  and viewID == 2 then
             viewID = 3
         end          
         local root = ccui.Helper:seekWidgetByName(ListView_Characterbox,string.format("Panel_Characterbox%d",viewID))
@@ -461,68 +465,59 @@ function GameEndLayer:showMingTang(pBuffer)
     if wHZCount >= 13 then
         --红乌
         local item = uiPanel_defaultPalyer:clone()
-        self:createMingTang(item,"hongwu",4,"","fan")
+        self:createMingTang(item,"红乌",string.format("%d番",4))
         uiListView_player:pushBackCustomItem(item)
     elseif wHZCount>=10 then
         --红胡
         local item = uiPanel_defaultPalyer:clone()
-        self:createMingTang(item,"honghu",2,"","fan")
+        self:createMingTang(item,"红胡",string.format("%d番",2))
         uiListView_player:pushBackCustomItem(item)
     end
     --自摸判断
     if Bit:_and(pBuffer.wType,self.PHZ_HT_ZIMO)~= 0 then
         local item = uiPanel_defaultPalyer:clone()
-        self:createMingTang(item,"zimo",1,"+","tun")
+        self:createMingTang(item,"自摸",string.format("%d囤",1))
         uiListView_player:pushBackCustomItem(item)
         
     end    
     --点胡
     if Bit:_and(pBuffer.wType,self.PHZ_HT_ZHENGDIANHU) ~= 0 then
         local item = uiPanel_defaultPalyer:clone()
-        self:createMingTang(item,"dianhu",3,"","fan")
+        self:createMingTang(item,"点胡",string.format("%d番",3))
         uiListView_player:pushBackCustomItem(item)
         
     end
     if Bit:_and(pBuffer.wType,self.PHZ_HT_HEIWU) ~= 0 then
         --黑胡
         local item = uiPanel_defaultPalyer:clone()
-        self:createMingTang(item,"heihu",5,"","fan")
+        self:createMingTang(item,"黑胡",string.format("%d番",5))
         uiListView_player:pushBackCustomItem(item)
     end
     uiPanel_defaultPalyer:release()
 end
 
-function GameEndLayer:createMingTang(item,mingTang,num,numType,unit)
-    local uiImage_name = ccui.ImageView:create(string.format("zipai/table/end_play_%s.png",mingTang))
-    item:addChild(uiImage_name)
-    uiImage_name:setAnchorPoint(cc.p(0,0.5))
-    uiImage_name:setPosition(cc.p(-uiImage_name:getParent():getContentSize().width*0.2,uiImage_name:getParent():getContentSize().height/2))
+function GameEndLayer:createMingTang(item,mingTang,num)
+    if mingTang ~= "" then
+        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","26")
+        uiText_OfflineTime:setName('Text_OfflineTime')
+        uiText_OfflineTime:setTextColor(cc.c3b(244,216,134)) 
+        uiText_OfflineTime:enableOutline(cc.c4b(226, 139, 47), 2)
+        uiText_OfflineTime:setAnchorPoint(cc.p(0,0.5))
+        item:addChild(uiText_OfflineTime,100)
+        uiText_OfflineTime:setPosition(cc.p(uiText_OfflineTime:getParent():getContentSize().width*0.1,uiText_OfflineTime:getParent():getContentSize().height/2))                
+        uiText_OfflineTime:setString(string.format("%s",mingTang))         
+    end 
 
-    if numType == "+" then--加
-        local uiAtlasLabel_num = ccui.TextAtlas:create(string.format(".%d",num),"fonts/fonts_9.png",18,27,'.')
-        item:addChild(uiAtlasLabel_num)
-        uiAtlasLabel_num:setAnchorPoint(cc.p(1,0.5))
-        uiAtlasLabel_num:setPosition(cc.p(uiAtlasLabel_num:getParent():getContentSize().width*0.8,uiAtlasLabel_num:getParent():getContentSize().height/2))
-    elseif numType == "-" then--减
-        local uiAtlasLabel_num = ccui.TextAtlas:create(string.format(".%d",num),"fonts/fonts_10.png",18,27,'.')
-        item:addChild(uiAtlasLabel_num)
-        uiAtlasLabel_num:setAnchorPoint(cc.p(1,0.5))
-        uiAtlasLabel_num:setPosition(cc.p(uiAtlasLabel_num:getParent():getContentSize().width*0.8,uiAtlasLabel_num:getParent():getContentSize().height/2))
-    else
-        --乘
-        local uiAtlasLabel_num = ccui.TextAtlas:create(string.format("%d",num),"fonts/fonts_8.png",18,27,'.')
-        item:addChild(uiAtlasLabel_num)
-        uiAtlasLabel_num:setAnchorPoint(cc.p(1,0.5))
-        uiAtlasLabel_num:setPosition(cc.p(uiAtlasLabel_num:getParent():getContentSize().width*0.8,uiAtlasLabel_num:getParent():getContentSize().height/2))
-    end
-    if unit ~= "" then
-        local uiImage_type = ccui.ImageView:create(string.format("zipai/table/end_play_%s.png",unit))
-        item:addChild(uiImage_type)
-        uiImage_type:setAnchorPoint(cc.p(0,0.5))
-        uiImage_type:setPosition(cc.p(uiImage_type:getParent():getContentSize().width*0.55,uiImage_type:getParent():getContentSize().height/2))
-    else
-    
-    end
+    if num ~= "" then
+        local uiText_OfflineTime = ccui.Text:create("0","fonts/DFYuanW7-GB2312.ttf","26")
+        uiText_OfflineTime:setName('Text_OfflineTime')
+        uiText_OfflineTime:setString(string.format("%s",num))         
+        uiText_OfflineTime:setTextColor(cc.c3b(244,216,134)) 
+        uiText_OfflineTime:enableOutline(cc.c4b(226, 139, 47), 2)
+        uiText_OfflineTime:setAnchorPoint(cc.p(1,0.5))
+        item:addChild(uiText_OfflineTime,100)
+        uiText_OfflineTime:setPosition(cc.p(uiText_OfflineTime:getParent():getContentSize().width*0.8,uiText_OfflineTime:getParent():getContentSize().height/2))                       
+    end 
 end
 
 --显示底牌

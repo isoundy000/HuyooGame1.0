@@ -95,6 +95,28 @@ function RoomCreateLayer:onCreate(parameter)
             var:setEnabled(true)
             var:setColor(cc.c3b(255,255,255))
         end
+
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+        Common:addCheckTouchEventListener(items)
+        if index == 2 then
+            local isHave = false
+            for key, var in pairs(items) do
+        		var:setColor(cc.c3b(255,255,255))
+                var:setEnabled(true)
+                if var:isBright() then
+                    isHave = true
+                end
+        	end
+        	if isHave == false then
+                items[1]:setBright(true)
+        	end
+        else
+            for key, var in pairs(items) do
+                var:setColor(cc.c3b(170,170,170))
+                var:setEnabled(false)
+                var:setBright(false)
+            end
+        end
     end)
     if self.recordCreateParameter["bPlayerCount"] ~= nil and self.recordCreateParameter["bPlayerCount"] == 2 then
         items[2]:setBright(true)
@@ -178,11 +200,34 @@ function RoomCreateLayer:onCreate(parameter)
     if self.recordCreateParameter["bHuangFanAddUp"] == nil or self.recordCreateParameter["bHuangFanAddUp"] ~= 2 then
         items[4]:setBright(true)
     end
+   
+    --选择亡牌
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items)
+    if self.recordCreateParameter["bPlayerCount"] == nil or self.recordCreateParameter["bPlayerCount"] ~= 2 then
+        for key, var in pairs(items) do
+            var:setBright(false)
+            var:setEnabled(false)
+            var:setColor(cc.c3b(170,170,170))
+        end
+    elseif self.recordCreateParameter["bDeathCard"] ~= nil and self.recordCreateParameter["bDeathCard"] == 1 then
+        items[2]:setBright(true)
+    else
+        items[1]:setBright(true)
+    end
 
     --选择托管时间
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items,false,function(index) 
-        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+        if index == 1 or index == 2 or index == 3 or index == 4 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+            end
+        end
+
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
         if index == 1 then         
             for key, var in pairs(items) do
                 var:setBright(false)
@@ -210,12 +255,41 @@ function RoomCreateLayer:onCreate(parameter)
         items[3]:setBright(true)
     elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 3 then
         items[4]:setBright(true)
-    else
+    elseif self.recordCreateParameter["bHostedTime"] == nil or self.recordCreateParameter["bHostedTime"] == 0 then
+        items[1]:setBright(true)
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    Common:addCheckTouchEventListener(items,false,function(index) 
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+        if index == 1 then         
+            for key, var in pairs(items) do
+                var:setBright(false)
+            end
+        end
+        local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
+        if index == 1 then         
+            local isHaveDefault = false
+            for key, var in pairs(items) do
+                var:setEnabled(true)
+                var:setColor(cc.c3b(255,255,255)) 
+                if var:isBright() then
+                    isHaveDefault = true
+                end
+            end
+            if isHaveDefault == false then
+                items[1]:setBright(true)
+            end
+        end
+    end)
+    if self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] ~= 5 then
+        items[1]:setBright(false)
+    elseif self.recordCreateParameter["bHostedTime"] ~= nil and self.recordCreateParameter["bHostedTime"] == 5 then
         items[1]:setBright(true)
     end
 
     --选择托管局数
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     Common:addCheckTouchEventListener(items)
     if self.recordCreateParameter["bHostedTime"] == nil or self.recordCreateParameter["bHostedTime"] == 0 then
         for key, var in pairs(items) do
@@ -374,18 +448,32 @@ function RoomCreateLayer:onEventCreate(nTableType)
         tableParameter.bHuangFanAddUp = 2
     end
 
+    --亡牌
     local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(6),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
+        tableParameter.bDeathCard = 0
+    elseif items[2]:isBright() then
+        tableParameter.bDeathCard = 1
+    else
+        tableParameter.bDeathCard = 0
+    end
+
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.bHostedTime = 0
     elseif items[2]:isBright() then
         tableParameter.bHostedTime = 1
     elseif items[3]:isBright() then
-        tableParameter.bHostedTime = 3
+        tableParameter.bHostedTime = 2
     elseif items[4]:isBright() then
+        tableParameter.bHostedTime = 3
+    end  
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(8),"ListView_parameter"):getItems()
+    if items[1]:isBright() then
         tableParameter.bHostedTime = 5
     end  
     tableParameter.bHostedSession = 0
-    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(7),"ListView_parameter"):getItems()
+    local items = ccui.Helper:seekWidgetByName(uiListView_parameterList:getItem(9),"ListView_parameter"):getItems()
     if items[1]:isBright() then
         tableParameter.bHostedSession = 1
     elseif items[2]:isBright() then
@@ -409,7 +497,7 @@ function RoomCreateLayer:onEventCreate(nTableType)
     tableParameter.bSocreType = 1
 
 
-    tableParameter.bDeathCard = 0
+   -- tableParameter.bDeathCard = 0
     tableParameter.bStartBanker = 0
     
    if self.showType ~= 2 and (nTableType == TableType_FriendRoom or nTableType == TableType_HelpRoom) then

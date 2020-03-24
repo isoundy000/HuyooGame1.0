@@ -105,9 +105,13 @@ function PleaseOnlinePlayerLayer:addOnlineMember(data)
 		return
 	end
 
-	local item = self.Image_item:clone()
-    self.ScrollView_1:addChild(item)
-    item:setName('online_' .. data.dwUserID)
+    local item = self.ScrollView_1:getChildByName('online_' .. data.dwUserID)
+    if not item then
+        item = self.Image_item:clone()
+        self.ScrollView_1:addChild(item)
+        item:setName('online_' .. data.dwUserID)
+    end
+
     self:setCloneItem(item, data)
     local items = self.ScrollView_1:getChildren()
     local length = #items

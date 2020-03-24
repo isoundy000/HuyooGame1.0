@@ -440,7 +440,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
             if GameCommon.tableConfig.szTableName ~= nil and GameCommon.tableConfig.szTableName ~="" then  
                 local uiText_table = ccui.Helper:seekWidgetByName(self.root,"Text_table")
                 uiText_table:setString(GameCommon.tableConfig.szTableName)
-                local CellScore = GameCommon.tableConfig.wCellScore / GameCommon.tableConfig.wTableCellDenominator
+                --local CellScore = GameCommon.tableConfig.wCellScore / GameCommon.tableConfig.wTableCellDenominator
                 --uiText_table:setString(GameCommon.tableConfig.szTableName..string.format(" 倍率:%0.2f",CellScore))
             end 
             return true
@@ -708,7 +708,7 @@ function GameLayer:readBuffer(luaFunc, mainCmdID, subCmdID)
                 _tagMsg.pBuffer.bDiscardCardCount[i] = luaFunc:readRecvByte()
             end 
             _tagMsg.pBuffer.bIsHuangZhuang = luaFunc:readRecvBool()--是否上把黄庄加倍
-            
+            _tagMsg.pBuffer.cbHuangFanCount = luaFunc:readRecvByte()--黄番的次数
             _tagMsg.pBuffer.bOutCardMark = {}
 			for i = 1, 4 do
 				_tagMsg.pBuffer.bOutCardMark[i] = {}
@@ -808,6 +808,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             else
                 self.tableLayer:updateLeftCardCount(80-3*20-1, true)
             end
+            self:updatePlayerlfatigue()
             self:updateBankerUser()
             self:updatePlayerInfo()
             self:updatehandplate()
@@ -1056,6 +1057,7 @@ function GameLayer:OnGameMessageRun(_tagMsg)
             if pBuffer.bResponse == 0 and pBuffer.bUserAction > 0 then
                 self.tableLayer:doAction(GameCommon.ACTION_OPERATE_NOTIFY,{wResumeUser = wChairID, cbActionCard = pBuffer.cbOutCardData, cbOperateCode = pBuffer.bUserAction, cbSubOperateCode = pBuffer.bSubUserAction})
             end
+            self:updatePlayerlfatigue()
             self:updatePlayerInfo()
             self:updatehandplate()
             self.tableLayer:updateLeftCardCount(pBuffer.bLeftCardCount)
@@ -1184,6 +1186,9 @@ end
 
 function GameLayer:updatePlayerlfatigue()
     if GameCommon.gameConfig == nil then
+        return
+    end
+    if GameCommon.tableConfig == nil or GameCommon.tableConfig.fUserScore == nil then
         return
     end
     for i = 1 , GameCommon.gameConfig.bPlayerCount do

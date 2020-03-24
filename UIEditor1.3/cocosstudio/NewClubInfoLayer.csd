@@ -41,793 +41,14 @@
                 <PreSize X="0.3656" Y="0.7750" />
                 <FileData Type="Normal" Path="kwxclub/newclub_join4.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="ScrollView_clubTbl" ActionTag="388120303" Tag="869" IconVisible="False" LeftMargin="30.0000" RightMargin="50.0000" TopMargin="104.0000" BottomMargin="136.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
-                <Size X="1200.0000" Y="480.0000" />
-                <Children>
-                  <AbstractNodeData Name="Button_tblItem" Visible="False" ActionTag="-126897809" VisibleForFrame="False" Tag="182" IconVisible="False" LeftMargin="-4.5000" RightMargin="913.5000" TopMargin="-4.5000" BottomMargin="255.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="261" Scale9Height="207" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                    <Size X="291.0000" Y="229.0000" />
-                    <Children>
-                      <AbstractNodeData Name="Text_wayName" ActionTag="516043803" Tag="196" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="74.0000" RightMargin="74.0000" TopMargin="52.0397" BottomMargin="143.9603" FontSize="26" LabelText="1圆红中麻将" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                        <Size X="143.0000" Y="33.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="145.5000" Y="160.4603" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.7007" />
-                        <PreSize X="0.4914" Y="0.1441" />
-                        <FontResource Type="Normal" Path="fonts/fzcy.TTF" Plist="" />
-                        <OutlineColor A="255" R="0" G="29" B="255" />
-                        <ShadowColor A="255" R="110" G="110" B="110" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Text_turnNum" ActionTag="-290732140" Tag="198" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="113.0000" RightMargin="113.0000" TopMargin="81.4777" BottomMargin="117.5223" FontSize="24" LabelText="0/8局" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                        <Size X="65.0000" Y="30.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="145.5000" Y="132.5223" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="208" G="179" B="100" />
-                        <PrePosition X="0.5000" Y="0.5787" />
-                        <PreSize X="0.2234" Y="0.1310" />
-                        <FontResource Type="Normal" Path="fonts/fzcy.TTF" Plist="" />
-                        <OutlineColor A="255" R="105" G="91" B="91" />
-                        <ShadowColor A="255" R="110" G="110" B="110" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Panel_normal" Visible="False" ActionTag="-637341422" VisibleForFrame="False" Tag="183" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="18.4630" RightMargin="22.5370" TopMargin="-7.8396" BottomMargin="-2.1604" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                        <Size X="250.0000" Y="239.0000" />
-                        <Children>
-                          <AbstractNodeData Name="Panel_head1" ActionTag="-1953726630" VisibleForFrame="False" Tag="184" IconVisible="False" LeftMargin="49.6081" RightMargin="200.3919" TopMargin="150.3720" BottomMargin="88.6280" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-552913029" Tag="185" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
-                                <Size X="65.0000" Y="65.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-241259544" Tag="186" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
-                                <Size X="77.0000" Y="80.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_playerName" ActionTag="928458391" Tag="159" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="67.0000" Y="16.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="38.5000" Y="13.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.1625" />
-                                    <PreSize X="0.8701" Y="0.2000" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position Y="-6.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="49.6081" Y="88.6280" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1984" Y="0.3708" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head2" ActionTag="580477845" VisibleForFrame="False" Tag="193" IconVisible="False" LeftMargin="205.7434" RightMargin="44.2566" TopMargin="151.2308" BottomMargin="87.7692" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-1463085248" Tag="194" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
-                                <Size X="65.0000" Y="65.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1423038033" Tag="195" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
-                                <Size X="77.0000" Y="80.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_playerName" ActionTag="-2032085155" Tag="160" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="67.0000" Y="16.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="38.5000" Y="13.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.1625" />
-                                    <PreSize X="0.8701" Y="0.2000" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position Y="-6.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="205.7434" Y="87.7692" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8230" Y="0.3672" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head3" ActionTag="-1805773584" VisibleForFrame="False" Tag="187" IconVisible="False" LeftMargin="210.6656" RightMargin="39.3344" TopMargin="24.6811" BottomMargin="214.3189" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="1376256372" Tag="188" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
-                                <Size X="65.0000" Y="65.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="1713622977" Tag="189" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
-                                <Size X="77.0000" Y="80.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_playerName" ActionTag="1100926069" Tag="161" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="67.0000" Y="16.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="38.5000" Y="13.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.1625" />
-                                    <PreSize X="0.8701" Y="0.2000" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position Y="-6.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="210.6656" Y="214.3189" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8427" Y="0.8967" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head4" ActionTag="-1335603476" VisibleForFrame="False" Tag="190" IconVisible="False" LeftMargin="47.5891" RightMargin="202.4109" TopMargin="24.2230" BottomMargin="214.7770" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="114676898" Tag="191" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
-                                <Size X="65.0000" Y="65.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1343664193" Tag="192" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
-                                <Size X="77.0000" Y="80.0000" />
-                                <Children>
-                                  <AbstractNodeData Name="Text_playerName" ActionTag="-810470915" Tag="162" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                    <Size X="67.0000" Y="16.0000" />
-                                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                    <Position X="38.5000" Y="13.0000" />
-                                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                    <CColor A="255" R="255" G="255" B="255" />
-                                    <PrePosition X="0.5000" Y="0.1625" />
-                                    <PreSize X="0.8701" Y="0.2000" />
-                                    <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
-                                    <OutlineColor A="255" R="255" G="0" B="0" />
-                                    <ShadowColor A="255" R="110" G="110" B="110" />
-                                  </AbstractNodeData>
-                                </Children>
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position Y="-6.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="47.5891" Y="214.7770" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1904" Y="0.8986" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                        </Children>
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="143.4630" Y="117.3396" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.4930" Y="0.5124" />
-                        <PreSize X="0.8591" Y="1.0437" />
-                        <SingleColor A="255" R="150" G="200" B="255" />
-                        <FirstColor A="255" R="150" G="200" B="255" />
-                        <EndColor A="255" R="255" G="255" B="255" />
-                        <ColorVector ScaleY="1.0000" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Panel_tbl6" Visible="False" ActionTag="-729710760" VisibleForFrame="False" Tag="199" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="20.5000" RightMargin="20.5000" TopMargin="-5.0000" BottomMargin="-5.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                        <Size X="250.0000" Y="239.0000" />
-                        <Children>
-                          <AbstractNodeData Name="Panel_head1" ActionTag="-1205525571" VisibleForFrame="False" Tag="200" IconVisible="False" LeftMargin="43.4580" RightMargin="206.5420" TopMargin="140.7275" BottomMargin="98.2725" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="174791452" Tag="201" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1973799509" Tag="202" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="43.4580" Y="98.2725" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1738" Y="0.4112" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head2" ActionTag="-379100644" VisibleForFrame="False" Tag="203" IconVisible="False" LeftMargin="42.3194" RightMargin="207.6806" TopMargin="30.4243" BottomMargin="208.5757" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="39934446" Tag="204" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-737500026" Tag="205" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="42.3194" Y="208.5757" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1693" Y="0.8727" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head3" ActionTag="-828271089" VisibleForFrame="False" Tag="206" IconVisible="False" LeftMargin="124.0988" RightMargin="125.9012" TopMargin="9.8300" BottomMargin="229.1700" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="162899610" Tag="207" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-994977112" Tag="208" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="124.0988" Y="229.1700" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.4964" Y="0.9589" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head4" ActionTag="-926769494" VisibleForFrame="False" Tag="209" IconVisible="False" LeftMargin="208.1782" RightMargin="41.8218" TopMargin="31.1075" BottomMargin="207.8925" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-960931906" Tag="210" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="782668042" Tag="211" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="208.1782" Y="207.8925" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8327" Y="0.8698" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head5" ActionTag="-1988027091" VisibleForFrame="False" Tag="212" IconVisible="False" LeftMargin="211.5973" RightMargin="38.4027" TopMargin="133.5974" BottomMargin="105.4026" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-2024733401" Tag="213" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1582565640" Tag="214" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="211.5973" Y="105.4026" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8464" Y="0.4410" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head6" ActionTag="-1007295291" VisibleForFrame="False" Tag="215" IconVisible="False" LeftMargin="123.8620" RightMargin="126.1380" TopMargin="170.5200" BottomMargin="68.4800" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-1602117237" Tag="216" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="376119685" Tag="217" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="123.8620" Y="68.4800" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.4954" Y="0.2865" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                        </Children>
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="145.5000" Y="114.5000" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.5000" />
-                        <PreSize X="0.8591" Y="1.0437" />
-                        <SingleColor A="255" R="150" G="200" B="255" />
-                        <FirstColor A="255" R="150" G="200" B="255" />
-                        <EndColor A="255" R="255" G="255" B="255" />
-                        <ColorVector ScaleY="1.0000" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Panel_tbl8" Visible="False" ActionTag="2012244840" VisibleForFrame="False" Tag="196" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="20.5000" RightMargin="20.5000" TopMargin="-5.0000" BottomMargin="-5.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                        <Size X="250.0000" Y="239.0000" />
-                        <Children>
-                          <AbstractNodeData Name="Panel_head1" ActionTag="23862521" VisibleForFrame="False" Tag="197" IconVisible="False" LeftMargin="39.4780" RightMargin="210.5220" TopMargin="146.3763" BottomMargin="92.6237" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-1988044150" Tag="198" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1237215601" Tag="199" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="39.4780" Y="92.6237" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1579" Y="0.3875" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head2" ActionTag="-1040172498" VisibleForFrame="False" Tag="200" IconVisible="False" LeftMargin="-2.7200" RightMargin="252.7200" TopMargin="87.4875" BottomMargin="151.5125" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="1145787514" Tag="201" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-663036531" Tag="202" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="-2.7200" Y="151.5125" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="-0.0109" Y="0.6339" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head3" ActionTag="1653592296" VisibleForFrame="False" Tag="203" IconVisible="False" LeftMargin="40.8000" RightMargin="209.2000" TopMargin="19.4200" BottomMargin="219.5800" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-1251155362" Tag="204" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="1259073956" Tag="205" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="40.8000" Y="219.5800" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1632" Y="0.9187" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head4" ActionTag="-1918679128" VisibleForFrame="False" Tag="206" IconVisible="False" LeftMargin="127.0200" RightMargin="122.9800" TopMargin="6.5571" BottomMargin="232.4429" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="133105345" Tag="207" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="131526994" Tag="208" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="127.0200" Y="232.4429" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5081" Y="0.9726" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head5" ActionTag="-829263334" VisibleForFrame="False" Tag="209" IconVisible="False" LeftMargin="208.1100" RightMargin="41.8900" TopMargin="23.5600" BottomMargin="215.4400" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-776807365" Tag="210" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1234100262" Tag="211" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="208.1100" Y="215.4400" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8324" Y="0.9014" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head6" ActionTag="655982819" VisibleForFrame="False" Tag="212" IconVisible="False" LeftMargin="250.2500" RightMargin="-0.2500" TopMargin="91.6200" BottomMargin="147.3800" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-381802786" Tag="213" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1820783081" Tag="214" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="250.2500" Y="147.3800" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="1.0010" Y="0.6167" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head7" ActionTag="2100471930" VisibleForFrame="False" Tag="218" IconVisible="False" LeftMargin="204.2800" RightMargin="45.7200" TopMargin="148.0700" BottomMargin="90.9300" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-538045882" Tag="219" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-828452342" Tag="220" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="204.2800" Y="90.9300" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.8171" Y="0.3805" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="Panel_head8" ActionTag="-1123763493" VisibleForFrame="False" Tag="221" IconVisible="False" LeftMargin="117.2836" RightMargin="132.7164" TopMargin="173.4700" BottomMargin="65.5300" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="0.0000" Y="0.0000" />
-                            <Children>
-                              <AbstractNodeData Name="Image_avatar" ActionTag="-1177422367" Tag="222" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
-                                <Size X="73.0000" Y="73.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1218215156" Tag="223" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
-                                <Size X="83.0000" Y="87.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition />
-                                <PreSize X="0.0000" Y="0.0000" />
-                                <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint />
-                            <Position X="117.2836" Y="65.5300" />
-                            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.4691" Y="0.2742" />
-                            <PreSize X="0.0000" Y="0.0000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                        </Children>
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="145.5000" Y="114.5000" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.5000" />
-                        <PreSize X="0.8591" Y="1.0437" />
-                        <SingleColor A="255" R="150" G="200" B="255" />
-                        <FirstColor A="255" R="150" G="200" B="255" />
-                        <EndColor A="255" R="255" G="255" B="255" />
-                        <ColorVector ScaleY="1.0000" />
-                      </AbstractNodeData>
-                    </Children>
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="141.0000" Y="370.0000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.1175" Y="0.7708" />
-                    <PreSize X="0.2425" Y="0.4771" />
-                    <TextColor A="255" R="65" G="65" B="70" />
-                    <DisabledFileData Type="Normal" Path="kwxclub/table/b11.png" Plist="" />
-                    <PressedFileData Type="Normal" Path="kwxclub/table/b11.png" Plist="" />
-                    <NormalFileData Type="Normal" Path="kwxclub/table/b11.png" Plist="" />
-                    <OutlineColor A="255" R="255" G="0" B="0" />
-                    <ShadowColor A="255" R="110" G="110" B="110" />
-                  </AbstractNodeData>
-                </Children>
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="30.0000" Y="376.0000" />
+              <AbstractNodeData Name="Node_tableView" ActionTag="-899415998" Tag="286" IconVisible="True" RightMargin="1280.0000" TopMargin="720.0000" ctype="SingleNodeObjectData">
+                <Size X="0.0000" Y="0.0000" />
+                <AnchorPoint />
+                <Position />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0234" Y="0.5222" />
-                <PreSize X="0.9375" Y="0.6667" />
-                <SingleColor A="255" R="255" G="150" B="100" />
-                <FirstColor A="255" R="255" G="150" B="100" />
-                <EndColor A="255" R="255" G="255" B="255" />
-                <ColorVector ScaleY="1.0000" />
-                <InnerNodeSize Width="1200" Height="480" />
+                <PrePosition />
+                <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
               <AbstractNodeData Name="Panel_ui" ActionTag="-1561009892" Tag="51" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1280.0000" Y="720.0000" />
@@ -1290,7 +511,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Button_ybFrame" Visible="False" ActionTag="-1150581893" Tag="362" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="451.2920" RightMargin="639.7080" TopMargin="6.5881" BottomMargin="665.4119" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Button_ybFrame" ActionTag="-1150581893" Tag="362" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="451.2920" RightMargin="639.7080" TopMargin="6.5881" BottomMargin="665.4119" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
                     <Size X="189.0000" Y="48.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_yuanbaoNum" ActionTag="1873828480" Tag="363" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="35.0683" RightMargin="60.9317" TopMargin="7.3472" BottomMargin="14.6528" FontSize="26" LabelText="9999999" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -1324,9 +545,9 @@
                         <PrePosition X="0.9773" Y="0.5292" />
                         <PreSize X="0.4815" Y="1.0000" />
                         <TextColor A="255" R="65" G="65" B="70" />
-                        <DisabledFileData Type="Normal" Path="hall_6/hall_goumai.png" Plist="" />
-                        <PressedFileData Type="Normal" Path="hall_6/hall_goumai.png" Plist="" />
-                        <NormalFileData Type="Normal" Path="hall_6/hall_goumai.png" Plist="" />
+                        <DisabledFileData Type="Normal" Path="common/hall_chongzi.png" Plist="" />
+                        <PressedFileData Type="Normal" Path="common/hall_chongzi.png" Plist="" />
+                        <NormalFileData Type="Normal" Path="common/hall_chongzi.png" Plist="" />
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
@@ -1337,9 +558,9 @@
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.4264" Y="0.9575" />
                     <PreSize X="0.1477" Y="0.0667" />
-                    <FileData Type="Normal" Path="hall_6/hall_goldbg.png" Plist="" />
+                    <FileData Type="Normal" Path="common/hall_goldbg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_lAntiValue" ActionTag="1714601695" Tag="138" IconVisible="False" LeftMargin="427.1729" RightMargin="663.8271" TopMargin="0.7203" BottomMargin="671.2797" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_lAntiValue" Visible="False" ActionTag="1714601695" VisibleForFrame="False" Tag="138" IconVisible="False" LeftMargin="427.1729" RightMargin="663.8271" TopMargin="6.5900" BottomMargin="665.4100" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
                     <Size X="189.0000" Y="48.0000" />
                     <Children>
                       <AbstractNodeData Name="Text_lAntiValue" ActionTag="-602840310" Tag="291" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="17.5014" RightMargin="68.4986" TopMargin="6.4984" BottomMargin="10.5016" FontSize="26" LabelText="沉迷值:0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -1356,10 +577,44 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="521.6729" Y="695.2797" />
+                    <Position X="521.6729" Y="689.4100" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.4076" Y="0.9657" />
+                    <PrePosition X="0.4076" Y="0.9575" />
+                    <PreSize X="0.1477" Y="0.0667" />
+                    <FileData Type="Normal" Path="common/hall_goldbg.png" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Button_fkFrame" Visible="False" ActionTag="909333435" VisibleForFrame="False" Tag="423" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="716.2520" RightMargin="374.7480" TopMargin="6.5900" BottomMargin="665.4100" LeftEage="62" RightEage="62" TopEage="15" BottomEage="15" Scale9OriginX="62" Scale9OriginY="15" Scale9Width="65" Scale9Height="18" ctype="ImageViewObjectData">
+                    <Size X="189.0000" Y="48.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Text_fkNum" ActionTag="662485751" Tag="424" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="37.0683" RightMargin="58.9317" TopMargin="7.3472" BottomMargin="14.6528" FontSize="26" LabelText="9999999" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="93.0000" Y="26.0000" />
+                        <AnchorPoint ScaleY="0.5000" />
+                        <Position X="37.0683" Y="27.6528" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="0" />
+                        <PrePosition X="0.1961" Y="0.5761" />
+                        <PreSize X="0.4921" Y="0.5417" />
+                        <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_fkIcon" ActionTag="1904015194" Tag="425" IconVisible="False" LeftMargin="-24.9165" RightMargin="145.9165" TopMargin="-13.3495" BottomMargin="-2.6505" LeftEage="22" RightEage="22" TopEage="11" BottomEage="11" Scale9OriginX="22" Scale9OriginY="11" Scale9Width="24" Scale9Height="42" ctype="ImageViewObjectData">
+                        <Size X="68.0000" Y="64.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="9.0835" Y="29.3495" />
+                        <Scale ScaleX="0.7500" ScaleY="0.7500" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.0481" Y="0.6114" />
+                        <PreSize X="0.3598" Y="1.3333" />
+                        <FileData Type="Normal" Path="common/hall_roomcard.png" Plist="" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="810.7520" Y="689.4100" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.6334" Y="0.9575" />
                     <PreSize X="0.1477" Y="0.0667" />
                     <FileData Type="Normal" Path="common/hall_goldbg.png" Plist="" />
                   </AbstractNodeData>
@@ -1778,6 +1033,778 @@
                 <FirstColor A="255" R="150" G="200" B="255" />
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Button_tblItem" ActionTag="-126897809" Tag="182" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="302.1640" RightMargin="686.8360" TopMargin="808.5400" BottomMargin="-317.5400" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="261" Scale9Height="207" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="291.0000" Y="229.0000" />
+                <Children>
+                  <AbstractNodeData Name="Text_wayName" ActionTag="516043803" Tag="196" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="74.0000" RightMargin="74.0000" TopMargin="52.0397" BottomMargin="143.9603" FontSize="26" LabelText="1圆红中麻将" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="143.0000" Y="33.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="145.5000" Y="160.4603" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="0.7007" />
+                    <PreSize X="0.4914" Y="0.1441" />
+                    <FontResource Type="Normal" Path="fonts/fzcy.TTF" Plist="" />
+                    <OutlineColor A="255" R="0" G="29" B="255" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Text_turnNum" ActionTag="-290732140" Tag="198" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="113.0000" RightMargin="113.0000" TopMargin="81.4777" BottomMargin="117.5223" FontSize="24" LabelText="0/8局" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="65.0000" Y="30.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="145.5000" Y="132.5223" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="208" G="179" B="100" />
+                    <PrePosition X="0.5000" Y="0.5787" />
+                    <PreSize X="0.2234" Y="0.1310" />
+                    <FontResource Type="Normal" Path="fonts/fzcy.TTF" Plist="" />
+                    <OutlineColor A="255" R="105" G="91" B="91" />
+                    <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Panel_normal" Visible="False" ActionTag="-637341422" VisibleForFrame="False" Tag="183" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="18.4630" RightMargin="22.5370" TopMargin="-7.8396" BottomMargin="-2.1604" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                    <Size X="250.0000" Y="239.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Panel_head1" ActionTag="-1953726630" VisibleForFrame="False" Tag="184" IconVisible="False" LeftMargin="49.6081" RightMargin="200.3919" TopMargin="150.3720" BottomMargin="88.6280" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-552913029" Tag="185" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
+                            <Size X="65.0000" Y="65.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-241259544" Tag="186" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
+                            <Size X="77.0000" Y="80.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_playerName" ActionTag="928458391" Tag="159" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="67.0000" Y="16.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="38.5000" Y="13.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="0.5000" Y="0.1625" />
+                                <PreSize X="0.8701" Y="0.2000" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position Y="-6.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="49.6081" Y="88.6280" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1984" Y="0.3708" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head2" ActionTag="580477845" VisibleForFrame="False" Tag="193" IconVisible="False" LeftMargin="205.7434" RightMargin="44.2566" TopMargin="151.2308" BottomMargin="87.7692" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-1463085248" Tag="194" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
+                            <Size X="65.0000" Y="65.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1423038033" Tag="195" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
+                            <Size X="77.0000" Y="80.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_playerName" ActionTag="-2032085155" Tag="160" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="67.0000" Y="16.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="38.5000" Y="13.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="0.5000" Y="0.1625" />
+                                <PreSize X="0.8701" Y="0.2000" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position Y="-6.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="205.7434" Y="87.7692" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8230" Y="0.3672" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head3" ActionTag="-1805773584" VisibleForFrame="False" Tag="187" IconVisible="False" LeftMargin="210.6656" RightMargin="39.3344" TopMargin="24.6811" BottomMargin="214.3189" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="1376256372" Tag="188" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
+                            <Size X="65.0000" Y="65.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="1713622977" Tag="189" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
+                            <Size X="77.0000" Y="80.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_playerName" ActionTag="1100926069" Tag="161" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="67.0000" Y="16.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="38.5000" Y="13.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="0.5000" Y="0.1625" />
+                                <PreSize X="0.8701" Y="0.2000" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position Y="-6.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="210.6656" Y="214.3189" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8427" Y="0.8967" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head4" ActionTag="-1335603476" VisibleForFrame="False" Tag="190" IconVisible="False" LeftMargin="47.5891" RightMargin="202.4109" TopMargin="24.2230" BottomMargin="214.7770" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="114676898" Tag="191" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-32.5000" RightMargin="-32.5000" TopMargin="-32.5000" BottomMargin="-32.5000" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="23" Scale9Height="23" ctype="ImageViewObjectData">
+                            <Size X="65.0000" Y="65.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/table_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1343664193" Tag="192" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-38.5000" RightMargin="-38.5000" TopMargin="-34.0000" BottomMargin="-46.0000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="33" Scale9Height="36" ctype="ImageViewObjectData">
+                            <Size X="77.0000" Y="80.0000" />
+                            <Children>
+                              <AbstractNodeData Name="Text_playerName" ActionTag="-810470915" Tag="162" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.0000" RightMargin="5.0000" TopMargin="59.0000" BottomMargin="5.0000" FontSize="16" LabelText="未知名字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                                <Size X="67.0000" Y="16.0000" />
+                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                                <Position X="38.5000" Y="13.0000" />
+                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                                <CColor A="255" R="255" G="255" B="255" />
+                                <PrePosition X="0.5000" Y="0.1625" />
+                                <PreSize X="0.8701" Y="0.2000" />
+                                <FontResource Type="Normal" Path="fonts/DFYuanW7-GB2312.ttf" Plist="" />
+                                <OutlineColor A="255" R="255" G="0" B="0" />
+                                <ShadowColor A="255" R="110" G="110" B="110" />
+                              </AbstractNodeData>
+                            </Children>
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position Y="-6.0000" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="kwxclub/touxiang2.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="47.5891" Y="214.7770" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1904" Y="0.8986" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="143.4630" Y="117.3396" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.4930" Y="0.5124" />
+                    <PreSize X="0.8591" Y="1.0437" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Panel_tbl6" Visible="False" ActionTag="-729710760" VisibleForFrame="False" Tag="199" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="20.5000" RightMargin="20.5000" TopMargin="-5.0000" BottomMargin="-5.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                    <Size X="250.0000" Y="239.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Panel_head1" ActionTag="-1205525571" VisibleForFrame="False" Tag="200" IconVisible="False" LeftMargin="43.4580" RightMargin="206.5420" TopMargin="140.7275" BottomMargin="98.2725" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="174791452" Tag="201" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1973799509" Tag="202" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="43.4580" Y="98.2725" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1738" Y="0.4112" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head2" ActionTag="-379100644" VisibleForFrame="False" Tag="203" IconVisible="False" LeftMargin="42.3194" RightMargin="207.6806" TopMargin="30.4243" BottomMargin="208.5757" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="39934446" Tag="204" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-737500026" Tag="205" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="42.3194" Y="208.5757" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1693" Y="0.8727" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head3" ActionTag="-828271089" VisibleForFrame="False" Tag="206" IconVisible="False" LeftMargin="124.0988" RightMargin="125.9012" TopMargin="9.8300" BottomMargin="229.1700" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="162899610" Tag="207" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-994977112" Tag="208" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="124.0988" Y="229.1700" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.4964" Y="0.9589" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head4" ActionTag="-926769494" VisibleForFrame="False" Tag="209" IconVisible="False" LeftMargin="208.1782" RightMargin="41.8218" TopMargin="31.1075" BottomMargin="207.8925" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-960931906" Tag="210" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="782668042" Tag="211" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="208.1782" Y="207.8925" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8327" Y="0.8698" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head5" ActionTag="-1988027091" VisibleForFrame="False" Tag="212" IconVisible="False" LeftMargin="211.5973" RightMargin="38.4027" TopMargin="133.5974" BottomMargin="105.4026" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-2024733401" Tag="213" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1582565640" Tag="214" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="211.5973" Y="105.4026" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8464" Y="0.4410" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head6" ActionTag="-1007295291" VisibleForFrame="False" Tag="215" IconVisible="False" LeftMargin="123.8620" RightMargin="126.1380" TopMargin="170.5200" BottomMargin="68.4800" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-1602117237" Tag="216" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="376119685" Tag="217" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="123.8620" Y="68.4800" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.4954" Y="0.2865" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="145.5000" Y="114.5000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="0.5000" />
+                    <PreSize X="0.8591" Y="1.0437" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Panel_tbl8" Visible="False" ActionTag="2012244840" VisibleForFrame="False" Tag="196" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="20.5000" RightMargin="20.5000" TopMargin="-5.0000" BottomMargin="-5.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                    <Size X="250.0000" Y="239.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Panel_head1" ActionTag="23862521" VisibleForFrame="False" Tag="197" IconVisible="False" LeftMargin="39.4780" RightMargin="210.5220" TopMargin="146.3763" BottomMargin="92.6237" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-1988044150" Tag="198" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1237215601" Tag="199" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="39.4780" Y="92.6237" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1579" Y="0.3875" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head2" ActionTag="-1040172498" VisibleForFrame="False" Tag="200" IconVisible="False" LeftMargin="-2.7200" RightMargin="252.7200" TopMargin="87.4875" BottomMargin="151.5125" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="1145787514" Tag="201" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-663036531" Tag="202" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="-2.7200" Y="151.5125" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="-0.0109" Y="0.6339" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head3" ActionTag="1653592296" VisibleForFrame="False" Tag="203" IconVisible="False" LeftMargin="40.8000" RightMargin="209.2000" TopMargin="19.4200" BottomMargin="219.5800" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-1251155362" Tag="204" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="1259073956" Tag="205" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="40.8000" Y="219.5800" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1632" Y="0.9187" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head4" ActionTag="-1918679128" VisibleForFrame="False" Tag="206" IconVisible="False" LeftMargin="127.0200" RightMargin="122.9800" TopMargin="6.5571" BottomMargin="232.4429" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="133105345" Tag="207" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="131526994" Tag="208" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="127.0200" Y="232.4429" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5081" Y="0.9726" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head5" ActionTag="-829263334" VisibleForFrame="False" Tag="209" IconVisible="False" LeftMargin="208.1100" RightMargin="41.8900" TopMargin="23.5600" BottomMargin="215.4400" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-776807365" Tag="210" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1234100262" Tag="211" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="208.1100" Y="215.4400" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8324" Y="0.9014" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head6" ActionTag="655982819" VisibleForFrame="False" Tag="212" IconVisible="False" LeftMargin="250.2500" RightMargin="-0.2500" TopMargin="91.6200" BottomMargin="147.3800" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-381802786" Tag="213" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1820783081" Tag="214" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="250.2500" Y="147.3800" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="1.0010" Y="0.6167" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head7" ActionTag="2100471930" VisibleForFrame="False" Tag="218" IconVisible="False" LeftMargin="204.2800" RightMargin="45.7200" TopMargin="148.0700" BottomMargin="90.9300" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-538045882" Tag="219" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-828452342" Tag="220" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="204.2800" Y="90.9300" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8171" Y="0.3805" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Panel_head8" ActionTag="-1123763493" VisibleForFrame="False" Tag="221" IconVisible="False" LeftMargin="117.2836" RightMargin="132.7164" TopMargin="173.4700" BottomMargin="65.5300" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+                        <Size X="0.0000" Y="0.0000" />
+                        <Children>
+                          <AbstractNodeData Name="Image_avatar" ActionTag="-1177422367" Tag="222" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-36.5000" RightMargin="-36.5000" TopMargin="-36.5000" BottomMargin="-36.5000" LeftEage="33" RightEage="33" TopEage="33" BottomEage="33" Scale9OriginX="33" Scale9OriginY="33" Scale9Width="7" Scale9Height="7" ctype="ImageViewObjectData">
+                            <Size X="73.0000" Y="73.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="common/hall_paohuzi_head.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="Image_avatarFrame" ActionTag="-1218215156" Tag="223" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-41.5000" RightMargin="-41.5000" TopMargin="-43.5000" BottomMargin="-43.5000" LeftEage="22" RightEage="22" TopEage="22" BottomEage="22" Scale9OriginX="22" Scale9OriginY="22" Scale9Width="39" Scale9Height="43" ctype="ImageViewObjectData">
+                            <Size X="83.0000" Y="87.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition />
+                            <PreSize X="0.0000" Y="0.0000" />
+                            <FileData Type="Normal" Path="game/tablenew_20.png" Plist="" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="117.2836" Y="65.5300" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.4691" Y="0.2742" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="145.5000" Y="114.5000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="0.5000" />
+                    <PreSize X="0.8591" Y="1.0437" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="447.6640" Y="-203.0400" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.3497" Y="-0.2820" />
+                <PreSize X="0.2273" Y="0.3181" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="kwxclub/table/b11.png" Plist="" />
+                <PressedFileData Type="Normal" Path="kwxclub/table/b11.png" Plist="" />
+                <NormalFileData Type="Normal" Path="kwxclub/table/b11.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

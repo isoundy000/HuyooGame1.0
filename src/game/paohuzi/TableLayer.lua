@@ -172,7 +172,7 @@ function TableLayer:doAction(action,pBuffer)
         else
              GameCommon:playAnimation(self.root, "提",wChairID)
         end        
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
     elseif action == GameCommon.ACTION_PAO_CARD then
         local wChairID = pBuffer.wActionUser
@@ -236,7 +236,7 @@ function TableLayer:doAction(action,pBuffer)
                  
         self:showCountDown(wChairID)
         GameCommon:playAnimation(self.root, "跑",wChairID)
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
     elseif action == GameCommon.ACTION_WEI_CARD then
         local wChairID = pBuffer.wActionUser
@@ -302,7 +302,7 @@ function TableLayer:doAction(action,pBuffer)
                 GameCommon:playAnimation(self.root, "偎",wChairID)
             end
         end 
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
     elseif action == GameCommon.ACTION_PENG_CARD then
         local wChairID = pBuffer.wActionUser
@@ -362,7 +362,7 @@ function TableLayer:doAction(action,pBuffer)
         else
             GameCommon:playAnimation(self.root, "碰",wChairID)
         end 
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
     elseif action == GameCommon.ACTION_CHI_CARD then
         local wChairID = pBuffer.wActionUser
@@ -427,7 +427,7 @@ function TableLayer:doAction(action,pBuffer)
         else
             GameCommon:playAnimation(self.root, "吃",wChairID)
         end
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.5),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
         
     elseif action == GameCommon.ACTION_SEND_CARD then
         local wChairID = pBuffer.wAttachUser
@@ -558,7 +558,7 @@ function TableLayer:doAction(action,pBuffer)
         end
         self:showCountDown(wChairID)
         GameCommon:playAnimation(self.root, GameLogic:SwitchToCardIndex(cbCardData),wChairID)
-        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.2),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
+        self:runAction(cc.Sequence:create(cc.DelayTime:create(0.1),cc.CallFunc:create(function(sender,event) EventMgr:dispatch(EventType.EVENT_TYPE_CACEL_MESSAGE_BLOCK) end)))
 
     elseif action == GameCommon.ACTION_WD then
         local wChairID = pBuffer.wCurrentUser
@@ -855,7 +855,11 @@ function TableLayer:showLeftCardCount(bLeftCardCount, bLeftCardData)
 
     local Button_change = ccui.Helper:seekWidgetByName(self.root, "Button_change")
     if Button_change ~= nil then 
-        Button_change:setVisible(false)
+        if GameCommon.tableConfig.wKindID == 47 or GameCommon.tableConfig.wKindID == 48 or GameCommon.tableConfig.wKindID == 49 then
+            Button_change:setVisible(true)
+        else    
+            Button_change:setVisible(false)
+        end 
     end
     local Image_tp = ccui.Helper:seekWidgetByName(self.root, "Image_tp")
     if Image_tp ~= nil then 
@@ -1140,6 +1144,13 @@ function TableLayer:setDiscardCard(wChairID, bDiscardCardCount, bDiscardCard,bOu
             index = 1
         end    
         card:setPosition(beganX + stepX*row-1 ,beganY + stepY*index)
+
+        if viewID == 3 then 
+            print("+++++++++++++++++弃牌位置：",beganX + stepX*row-1,beganY + stepY*index)
+            print("________________beganX:beganY",beganX,beganY)
+            print("stepX:stepY",stepX,stepY)
+            print("row:index",row,index)
+        end 
     end
     return lastNode
 end
@@ -1314,6 +1325,8 @@ function TableLayer:showHandCard(wChairID,effectsType,isShowEndCard)
     end
     if uiPanel_handCard ~= nil then 
         uiPanel_handCard:removeAllChildren()
+    else
+        return
     end
     local uiPanel_copyHandCard = ccui.Helper:seekWidgetByName(self.root,"Panel_copyHandCard")
     uiPanel_copyHandCard:removeAllChildren()
@@ -1606,6 +1619,14 @@ function TableLayer:initUI()
 
         local uiText_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Text_fatigue")
         uiText_fatigue:setString("")   
+
+        if i ~= 1 and CHANNEL_ID ~=10 and CHANNEL_ID ~= 11 and CHANNEL_ID ~=0 and CHANNEL_ID ~= 1 then 
+            local uiImage_fatigue = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_fatigue")
+            if uiImage_fatigue ~= nil then
+                uiImage_fatigue:setVisible(false)
+            end 
+            uiText_fatigue:setVisible(false)
+        end 
         
         local uiImage_laba = ccui.Helper:seekWidgetByName(uiPanel_player,"Image_laba")
         uiImage_laba:setVisible(false)
@@ -1799,6 +1820,10 @@ function TableLayer:initUI()
         require("app.MyApp"):create(data, handler(self, self.pleaseOnlinePlayer)):createView("ShareLayer")
     end)
     local uiButton_disbanded = ccui.Helper:seekWidgetByName(self.root,"Button_disbanded")
+
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+        uiButton_disbanded:setVisible(false)
+    end 
     Common:addTouchEventListener(uiButton_disbanded,function() 
         require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
             NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
@@ -1926,9 +1951,9 @@ function TableLayer:initUI()
     Button_change:setVisible(false)
     --灯光层
     local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-    if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
         uiButton_voice:setVisible(false) 
-    end
+    end 
     local uiText_title = ccui.Helper:seekWidgetByName(self.root,"Text_title")
     local uiText_des = ccui.Helper:seekWidgetByName(self.root,"Text_des")
     uiText_title:setString(StaticData.Games[GameCommon.tableConfig.wKindID].name)    
@@ -1951,12 +1976,18 @@ function TableLayer:initUI()
             if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then             
                 uiButton_out:setVisible(false)
                 uiButton_disbanded:setVisible(true)
+                if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+                    uiButton_disbanded:setVisible(false)
+                end 
             end 
         elseif GameCommon.tableConfig.wCurrentNumber > 0 then
             uiButton_Invitation:setVisible(false)
             uiButton_out:setVisible(false)
             if GameCommon:judgeGame() or  CHANNEL_ID == 0 or CHANNEL_ID == 1 or CHANNEL_ID == 10 or CHANNEL_ID == 11  then             
                 uiButton_disbanded:setVisible(true)
+                if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+                    uiButton_disbanded:setVisible(false)
+                end 
             end 
             uiButton_SignOut:setVisible(false)
             if uiButton_copy ~= nil then 
@@ -2058,45 +2089,49 @@ function TableLayer:initUI()
 
     local index = 1
     local hitCount = 0
-    -- local function onEventReset(sender, event)
-    --     if event == ccui.TouchEventType.ended then
-    --         Common:palyButton()
-    --         index = index + 1
-    --         if index > 3 then
-    --             index = 1
-    --         end
-    --         local wChairID = self:getChairIDByUserID(UserData.User.userID) or 0
-    --         local cbCardIndex = GameCommon.player[wChairID].cbCardIndex
-    --         local maxHanCardRow = GameCommon.player[wChairID].maxHanCardRow
-    --         local uiPanel_stacks = ccui.Helper:seekWidgetByName(self.root, "Panel_stacks")
+    local function onEventReset(sender, event)
+        if event == ccui.TouchEventType.ended then
+            Common:palyButton()
+            index = index + 1
+            if index > 3 then
+                index = 1
+            end
+            local wChairID = self:getChairIDByUserID(UserData.User.userID) or 0
+            local cbCardIndex = GameCommon.player[wChairID].cbCardIndex
+            local maxHanCardRow = GameCommon.player[wChairID].maxHanCardRow
+            local uiPanel_stacks = ccui.Helper:seekWidgetByName(self.root, "Panel_stacks")
 
-    --         local newStackInfo = GameLogic:sortHandCard(clone(cbCardIndex), maxHanCardRow, cc.p(uiPanel_stacks:getPosition()), index)
-    --         local isEquil = self:isHandCardAllEqual(GameCommon.player[wChairID].cardStackInfo, newStackInfo)
-    --         if isEquil then
-    --             hitCount = hitCount + 1
-    --             if hitCount > 2 then
-    --                 hitCount = 0
-    --                 return
-    --             end
-    --             onEventReset(nil, ccui.TouchEventType.ended)
-    --         else
-    --             hitCount = 0
-    --             GameCommon.player[wChairID].cardStackInfo = newStackInfo
-    --             if GameCommon.player[wChairID].cbCardCoutWW ~= nil then
-    --              local cbCardCoutWW = GameCommon.player[wChairID].cbCardCoutWW  
-    --              GameCommon.player[wChairID].cbCardCoutWW =  0 
-    --                 for i = 1 , cbCardCoutWW do
-    --                     self:addOneHandCard(wChairID, 33,cc.p(uiPanel_stacks:getPosition()),1)
-    --                 end
-    --             end
-    --             self:showHandCard(wChairID, 3)
-    --         end
-    --     end
-    -- end    
+            local newStackInfo = GameLogic:sortHandCard(clone(cbCardIndex), maxHanCardRow, cc.p(uiPanel_stacks:getPosition()), index)
+            local isEquil = self:isHandCardAllEqual(GameCommon.player[wChairID].cardStackInfo, newStackInfo)
+            if isEquil then
+                hitCount = hitCount + 1
+                if hitCount > 2 then
+                    hitCount = 0
+                    return
+                end
+                onEventReset(nil, ccui.TouchEventType.ended)
+            else
+                hitCount = 0
+                GameCommon.player[wChairID].cardStackInfo = newStackInfo
+                if GameCommon.player[wChairID].cbCardCoutWW ~= nil then
+                 local cbCardCoutWW = GameCommon.player[wChairID].cbCardCoutWW  
+                 GameCommon.player[wChairID].cbCardCoutWW =  0 
+                    for i = 1 , cbCardCoutWW do
+                        self:addOneHandCard(wChairID, 33,cc.p(uiPanel_stacks:getPosition()),1)
+                    end
+                end
+                self:showHandCard(wChairID, 3)
+            end
+        end
+    end    
     if Button_change ~= nil then
         Button_change:setPressedActionEnabled(true)
-        Button_change:setVisible(false)
-    --    Button_change:addTouchEventListener(onEventReset)
+        if GameCommon.tableConfig.wKindID == 47 or GameCommon.tableConfig.wKindID == 48 or GameCommon.tableConfig.wKindID == 49 then
+            Button_change:setVisible(true)
+        else    
+            Button_change:setVisible(false)
+        end 
+        Button_change:addTouchEventListener(onEventReset)
     end 
     
     
@@ -2160,6 +2195,10 @@ function TableLayer:updateGameState(state)
                 local uiButton_disbanded = ccui.Helper:seekWidgetByName(self.root,"Button_disbanded")
                 uiButton_out:setVisible(false)
                 uiButton_disbanded:setVisible(true)
+
+                if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+                    uiButton_disbanded:setVisible(false)
+                end 
             end 
             --距离报警  
             if GameCommon.tableConfig.wCurrentNumber ~= nil and GameCommon.tableConfig.wCurrentNumber == 1 and GameCommon.DistanceAlarm ~= 1 then
@@ -2177,9 +2216,9 @@ function TableLayer:updateGameState(state)
             local uiButton_expression = ccui.Helper:seekWidgetByName(self.root,"Button_expression")
             uiButton_expression:setVisible(true)
             local uiButton_voice = ccui.Helper:seekWidgetByName(self.root,"Button_voice")
-            if CHANNEL_ID == 10 or CHANNEL_ID == 11 then 
+            if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
                 uiButton_voice:setVisible(false) 
-            else
+            else 
                 uiButton_voice:setVisible(true) 
             end
         end

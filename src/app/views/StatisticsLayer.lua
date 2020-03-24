@@ -593,7 +593,7 @@ end
 --玩家统计
 function StatisticsLayer:addPlayerStatistics( data )
     local item = self.Panel_player_template:clone()
-
+    local Text_rank             = self:seekWidgetByNameEx(item,'Text_rank')
     local Text_name             = self:seekWidgetByNameEx(item,'Text_name')
     --玩法一
     local Text_id               = self:seekWidgetByNameEx(item,'Text_id')
@@ -605,6 +605,7 @@ function StatisticsLayer:addPlayerStatistics( data )
 
     Common:requestUserAvatar(data.dwUserID, data.szLogoInfo, Image_avatar, 'img')
     local name = Common:getShortName(data.szNickName,12,6);
+    SetTextProperty(Text_rank,data.dwRowNO)
     SetTextProperty(Text_name,data.szNickName)
     SetTextProperty(Text_id,data.dwUserID)
     SetTextProperty(Text_big_winner,data.dwWinnerCount)
@@ -795,7 +796,7 @@ function StatisticsLayer:RET_GET_GAME_RECORD(event)
     local Text_num = self:seekWidgetByNameEx(item,'Text_num')
     local Text_time_1 = self:seekWidgetByNameEx(item,'Text_time_1')
     local Text_time_2 = self:seekWidgetByNameEx(item,'Text_time_2') 
-    local time  = data.dwStartData + data.dwPlayTimeCount
+    local time  = data.dwStartData-- + data.dwPlayTimeCount
     local y,m,d,h,mi,s = Common:getYMDHMS(time)
    
     local m0 = ""  

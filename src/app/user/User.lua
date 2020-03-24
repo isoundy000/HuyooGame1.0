@@ -306,7 +306,7 @@ function User:sendMsgConnectLogic()
     end
     local port = self.logicData.wServerPort
 
-    -- ip = '192.168.1.3'
+    -- ip = '192.168.1.9'
     -- port = 5555
 
     if PLATFORM_TYPE ~= cc.PLATFORM_OS_DEVELOPER and StaticData.Condition[UserLevel].isUseTaijidun == true and OPEN_TAIJIDUN == true then

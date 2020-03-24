@@ -481,6 +481,7 @@ local NetMsgId = {
     SUB_C_OUT_CARD = 1,             --出牌命令
     SUB_C_OPERATE_CARD = 2,         --操作扑克
     SUB_C_CONTINUE_CARD = 3,        --继续命令
+    SUB_C_OUT_CARD_NOTIFY_LIU = 6,  --61 溜牌
     SUB_S_ADD_BASE  =   114,                                    --游戏加倍
     SUB_S_ADD_BASE_VIEW =115,                           --  游戏加倍表现
     SUB_S_GAME_END_TIPS =116,                           --游戏轮数结算
@@ -519,6 +520,11 @@ local NetMsgId = {
     REQ_USER_HOSTED	= 142,								--托管(客服端发送)
     RET_USER_HOSTED = 143,								--托管(接收)
 
+
+    SUB_S_PIAO_FEN_NOTIFY =   152,         --漂分提示无参数，该消息标志开始选择票分了
+    SUB_S_USER_PIAO_FEN  =  153,           -- //用户漂分   
+    SUB_C_USER_PIAO_FEN  = 7,         --//用户漂分  3. 用户请求飘分
+    
     --扑克
     --跑得快飘分
     REC_SUB_S_JIAPIAO	= 155,									--接受漂分
@@ -538,6 +544,8 @@ local NetMsgId = {
     SUB_C_JiaPiao				=14,
     SUB_S_JIA_PIAO = 153,
     SUB_S_JIA_PIAO_80 = 154 ,
+
+    SUB_S_USER_ABANDON_CHI_CARD	=	154	,					  --用户放弃吃的牌
     --聊天
     REQ_ADD_CLUB_CHAT_REFRESH_MEMBER = 1688, -- --添加聊天及时刷新列表
 
@@ -615,7 +623,9 @@ local NetMsgId = {
     SUB_S_WCWD	= 153 ,             --通知客户端进行王闯王钓操作   
     SUB_C_WDWC	= 14 ,			    --王钓王闯客户端操作
 
-
+    --一脚癞油  
+    SUB_S_CHAO_TIAN = 154,               --起手发送朝天牌和癞子给客户端
+    SUB_S_SI_LAI_YOU_XI = 155,           --起手四癞有喜给客户端
     --起手胡
     SUB_S_Start_HU = 154,                   --通知客户端必胡操作
     SUB_C_StartHu = 15,                     --客户端进行必胡操作

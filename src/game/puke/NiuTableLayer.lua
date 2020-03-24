@@ -719,6 +719,9 @@ function TableLayer:initUI()
         require("app.MyApp"):create(data):createView("ShareLayer")
     end)
     local uiButton_disbanded = ccui.Helper:seekWidgetByName(self.root,"Button_disbanded")
+    if GameCommon.tableConfig.dwClubID ~=nil and (GameCommon.tableConfig.dwClubID == 55404967 or GameCommon.tableConfig.dwClubID == 666666 )then
+        uiButton_disbanded:setVisible(false)
+    end 
     Common:addTouchEventListener(uiButton_disbanded,function() 
         require("common.MsgBoxLayer"):create(1,nil,"是否确定解散房间？",function()
             NetMgr:getGameInstance():sendMsgToSvr(NetMsgId.MDM_GR_USER,NetMsgId.REQ_GR_DISMISS_TABLE,"")
